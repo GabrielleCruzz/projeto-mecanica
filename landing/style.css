@@ -65,3 +65,13 @@ nav a{
     border-top-left-radius: 15px;
     border-end-start-radius: 15px;
 }
+
+/*Texto descritivo do sistema*/
+
+.headline{
+    background-color: white;
+    margin: 30px;
+    font-size: 6px;
+    border-radius: 5px;
+    padding: 20px;
+}
