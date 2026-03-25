@@ -75,3 +75,21 @@ nav a{
     border-radius: 5px;
     padding: 20px;
 }
+
+/*Botões de acesso*/
+
+.botoes-acesso{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.botoes-acesso button{
+    background-color: white;
+    border: 0px;
+    border-radius: 5px;
+    padding: 15px;
+    width: 140px;
+    font-size: 10px;
+    box-shadow: 2px 2px 2px #e0e0e0;
+}
