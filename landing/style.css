@@ -93,3 +93,30 @@ nav a{
     font-size: 10px;
     box-shadow: 2px 2px 2px #e0e0e0;
 }
+
+/*Sobre nós*/
+
+.sobre-nos{
+    display: flex;
+    justify-content: center; /*Alinha no centro horizontalmente*/
+    flex-direction: column;
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+.sobre-nos h1{
+    text-align: center; /*Alinha no centro horizontalmente*/
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.sobre-nos p{
+    text-align: justify;
+    background-color: white;
+    padding: 17px;
+    width: 300px;
+    margin: 0 auto; /*Alinha no centro horizontalmente*/
+    border-radius: 5px;
+    font-size: 12px;
+}
