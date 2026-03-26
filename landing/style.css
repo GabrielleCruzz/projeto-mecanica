@@ -120,3 +120,37 @@ nav a{
     border-radius: 5px;
     font-size: 12px;
 }
+
+/*Contato*/
+
+.contato{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.contato h1{
+    text-align: center;
+    font-size: 14px;
+}
+
+.contato input, .contato button, .msg{
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 5px;
+    padding: 12px;
+    margin-top: 18px;
+    font-size: 10px;
+}
+
+.msg{
+    height: 120px;
+    resize: none;
+}
+
+.contato button{
+    box-shadow: 2px 2px 2px #e0e0e0;
+}
