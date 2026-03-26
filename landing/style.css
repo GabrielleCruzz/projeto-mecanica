@@ -167,3 +167,86 @@ footer{
 footer img{
     margin: 8px;
 }
+
+/*Card do login*/
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /*Desfoque*/
+    background-color: #0000004d;
+    display: none; /*começa escondido*/
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card{
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 15px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-card img{
+    display: block;
+    margin: 0 auto; /*centraliza*/
+}
+
+.login-card h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.login-card{
+    text-align: center;
+}
+
+.esqueceu-senha{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-card a{
+    font-size: 10px;
+    text-decoration: none;
+    color: #0002f1;
+}
+
+.login-card input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.login-card button{
+    background-color: #0002f1;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    display: block;
+    margin: 0 auto; /*Centraliza*/
+    margin-top: 15px;
+    border: 0;
+}
+
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.cadastro p {
+    font-size: 10px;
+    margin: 0;
+}
