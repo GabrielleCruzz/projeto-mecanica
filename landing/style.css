@@ -223,6 +223,27 @@ footer img{
     position: relative;
 }
 
+/*Esconder senha*/
+
+.container-senha{
+    position: relative;
+    width: 100%;
+}
+
+.container-senha input{
+    width: 100%;
+    padding-right: 40px;
+}
+
+#toggleSenha{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%); /*Alinha verticalmente*/
+    font-size: 14px;
+}
+
 .esqueceu-senha{
     width: 100%;
     display: flex;

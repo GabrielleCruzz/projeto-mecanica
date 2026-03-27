@@ -35,6 +35,24 @@ formLogin.addEventListener("submit" , function(e) {
     window.location.href = "../dashboard/index.html";
 });
 
+// Esconder e mostrar a senha
+
+const senhaInput = document.getElementById("senha");
+const toggleSenha = document.getElementById("toggleSenha");
+const senhaImg = toggleSenha.querySelector('img');
+
+toggleSenha.addEventListener("click", () => {
+    if (senhaInput.type === "password") { 
+        senhaInput.type = "text"; // Mostra a senha
+        senhaImg.src = "../img/olho-aberto.png";
+        console.log(senhaImg)
+    } else {
+        senhaInput.type = "password"; // Esconde a senha
+        senhaImg.src = "../img/olho-fechado.png";
+    }
+})
+
+
 // Mensagem de envio e apaga o formulário de contato
 
 document.addEventListener("DOMContentLoaded", function () {
