@@ -28,6 +28,13 @@ btnFechar.addEventListener("click", () => {
     formLogin.reset(); //limpa os campos
 });
 
+// Redireciona do botão enviar do formulário de login para a página inicial do dashboard
+
+formLogin.addEventListener("submit" , function(e) {
+    e.preventDefault();
+    window.location.href = "../dashboard/index.html";
+});
+
 // Mensagem de envio e apaga o formulário de contato
 
 document.addEventListener("DOMContentLoaded", function () {
