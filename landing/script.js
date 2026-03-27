@@ -17,11 +17,15 @@ if (btnLogin) {
     btnLogin.addEventListener("click", openModal);
 }
 
-// fechar clicando fora
-overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-        overlay.style.display = "none";
-    }
+// Fechar modal e limpa os campos do formulário de login
+
+const btnFechar = document.querySelector(".fechar")
+const formLogin = document.getElementById("formLogin")
+
+btnFechar.addEventListener("click", () => {
+    overlay.style.display = "none";
+
+    formLogin.reset(); //limpa os campos
 });
 
 // Mensagem de envio e apaga o formulário de contato
