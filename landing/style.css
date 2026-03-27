@@ -146,13 +146,26 @@ nav a{
     font-size: 10px;
 }
 
-.msg{
+.msg{ /*Campo para escrever a mensagem*/
     height: 120px;
     resize: none;
 }
 
 .contato button{
     box-shadow: 2px 2px 2px #e0e0e0;
+}
+
+#mensagem { /*Mensagem: "Mensgem enviada!"*/
+    margin-top: 10px;
+    color: #0002f1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    font-size: 10px;
+    text-align: center;
+}
+
+#mensagem.mostrar {
+    opacity: 1;
 }
 
 /*Rodapé*/

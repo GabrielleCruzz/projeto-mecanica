@@ -38,12 +38,15 @@
         <p>A <span style="color:#0002f1; font-weight: 600;">AutoTech Mecânicas</span> é um sistema focado em simplificar o gerenciamento de serviços de oficinas mecânicas por meio de ferramentas de controle de orçamentos e clientes, com o objetivo de facilitar e organizar processos cotidianos.</p>
     </div>
 
-    <div class="contato">
+<!-- Formulário de contato -->
+
+    <form class="contato" id="formContato">
         <h1>Entre em contato</h1>
-        <input type="text" placeholder="Seu e-mail">
-        <textarea class="msg" type="text" placeholder="Deixe sua mensagem"></textarea>
-        <button>Enviar</button>
-    </div>
+        <input type="email" placeholder="Seu e-mail" required>
+        <textarea class="msg" type="text" placeholder="Deixe sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+        <p id="mensagem">Mensagem enviada!</p>
+    </form>
     
     <footer>
         <div class="linha"></div>
