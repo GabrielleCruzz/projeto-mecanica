@@ -18,6 +18,15 @@
     color: #000199;
 }
 
+.btn-fechar{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 24px;
+    color: white;
+}
+
 .menu{
     position: fixed;
     top: 0;
