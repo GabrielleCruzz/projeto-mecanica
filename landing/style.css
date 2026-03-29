@@ -443,3 +443,179 @@ footer img{
         font-size: 40px;
     }
 }
+
+/* Desktop */
+@media (min-width: 1280px) {
+    
+    .links-menu{
+        font-size: 30px;
+        gap: 45px;
+    }
+
+    .logo-menu{
+        width: 150px;
+    }
+
+    .banner{
+        margin-top: 80px;
+        display: flex;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .banner h1{
+        font-size: 45px;
+        width: 340px;
+        padding-bottom: 200px;
+    }
+
+    .banner img{
+        content: url('../img/banner-desktop.jpg');
+        border-radius: 15px;
+        width: 700px;
+    }
+
+    .headline h1{
+        font-size: 30px;
+        text-align: left;
+        font-weight: 300;
+        width: 380px;
+        position: absolute;
+        top: 55%;
+    }
+
+    .headline{
+        background-color: #f1f1f1;
+        width: 300px;
+    }
+
+    .botoes-acesso{
+        margin-top: 40px;
+        padding: 0 70px;
+        gap: 30px;
+    }
+
+    .botoes-acesso button{
+        width: auto;
+        height: 110px;
+        flex: 1;
+        font-size: 30px;
+        border-radius: 20px;
+    }
+
+    .sobre-nos{
+        width: 100%;
+        max-width: 1140px;
+        background-color: white;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 70px;
+    }
+
+    .img-desktop{
+        background-image: url("../img/sobre-nos-desktop.jpg");
+        background-size: cover;
+        background-position: center;
+        flex: 1;
+        width: 50%;
+        height: 350px;
+        border-radius: 15px;
+    }
+
+    .txt-sobre{
+        align-items: center;
+        display: flex;
+        gap: 30px;
+    }
+
+    .sobre-nos h1{
+        font-size: 35px;
+    }
+
+    .sobre-nos p{
+        font-size: 27px;
+        flex: 1;
+    }
+
+    .contato{
+        margin-top: 80px;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .contato h1{
+        font-size: 35px;
+    }
+
+    .contato input, 
+    .contato button, 
+    .msg {
+        width: 100%;
+        font-size: 25px;   
+        max-width: 600px; 
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .msg{
+        height: 220px;
+    }
+    
+    #mensagem{
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    .logo-footer {
+        width: 100px;
+        margin: 20px;
+    }
+
+    .login-card{
+        width: 100%;
+        max-width: 600px;
+        padding: 35px;
+    }
+
+    .logo-login{
+        width: 60px;
+    }
+
+    .olho{
+        width: 40px;
+        margin: 5px;
+    }
+
+    .olho img{
+        width: 35px;
+    }
+
+    .login-card h2{
+        width: 100%;
+        font-size: 30px;
+    }
+
+    .login-card input{
+        padding: 20px;
+        font-size: 25px;
+        margin-top: 10px;
+        border-radius: 15px;
+    }
+
+    .login-card button{
+        font-size: 25px;
+    }
+
+    .login-card p, 
+    .login-card a{
+        font-size: 18px;
+    }
+
+    .fechar{
+        font-size: 35px;
+    }
+}
