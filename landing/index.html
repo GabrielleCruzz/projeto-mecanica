@@ -12,7 +12,7 @@
 <!-- Menu de navegação -->
 
     <nav>
-        <img class="logo" src="../img/logo.png" alt="logo" width="70">
+        <img class="logo-menu" src="../img/logo.png" alt="logo">
         <div class="links-menu">
             <a href="#" id="login">Login</a>
             <a href="cadastro.html">Cadastre-se</a>
@@ -45,7 +45,10 @@
 
     <div class="sobre-nos" id="sobre">
         <h1>Sobre nós</h1>
-        <p>A <span style="color:#0002f1; font-weight: 600;">AutoTech Mecânicas</span> é um sistema focado em simplificar o gerenciamento de serviços de oficinas mecânicas por meio de ferramentas de controle de orçamentos e clientes, com o objetivo de facilitar e organizar processos cotidianos.</p>
+        <div class="txt-sobre">
+            <div class="img-desktop"></div>
+            <p>A <span style="color:#0002f1; font-weight: 600;">AutoTech Mecânicas</span> é um sistema focado em simplificar o gerenciamento de serviços de oficinas mecânicas por meio de ferramentas de controle de orçamentos e clientes, com o objetivo de facilitar e organizar processos cotidianos.</p>
+        </div>
     </div>
 
 <!-- Formulário de contato -->
@@ -60,7 +63,7 @@
     
     <footer>
         <div class="linha"></div>
-        <img src="../img/logo.png" width="40px">
+        <img src="../img/logo.png" class="logo-footer">
     </footer>
 
 <!-- Formulário de login -->
@@ -68,12 +71,12 @@
     <div class="overlay" id="overlay">
         <form class="login-card" id="formLogin">
             <span class="fechar">&times;</span> <!-- &times; adiciona um x -->
-            <img src="../img/logo.png" width="35px" alt="logo">
+            <img class="logo-login" src="../img/logo.png" alt="logo">
             <h2>Login</h2>
             <input type="email" placeholder="E-mail" required>
             <div class="container-senha"> <!-- Nova div para posiciona melhor o icone para mostrar e esconder a senha-->
                 <input type="password" placeholder="Senha" id="senha" required>
-                <span id="toggleSenha"><img src="../img/olho-fechado.png"></span>
+                <span class="olho" id="toggleSenha"><img src="../img/olho-fechado.png"></span>
             </div>
             <div class="esqueceu-senha">
                 <a href="#">Esqueceu sua senha?</a>

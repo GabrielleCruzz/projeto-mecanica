@@ -21,6 +21,10 @@ nav{
     margin-top: 10px;
 }
 
+.logo-menu {
+    width: 70px;
+}
+
 .links-menu{
     display: flex;
     gap: 15px; /*espaçamento entre os links do menu*/
@@ -59,11 +63,13 @@ nav a{
     font-weight: 350;
     font-size: 20px;
     padding: 15px;
+    width: 30px;
 }
 
 .banner img{
     border-top-left-radius: 15px;
     border-end-start-radius: 15px;
+    width: 50%;
 }
 
 /*Texto descritivo do sistema*/
@@ -74,6 +80,7 @@ nav a{
     font-size: 6px;
     border-radius: 5px;
     padding: 20px;
+    text-align: center;
 }
 
 /*Botões de acesso*/
@@ -82,6 +89,8 @@ nav a{
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin: 30px 0;
+    padding: 0 30px;
 }
 
 .botoes-acesso button{
@@ -89,7 +98,7 @@ nav a{
     border: 0px;
     border-radius: 5px;
     padding: 15px;
-    width: 140px;
+    flex: 1;
     font-size: 10px;
     box-shadow: 2px 2px 2px #e0e0e0;
 }
@@ -102,6 +111,7 @@ nav a{
     flex-direction: column;
     margin-top: 30px;
     font-size: 15px;
+    padding: 0 30px;
 }
 
 .sobre-nos h1{
@@ -115,7 +125,7 @@ nav a{
     text-align: justify;
     background-color: white;
     padding: 17px;
-    width: 300px;
+    width: 100%;
     margin: 0 auto; /*Alinha no centro horizontalmente*/
     border-radius: 5px;
     font-size: 12px;
@@ -125,9 +135,9 @@ nav a{
 
 .contato{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin: 30px auto; /*Centraliza horizontalmente*/
+    width: 300px;
 }
 
 .contato h1{
@@ -137,8 +147,7 @@ nav a{
 
 .contato input, .contato button, .msg{
     background-color: white;
-    width: 300px;
-    margin: 0 auto;
+    width: 100%;
     border: 0;
     border-radius: 5px;
     padding: 12px;
@@ -181,6 +190,11 @@ footer img{
     margin: 8px;
 }
 
+.logo-footer {
+    width: 40px;
+    margin: 8px;
+}
+
 /*Card do login*/
 
 .overlay{
@@ -200,10 +214,13 @@ footer img{
     background: #f1f1f1;
     padding: 20px;
     border-radius: 15px;
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-align: center;
+    position: relative;
 }
 
 .login-card img{
@@ -211,16 +228,15 @@ footer img{
     margin: 0 auto; /*centraliza*/
 }
 
+.logo-login{
+    width: 35px;
+}
+
 .login-card h2{
     width: 100%;
     display: flex;
     justify-content: center;
     font-size: 14px;
-}
-
-.login-card{
-    text-align: center;
-    position: relative;
 }
 
 /*Esconder senha*/
@@ -292,4 +308,138 @@ footer img{
 .cadastro p {
     font-size: 10px;
     margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+
+    .links-menu{
+        font-size: 20px;
+        gap: 35px;
+    }
+
+    .logo-menu{
+        width: 100px;
+    }
+
+    .banner{
+        flex-direction: row;
+        margin-top: 40px;
+    }
+
+    .banner h1{
+        font-size: 40px;
+        margin-left: 40px;
+        width: 30px;
+    }
+
+    .headline h1{
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .headline{
+        margin: 50px;
+    }
+
+    .botoes-acesso{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-top: 40px;
+        padding: 0 50px;
+    }
+
+    .botoes-acesso button{
+        width: auto;
+        flex: 1;
+        font-size: 18px;
+    }
+
+    .sobre-nos{
+        width: 100%;
+        padding: 0 50px;
+    }
+
+    .sobre-nos h1{
+        font-size: 25px;
+    }
+
+    .sobre-nos p{
+        font-size: 20px;
+        padding: 30px;
+    }
+
+    .contato{
+        margin-top: 40px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contato h1{
+        font-size: 25px;
+    }
+
+    .contato input, 
+    .contato button, 
+    .msg {
+        width: 100%;
+        max-width: 400px;
+        font-size: 17px;    
+    }
+
+    .msg{
+        height: 160px;
+    }
+    
+    #mensagem{
+        font-size: 15px;
+    }
+
+    .logo-footer {
+        width: 80px;
+        margin: 10px;
+    }
+
+    .login-card{
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+    }
+
+    .logo-login{
+        width: 50px;
+    }
+
+    .olho{
+        width: 40px;
+        margin: 5px;
+    }
+
+    .olho img{
+        width: 35px;
+    }
+
+    .login-card h2{
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .login-card input{
+        padding: 20px;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .login-card button{
+        font-size: 20px;
+    }
+
+    .login-card p, 
+    .login-card a{
+        font-size: 15px;
+    }
+
+    .fechar{
+        font-size: 40px;
+    }
 }
