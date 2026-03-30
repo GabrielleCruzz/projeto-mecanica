@@ -141,3 +141,190 @@ main > h2{
 .botoesd a {
     text-decoration: none;
 }
+
+
+
+/* ===== página de clientes -> Isabella =====*/
+
+/* main */
+.clientes .title h1 {
+    color: var(--cor1);
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.clientes .title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.clientes .title button {
+    background-color: var(--cor);
+    color: white;
+    padding: 6px;
+    border: none;
+    border-radius: 20px;
+}
+
+.clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.cliente-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid var(--cor3);
+}
+
+.cliente-card .nome {
+    font-size: 14px;
+}
+
+.cliente-card .infos, .cliente-veiculos .placa, .cliente-servicos .veiculo {
+    font-size: 12px;
+    color: #72777f;
+}
+
+.cliente-card .ver, .cliente-servicos .verServico {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--cor1);
+    width: fit-content;
+}
+
+/* tela de detalhes do cliente */
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.detalhes .voltar {
+    margin-right: auto;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    color: var(--cor1);
+}
+
+.detalhes .voltar:hover, .cliente-card .ver:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.detalhes .voltar:active, .cliente-card .ver:active {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--cor);
+}
+
+.cliente-detalhes {
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid var(--cor3);
+}
+
+.cliente-veiculos {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid var(--cor3);
+}
+
+.cliente-servicos {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid var(--cor3);
+}
+
+.cliente-servicos .servico-n {
+    font-size: 14px;
+    color: #72777f;
+}
+
+.cliente-detalhes .infos {
+    font-size: 12px;
+    color: #72777f;
+}
+
+.cliente-detalhes button {
+    font-size: 12px;
+    background-color: var(--cor4);
+    border-radius: 10px;
+    border: 2px solid var(--cor3);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+    width: fit-content;
+}
+
+.cliente-detalhes a {
+    color: var(--cor1);
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.cliente-servicos .status {
+    border-radius: 20px;
+    background-color: #d5d5ff;
+    color: var(--cor1);
+    text-align: center;
+    width: fit-content;
+    padding: 2px 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.cliente-servicos .preco {
+    position: absolute;
+    font-size: 16px;
+    color: var(--cor1);
+    top: 44px;
+    right: 12px;
+}
+
+.orcamento {
+    background-color: var(--cor);
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#id h4 {
+    font-weight: 500;
+    color: var(--cor1);
+}
+
+.hide {
+    display: none;
+}
+
