@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clientes</title>
+</head>
+<body>
+    <main id="clientes" class="clientes">
+
+    <!-- título da página e botão para cadastrar cliente -->
+        <div class="title">
+            <h1>Clientes</h1>
+            <button>+ Novo cliente</button>
+        </div>
+
+    <!-- barra de pesquisa de cliente -->
+        <div class="pesquisa">
+            <input type="text" placeholder="Buscar por nome, placa, telefone..." />
+            <img src="../img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20"/>
+        </div>
+        
+    <!-- cards de informações de clientes -->
+        <section class="clientes">
+            <div class="cliente-card">
+                <span class="nome">Nome e Sobrenome do Cliente</span>
+                <span class="infos">Telefone: (11) 99999-9999</span>
+                <span class="infos">2 veículos vinculados</span>
+                <span class="ver">Ver detalhes</span>
+            </div>
+
+            <div class="cliente-card">
+                <span class="nome">Nome e Sobrenome do Cliente</span>
+                <span class="infos">Telefone: (11) 99999-9999</span>
+                <span class="infos">2 veículos vinculados</span>
+                <span class="ver">Ver detalhes</span>
+            </div>
+
+            <div class="cliente-card">
+                <span class="nome">Nome e Sobrenome do Cliente</span>
+                <span class="infos">Telefone: (11) 99999-9999</span>
+                <span class="infos">2 veículos vinculados</span>
+                <span class="ver">Ver detalhes</span>
+            </div>
+        </section>
+    </main>
+
+
+<!-- tela de detalhes de um cliente -->
+    <div id="detalhes" class="hide">
+        <button class="voltar" id="voltar">< Voltar</button>
+        <section>
+            <div class="cliente-detalhes">            
+                <span class="nome">Nome e Sobrenome do Cliente</span>
+                <span class="infos">Telefone: (11) 99999-9999</span>
+                <span class="infos">CPF/CNPJ: 123.456.789-00</span>
+                <span class="infos">Endereço: Em algum lugar ai</span>
+                <button>Editar</button>
+                <a href="">Entrar em contato (WhatsApp)</a>
+            </div>            
+        </section>
+
+        <section>
+            <h4>Veículos</h4>
+
+            <div class="cliente-veiculos">            
+                <span class="veiculo">Marca Modelo - 2026</span>
+                <span class="placa">Placa: AAA1A11</span>
+            </div>
+            <div class="cliente-veiculos">            
+                <span class="veiculo">Marca Modelo - 2026</span>
+                <span class="placa">Placa: AAA1A11</span>
+            </div>
+        </section>
+
+        <section>
+            <h4>Serviços</h4>
+
+            <div class="cliente-servicos">
+                <span class="servico-n">Serviço #1</span>          
+                <span class="tipo">Marca Modelo (2026)</span>
+                <span class="veiculo">Veículo (Placa)</span>
+                <span class="verServico">Ver detalhes</span>
+                <span class="status">Pendente</span>
+                <span class="preco">R$1,00</span>
+            </div>
+        </section>
+        <a href="orcamento.html" class="orcamento">+ Novo orçamento</a>
+    </div>
+
+<!-- script (deixei aqui por enquanto) -->
+    <script>
+        const clientes = document.getElementById("clientes")
+        const detalhes = document.getElementById("detalhes")
+        const verButtons = document.querySelectorAll(".ver")
+        const voltar = document.getElementById("voltar")
+
+        verButtons.forEach(ver => {
+            ver.addEventListener('click', () => {
+                clientes.className = "hide";
+                detalhes.className = "detalhes";
+                // clientes.classList.replace("clientes", "hide");
+                // detalhes.classList.replace("hide", "detalhes");
+            });
+        });
+
+        voltar.addEventListener('click', () => {
+            clientes.className = "clientes";
+            detalhes.className = "hide";
+        })
+    </script>
+</body>
+</html>
