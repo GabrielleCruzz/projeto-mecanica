@@ -58,3 +58,44 @@ main > h1{
     margin-top: 5px;
 }
 
+main > h2{
+    color: var(--cor1);
+    font-weight: 300;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+
+/*Os cards de informações que eu não nomear*/
+.info{
+    display: flex;
+    gap: 20px;
+}
+
+.card{
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.card > h2{
+    color: var(--cor1);
+    font-weight: 300;
+    font-size: 2.1em;
+}
+
+.card > p{
+    font-size: 0.7em;
+    margin-top: -5px;
+}
+
+/*Linha branca*/
+.linhabranca{
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 30px;
+}
