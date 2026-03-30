@@ -22,3 +22,39 @@ body{
 }
 
 /* ===== Página inicial -> Alex ===== */
+
+
+/*Barra de pesquisa*/
+
+div.pesquisa{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+div.pesquisa > input{
+    width: 100%;
+    border-radius: 20px;
+    color: var(--cor2);
+    border: none;
+    background-color: white;
+    padding: 20px;
+}
+
+div.pesquisa > img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/*Resto do corpo principal*/
+
+main{
+    padding: 20px;
+}
+main > h1{
+    color: var(--cor1);
+    font-size: 1em;
+    margin-top: 5px;
+}
+
