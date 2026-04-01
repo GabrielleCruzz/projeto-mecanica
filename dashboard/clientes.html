@@ -7,7 +7,7 @@
     <title>Clientes</title>
 </head>
 <body>
-    <main id="clientes" class="clientes">
+    <main class="clientes">
 
     <!-- título da página e botão para cadastrar cliente -->
         <div class="title">
@@ -27,88 +27,23 @@
                 <span class="nome">Nome e Sobrenome do Cliente</span>
                 <span class="infos">Telefone: (11) 99999-9999</span>
                 <span class="infos">2 veículos vinculados</span>
-                <span class="ver">Ver detalhes</span>
+                <a href="cliente.html" class="ver">Ver detalhes</a>
             </div>
 
             <div class="cliente-card">
                 <span class="nome">Nome e Sobrenome do Cliente</span>
                 <span class="infos">Telefone: (11) 99999-9999</span>
                 <span class="infos">2 veículos vinculados</span>
-                <span class="ver">Ver detalhes</span>
+                <a href="cliente.html" class="ver">Ver detalhes</a>
             </div>
 
             <div class="cliente-card">
                 <span class="nome">Nome e Sobrenome do Cliente</span>
                 <span class="infos">Telefone: (11) 99999-9999</span>
                 <span class="infos">2 veículos vinculados</span>
-                <span class="ver">Ver detalhes</span>
+                <a href="cliente.html" class="ver">Ver detalhes</a>
             </div>
         </section>
     </main>
-
-
-<!-- tela de detalhes de um cliente -->
-    <div id="detalhes" class="hide">
-        <button class="voltar" id="voltar">< Voltar</button>
-        <section>
-            <div class="cliente-detalhes">            
-                <span class="nome">Nome e Sobrenome do Cliente</span>
-                <span class="infos">Telefone: (11) 99999-9999</span>
-                <span class="infos">CPF/CNPJ: 123.456.789-00</span>
-                <span class="infos">Endereço: Em algum lugar ai</span>
-                <button>Editar</button>
-                <a href="">Entrar em contato (WhatsApp)</a>
-            </div>            
-        </section>
-
-        <section>
-            <h4>Veículos</h4>
-
-            <div class="cliente-veiculos">            
-                <span class="veiculo">Marca Modelo - 2026</span>
-                <span class="placa">Placa: AAA1A11</span>
-            </div>
-            <div class="cliente-veiculos">            
-                <span class="veiculo">Marca Modelo - 2026</span>
-                <span class="placa">Placa: AAA1A11</span>
-            </div>
-        </section>
-
-        <section>
-            <h4>Serviços</h4>
-
-            <div class="cliente-servicos">
-                <span class="servico-n">Serviço #1</span>          
-                <span class="tipo">Marca Modelo (2026)</span>
-                <span class="veiculo">Veículo (Placa)</span>
-                <span class="verServico">Ver detalhes</span>
-                <span class="status">Pendente</span>
-                <span class="preco">R$1,00</span>
-            </div>
-        </section>
-        <a href="orcamento.html" class="orcamento">+ Novo orçamento</a>
-    </div>
-
-<!-- script (deixei aqui por enquanto) -->
-    <script>
-        const clientes = document.getElementById("clientes")
-        const detalhes = document.getElementById("detalhes")
-        const verButtons = document.querySelectorAll(".ver")
-        const voltar = document.getElementById("voltar")
-
-        verButtons.forEach(ver => {
-            ver.addEventListener('click', () => {
-                clientes.className = "hide";
-                detalhes.className = "detalhes";
-                // clientes.classList.replace("clientes", "hide");
-                // detalhes.classList.replace("hide", "detalhes");
-            });
-        });
-
-        voltar.addEventListener('click', () => {
-            clientes.className = "clientes";
-            detalhes.className = "hide";
-        })
-    </script>
 </body>
 </html>
