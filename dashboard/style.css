@@ -327,10 +327,19 @@ main > h2{
     color: var(--cor1);
 }
 
-.hide {
-    display: none;
-}
 
+.menuInferior {
+    border-top: 2px solid #d5d5d5;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+    padding: 16px;
+    background-color: white;
+}
 
 /* ===== Página de Orçamentos -> Gabrielle ===== */
 
@@ -693,4 +702,26 @@ button[type="submit"]{
     height: 1px;
     background-color: var(--cor3);
     margin-bottom: 10px;
+}
+
+/* Menu inferior -> Isabella */
+
+.menuInferior a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #b4b4b4;
+    text-decoration: none;
+}
+
+.menuInferior a:hover {
+    background-color: pink;
+}
+
+.menuInferior a img {
+    width: 40px;
+}
+
+.menuInferior a:first-child span {
+    color: var(--cor1);
 }
