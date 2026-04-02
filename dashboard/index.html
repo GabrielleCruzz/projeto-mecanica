@@ -1,51 +1,74 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página inicial</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <!--o resto do corpo principal-->
-    <main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página inicial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <!--Titulo digamos assim-->
-      <h1>Página Inicial</h1>
+<body>
+  <!--o resto do corpo principal-->
+  <main>
 
-      <!--Barra de pesquisa-->
-      <div class="pesquisa">
-        <input type="text" placeholder="Busca rápida por cliente/placa..." />
-        <img src="../img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20"/>
+    <!--Titulo digamos assim-->
+    <h1>Página Inicial</h1>
+
+    <!--Barra de pesquisa-->
+    <div class="pesquisa">
+      <input type="text" placeholder="Busca rápida por cliente/placa..." />
+      <img src="../img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
+    </div>
+    <!--Outro titulo-->
+    <h2>Esta semana</h2>
+
+    <!--Os quadro de informação-->
+    <div class="info">
+      <div class="card">
+        <h2>R$0,00</h2>
+        <p>Rendimento</p>
       </div>
-       <!--Outro titulo-->
-      <h2>Esta semana</h2>
-
-      <!--Os quadro de informação-->
-      <div class="info">
-        <div class="card">
-          <h2>R$0,00</h2>
-          <p>Rendimento</p>
-        </div>
-        <div class="card">
-          <h2>0</h2>
-          <p>Serviços realizados</p>
-        </div>
+      <div class="card">
+        <h2>0</h2>
+        <p>Serviços realizados</p>
       </div>
+    </div>
 
-      <!--Outra linha-->
-      <div class="linhabranca"></div>
+    <!--Outra linha-->
+    <div class="linhabranca"></div>
 
-            <!--Os botoes gigantes-->
-      <div class="botoesprincipais">
+    <!--Os botoes gigantes-->
+    <div class="botoesprincipais">
       <a href="orcamento.html">Criar orçamento</a>
       <a href="servicos.html">Serviços</a>
     </div>
 
     <!--Os botoes pequenos-->
     <div class="botoesduplo">
-        <a href="acervo.html">Acervo Técnico</a>
-        <a href="clientes.html">Cliente</a>
+      <a href="acervo.html">Acervo Técnico</a>
+      <a href="clientes.html">Cliente</a>
     </div>
-    </main>
+  </main>
+  
+  <div class="menuInferior">
+    <a href="index.html">
+      <img src="../img/blue.png" alt="">
+      <span>Início</span>
+    </a>
+    <a href="orcamento.html">
+      <img src="../img/add.png" alt="">
+      <span>Novo</span>
+    </a>
+    <a href="servicos.html">
+      <img src="../img/servicos.png" alt="">
+      <span>Serviços</span>
+    </a>
+    <a href="clientes.html">
+      <img src="../img/clientes.png" alt="">
+      <span>Clientes</span>
+    </a>
+  </div>
+
+</body>
+</html>
