@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Criar Orçamentos</title>
+</head>
+
+<body class="container">
+    <h1 class="titulo">Criar Orçamentos</h1>
+    <h2>Cliente</h2>
+    <div class="busca">
+        <input type="text" placeholder="Buscar por um cliente..." />
+        <img src="../img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
+        <button id="cadastrarCliente">+</button>
+    </div>
+
+    <!-- Selecionar o veículo -->
+    <h2>Veículo</h2>
+    <div class="veiculo">
+        <select name="veiculo">
+            <option value="">Selecione o veículo</option>
+            <option value="veiculo1">Veículo 1</option>
+            <option value="veiculo2">Veículo 2</option>
+            <option value="veiculo3">Veículo 3</option>
+            <option value="veiculo4">Veículo 4</option>
+        </select>
+    </div>
+
+    <!-- Diagnóstico do veículo -->
+    <div class="diagnostico">
+        <h2>Diagnóstico do veículo</h2>
+        <textarea placeholder="Digite aqui"></textarea>
+    </div>
+
+    <!-- Adicionar serviços realizados -->
+    <div class="servicos">
+        <h2>Serviços</h2>
+    </div>
+
+    <!-- Adicionar peças utilizadas -->
+    <div class="pecas">
+        <h2>Peças</h2>
+    </div>
+
+    <!-- Linha de separação -->
+    <div class="linha"></div>
+
+    <!-- Mecânico responsável e data do orçamento-->
+    <div class="mecanico-data">
+        <div class="mecanico">
+            <h3>Mecânico responsável</h3>
+            <input type="text" placeholder="Nome do mecânico">
+        </div>
+        <div class="data">
+            <h3>Data</h3>
+            <input type="date" name="data">
+        </div>
+    </div>
+
+    <!-- Valor total do orçamento -->
+    <div class="valor">
+        <h4>Valor total</h4>
+        <h1>R$0,00</h1>
+    </div>
+
+    <!-- Botões de ação -->
+    <div class="botoes-orcamento">
+        <button class="salvar">SALVAR ORÇAMENTO</button>
+        <button>BAIXAR PDF</button>
+        <button>ENVIAR PARA CLIENTE VIA WHATSAPP</button>
+    </div>
+    </div>
+</body>
+
+</html>
