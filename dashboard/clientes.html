@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Clientes</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <main class="clientes">
@@ -12,7 +13,7 @@
     <!-- título da página e botão para cadastrar cliente -->
         <div class="title">
             <h1>Clientes</h1>
-            <button>+ Novo cliente</button>
+            <button id="cadastrarCliente">+ Novo cliente</button>
         </div>
 
     <!-- barra de pesquisa de cliente -->
@@ -45,5 +46,84 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal -->
+    <!-- Formulário para cadastrar novo veículo -->
+    <div class="overlay" id="overlay">
+        <form class="form-cliente">
+
+            <!-- Botão de fechar o formulário -->
+            <span class="btn-fechar" id="btnFechar">×</span>
+            <h2>Cadastrar Cliente</h2>
+
+            <!--Dados do cliente-->
+            <div class="campos-cliente">
+
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Nome</label>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="tel" required>
+                        <label>Telefone</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required>
+                        <label>CPF/CNPJ</label>
+                    </div>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Bairro</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Rua</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Nº</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Dados do veículo-->
+            <div class="campos-veiculo">
+                <h2>Veículos do cliente</h2>
+
+                <div class="linha-veiculo">
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Placa</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Marca</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Modelo/Ano</label>
+                    </div>
+
+                    <!-- Botões de adição e exclusão de veículos -->
+                    <button type="button" class="btn-excluir">Excluir</button>
+                </div>
+
+                <button type="button" id="btnAdicionar">+ Novo veículo</button>
+            </div>
+
+            <button type="submit">Cadastrar cliente</button>
+        </form>
+    </div>
 </body>
 </html>

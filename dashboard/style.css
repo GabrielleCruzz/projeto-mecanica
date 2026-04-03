@@ -355,7 +355,7 @@ main > h2{
     margin-bottom: 10px;
 }
 
-.container h2 {
+.container h2, .form-cliente h2 {
     color: var(--cor5);
     font-weight: 300;
     font-size: 1em;
