@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página inicial</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="./js/menu-lateral.js"></script>
 </head>
 
 <body>
+
+  <div id="menuContainer"></div>
+
   <!--o resto do corpo principal-->
   <main>
 
@@ -69,6 +73,16 @@
       <span>Clientes</span>
     </a>
   </div>
+
+<script>
+  fetch("menu-lateral.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("menuContainer").innerHTML = html;
+
+    initMenuLateral();
+  });
+</script>
 
 </body>
 </html>

@@ -779,6 +779,7 @@ button[type="submit"]{
     transition: 0.3s ease;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    z-index: 99;
 }
 
 .menu h1{
