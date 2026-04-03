@@ -84,3 +84,31 @@ function criarServico() {
 btnAddServico.onclick = () => {
     listaServicos.appendChild(criarServico());
 };
+
+// Peças
+
+const btnAddPeca = document.getElementById("btnAddPeca");
+const listaPecas = document.getElementById("listaPecas");
+
+// Cria uma nova linha de peça
+function criarPeca() {
+    const div = document.createElement("div");
+    div.classList.add("linha-peca");
+
+    div.innerHTML = `
+        <input type="text" placeholder="Peça">
+        <input type="number" placeholder="Qnt.">
+        <input type="text" placeholder="Valor">
+        <button type="button" class="btn-excluir">X</button>
+    `;
+
+    // Remove a linha ao clicar no botão excluir
+    div.querySelector(".btn-excluir").onclick = () => div.remove();
+
+    return div;
+}
+
+// Adiciona nova peça na lista
+btnAddPeca.onclick = () => {
+    listaPecas.appendChild(criarPeca());
+};
