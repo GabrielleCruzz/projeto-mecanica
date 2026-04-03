@@ -739,7 +739,7 @@ button[type="submit"]{
 
 /* botão para abrir o menu */
 .menu-btn{
-    color: #000199;
+    color: var(--cor1);
     font-size: 30px;
     cursor: pointer;
 }
@@ -747,7 +747,7 @@ button[type="submit"]{
 .nav-bar a{
     font-size: 20px;
     text-decoration: none;
-    color: #000199;
+    color: var(--cor1);
 }
 
 /* linha de separação */
