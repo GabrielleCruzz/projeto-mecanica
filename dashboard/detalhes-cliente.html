@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Cliente</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./js/menu-lateral.js"></script>
 </head>
 <body>
+
+<div id="menuContainer"></div>
+
     <main class="clientes">
     <div class="detalhes">
         <a href="clientes.html" class="voltar">< Voltar</a>
@@ -49,5 +53,16 @@
         <a href="orcamento.html" class="orcamento">+ Novo orçamento</a>
     </div>
     </main>
+
+<script>
+  fetch("menu-lateral.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("menuContainer").innerHTML = html;
+
+    initMenuLateral();
+  });
+</script>
+
 </body>
 </html>
