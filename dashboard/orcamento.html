@@ -93,6 +93,84 @@
         <button>BAIXAR PDF</button>
         <button>ENVIAR PARA CLIENTE VIA WHATSAPP</button>
     </div>
+
+<!-- Modal -->
+    <!-- Formulário para cadastrar novo veículo -->
+    <div class="overlay" id="overlay">
+        <form class="form-cliente">
+
+            <!-- Botão de fechar o formulário -->
+            <span class="btn-fechar" id="btnFechar">×</span>
+            <h2>Cadastrar Cliente</h2>
+
+            <!--Dados do cliente-->
+            <div class="campos-cliente">
+
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Nome</label>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="tel" required>
+                        <label>Telefone</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required>
+                        <label>CPF/CNPJ</label>
+                    </div>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Bairro</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Rua</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Nº</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Dados do veículo-->
+            <div class="campos-veiculo">
+                <h2>Veículos do cliente</h2>
+
+                <div class="linha-veiculo">
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Placa</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Marca</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required>
+                        <label>Modelo/Ano</label>
+                    </div>
+
+                    <!-- Botões de adição e exclusão de veículos -->
+                    <button type="button" class="btn-excluir">Excluir</button>
+                </div>
+
+                <button type="button" id="btnAdicionar">+ Novo veículo</button>
+            </div>
+
+            <button type="submit">Cadastrar cliente</button>
+        </form>
     </div>
 </body>
 
