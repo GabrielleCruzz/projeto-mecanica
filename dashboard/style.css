@@ -414,6 +414,50 @@ select option {
     font-size: 13px;
 }
 
+/* Adicionar serviços realizados e peças utilizadas */
+.linha-servico,
+.linha-peca{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.linha-servico input,
+.linha-peca input{
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    font-size: 0.7em;
+}
+
+/* Botões para adicionar serviços e peças */
+#btnAddServico,
+#btnAddPeca{
+    width: 40px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: var(--cor);
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botões para excluir uma linha de serviços e peças */
+.linha-servico .btn-excluir,
+.linha-peca .btn-excluir{
+    width: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* linha de separação */
 .linha{
     width: 100%;
