@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="../dashboard/js/orcamento.js" defer></script>
+    <script src="./js/menu-lateral.js"></script>
     <title>Criar Orçamentos</title>
 </head>
 
-<body class="container">
+<body>
+
+    <div id="menuContainer"></div>
+
+<div class="container">
+
     <h1 class="titulo">Criar Orçamentos</h1>
     <h2>Cliente</h2>
     <div class="busca">
@@ -172,6 +178,18 @@
             <button type="submit">Cadastrar cliente</button>
         </form>
     </div>
+</div>
+
+    <script>
+        fetch("menu-lateral.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("menuContainer").innerHTML = html;
+
+                initMenuLateral();
+            });
+    </script>
+
 </body>
 
 </html>
