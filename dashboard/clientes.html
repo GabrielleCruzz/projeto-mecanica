@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="./js/menu-lateral.js"></script>
     <title>Clientes</title>
     <script src="script.js" defer></script>
 </head>
 <body>
+
+    <div id="menuContainer"></div>
+
     <main class="clientes">
 
     <!-- título da página e botão para cadastrar cliente -->
@@ -125,5 +129,16 @@
             <button type="submit">Cadastrar cliente</button>
         </form>
     </div>
+
+<script>
+  fetch("menu-lateral.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("menuContainer").innerHTML = html;
+
+    initMenuLateral();
+  });
+</script>
+
 </body>
 </html>
