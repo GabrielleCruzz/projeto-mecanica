@@ -57,3 +57,30 @@ function criarLinhaVeiculo() {
 btnAdicionar.onclick = () => {
     containerVeiculos.insertBefore(criarLinhaVeiculo(), btnAdicionar);
 };
+
+// Serviços
+
+const btnAddServico = document.getElementById("btnAddServico");
+const listaServicos = document.getElementById("listaServicos");
+
+// Cria uma nova linha de serviço
+function criarServico() {
+    const div = document.createElement("div");
+    div.classList.add("linha-servico");
+
+    div.innerHTML = `
+        <input type="text" placeholder="Adicionar serviço">
+        <input type="text" placeholder="Mão de obra">
+        <button type="button" class="btn-excluir">X</button>
+    `;
+
+    // Remove a linha ao clicar no botão excluir
+    div.querySelector(".btn-excluir").onclick = () => div.remove();
+
+    return div;
+}
+
+// Adiciona novo serviço na lista
+btnAddServico.onclick = () => {
+    listaServicos.appendChild(criarServico());
+};
