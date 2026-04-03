@@ -16,6 +16,7 @@
     --cor3: #D5D5D5;
     --cor4: #F1F1F1;
     --cor5: #72777f;
+    --cor6: #e5e5e5;
 }
 
 body{
@@ -544,4 +545,151 @@ input[type="date"]{
     background-color: white;
     color: var(--cor);
     border: 2px solid var(--cor);
+}
+
+/* Modal do formulário para adicionar novos clientes */
+.overlay{
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    background-color: #0000004d;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.form-cliente{
+    position: relative;
+    width: 100%;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 60vh; /* limita a altura do modal */
+    overflow-y: auto; /* adiciona barra de rolagem dentro do modal */
+}
+
+/* Botão para fechar o modal */
+.btn-fechar{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.form-cliente input{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--cor6);
+    font-size: 0.8em;
+}
+
+/* informações do cliente dentro do modal */
+.campos-cliente{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linha-cliente{
+    display: flex;
+    gap: 5px;
+}
+
+/* informações dos veículos dentro do modal */
+.campos-veiculo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linha-veiculo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
+.linha-veiculo .campo{
+    flex: 1;
+    min-width: 120px;
+}
+
+.campo{
+    position: relative;
+    width: 100%;
+}
+
+.campo input{
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    background-color: var(--cor6);
+}
+
+/* Rótulo dos campos */
+.campo label{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--cor5);
+    transition: 0.3s;
+}
+
+.campo input:focus + label,
+.campo input:valid + label{
+    top: 10px;
+    font-size: 10px;
+}
+
+/* Botão de excluir veículo */
+.btn-excluir{
+    border: 1px solid red;
+    color: red;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.7em;
+    padding: 10px;
+}
+
+/* Botão para adicionar novo veículo */
+#btnAdicionar{
+    background: var(--cor);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 130px;
+    font-size: 11px;
+}
+
+/* Botão para enviar o formulário */
+button[type="submit"]{
+    width: 100%;
+    background: var(--cor);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Separa os veículos adicionados */
+.linha-separadora{
+    width: 100%;
+    height: 1px;
+    background-color: var(--cor3);
+    margin-bottom: 10px;
 }
