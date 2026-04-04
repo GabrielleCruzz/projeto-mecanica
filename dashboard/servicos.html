@@ -6,8 +6,11 @@
     <title>Serviços</title>
     <link rel="stylesheet" href="style.css">
     <script src="./js/orcamento.js" defer></script>
+    <script src="./js/menu-lateral.js" defer></script>
 </head>
 <body>
+
+    <div id="menuContainer"></div>
 
     <!--Corpo principal-->
     <main class="servicos">
@@ -95,6 +98,16 @@
             </div>
         </div>
     </div>
+
+<script>
+  fetch("menu-lateral.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("menuContainer").innerHTML = html;
+
+    initMenuLateral();
+  });
+</script>
 
 </body>
 </html>
