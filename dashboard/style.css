@@ -810,3 +810,72 @@ button[type="submit"]{
 
 
 /* ===== página de serviços -> Alex =====*/
+
+/* ===== página de serviços -> Alex =====*/
+
+/*Titulo*/
+.servicos .title h1 {
+    color: var(--cor1);
+    font-size: 1.4em;
+    margin-top: 5px;
+}
+
+.servicos .title {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.servicos .title a {
+    font-size: 14px;
+    text-decoration: none;
+    background-color: var(--cor);
+    color: white;
+    padding: 6px;
+    border: none;
+    border-radius: 20px;
+}
+
+/*Filtro*/
+.servicos .filtro{
+    margin: 20px 0px;
+}
+
+.servicos .filtro .opcao{
+    border: none;
+    background-color: #e6e6e6;
+    color:  #72777f;
+    /* width: 80px; */
+    padding: 8px 16px 8px 16px;
+    /* height: 30px; */
+    border-radius: 40px;
+    font-size: 0.8em;
+}
+
+.servicos .filtro .opcao:first-child{
+    background-color: #000199;
+    color: white;
+}
+
+/*Coloquei só parar ele ficar azul*/
+.servicos .filtro .opcao:hover{
+    background-color: #000199;
+    color: white;
+}
+
+/*Botão ver mais*/
+.servicos .caixabotao{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.servicos .mostrar{ 
+    /* background-color: var(--cor); */
+    border: none;
+    color: var(--cor1);
+    width: 180px;
+    height: 30px; 
+    border-radius: 50px;
+}
