@@ -1074,3 +1074,20 @@ button[type="submit"]{
     color: var(--cor5);
     font-size: 11px;
 }
+
+/*Botão*/
+.configuracao .botao{
+    background-color: var(--cor);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+.sair {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-size: 14px;
+    text-decoration: none;
+}
