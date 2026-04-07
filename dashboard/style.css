@@ -212,122 +212,107 @@ div.pesquisa > img{
     cursor: pointer;
 }
 
-/* tela de detalhes do cliente */
-.detalhes {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-}
 
-.detalhes .voltar {
+/* ===== página de detalhes do cliente -> Isabella =====*/
+
+.voltar {
     margin-right: auto;
-    font-size: 18px;
-    font-weight: 500;
-    border: none;
     color: var(--cor1);
+    font-size: 16px;
+    border-radius: 8px; 
 }
 
-.detalhes .voltar:hover, .cliente-card .ver:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.detalhes .voltar:active, .cliente-card .ver:active {
-    text-decoration: underline;
-    cursor: pointer;
-    color: var(--cor);
+.voltar:hover {
+    background-color: var(--cor1);
+    color: white;
+    transition: 0.1s ease;
 }
 
 .cliente-detalhes {
-    position: relative;
-    font-size: 14px;
+    position: relative;    
     display: flex;
     flex-direction: column;
-    border-radius: 14px;
     background-color: white;
-    padding: 10px;
-    border: 2px solid var(--cor3);
-}
-
-.cliente-veiculos {
-    margin-top: 6px;
-    margin-bottom: 6px;
     font-size: 14px;
-    display: flex;
-    flex-direction: column;
+    padding: 12px;
     border-radius: 14px;
-    background-color: white;
-    padding: 10px;
-    border: 2px solid var(--cor3);
-}
-
-.cliente-servicos {
-    margin-top: 6px;
-    margin-bottom: 6px;
-    position: relative;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 14px;
-    background-color: white;
-    padding: 10px;
-    border: 2px solid var(--cor3);
-}
-
-.cliente-servicos .servico-n {
-    font-size: 14px;
-    color: #72777f;
-}
-
-.cliente-detalhes .infos {
-    font-size: 12px;
-    color: #72777f;
+    border: 2px solid var(--cor6);
 }
 
 .cliente-detalhes button {
+    position: absolute;
     font-size: 12px;
     background-color: var(--cor4);
-    border-radius: 10px;
-    border: 2px solid var(--cor3);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 6px;
-    width: fit-content;
+    border: 2px solid var(--cor6);
+    border-radius: 8px;    
+    padding: 6px 10px;
+    right: 12px;
 }
 
 .cliente-detalhes a {
-    color: var(--cor1);
+    text-decoration: none;
+    color: var(--cor1);    
     font-size: 10px;
     margin-top: 10px;
 }
 
-.cliente-servicos .status {
-    border-radius: 20px;
-    background-color: #d5d5ff;
-    color: var(--cor1);
-    text-align: center;
-    width: fit-content;
-    padding: 2px 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.card-veiculos {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 6px 0;
+    font-size: 14px;
+    padding: 12px;    
+    border-radius: 14px;
+    border: 2px solid var(--cor6);
 }
 
-.cliente-servicos .preco {
+/* .card-servicos usado na pág. de serviços e detalhes do cliente */
+.card-servicos {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    margin: 6px 0;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px solid var(--cor6);
+}
+
+.card-servicos .info-servico {
+    font-size: 14px;
+    color: var(--cor5);
+}
+
+.card-servicos .status {
+    position: absolute;
+    right: 12px;
+    color: var(--cor1);
+    background-color: #d5ddff;
+    border-radius: 30px;
+    padding: 2px 18px;
+    font-size: 12px;
+}
+
+.card-servicos .status.concluido {
+    color: var(--cor5);
+    background-color: var(--cor3);
+}
+
+.card-servicos .preco {
     position: absolute;
     font-size: 16px;
     color: var(--cor1);
-    top: 44px;
+    top: 38px;
     right: 12px;
 }
 
-.orcamento {
+.novo-orcamento {
     background-color: var(--cor);
     color: white;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 30px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
 }

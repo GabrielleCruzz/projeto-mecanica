@@ -9,53 +9,66 @@
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/> 
+    <link href="../assets/icons/css/brands.css" rel="stylesheet" />
 </head>
 <body>
 
 <div id="menuContainer"></div>
 
-    <main class="clientes">
-    <div class="detalhes">
-        <a href="clientes.html" class="voltar">< Voltar</a>
+    <main>
+        <a href="clientes.html" class="voltar"><i class="fa-solid fa-angle-left"></i></a>
+        
+        <!-- área de informações pessoais do cliente -->
         <section>
             <div class="cliente-detalhes">            
-                <span class="nome">Nome e Sobrenome do Cliente</span>
-                <span class="infos">Telefone: (11) 99999-9999</span>
-                <span class="infos">CPF/CNPJ: 123.456.789-00</span>
-                <span class="infos">Endereço: Em algum lugar ai</span>
+                <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                <span class="info-secundaria"><i class="fa-solid fa-phone"></i> (11) 99999-9999</span>
+                <span class="info-secundaria"><i class="fa-address-card fa-solid"></i>  123.456.789-00</span>
+                <span class="info-secundaria">Endereço: Em algum lugar ai</span>
                 <button>Editar</button>
-                <a href="">Entrar em contato (WhatsApp)</a>
+                <a href=""><i class="fa-brands fa-whatsapp"></i> Entrar em contato</a>
             </div>            
         </section>
 
+        <!-- área de veículos do cliente -->
         <section>
-            <h4>Veículos</h4>
+            <h2>Veículos</h2>
 
-            <div class="cliente-veiculos">            
-                <span class="veiculo">Marca Modelo - 2026</span>
-                <span class="placa">Placa: AAA1A11</span>
+            <div class="card-veiculos">            
+                <span class="info-destaque">Marca Modelo - 2026</span>
+                <span class="info-secundaria">Placa: AAA1A11</span>
             </div>
-            <div class="cliente-veiculos">            
-                <span class="veiculo">Marca Modelo - 2026</span>
-                <span class="placa">Placa: AAA1A11</span>
+            <div class="card-veiculos">            
+                <span class="info-destaque">Marca Modelo - 2026</span>
+                <span class="info-secundaria">Placa: AAA1A11</span>
             </div>
         </section>
 
+        <!-- área de serviços com o cliente -->
         <section>
-            <h4>Serviços</h4>
+            <h2>Serviços</h2>
 
-            <div class="cliente-servicos">
-                <span class="servico-n">Serviço #1</span>          
-                <span class="tipo">Marca Modelo (2026)</span>
-                <span class="veiculo">Veículo (Placa)</span>
-                <span class="verServico">Ver detalhes</span>
+            <div class="card-servicos">
+                <span class="info-servico">Serviço #1</span>          
+                <span class="info-destaque">Marca Modelo (2026)</span>
+                <span class="info-secundaria">Veículo (Placa)</span>
+                <span class="ver-detalhes">Ver detalhes</span>
                 <span class="status">Pendente</span>
                 <span class="preco">R$1,00</span>
             </div>
+            <div class="card-servicos">
+                <span class="info-servico">Serviço #2</span>          
+                <span class="info-destaque">Marca Modelo (2026)</span>
+                <span class="info-secundaria">Veículo (Placa)</span>
+                <span class="ver-detalhes">Ver detalhes</span>
+                <span class="status">Pendente</span>
+                <span class="preco">R$1,00</span>
+            </div>
+
         </section>
-        <a href="orcamento.html" class="orcamento">+ Novo orçamento</a>
-    </div>
+
+        <a href="orcamento.html" class="novo-orcamento">+ Novo Orçamento</a>
     </main>
 
     <!-- menu inferior -->
