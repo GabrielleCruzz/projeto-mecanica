@@ -157,57 +157,59 @@ div.pesquisa > img{
 
 /* ===== página de clientes -> Isabella =====*/
 
-/* main */
-.clientes .title h1 {
-    color: var(--cor1);
-    font-size: 1em;
-    margin-top: 5px;
-}
-
-.clientes .title {
+.title {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: space-between;
 }
 
-.clientes .title button {
-    background-color: var(--cor);
-    color: white;
-    padding: 6px;
-    border: none;
-    border-radius: 20px;
+.title h1 {
+    color: var(--cor1);
+    font-size: 20px;
 }
 
-.clientes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;    
+.title button, .title a {
+    color: white;     
+    background-color: var(--cor);
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
 }
 
 .cliente-card {
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
     background-color: white;
-    padding: 20px;
-    border: 2px solid var(--cor3);
+    border-radius: 14px;
+    padding: 12px;
+    margin: 6px 0;
+    border: 2px solid var(--cor6);
 }
 
-.cliente-card .nome {
+/* texto principal do card */
+.info-destaque {
     font-size: 14px;
 }
 
-.cliente-card .infos, .cliente-veiculos .placa, .cliente-servicos .veiculo {
+/* textos menores */
+.info-secundaria{
     font-size: 12px;
     color: #72777f;
 }
 
-.cliente-card .ver, .cliente-servicos .verServico {
+.ver-detalhes {
     margin-top: 12px;
+    margin-right: auto; /* pra não pegar a linha inteira */
     font-size: 12px;
     color: var(--cor1);
-    width: fit-content;
+    text-decoration: none;
+}
+
+.ver-detalhes:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* tela de detalhes do cliente */
