@@ -8,6 +8,10 @@
     <script src="../dashboard/js/orcamento.js" defer></script>
     <script src="./js/menu-lateral.js"></script>
     <title>Criar Orçamentos</title>
+    <!-- link para os ícones -->
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -179,6 +183,26 @@
         </form>
     </div>
 </div>
+
+    <!-- menu inferior -->
+    <div class="menuInferior">
+        <a href="index.html">
+            <i class="fa-solid fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="orcamento.html" class="atual">
+            <i class="fa-solid fa-plus"></i>
+            <span>Novo</span>
+        </a>
+        <a href="servicos.html">
+            <i class="fa-regular fa-clipboard"></i>
+            <span>Serviços</span>
+        </a>
+        <a href="clientes.html">
+            <i class="fa-regular fa-user"></i>
+            <span>Clientes</span>
+        </a>
+    </div>
 
     <script>
         fetch("menu-lateral.html")
