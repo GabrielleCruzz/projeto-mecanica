@@ -25,101 +25,110 @@ body{
 
 /* ===== Página inicial -> Alex ===== */
 
+/* conteúdo principal */
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    gap: 16px; 
+    margin-bottom: 84px; /* pro menu inferior nao tampar nada */
+}
+
+/* títulos das páginas */
+main > h1{
+    font-size: 20px;
+    color: var(--cor1);
+}
+
+/* títulos menores */
+h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #484848;
+}
 
 /*Barra de pesquisa*/
-
 div.pesquisa{
     position: relative;
-    margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 div.pesquisa > input{
     width: 100%;
-    border-radius: 20px;
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 14px;
+    background-color: white;
     color: var(--cor2);
     border: none;
-    background-color: white;
-    padding: 20px;
+}
+
+div.pesquisa > input:focus{
+    outline: 1px solid #d5d5d5;
+    transition: outline 0.4s ease;
 }
 
 div.pesquisa > img{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    right: 5%;
+    top: 50%; 
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
-/*Resto do corpo principal*/
-
-main{
-    padding: 20px;
-    margin-bottom: 84px;
-}
-main > h1{
-    color: var(--cor1);
-    font-size: 1em;
-    margin-top: 5px;
-}
-
-main > h2{
-    color: var(--cor1);
-    font-weight: 300;
-    font-size: medium;
-    margin-bottom: 10px;
-}
-
-
-/*Os cards de informações que eu não nomear*/
-.info{
+/* cards de resumo da semana */
+.resumo {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 6px 0;
 }
 
-.card{
+.info-cards {
+    display: flex;
+    gap: 16px;
+}
+
+.card {
     background-color: white;
-    padding: 15px;
     width: 100%;
     height: 100px;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 14px;
+    padding: 16px;
 }
 
-.card > h2{
+.card > span {
     color: var(--cor1);
-    font-weight: 300;
-    font-size: 2.1em;
+    font-weight: 400;
+    font-size: 2em;
 }
 
-.card > p{
-    font-size: 0.7em;
-    margin-top: -5px;
+.card > p {
+    color: #484848;
+    font-size: 12px;
+    margin-top: -4px;
 }
 
-/*Linha branca*/
+/* divisor */
 .linhabranca{
     width: 100%;
     height: 1px;
+    margin: 8px 0;
     background-color: white;
-    margin-top: 30px;
 }
 
-/*Botoes gigantes*/
+/* Botoes gigantes */
 .botoesprincipais{
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
-.botoesprincipais a{
+.botoesprincipais a {
     background-color: white;
-    width: 100%;
-    height: 65px;
     color: black;
     text-decoration: none;
     text-align: center;
-    padding-top: 20px;
-    border-radius: 10px;
+    padding: 18px;
+    border-radius: 14px;
     box-shadow: 2px 2px 1px var(--cor3);
 }
 
@@ -128,23 +137,21 @@ main > h2{
     font-weight: 600;
 }
 
-/*Botoes pequenos*/
+/* Botoes pequenos */
 .botoesduplo{
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
     text-align: center;
 }
 
 .botoesduplo a{
+    width: 100%;
     color: black;
     text-decoration: none;
-    background-color: white;
-    width: 100%;
-    height: 65px;
-    border-radius: 10px;
-    padding-top: 20px;
+    background-color: white;    
+    padding: 18px;
+    border-radius: 14px;
     box-shadow: 2px 2px 1px var(--cor3);
 }
 
