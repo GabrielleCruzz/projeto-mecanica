@@ -53,6 +53,7 @@ div.pesquisa > img{
 
 main{
     padding: 20px;
+    margin-bottom: 84px;
 }
 main > h1{
     color: var(--cor1);
@@ -320,25 +321,6 @@ main > h2{
     padding: 10px;
     text-align: center;
     text-decoration: none;
-}
-
-#id h4 {
-    font-weight: 500;
-    color: var(--cor1);
-}
-
-
-.menuInferior {
-    border-top: 2px solid #d5d5d5;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 12px;
-    padding: 16px;
-    background-color: white;
 }
 
 /* ===== Página de Orçamentos -> Gabrielle ===== */
@@ -707,7 +689,21 @@ button[type="submit"]{
 
 /* Menu inferior -> Isabella */
 
+.menuInferior {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    font-size: 12px;    
+    padding: 18px;
+    box-shadow: 0 -1px 10px var(--cor6);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
 .menuInferior a {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -715,15 +711,12 @@ button[type="submit"]{
     text-decoration: none;
 }
 
-.menuInferior a:hover {
-    background-color: pink;
+.menuInferior a i {
+    font-size: 30px;
+    color: #b4b4b4;
 }
 
-.menuInferior a img {
-    width: 40px;
-}
-
-.menuInferior a:first-child span {
+.menuInferior .atual, .menuInferior .atual i{
     color: var(--cor1);
 }
 
