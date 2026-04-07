@@ -536,7 +536,7 @@ main button:hover {
     }
 
     .banner img{
-        content: url('../img/banner-desktop.jpg');
+        content: url('../assets/img/banner-desktop.jpg');
         border-radius: 15px;
         width: 700px;
     }
@@ -582,7 +582,7 @@ main button:hover {
     }
 
     .img-desktop{
-        background-image: url("../img/sobre-nos-desktop.jpg");
+        background-image: url("../assets/img/sobre-nos-desktop.jpg");
         background-size: cover;
         background-position: center;
         flex: 1;

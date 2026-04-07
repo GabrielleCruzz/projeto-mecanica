@@ -44,11 +44,11 @@ const senhaImg = toggleSenha.querySelector('img');
 toggleSenha.addEventListener("click", () => {
     if (senhaInput.type === "password") { 
         senhaInput.type = "text"; // Mostra a senha
-        senhaImg.src = "../img/olho-aberto.png";
+        senhaImg.src = "../assets/img/olho-aberto.png";
         console.log(senhaImg)
     } else {
         senhaInput.type = "password"; // Esconde a senha
-        senhaImg.src = "../img/olho-fechado.png";
+        senhaImg.src = "../assets/img/olho-fechado.png";
     }
 })
 
