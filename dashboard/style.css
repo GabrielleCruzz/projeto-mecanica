@@ -795,50 +795,15 @@ button[type="submit"]{
     left: 0;
 }
 
-
-/* ===== página de serviços -> Alex =====*/
-
-/* ===== página de serviços -> Alex =====*/
-
-/*Titulo*/
-.servicos .title h1 {
-    color: var(--cor1);
-    font-size: 1.4em;
-    margin-top: 5px;
-}
-
-.servicos .title {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.servicos .title a {
-    font-size: 14px;
-    text-decoration: none;
-    background-color: var(--cor);
-    color: white;
-    padding: 6px;
-    border: none;
-    border-radius: 20px;
-}
-
-/*Filtro*/
-.servicos .filtro{
-    margin: 20px 0px;
-}
+/* ===== página de serviços -> Alex - Isabella =====*/
 
 .servicos .filtro .opcao{
+    font-size: 12px; 
     border: none;
     background-color: #e6e6e6;
     color:  #72777f;
-    /* width: 80px; */
-    padding: 8px 16px 8px 16px;
-    /* height: 30px; */
-    border-radius: 40px;
-    font-size: 0.8em;
+    padding: 8px 16px;
+    border-radius: 20px;    
 }
 
 .servicos .filtro .opcao:first-child{
@@ -846,112 +811,11 @@ button[type="submit"]{
     color: white;
 }
 
-/*Coloquei só parar ele ficar azul*/
+/*Coloquei só para ele ficar azul*/
 .servicos .filtro .opcao:hover{
     background-color: #000199;
     color: white;
-}
-
-.status2 {
-    color: #72777f;
-    border-radius: 20px;
-    background-color: #d5d5d5;
-    text-align: center;
-    width: fit-content;
-    padding: 2px 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-/*Card 1*/
-.servicos .card{
-    width: 100%;
-    height: 120px;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid var(--cor3);
-    padding: 10px;
-    margin-top: 15px;
-}
-
-.servicos .card .titulo{
-    width: 100%;
-    height: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.servicos .card .titulo > h1{
-    color: var(--cor2);
-    font-size: 1em;
-    font-weight: 400;
-}
-
-.servicos .card .titulo > span{
-    background-color: var(--cor3);
-    color: var(--cor2);
-    width: 100px;
-    font-size: 0.8em;
-    font-weight: 400;
-    text-align: center;
-    border-radius: 50px;
-    height: 20px;
-}
-
-/*Card 2*/
-.servicos .card .titulodois{
-    width: 100%;
-    height: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.servicos .card .titulodois > h1{
-    color: var(--cor2);
-    font-size: 1em;
-    font-weight: 400;
-}
-
-.servicos .card .titulodois > span{
-    background-color: var(--cor);
-    color: white;
-    width: 100px;
-    font-size: 0.9em;
-    font-weight: 300;
-    text-align: center;
-    border-radius: 50px;
-    height: 20px;
-}
-
-/*Resto dos cards*/
-.servicos .card .meio{
-     width: 100%;
-    height: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.servicos .card .meio >h2{
-    font-size: 1em;
-    font-weight: 400;
-}
-
-.servicos .card .meio >span{
-    color: var(--cor1);
-    font-size: 0.9em;
-}
-
-.servicos .card .tipodeservico{
-    color: var(--cor2);
-    font-size: 0.9em;
-    margin-top: 3px;
-}
-
-.servicos .card .ver{
-    color: var(--cor1);
-    font-size: 0.7em;
-    margin-top: 10px;
+    cursor: pointer;
 }
 
 /*Botão ver mais*/

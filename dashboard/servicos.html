@@ -6,27 +6,27 @@
     <title>Serviços</title>
     <link rel="stylesheet" href="style.css">
     <script src="./js/orcamento.js" defer></script>
-    <script src="./js/menu-lateral.js" defer></script>
+    <script src="./js/menu-lateral.js" defer></script>    
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>    
 </head>
 <body>
-
+    <!-- menu -->
     <div id="menuContainer"></div>
 
-    <!--Corpo principal-->
+    <!-- conteúdo principal -->
     <main class="servicos">
 
         <!--Titulo da pagina-->
-          <div class="title">
+        <div class="title">
             <h1>Serviços</h1>
-            <a href="orcamento.html">+ Novo orçamento</a>
+            <a href="orcamento.html">+ Novo</a>
         </div>
 
         <!--Barra de pesquisa-->
-            <div class="pesquisa">
+        <div class="pesquisa">
             <input type="text" placeholder="Buscar por serviço, nome ou carro " />
             <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20"/>
         </div>
@@ -35,35 +35,35 @@
         <div class="filtro">
             <button class="opcao">Todos</button>
             <button class="opcao">Pendentes</button>
-            <button class="opcao">Concluidos</button>
+            <button class="opcao">Concluídos</button>
         </div>
 
         <section>
-            <div class="cliente-servicos">
-                <span class="servico-n">Serviço #1</span>          
-                <span class="tipo">Tipo de serviço</span>
-                <span class="veiculo">Nome do cliente</span>
-                <span class="veiculo">Carro - Placa</span>
-                <span class="verServico" id="cadastrarCliente">Ver detalhes</span>
-                <span class="status2">Concluído</span>
+            <div class="card-servicos">
+                <span class="info-servico">Serviço #1</span>          
+                <span class="info-destaque">Tipo de serviço</span>
+                <span class="info-secundaria">Nome do cliente</span>
+                <span class="info-secundaria">Carro - Placa</span>
+                <span class="ver-detalhes" id="cadastrarCliente">Ver detalhes</span>
+                <span class="status concluido">Concluído</span>
                 <span class="preco">R$300</span>
             </div>
 
-            <div class="cliente-servicos">
-                <span class="servico-n">Serviço #2</span>          
-                <span class="tipo">Tipo de serviço</span>
-                <span class="veiculo">Nome do cliente</span>
-                <span class="veiculo">Carro - Placa</span>
-                <span class="verServico" id="cadastrarCliente">Ver detalhes</span>
+            <div class="card-servicos">
+                <span class="info-servico">Serviço #2</span>          
+                <span class="info-destaque">Tipo de serviço</span>
+                <span class="info-secundaria">Nome do cliente</span>
+                <span class="info-secundaria">Carro - Placa</span>
+                <span class="ver-detalhes" id="cadastrarCliente">Ver detalhes</span>
                 <span class="status">Pendente</span>
                 <span class="preco">R$900</span>
             </div>
-        </section>
 
-        <!--Botão de mostrar mais-->
-        <div class="caixabotao">
-            <button class="mostrar">Mostrar mais</button>
-        </div>
+            <!--Botão de mostrar mais-->
+            <div class="caixabotao">
+                <button class="mostrar">Mostrar mais</button>
+            </div>
+        </section>
     </main>
 
 <div class="overlay" id="overlay">
