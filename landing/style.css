@@ -11,6 +11,9 @@
 
 body{
     background-color: #f1f1f1;
+    user-select: none; /* impede a seleção */
+    -webkit-user-select: none; /* garante que funcione em outros navegadores */
+    -webkit-tap-highlight-color: transparent; /*tira o destque azul ao tocar nos elementos*/
 }
 
 /*Menu*/
