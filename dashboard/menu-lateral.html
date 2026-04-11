@@ -6,18 +6,24 @@
     <link rel="stylesheet" href="style.css">
     <script src="../dashboard/js/menu-lateral.js" defer></script>
     <title>Menu lateral</title>
+    <!-- link para os ícones -->
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
 </head>
 <body>
     
 <!-- Menu lateral -->
 
     <div class="nav-bar">
-        <span class="menu-btn" id="menuBtn">☰</span>
+        <!-- abrir menu lateral -->
+        <i class="fa-solid fa-bars menu-btn" id="menuBtn"></i>
         <!-- link do perfil -->
-        <a href="#">Perfil</a>
+        <a href="configuracoes.html">
+            <i class="fa-regular fa-circle-user"></i>
+        </a>
     </div>
-    <!-- linha de separação -->
-    <div class="linha-menu"></div>
+
     <nav class="menu" id="menu">
         <!-- botão de fechar menu -->
         <div class="btn-fechar-menu" id="btnFecharMenu">

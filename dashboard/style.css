@@ -17,6 +17,7 @@
     --cor4: #F1F1F1;
     --cor5: #72777f;
     --cor6: #e5e5e5;
+    --shadow: #98989840;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -714,7 +715,7 @@ button[type="submit"]{
     background-color: white;
     font-size: var(--font-small);    
     padding: var(--spacing-big);
-    box-shadow: 0 -1px 10px var(--cor6);
+    box-shadow: 0 -1px 10px var(--shadow);
     border-top-left-radius: var(--radius-round);
     border-top-right-radius: var(--radius-round);
 }
@@ -744,27 +745,18 @@ button[type="submit"]{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 10px 20px;
+    padding: var(--spacing-base);
+    box-shadow: 0 1px 6px var(--shadow);
 }
 
 /* botão para abrir o menu */
-.menu-btn{
+.menu-btn, .nav-bar a{
     color: var(--cor1);
-    font-size: 30px;
+    font-size: var(--font-menu);
     cursor: pointer;
-}
-
-.nav-bar a{
-    font-size: 20px;
+    display: flex;
     text-decoration: none;
-    color: var(--cor1);
-}
-
-/* linha de separação */
-.linha-menu{
-    width: 100%;
-    height: 2px;
-    background-color: #d5d5d5;
+    align-items: center;
 }
 
 /* botão de fechar o menu */
