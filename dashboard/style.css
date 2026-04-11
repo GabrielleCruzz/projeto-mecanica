@@ -810,6 +810,20 @@ button[type="submit"]{
     left: 0;
 }
 
+/*bloqueia clique em todos os elementos da página*/
+.no-click{
+    pointer-events: none;
+}
+
+/*permite interação no menu */
+.menu{
+    pointer-events: all;
+}
+
+/*impede scroll da página quando o menu estiver aberto*/
+.no-scroll {
+    overflow: hidden;
+}
 
 /* ===== página de serviços -> Alex - Isabella =====*/
 
