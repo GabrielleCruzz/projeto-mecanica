@@ -66,17 +66,16 @@ function mais() {
     botoesFuncionar();
 }
 
-const overlay = document.getElementById("overlay");
-const btnFechar = document.getElementById("btnFechar");
-
 // Abre o modal e trava o scroll da página
 function abrirModal() {
+    const overlay = document.getElementById("overlay");
     overlay.style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 
 // Fecha o modal e libera o scroll da página
 function fecharModal() {
+    const overlay = document.getElementById("overlay");
     overlay.style.display = "none";
     document.body.style.overflow = "auto";
 }
@@ -86,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 function botoesFuncionar() {
+    const btnFechar = document.getElementById("btnFechar");
     const btnDetalhes = document.querySelectorAll(".ver-detalhes");
     
     btnDetalhes.forEach(btn => {

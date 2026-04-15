@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Cliente</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./js/menu-lateral.js"></script>
+    <script src="js/servicos.js"></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
@@ -13,8 +13,6 @@
     <link href="../assets/icons/css/brands.css" rel="stylesheet" />
 </head>
 <body>
-
-<div id="menuContainer"></div>
 
     <main>
         <a href="clientes.html" class="voltar"><i class="fa-solid fa-angle-left"></i></a>
@@ -26,7 +24,7 @@
                 <span class="info-secundaria"><i class="fa-solid fa-phone"></i> (11) 99999-9999</span>
                 <span class="info-secundaria"><i class="fa-address-card fa-solid"></i>  123.456.789-00</span>
                 <span class="info-secundaria">Endereço: Em algum lugar ai</span>
-                <button>Editar</button>
+                <button id="editar">Editar</button>
                 <a href=""><i class="fa-brands fa-whatsapp"></i> Entrar em contato</a>
             </div>            
         </section>
@@ -54,7 +52,7 @@
                 <span class="info-destaque">Marca Modelo (2026)</span>
                 <span class="info-secundaria">Veículo (Placa)</span>
                 <span class="ver-detalhes">Ver detalhes</span>
-                <span class="status">Pendente</span>
+                <span class="status pendente">Pendente</span>
                 <span class="preco">R$1,00</span>
             </div>
             <div class="card-servicos">
@@ -62,7 +60,7 @@
                 <span class="info-destaque">Marca Modelo (2026)</span>
                 <span class="info-secundaria">Veículo (Placa)</span>
                 <span class="ver-detalhes">Ver detalhes</span>
-                <span class="status">Pendente</span>
+                <span class="status pendente">Pendente</span>
                 <span class="preco">R$1,00</span>
             </div>
 
@@ -70,6 +68,93 @@
 
         <a href="orcamento.html" class="novo-orcamento">+ Novo Orçamento</a>
     </main>
+
+    <div class="overlay" id="overlayEditar">
+        <form class="form-cliente editar-cliente">
+            <h2>Editar dados</h2>
+            <button class="btn-fechar-servico" id="btnFecharEditar"><i class="fa-solid fa-xmark " ></i></button>
+            <div class="campos-cliente">
+
+                <div class="campo">
+                    <input type="text" required value="Nome do cliente">
+                    <label>Nome</label>
+                </div>
+                <div class="campo">
+                    <input type="text" required value="Endereço do cliente">
+                    <label>Endereço</label>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="tel" required value="9999999999">
+                        <label>Telefone</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required value="123123123">
+                        <label>CPF/CNPJ</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campos-veiculo">
+                <h2>Veículos do cliente</h2>
+                <div class="linha-veiculo">
+                    <div class="campo">
+                        <input type="text" required value="PLACA">
+                        <label>Placa</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required value="Marca">
+                        <label>Marca</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" required value="modelo e ano">
+                        <label>Modelo/Ano</label>
+                    </div>
+
+                    <!-- Botões de adição e exclusão de veículos -->
+                    <button type="button" class="btn-excluir">Excluir</button>
+                </div>
+
+                <button type="button" id="btnAdicionar" onclick="criarLinhaVeiculo()">+ Novo veículo</button>
+            </div>
+            <button type="submit">Salvar alterações</button>
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="servico-detalhes">
+            <h2>Serviço #1</h2>
+            <button class="btn-fechar-servico" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="detalhes-info">
+                <span class="small">Veículo</span>
+                <span>Modelo/Marca, PLACA</span>
+            </div>
+            <div class="detalhes-info">
+                <span class="small">Cliente</span>
+                <span>Nome do Cliente, (11) 99999-9999</span>
+            </div>
+
+            <div class="detalhes-info">
+                <span class="small">serviço</span>
+                <span>Tipo de serviço</span>                
+            </div>
+            <div class="detalhes-info">
+                    <span class="small">Peça</span>
+                    <span>Nome da peça, código da peça</span>
+            </div>
+            <div class="detalhes-info">
+                    <span class="small">Valor</span>
+                    <span>R$300,00</span>
+            </div>
+            
+            <button class="mudarStatus" >Marcar como concluído</button>
+
+        </div>
+    </div>
 
     <!-- menu inferior -->
     <div class="menuInferior">
@@ -91,15 +176,73 @@
         </a>
     </div>
 
+
 <script>
-  fetch("menu-lateral.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("menuContainer").innerHTML = html;
+    // editar dados do cliente
 
-    initMenuLateral();
-  });
+    // Abre o modal e trava o scroll da página
+    function abrirModalEditar() {
+        const overlay = document.getElementById("overlayEditar");
+        overlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    // Fecha o modal e libera o scroll da página
+    function fecharModalEditar() {
+        const overlay = document.getElementById("overlayEditar");
+        overlay.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        botoesFuncionarEditar();
+    })
+
+    function botoesFuncionarEditar() {
+        const btnFechar = document.getElementById("btnFecharEditar");
+        const editar = document.getElementById("editar");
+        
+        editar.onclick = abrirModalEditar;
+        btnFechar.onclick = fecharModalEditar;
+    }
+
+    // Veículos
+
+    const btnAdicionar = document.getElementById("btnAdicionar");
+    const containerVeiculos = document.querySelector(".campos-veiculo");
+
+    // Cria uma nova linha de veículo
+    function criarLinhaVeiculo() {
+        const linha = document.createElement("div");
+        linha.classList.add("linha-veiculo");
+
+        linha.innerHTML = `
+            <div class="linha-separadora"></div>
+            <div class="campo">
+                <input type="text" required>
+                <label>Placa</label>
+            </div>
+            <div class="campo">
+                <input type="text" required>
+                <label>Marca</label>
+            </div>
+            <div class="campo">
+                <input type="text" required>
+                <label>Modelo/Ano</label>
+            </div>
+            <button type="button" class="btn-excluir">Excluir</button>
+        `;
+
+        // Remove a linha ao clicar no botão excluir
+        linha.querySelector(".btn-excluir").onclick = () => linha.remove();
+
+        return linha;
+    }
+
+    // Adiciona nova linha de veículo antes do botão
+    btnAdicionar.onclick = () => {
+        containerVeiculos.insertBefore(criarLinhaVeiculo(), btnAdicionar);
+    };
 </script>
-
 </body>
 </html>
