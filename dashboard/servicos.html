@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./js/orcamento.js" defer></script>
+    <script src="./js/servicos.js" defer></script>
     <script src="./js/menu-lateral.js" defer></script>    
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>    
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/brands.css" rel="stylesheet" />
 </head>
 <body>
     <!-- menu -->
@@ -33,73 +34,69 @@
 
         <!--Filtro-->
         <div class="filtro">
-            <button class="opcao">Todos</button>
-            <button class="opcao">Pendentes</button>
-            <button class="opcao">Concluídos</button>
+            <button class="opcao selected" onclick="filtrar('todos', this)">Todos</button>
+            <button class="opcao" onclick="filtrar('pendentes', this)">Pendentes</button>
+            <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos</button>
         </div>
 
-        <section>
-            <div class="card-servicos">
-                <span class="info-servico">Serviço #1</span>          
-                <span class="info-destaque">Tipo de serviço</span>
-                <span class="info-secundaria">Nome do cliente</span>
-                <span class="info-secundaria">Carro - Placa</span>
-                <span class="ver-detalhes" id="cadastrarCliente">Ver detalhes</span>
-                <span class="status concluido">Concluído</span>
-                <span class="preco">R$300</span>
-            </div>
+        <section >
+            <div id="cards">
+                <div class="card-servicos">
+                    <span class="info-servico">Serviço #1</span>          
+                    <span class="info-destaque">Tipo de serviço</span>
+                    <span class="info-secundaria">Nome do cliente</span>
+                    <span class="info-secundaria">Carro - Placa</span>
+                    <span class="ver-detalhes">Ver detalhes</span>
+                    <span class="status concluido">Concluído</span>
+                    <span class="preco">R$300</span>
+                </div>
 
-            <div class="card-servicos">
-                <span class="info-servico">Serviço #2</span>          
-                <span class="info-destaque">Tipo de serviço</span>
-                <span class="info-secundaria">Nome do cliente</span>
-                <span class="info-secundaria">Carro - Placa</span>
-                <span class="ver-detalhes" id="cadastrarCliente">Ver detalhes</span>
-                <span class="status">Pendente</span>
-                <span class="preco">R$900</span>
+                <div class="card-servicos">
+                    <span class="info-servico">Serviço #2</span>          
+                    <span class="info-destaque">Tipo de serviço</span>
+                    <span class="info-secundaria">Nome do cliente</span>
+                    <span class="info-secundaria">Carro - Placa</span>
+                    <span class="ver-detalhes">Ver detalhes</span>
+                    <span class="status pendente">Pendente</span>
+                    <span class="preco">R$900</span>
+                </div>
             </div>
 
             <!--Botão de mostrar mais-->
-            <div class="caixabotao">
-                <button class="mostrar">Mostrar mais</button>
+            <div class="mostrarMais">
+                <button onclick="mais()">Ver mais</button>
             </div>
         </section>
     </main>
 
 <div class="overlay" id="overlay">
         <div class="servico-detalhes">
-            <span class="btn-fechar-servicos" id="btnFechar">×</span>
-            <div>
-                <span class="small">Cliente</span>
-                <span>Nome e Sobrenome do Cliente</span>
-                <span class="small">Telefone: 9999999</span>
-                <span class="small">CPF: 123123123</span>
-            </div>
-            <div>
+            <h2>Serviço #1</h2>
+            <button class="btn-fechar-servico" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="detalhes-info">
                 <span class="small">Veículo</span>
-                <span>Modelo/Marca, Placa</span>
+                <span>Modelo/Marca, PLACA</span>
             </div>
-            <div>
-                <span>Tipo de serviço</span>
-                <span class="small">Peças</span>
-                <span class="small">Descrição do problema</span>
+            <div class="detalhes-info">
+                <span class="small">Cliente</span>
+                <span>Nome do Cliente, (11) 99999-9999</span>
             </div>
-            <div>
-                <span class="small">Valor</span>
-                <span>R$999</span>
+
+            <div class="detalhes-info">
+                <span class="small">serviço</span>
+                <span>Tipo de serviço</span>                
             </div>
-            <div>
-                <span class="small">Data</span>
-                <span>01/01/01</span>
+            <div class="detalhes-info">
+                    <span class="small">Peça</span>
+                    <span>Nome da peça, código da peça</span>
             </div>
-            <div>
-                <span class="small">Mecânico</span>
-                <span>Nome do Mecânico</span>
+            <div class="detalhes-info">
+                    <span class="small">Valor</span>
+                    <span>R$300,00</span>
             </div>
-            <div class="share">
-                <span>Compartilhar</span>
-                <button>WhatsApp</button>
-            </div>
+            
+            <button class="mudarStatus" >Marcar como concluído</button>
+
         </div>
     </div>
 

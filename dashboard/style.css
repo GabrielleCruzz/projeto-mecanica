@@ -32,6 +32,7 @@
     --font-medium: 16px;    /* títulos menores */
     --font-base: 14px;      /* maioria dos textos */
     --font-small: 12px;     /* textinhos menores dos cards */
+    --font-smaller: 10px;   /* textinhoinhos */
 
     /* border-radius */
     --radius: 14px;         /* cards e geral */
@@ -81,7 +82,6 @@ div.pesquisa > input{
     padding: var(--spacing-big);
     font-size: var(--font-base);
     background-color: white;
-    color: var(--cor2);
     border: none;
 }
 
@@ -310,18 +310,22 @@ div.pesquisa > img{
 
 .card-servicos .status {
     position: absolute;
-    /* top: var(--spacing-small); */
     right: var(--spacing-small);
-    color: var(--cor1);
-    background-color: #d5ddff;
     border-radius: var(--radius-round);
     padding: 2px var(--spacing-big);
     font-size: var(--font-small);
 }
 
+.card-servicos .status.pendente {
+    border: solid 1px #d668001a;
+    color: #d46700;
+    background-color: #fff2e7;
+}
+
 .card-servicos .status.concluido {
-    color: var(--cor5);
-    background-color: var(--cor3);
+    border: solid 1px #0092001a;
+    color: #009200;
+    background-color: #e7ffe7;
 }
 
 .card-servicos .preco {
@@ -827,40 +831,38 @@ button[type="submit"]{
 
 /* ===== página de serviços -> Alex - Isabella =====*/
 
+/* filtros */
 .servicos .filtro .opcao{
+    transition: 0.3s ease;
     font-size: var(--font-small); 
     border: none;
     background-color: #e6e6e6;
-    color:  #72777f;
+    color: var(--cor5);
     padding: 8px 16px;
-    border-radius: 20px;    
-}
-
-.servicos .filtro .opcao:first-child{
-    background-color: #000199;
-    color: white;
-}
-
-/*Coloquei só para ele ficar azul*/
-.servicos .filtro .opcao:hover{
-    background-color: #000199;
-    color: white;
+    border-radius: var(--radius-round);
     cursor: pointer;
 }
 
-/*Botão ver mais*/
-.servicos .caixabotao{
+.servicos .filtro .selected, .filtro .opcao:hover{
+    background-color: #000199;
+    color: white;
+}
+
+/* Botão ver mais */
+.servicos .mostrarMais {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
-.servicos .mostrar{ 
-    /* background-color: var(--cor); */
+
+.mostrarMais button {    
+    cursor: pointer;
     border: none;
     color: var(--cor1);
-    width: 180px;
-    height: 30px; 
-    border-radius: 50px;
+}
+
+.mostrarMais button:hover {
+    text-decoration: underline;
 }
 
 /* modal detalhes do serviço - isabella */
@@ -868,53 +870,49 @@ button[type="submit"]{
 .servico-detalhes {
     position: relative;
     background-color: white;
-    /* border: 2px solid var(--cor3); */
+    width: 90%;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    padding: 42px 16px 16px 16px;
-    gap: 16px;
+    border-radius: var(--radius);
+    padding: var(--spacing-small);
+    gap: 10px;
 }
 
-.servico-detalhes div, .servico-detalhes > span {
+.btn-fechar-servico {
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: absolute;
+    font-size: var(--font-medium);
+    right: var(--spacing-small);
+}
+
+.detalhes-info{
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 1px solid var(--cor3);
+    border: 1px solid var(--cor6);
     border-radius: 10px;
 }
 
 .servico-detalhes div .small {
-    font-size: 10px;
+    font-size: var(--font-smaller);
     color: #b4b4b4;
 }
 
 .servico-detalhes div span {
-    font-size: 14px;
+    font-size: var(--font-base);
 }
 
-.servico-detalhes .share {
-    color: #72777f;
-    border: none;
-    padding: 0;
-    gap: 6px;
-}
-
-.servico-detalhes .share button {
+.servico-detalhes .mudarStatus {
     background-color: var(--cor);
     color: white;
     border: none;
     border-radius: 16px;
-    padding: 4px;
+    padding: 6px;
+    cursor: pointer;
 }
-
-.servico-detalhes > span:first-child {
-    border: none;
-    position: absolute;
-    right: 10px;
-    top: 2px;
-}
-
 
 /* ===== página de configuração -> Alex*/
 
