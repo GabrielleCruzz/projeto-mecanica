@@ -193,6 +193,7 @@ div.pesquisa > img{
 }
 
 .title button, .title a {
+    cursor: pointer;
     color: white;     
     background-color: var(--cor);
     font-size: var(--font-base);
@@ -365,7 +366,6 @@ div.pesquisa > img{
     color: var(--cor5);
     font-weight: 300;
     font-size: 1em;
-    margin: 20px 0 10px;
 }
 
 /* Campo para buscar por um cliente */

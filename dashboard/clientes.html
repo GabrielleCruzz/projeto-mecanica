@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="./js/menu-lateral.js"></script>
     <title>Clientes</title>
-    <script src="script.js" defer></script>
+    <script src="./js/menu-lateral.js"></script>
+    <script src="js/orcamento.js" defer></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
@@ -62,7 +62,7 @@
         <form class="form-cliente">
 
             <!-- Botão de fechar o formulário -->
-            <span class="btn-fechar" id="btnFechar">×</span>
+            <span class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></span>
             <h2>Cadastrar Cliente</h2>
 
             <!--Dados do cliente-->
@@ -71,6 +71,11 @@
                 <div class="campo">
                     <input type="text" required>
                     <label>Nome</label>
+                </div>
+
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Endereço</label>
                 </div>
 
                 <div class="linha-cliente">
@@ -84,24 +89,6 @@
                         <label>CPF/CNPJ</label>
                     </div>
                 </div>
-
-                <div class="linha-cliente">
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Bairro</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Rua</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Nº</label>
-                    </div>
-                </div>
-
             </div>
 
             <!--Dados do veículo-->
