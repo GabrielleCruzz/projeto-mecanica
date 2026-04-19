@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/menu-lateral.js"></script>
+    <!-- link para os ícones -->
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+</head>
+<body>
+    <!-- menu lateral -->
+    <div id="menuContainer"></div>
+
+    <!-- conteúdo principal -->
+    <main>
+        <!-- título da página -->
+        <h1>Estoque</h1>
+        
+        <button class="btn-nova-peca">+ Adicionar peça</button>
+
+        <!-- Barra de pesquisa -->
+        <div class="pesquisa">
+            <input type="text" placeholder="Buscar por peça..." />
+            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
+        </div>
+
+        <!-- filtro -->
+        <div class="filtro">
+            <button class="opcao selected">Todas</button>
+            <button class="opcao">Em falta (1)</button>
+        </div>
+
+        <!-- peças -->
+        <div class="peca-cards">
+            <div class="peca-card">
+                <span class="info-id">#1</span>
+                <span class="info-destaque">Nome da peça</span>
+                <span class="info-destaque">R$80,00</span>
+                <span class="info-secundaria">Veículo compatível</span>
+                <span class="info-secundaria">120x120cm</span>
+                <button class="btn-qnt">1 unidades <i class="fa-solid fa-pen"></i></button>
+                <button class="btn-edt">Editar</button>
+            </div>
+            <div class="peca-card">
+                <span class="info-id">#2</span>
+                <span class="info-destaque">Nome da peça</span>
+                <span class="info-destaque">R$80,00</span>
+                <span class="info-secundaria">Veículo compatível</span>
+                <span class="info-secundaria">120x120cm</span>
+                <button class="btn-qnt zero">0 unidades <i class="fa-solid fa-pen"></i></button>
+                <button class="btn-edt">Editar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- menu inferior -->
+    <div class="menuInferior">
+        <a href="index.html" class="atual">
+            <i class="fa-solid fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="orcamento.html">
+            <i class="fa-solid fa-plus"></i>
+            <span>Novo</span>
+        </a>
+        <a href="servicos.html">
+            <i class="fa-regular fa-clipboard"></i>
+            <span>Serviços</span>
+        </a>
+        <a href="clientes.html">
+            <i class="fa-regular fa-user"></i>
+            <span>Clientes</span>
+        </a>
+    </div>
+
+    <!-- script incluir menu lateral -->
+    <script>
+        fetch("menu-lateral.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("menuContainer").innerHTML = html;
+
+            initMenuLateral();
+        });
+    </script>
+</body>
+</html>
