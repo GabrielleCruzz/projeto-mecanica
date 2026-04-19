@@ -87,7 +87,6 @@ div.pesquisa > input{
 
 div.pesquisa > input:focus{
     outline: 1px solid #d5d5d5;
-    transition: outline 0.4s ease;
 }
 
 div.pesquisa > img{
@@ -841,9 +840,9 @@ button[type="submit"]{
 /* ===== página de serviços -> Alex - Isabella =====*/
 
 /* filtros */
-.servicos .filtro .opcao{
+.filtro .opcao{
     transition: 0.3s ease;
-    font-size: var(--font-small); 
+    font-size: var(--font-base); 
     border: none;
     background-color: #e6e6e6;
     color: var(--cor5);
@@ -852,7 +851,7 @@ button[type="submit"]{
     cursor: pointer;
 }
 
-.servicos .filtro .selected, .filtro .opcao:hover{
+.filtro .selected, .filtro .opcao:hover{
     background-color: #000199;
     color: white;
 }
@@ -921,6 +920,76 @@ button[type="submit"]{
     border-radius: 16px;
     padding: 6px;
     cursor: pointer;
+}
+
+/* ===== PÁGINA ESTOQUE -> ISABELLA ===== */
+
+/* botão para adicionar nova peça */
+.btn-nova-peca {
+    color: white;
+    border: none;
+    font-weight: 500;
+    background-color: var(--cor);
+    font-size: var(--font-medium);
+    padding: var(--spacing-small);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+/* div dos cards de peças */
+.peca-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-cards);
+}
+
+/* cada card */
+.peca-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid var(--cor6);
+    padding: var(--spacing-small);
+    border-radius: var(--radius);
+}
+
+/* código da peça */
+.info-id {
+    font-weight: 500;
+    color: var(--cor1);
+    font-size: var(--font-base);
+}
+
+/* botões do card */
+.peca-card button {
+    right: 12px;
+    position: absolute;
+    font-weight: 500;
+    padding: var(--spacing-small-btn);
+    cursor: pointer;
+}
+
+.peca-card .btn-qnt {
+    width: 120px;
+    font-size: var(--font-small);
+    border-radius: var(--radius-round);
+    border: none;
+    background-color: var(--cor);
+    color: white;
+}
+
+.peca-card .btn-qnt.zero {
+    background-color: #ef1b1b;
+}
+
+.peca-card .btn-edt {
+    bottom: 12px;
+    color: var(--cor1);
+    border: 1px solid var(--cor1);
+    font-size: var(--font-smaller);
+    background-color: var(--cor4);   
+    border-radius: var(--radius-small);
 }
 
 /* ===== página de configuração -> Alex*/
