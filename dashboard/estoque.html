@@ -20,7 +20,7 @@
         <!-- título da página -->
         <h1>Estoque</h1>
         
-        <button class="btn-nova-peca">+ Adicionar peça</button>
+        <button class="btn-nova-peca" id="btn-nova-peca">+ Adicionar peça</button>
 
         <!-- Barra de pesquisa -->
         <div class="pesquisa">
@@ -57,6 +57,50 @@
         </div>
     </main>
 
+    <div class="overlay" id="overlay">
+        <form class="form-cliente">
+            <!-- Botão de fechar o formulário -->
+            <span class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></span>
+            <h2>Adicionar peça</h2>
+
+            <!--dados da peça-->
+            <div class="campos-cliente">
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Nome da peça</label>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required>
+                        <label>Código</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required>
+                        <label>Preço (R$)</label>
+                    </div>                    
+                </div>
+
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Compatibidade</label>
+                </div>
+                
+                <div class="campo">
+                    <input type="tex" required>
+                    <label>Tamanho/Medida (opcional)</label>
+                </div>
+
+                <div class="campo">
+                    <input type="number" required>
+                    <label>Quantidade no estoque</label>
+                </div>                
+            </div>
+            <button type="submit">Adicionar ao estoque</button>
+        </form>
+    </div>
+
     <!-- menu inferior -->
     <div class="menuInferior">
         <a href="index.html" class="atual">
@@ -76,6 +120,29 @@
             <span>Clientes</span>
         </a>
     </div>
+
+    <!-- script modal adicionar peça -->
+    <script>
+        const btnAdd = document.getElementById("btn-nova-peca");
+        const overlay = document.getElementById("overlay");
+        const btnFechar = document.getElementById("btnFechar");
+
+        // Eventos de abrir e fechar o modal
+        btnAdd.onclick = abrirModal;
+        btnFechar.onclick = fecharModal;
+
+        // Abre o modal e trava o scroll da página
+        function abrirModal() {
+            overlay.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // Fecha o modal e libera o scroll da página
+        function fecharModal() {
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
 
     <!-- script incluir menu lateral -->
     <script>

@@ -704,9 +704,8 @@ button[type="submit"]{
     font-size: var(--font-base);
     padding: var(--spacing-small);
     border-radius: var(--radius-round);
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
-    margin-top: 15px;
 }
 
 /* Separa os veículos adicionados */
