@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="./js/menu-lateral.js"></script>
     <!-- link para os ícones -->
-    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+    <link href="../assets/icons/css/regular.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -20,37 +20,49 @@
     <main class="configuracao">
         <!--Titulo-->
         <h1>Configurações</h1>
+        <h2>Acessibilidade</h2>
+        <div class="modo-escuro">
+            <p>Modo escuro</p>
+        </div>
 
-        <!--Fundo branco-->
-        <div class="painel">
+        <div class="conta-editar">
+            <h2>Conta</h2>
+            <button id="btnEditar">Editar</button>
+        </div>
+        <!--Campo para digitar-->
+        <div class="caixa-info">
+            <p class="texto">E-mail</p>
+            <input type="email" class="campo" value="emaildousuario@gmail.com">
+        </div>
 
-            <!--Campo para digitar-->
-            <div>
-                <p class="texto">Nome da oficina</p>
-                <input type="text" class="campo" value="Nome da Oficina">
-            </div>
+        <!--Campo para digitar-->
+        <div class="caixa-info">
+            <p class="texto">Senha</p>
+            <input type="password" class="campo" value="123456789">
+        </div>
 
-            <!--Campo para digitar-->
-            <div>
-                <p class="texto">Telefone</p>
-                <input type="text" class="campo" value="(11) 99999-9999">
-            </div>
+        <h2>Informações</h2>
+        <!--Campo para digitar-->
+        <div class="caixa-info">
+            <p class="texto">Nome da oficina</p>
+            <input type="text" class="campo" value="Nome da oficina mecânica">
+        </div>
 
-            <!--Campo para digitar-->
-            <div>
-                <p class="texto">Endereço</p>
-                <input type="text" class="campo" value="Cidade, Rua, Bairro, N°">
-            </div>
+        <div class="caixa-info">
+            <p class="texto">Telefone do fornecedor</p>
+            <input type="text" class="campo" value="11 9999-8888">
+        </div>
 
-            <!--Botão-->
-            <button class="botao">Editar</button>
 
         </div>
         <!--Link/botão-->
-        <a href="../landing/index.html" class="sair">Sair</a>
+        <div class="sair">
+            <a href="../landing/index.html" class="btn-sair">Desconectar
+                <i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
     </main>
 
-        <!-- menu inferior -->
+    <!-- menu inferior -->
     <div class="menuInferior">
         <a href="index.html">
             <i class="fa-regular fa-house"></i>

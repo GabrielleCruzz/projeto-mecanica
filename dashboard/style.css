@@ -1014,49 +1014,61 @@ button[type="submit"]{
     margin: 0 0 15px 0;
 }
 
-/*Painel em branco*/
-.configuracao .painel{
-    background-color: white;
-    width: 100%;
+.modo-escuro {
     display: flex;
-    flex-direction: column;
-    padding: 15px;
-    gap: 16px;
-    border-radius: 15px;
+    font-size: 12px;
+    align-items: center;
+    color: var(--cor5);
+    gap: 20px;
 }
 
-.configuracao .painel div{
-    border: 1px solid var(--cor3);
-    padding: 10px;
-    border-radius: 10px;
+.conta-editar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.conta-editar button{
+    border: none;
+    color: var(--cor1);
+    font-weight: 650;
+    margin-top: 10px;
+}
+
+.configuracao h2{
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
 }
 
 /*Campo para digitar*/
 .configuracao .campo{
     width: 100%;
     border: none;
-    border-radius: 15px;
+    border-radius: 7px;
+    background-color: var(--cor6);
+    padding: 13px;
+    font-size: 12px;
+    color: var(--cor5);
+    transition: 0.3s ease;
 }
 
 /*Texto*/
 .configuracao .texto{
-    color: var(--cor5);
     font-size: 11px;
+    margin-bottom: 5px;
+    color: var(--cor5);
 }
 
-/*Botão*/
-.configuracao .botao{
-    background-color: var(--cor);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 8px;
-}
-
-.sair {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    font-size: 14px;
+.sair a {
+    font-size: 12px;
+    color: var(--cor1);
     text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    border: 1.5px solid var(--cor1);
+    border-radius: 10px;
+}
+
+.sair{
+    margin-top: 15px;
 }
