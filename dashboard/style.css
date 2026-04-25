@@ -1022,6 +1022,18 @@ button[type="submit"]{
     gap: 20px;
 }
 
+.conta-editar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.conta-editar button{
+    border: none;
+    color: var(--cor1);
+    font-weight: 650;
+    margin-top: 10px;
+}
+
 /* switch base */
 .switch {
     position: relative;
@@ -1070,18 +1082,6 @@ button[type="submit"]{
 /* movimento */
 .switch input:checked + .slider::before {
     transform: translateX(25px);
-}
-
-.conta-editar{
-    display: flex;
-    justify-content: space-between;
-}
-
-.conta-editar button{
-    border: none;
-    color: var(--cor1);
-    font-weight: 650;
-    margin-top: 10px;
 }
 
 .configuracao h2{
