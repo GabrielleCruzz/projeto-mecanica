@@ -112,3 +112,97 @@ function criarPeca() {
 btnAddPeca.onclick = () => {
     listaPecas.appendChild(criarPeca());
 };
+
+
+
+// Adiciona lista na busca
+const input = document.querySelector(".busca input");
+const lista = document.getElementById("lista");
+let itens = Array.from(document.querySelectorAll(".item"));
+
+// função principal: filtra e organiza os resultados
+function filtrarLista() {
+
+    // pega o valor digitado em minúsculo
+    const valor = input.value.toLowerCase();
+    // controla se encontrou algum resultado
+    let temResultado = false;
+
+    // ordena os itens:
+    // 1. quem começa com o valor digitado vem primeiro
+    // 2. depois ordena em ordem alfabética
+    itens.sort((a, b) => {
+        const textoA = a.textContent.toLowerCase();
+        const textoB = b.textContent.toLowerCase();
+
+        const comecaA = textoA.startsWith(valor);
+        const comecaB = textoB.startsWith(valor);
+
+        // se ambos são iguais na prioridade, ordena alfabeticamente
+        return textoA.localeCompare(textoB);
+    });
+
+    // percorre os itens já ordenados
+    itens.forEach(item => {
+
+        const texto = item.textContent.toLowerCase();
+
+        // verifica se inclui o valor digitado
+        const match = texto.includes(valor);
+
+        if (match) {
+            // mostra o item
+            item.style.display = "block";
+
+            // adiciona na lista já na nova ordem
+            lista.appendChild(item);
+
+            temResultado = true;
+        } else {
+            item.style.display = "none";
+        }
+    });
+
+    // mostra a lista só se tiver resultado
+    if (valor && temResultado) {
+        lista.style.display = "block";
+    } else {
+        lista.style.display = "none";
+    }
+}
+
+
+// função quando clica em um item
+function selecionarItem(item) {
+    // coloca o nome no input
+    input.value = item.textContent;
+
+    // esconde a lista
+    lista.style.display = "none";
+}
+
+
+// evento: quando digita
+input.addEventListener("input", filtrarLista);
+
+
+// evento: quando clica no input
+input.addEventListener("focus", () => {
+    if (input.value) {
+        lista.style.display = "block";
+    }
+});
+
+
+// adiciona clique em cada item
+itens.forEach(item => {
+    item.addEventListener("click", () => selecionarItem(item));
+});
+
+
+// evento global: clicar fora fecha a lista
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".busca")) {
+        lista.style.display = "none";
+    }
+});
