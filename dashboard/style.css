@@ -324,7 +324,7 @@ span.red {
 /* ===== Página de Orçamentos -> Gabrielle ===== */
 
 /* lista */
-.lista {
+.lista-cliente {
     position: absolute;
     top: 100%;
     width: 80%;
@@ -335,15 +335,16 @@ span.red {
     display: none;
     max-height: 150px;
     overflow-y: auto; /*ativa o scroll*/
+    z-index: 99;
 }
 
 /* itens */
-.item {
-    padding: 10px;
+.item-cliente, .item-veiculo{
+    padding: 5px;
     cursor: pointer;
 }
 
-.item:hover {
+.item-cliente:hover {
     background-color: var(--cor6);
 }
 
@@ -360,10 +361,12 @@ span.red {
     margin-bottom: 10px;
 }
 
-.container h2, .form-cliente h2 {
+.container h2{
     color: var(--cor5);
     font-weight: 300;
     font-size: 1em;
+    margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 /* Campo para buscar por um cliente */
@@ -402,22 +405,33 @@ span.red {
 }
 
 /* Campo para selecionar o veículo */
-.veiculo select{
+
+.veiculo{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.veiculo input{
     width: 100%;
     border-radius: 15px;
     border: none;
-    background-color: white;
     padding: 15px;
 }
 
-select option {
-    font-size: 10px;
+.lista-veiculos{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    max-height: 150px;
+    display: none;
 }
 
 /* campo para escrever o diagnóstico */
-.diagnostico{
-    margin-top: 20px;
-}
 
 .diagnostico textarea{
     width: 100%;
@@ -434,7 +448,7 @@ select option {
 .linha-peca{
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    margin-bottom: 12px;
     align-items: center;
 }
 

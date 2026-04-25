@@ -25,17 +25,17 @@
     <div class="busca">
         <input type="text" placeholder="Buscar por um cliente..." />
         <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
-        <div id="lista" class="lista">
-            <div class="item">Ademar Silva</div>
-            <div class="item">Sérgio Nascimento</div>
-            <div class="item">Claúdio Soares</div>
-            <div class="item">Geraldo Campos</div>
-            <div class="item">Luis Martins</div>
-            <div class="item">Carlos Vieira</div>
-            <div class="item">Roberto Carvalho</div>
-            <div class="item">Márcio Pereira</div>
-            <div class="item">Luis Ribeiro</div>
-            <div class="item">Ademar Costa</div>
+        <div id="listaCliente" class="lista-cliente">
+            <div class="item-cliente">Ademar Silva</div>
+            <div class="item-cliente">Sérgio Nascimento</div>
+            <div class="item-cliente">Claúdio Soares</div>
+            <div class="item-cliente">Geraldo Campos</div>
+            <div class="item-cliente">Luis Martins</div>
+            <div class="item-cliente">Carlos Vieira</div>
+            <div class="item-cliente">Roberto Carvalho</div>
+            <div class="item-cliente">Márcio Pereira</div>
+            <div class="item-cliente">Luis Ribeiro</div>
+            <div class="item-cliente">Ademar Costa</div>
         </div>
         <button id="cadastrarCliente">+</button>
     </div>
@@ -43,13 +43,12 @@
     <!-- Selecionar o veículo -->
     <h2>Veículo</h2>
     <div class="veiculo">
-        <select name="veiculo">
-            <option value="">Selecione o veículo</option>
-            <option value="veiculo1">Veículo 1</option>
-            <option value="veiculo2">Veículo 2</option>
-            <option value="veiculo3">Veículo 3</option>
-            <option value="veiculo4">Veículo 4</option>
-        </select>
+        <input type="text" placeholder="Selecione o veículo">
+        <div id="listaVeiculo" class="lista-veiculos">
+            <div class="item-veiculo">Fiat Uno 2015</div>
+            <div class="item-veiculo">Volkswagen Gol 2018</div>
+            <div class="item-veiculo">Chevrolet Onix 2020</div>
+        </div>
     </div>
 
     <!-- Diagnóstico do veículo -->

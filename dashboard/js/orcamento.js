@@ -117,8 +117,8 @@ btnAddPeca.onclick = () => {
 
 // Adiciona lista na busca
 const input = document.querySelector(".busca input");
-const lista = document.getElementById("lista");
-let itens = Array.from(document.querySelectorAll(".item"));
+const lista = document.getElementById("listaCliente");
+let itens = Array.from(document.querySelectorAll(".item-cliente"));
 
 // função principal: filtra e organiza os resultados
 function filtrarLista() {
@@ -204,5 +204,31 @@ itens.forEach(item => {
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".busca")) {
         lista.style.display = "none";
+    }
+});
+
+
+// Campo de busca de veículos
+const inputVeic = document.querySelector(".veiculo input");
+const listaVeic = document.getElementById("listaVeiculo");
+const itensVeic = document.querySelectorAll(".item-veiculo");
+
+// abre a lista quando clica no input
+inputVeic.addEventListener("focus", () => {
+    listaVeic.style.display = "block";
+});
+
+// ao clicar em um item pega o texto e coloca no input
+itensVeic.forEach(item => {
+    item.addEventListener("click", () => {
+        inputVeic.value = item.textContent;
+        listaVeic.style.display = "none";
+    });
+});
+
+// clicar fora fecha a lista
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".veiculo")) {
+        listaVeic.style.display = "none";
     }
 });
