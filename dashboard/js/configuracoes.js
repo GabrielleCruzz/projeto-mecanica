@@ -1,3 +1,16 @@
+// Faz o switch funcionar
+
+const btnEscuro = document.getElementById("switch")
+const body = document.querySelector('body')
+
+btnEscuro.addEventListener('click', () => {
+    btnEscuro.classList.toggle('dark')
+    body.classList.toggle('dark')
+})
+
+
+// Permite editar os inputs
+
 const botao = document.getElementById("btnEditar");
 const campos = document.querySelectorAll(".campo");
 
@@ -5,24 +18,13 @@ let editando = false;
 
 botao.addEventListener("click", () => {
 
-    if (editando === false) {
-        editando = true;
+    editando = !editando;
 
-        campos.forEach(campo => {
-            campo.disabled = false;
-            campo.style.backgroundColor = "white";
-        });
+    campos.forEach(campo => {
+        campo.disabled = !editando;
 
-        botao.textContent = "Salvar";
+        campo.classList.toggle("editando", editando);
+    });
 
-    } else {
-        editando = false;
-
-        campos.forEach(campo => {
-            campo.disabled = true;
-            campo.style.backgroundColor = "var(--cor6)";
-        });
-
-        botao.textContent = "Editar";
-    }
+    botao.textContent = editando ? "Salvar" : "Editar";
 });

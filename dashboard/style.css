@@ -18,6 +18,9 @@
     --cor5: #72777f;
     --cor6: #e5e5e5;
     --shadow: #98989840;
+
+    /* Modo escuro */
+    --dark-blue: #3976ff;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -1032,56 +1035,39 @@ button[type="submit"]{
     color: var(--cor1);
     font-weight: 650;
     margin-top: 10px;
+    background: transparent;
 }
 
-/* switch base */
+/* switch */
 .switch {
     position: relative;
     width: 50px;
     height: 20px;
-}
-
-/* esconde checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* fundo */
-.slider {
-    position: absolute;
+    background-color: var(--cor3);
+    border-radius: 20px;
+    position: relative;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ccc;
-    border-radius: 25px;
-    transition: .3s;
 }
 
-/* bolinha */
-.slider::before {
-    content: "";
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    left: 5px;
-    bottom: 2.5px;
-    background: white;
+.switch .indicador{
+    width: 20px;
+    height: 20px;
+    background-color: white;
     border-radius: 50%;
-    transition: .3s;
+    transform: scale(.8);
+    position: absolute;
+    left: 0;
+    transition: .4s;
 }
 
-/* ativo */
-.switch input:checked + .slider {
-    background: var(--cor1);
+.switch.dark{
+    background-color: var(--dark-blue);
+    transition: .5s;
 }
 
-/* movimento */
-.switch input:checked + .slider::before {
-    transform: translateX(25px);
+/* modo escuro */
+.switch.dark .indicador{
+    left: 30px; 
 }
 
 .configuracao h2{
