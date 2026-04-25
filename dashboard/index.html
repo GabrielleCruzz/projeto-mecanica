@@ -28,35 +28,45 @@
       <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
     </div>
 
-    <!-- Resumo semanal -->
+    <!-- resumo de serviços, rendimentos e peças -->
     <div class="resumo">
-      <h2>Esta semana</h2>
-      <!-- cards de informações -->
-      <div class="info-cards">
-        <div class="card">
-          <span>R$0,00</span>
-          <p>Rendimento</p>
-        </div>
-        <div class="card">
-          <span>0</span>
-          <p>Serviços realizados</p>
-        </div>
+      <div class="resumo-card">              
+        <span>R$0,00</span>
+        <p>Rendimento esta semana</p>
+      </div>
+      <div class="resumo-links">
+        <a href="servicos.html" class="resumo-card">
+          <i class="fa-solid fa-up-right-from-square"></i>
+          <span>4</span>
+          <p>Serviços pendentes</p>          
+        </a>
+        <a href="estoque.html" class="resumo-card">
+          <i class="fa-solid fa-up-right-from-square"></i>
+          <span class="red">3</span>
+          <p>Peças em falta</p>          
+        </a>
       </div>
     </div>
-    
-    <!-- divisor -->
-    <div class="linhabranca"></div>
 
-    <!--Os botoes gigantes-->
-    <div class="botoesprincipais">
-      <a href="orcamento.html">Criar orçamento</a>
-      <a href="servicos.html">Serviços</a>
-    </div>
-
-    <!--Os botoes pequenos-->
-    <div class="botoesduplo">
-      <a href="estoque.html">Estoque</a>
-      <a href="clientes.html">Cliente</a>
+    <!-- serviços em andamento -->
+    <div>
+      <h2>Serviços em andamento</h2>      
+      <div class="card-servicos">
+        <span class="info-servico">Serviço #4</span>          
+        <span class="info-destaque">Marca Modelo (2020)</span>
+        <span class="info-secundaria">Veículo (Placa)</span>
+        <span class="ver-detalhes">Ver detalhes</span>
+        <span class="status pendente">Em andamento</span>
+        <span class="preco">R$220,00</span>
+      </div>
+      <div class="card-servicos">
+        <span class="info-servico">Serviço #5</span>          
+        <span class="info-destaque">Marca Modelo (2020)</span>
+        <span class="info-secundaria">Veículo (Placa)</span>
+        <span class="ver-detalhes">Ver detalhes</span>
+        <span class="status pendente">Em andamento</span>
+        <span class="preco">R$410,00</span>
+      </div>
     </div>
   </main>
   
