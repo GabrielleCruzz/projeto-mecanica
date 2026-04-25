@@ -21,6 +21,10 @@
 
     /* Modo escuro */
     --dark-blue: #3976ff;
+    --dark-bg: #111013;
+    --dark-cinza-escuro: #1c1b1e;
+    --dark-cinza-claro: #989898;
+    --dark-cinza: #2e2e2e;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -1007,7 +1011,7 @@ button[type="submit"]{
     border-radius: var(--radius-small);
 }
 
-/* ===== página de configuração -> Alex*/
+/* ===== página de configuração -> Alex / Gabrielle ===== */
 
 /*Titulo*/
 .configuracao > h1{
@@ -1070,9 +1074,56 @@ button[type="submit"]{
     left: 30px; 
 }
 
+body{
+    transition: .5s;
+}
+
+body.dark{
+    background-color: var(--dark-bg);
+    transition: .5s;
+}
+
+body.dark h2{
+    color: white;
+}
+
+body.dark h1{
+    color: var(--dark-blue);
+}
+
+body.dark .configuracao input, body.dark .menuInferior{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .texto, body.dark .menuInferior i{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark button{
+    color: var(--dark-blue);
+}
+
+body.dark .sair i, body.dark .sair a, body.dark .nav-bar i{
+    color: var(--dark-blue);
+}
+
+body.dark .sair a{
+    border: 1.5px solid var(--dark-blue);
+}
+
+body .campo.editando {
+    background-color: white;
+    transition: .6s;
+}
+
+body.dark .campo.editando {
+    background-color: var(--dark-cinza);
+    color: var(--dark-cinza-claro);
+}
+
 .configuracao h2{
     font-size: 14px;
-    color: black;
+    color: var(--dark-bg);
     margin-top: 10px;
 }
 
