@@ -26,6 +26,7 @@
     --dark-cinza-claro: #989898;
     --dark-cinza: #2e2e2e;
     --dark-laranja: #ff7a00;
+    --dark-verde: #00a210;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -1051,6 +1052,34 @@ div.filtro {
 
 .mostrarMais button:hover {
     text-decoration: underline;
+}
+
+/* Modo escuro */
+
+body.dark .status.concluido{
+    background-color: transparent;
+    border: 1px solid var(--dark-verde);
+    color: var(--dark-verde);
+}
+
+body.dark .status.pendente{
+    background-color: transparent;
+    border: 1px solid var(--dark-cinza-claro);
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .btn-novo{
+    background-color: var(--dark-blue);
+}
+
+body.dark .filtro .opcao.selected{
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+body.dark .filtro .opcao{
+    background-color: var(--dark-cinza);
+    color: var(--dark-cinza-claro);
 }
 
 /* modal detalhes do serviço - isabella */

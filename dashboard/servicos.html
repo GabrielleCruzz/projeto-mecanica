@@ -23,7 +23,7 @@
         <!--Titulo da pagina-->
         <div class="title">
             <h1>Serviços</h1>
-            <a href="orcamento.html">+ Novo</a>
+            <a class="btn-novo" href="orcamento.html">+ Novo</a>
         </div>
 
         <!--Barra de pesquisa-->
@@ -83,7 +83,7 @@
 <div class="overlay" id="overlay">
         <div class="servico-detalhes">
             <h2>Serviço #1</h2>
-            <button class="btn-fechar-servico" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
+            <button class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
             <div class="detalhes-info">
                 <span class="small">Veículo</span>
                 <span>Modelo/Marca, PLACA</span>
@@ -139,6 +139,10 @@
 
     initMenuLateral();
   });
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
 </script>
 
 </body>
