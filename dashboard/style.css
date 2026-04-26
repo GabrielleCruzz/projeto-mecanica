@@ -165,7 +165,7 @@ body.dark .index h1{
     color: var(--dark-blue);
 }
 
-body.dark .index input{
+body.dark input{
     background-color: var(--dark-cinza-escuro);
     color: var(--dark-cinza-claro);
 }
@@ -261,6 +261,31 @@ body.dark .menuInferior a{
 .ver-detalhes:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* Modo escuro */
+
+body.dark #cadastrarCliente{
+    background-color: var(--dark-blue);
+    color: var(--dark-cinza);
+    font-weight: 500;
+}
+
+body.dark .cliente-card{
+    background-color: var(--dark-cinza-escuro);
+    border: none;
+}
+
+body.dark .cliente-card .info-destaque{
+    color: white;
+}
+
+body.dark .cliente-card .info-secundaria{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .cliente-card .ver-detalhes{
+    color: var(--dark-blue);
 }
 
 /* ===== página de detalhes do cliente -> Isabella =====*/
