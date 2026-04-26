@@ -451,7 +451,7 @@ body.dark .form-cliente input{
     border: none;
 }
 
-body.dark .form-cliente h2, body.dark .btn-fechar-servico{
+body.dark .form-cliente h2, body.dark .btn-fechar{
     color: white;
 }
 
@@ -464,6 +464,40 @@ body.dark #btnAdicionar, body.dark .btn-salvar{
     color: var(--dark-cinza-escuro);
     font-weight: 500;
 }
+
+/* Modo esuro - detalhes do serviço */
+
+body.dark .servico-detalhes{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .servico-detalhes .detalhes-info{
+    background-color: var(--dark-cinza);
+    border: none;
+}
+
+body.dark .servico-detalhes h2{
+    color: white;
+}
+
+body.dark .servico-detalhes span{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .servico-detalhes .small{
+    color: var(--cor5);
+}
+
+body.dark .servico-detalhes span{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .mudarStatus{
+    background-color: var(--dark-blue);
+    color: var(--dark-cinza-escuro);
+    font-weight: 500;
+}
+
 
 /* ===== Página de Orçamentos -> Gabrielle ===== */
 
