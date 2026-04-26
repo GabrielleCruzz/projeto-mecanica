@@ -370,6 +370,12 @@ body.dark .menuInferior a{
 
 /* ===== Página de Orçamentos -> Gabrielle ===== */
 
+.pagina-orcamento > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 /* lista */
 .lista-cliente {
     position: absolute;
@@ -449,10 +455,10 @@ body.dark .menuInferior a{
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
 }
 
 /* Campo para selecionar o veículo */
-
 .veiculo{
     display: flex;
     align-items: center;
@@ -479,7 +485,6 @@ body.dark .menuInferior a{
 }
 
 /* campo para escrever o diagnóstico */
-
 .diagnostico textarea{
     width: 100%;
     height: 100px;
@@ -490,48 +495,31 @@ body.dark .menuInferior a{
     font-size: 13px;
 }
 
-/* Adicionar serviços realizados e peças utilizadas */
-.linha-servico,
-.linha-peca{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
-    align-items: center;
-}
-
-.linha-servico input,
-.linha-peca input{
-    flex: 1;
-    min-width: 0;
-    padding: 12px;
-    border-radius: 10px;
+.pecas input, .tipo-servicos input, .mecanico input {
+    width: 100%;
+    border-radius: 15px;
     border: none;
-    background-color: white;
-    font-size: 0.7em;
+    padding: 15px;
 }
 
-/* Botões para adicionar serviços e peças */
-#btnAddServico,
-#btnAddPeca{
-    width: 40px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: var(--cor);
-    color: white;
-    font-size: 1.5em;
+.peca, .tipo-servico {
+    font-size: var(--font-small);
+    border: 2px solid var(--cor3);
+    padding: var(--spacing-small);
+    border-radius: var(--radius-round);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-/* Botões para excluir uma linha de serviços e peças */
-.linha-servico .btn-excluir,
-.linha-peca .btn-excluir{
-    width: 40px;
-    height: 30px;
-    display: flex;
+.peca div, .tipo-servico div {
     align-items: center;
-    justify-content: center;
+    display: flex;
+    gap: 12px;
+}
+
+.peca i, .tipo-servico i {
+    color: #ef1b1b;
 }
 
 /* linha de separação */
@@ -539,55 +527,43 @@ body.dark .menuInferior a{
     width: 100%;
     height: 1.5px;
     background-color: var(--cor3);
-    margin-top: 30px;
+    margin: 8px 0;
 }
 
-/* Campos para digitar o mecânico responsável e a data do orçamento */
-.mecanico-data{
+/* valor do serviço e peças */
+div.valores {
+    gap: var(--spacing-small);
+    flex-direction: row;
+}
+
+.valores div {
+    font-size: var(--font-small);
+    padding: var(--spacing-small);
+    border-radius: var(--radius);
+    background-color: white;
     display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.mecanico-data h3{
-    color: var(--cor5);
-    font-weight: 300;
-    font-size: 0.7em;
-}
-
-.mecanico-data input{
+    flex-direction: column;
     width: 100%;
-    height: 45px;
-    border-radius: 15px;
-    border: none;
-    padding: 12px 15px;
-    margin-top: 10px;
 }
 
-input[type="date"]{
-    width: 130px;
+.valores span {
     color: var(--cor5);
-    font-size: 0.6em;
 }
 
-.mecanico ::placeholder{
-    font-size: 0.8em;
+.valores h3 {
+    font-weight: 500;
 }
 
 /* Valor total do orçamento */
-.valor{
-    width: 100%;
+div.valor{
     background-color: white;
-    border-radius: 15px;
-    padding: 15px;
-    margin-top: 20px;
-    box-sizing: border-box;
+    border-radius: var(--radius);
+    padding: var(--spacing-small);
+    gap: 0;
 }
 
-.valor h4{
+.valor span {
     color: var(--cor5);
-    font-size: 1em;
-    font-weight: 400;
 }
 
 .valor h1{
@@ -596,11 +572,10 @@ input[type="date"]{
 }
 
 /* Botões de ação do orçamento */
-.botoes-orcamento{
+div.botoes-orcamento{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin: 30px 0;
+    gap: var(--spacing-base);
     font-size: 0.75em;
 }
 

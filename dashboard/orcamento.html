@@ -18,110 +18,125 @@
 
     <div id="menuContainer"></div>
 
-<div class="container">
-
-    <h1 class="titulo">Criar Orçamentos</h1>
-    <h2>Cliente</h2>
-    <div class="busca">
-        <input type="text" placeholder="Buscar por um cliente..." />
-        <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
-        <div id="listaCliente" class="lista-cliente">
-            <div class="item-cliente">Ademar Silva</div>
-            <div class="item-cliente">Sérgio Nascimento</div>
-            <div class="item-cliente">Claúdio Soares</div>
-            <div class="item-cliente">Geraldo Campos</div>
-            <div class="item-cliente">Luis Martins</div>
-            <div class="item-cliente">Carlos Vieira</div>
-            <div class="item-cliente">Roberto Carvalho</div>
-            <div class="item-cliente">Márcio Pereira</div>
-            <div class="item-cliente">Luis Ribeiro</div>
-            <div class="item-cliente">Ademar Costa</div>
-        </div>
-        <button id="cadastrarCliente">+</button>
-    </div>
-
-    <!-- Selecionar o veículo -->
-    <h2>Veículo</h2>
-    <div class="veiculo">
-        <input type="text" placeholder="Selecione o veículo">
-        <div id="listaVeiculo" class="lista-veiculos">
-            <div class="item-veiculo">Fiat Uno 2015</div>
-            <div class="item-veiculo">Volkswagen Gol 2018</div>
-            <div class="item-veiculo">Chevrolet Onix 2020</div>
-        </div>
-    </div>
-
-    <!-- Diagnóstico do veículo -->
-    <div class="diagnostico">
-        <h2>Diagnóstico do veículo</h2>
-        <textarea placeholder="Digite aqui"></textarea>
-    </div>
-
-    <!-- Adicionar serviços realizados -->
-    <div class="servicos">
-        <h2>Serviços</h2>
-
-        <div id="listaServicos">
-            <div class="linha-servico primeira-linha">
-                <input type="text" placeholder="Adicionar serviço">
-                <input type="text" placeholder="Mão de obra">
-                <!-- Botão para adicionar serviços -->
-                <button type="button" id="btnAddServico">+</button>
+    <main class="pagina-orcamento">
+        <h1>Criar Orçamentos</h1>
+        <div>
+            <h2>Cliente</h2>
+            <div class="busca">
+                <input type="text" placeholder="Buscar por um cliente..." />
+                <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
+                <div id="listaCliente" class="lista-cliente">
+                    <div class="item-cliente">Ademar Silva</div>
+                    <div class="item-cliente">Sérgio Nascimento</div>
+                    <div class="item-cliente">Claúdio Soares</div>
+                    <div class="item-cliente">Geraldo Campos</div>
+                    <div class="item-cliente">Luis Martins</div>
+                    <div class="item-cliente">Carlos Vieira</div>
+                    <div class="item-cliente">Roberto Carvalho</div>
+                    <div class="item-cliente">Márcio Pereira</div>
+                    <div class="item-cliente">Luis Ribeiro</div>
+                    <div class="item-cliente">Ademar Costa</div>
+                </div>
+                <button id="cadastrarCliente">+</button>
             </div>
         </div>
-    </div>
 
-
-    <!-- Adicionar peças utilizadas -->
-    <div class="pecas">
-        <h2>Peças</h2>
-
-        <div id="listaPecas">
-            <div class="linha-peca primeira-linha">
-                <input type="text" placeholder="Peça">
-                <input type="number" placeholder="Qnt.">
-                <input type="text" placeholder="Valor">
-                <!-- Botão para adicionar peças -->
-                <button type="button" id="btnAddPeca">+</button>
+        <!-- Selecionar o veículo -->
+        <div>
+            <h2>Veículo</h2>
+            <div class="veiculo">
+                <input type="text" placeholder="Selecione o veículo">
+                <div id="listaVeiculo" class="lista-veiculos">
+                    <div class="item-veiculo">Fiat Uno 2015</div>
+                    <div class="item-veiculo">Volkswagen Gol 2018</div>
+                    <div class="item-veiculo">Chevrolet Onix 2020</div>
+                </div>
             </div>
         </div>
-    </div>
+        
+        <!-- Diagnóstico do veículo -->
+        <div class="diagnostico">
+            <h2>Diagnóstico do veículo</h2>
+            <textarea placeholder="Digite aqui"></textarea>
+        </div>
 
-    <!-- Linha de separação -->
-    <div class="linha"></div>
+        <!-- Adicionar peças utilizadas -->
+        <div class="pecas">
+            <h2>Peças</h2>
+            <input type="text" placeholder="Buscar por uma peça...">
+            <div class="peca">
+                <div>
+                    <span>#01</span>
+                    <span>Nome da peça</span> 
+                </div>
+                <div>
+                    <span>R$80,00</span>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>                               
+            </div>
+        </div>
 
-    <!-- Mecânico responsável e data do orçamento-->
-    <div class="mecanico-data">
+        <!-- Adicionar peças utilizadas -->
+        <div class="tipo-servicos">
+            <h2>Serviço</h2>
+            <input type="text" placeholder="Selecionar tipo de serviço">
+            <div class="tipo-servico">
+                <span>Limpeza</span> 
+                <div>
+                    <span>R$150,00</span>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>                               
+            </div>
+            <div class="tipo-servico">
+                <span>Troca de peça</span> 
+                <div>
+                    <span>R$180,00</span>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>                               
+            </div>
+        </div>
+
+        <!-- Linha de separação -->
+        <div class="linha"></div>
+
         <div class="mecanico">
-            <h3>Mecânico responsável</h3>
-            <input type="text" placeholder="Nome do mecânico">
+            <h2>Mecânico responsável</h2>
+            <input  type="text" placeholder="Nome do mecânico">
+        </div>        
+        
+        <div class="valores">
+            <div>
+                <span>Mão de obra</span>
+                <h3>R$330,00</h3>
+            </div>
+            <div>
+                <span>Peças</span>
+                <h3>R$80,00</h3>
+            </div>
         </div>
-        <div class="data">
-            <h3>Data</h3>
-            <input type="date" name="data">
+
+        <!-- Valor total do orçamento -->
+        <div class="valor">
+            <span>Valor total</span>
+            <h1>R$410,00</h1>
         </div>
-    </div>
 
-    <!-- Valor total do orçamento -->
-    <div class="valor">
-        <h4>Valor total</h4>
-        <h1>R$0,00</h1>
-    </div>
+        <!-- Botões de ação -->
+        <div class="botoes-orcamento">
+            <button class="salvar">SALVAR ORÇAMENTO</button>
+            <button>BAIXAR PDF</button>
+            <button>ENVIAR PARA CLIENTE VIA WHATSAPP</button>
+        </div>
+    </main>
 
-    <!-- Botões de ação -->
-    <div class="botoes-orcamento">
-        <button class="salvar">SALVAR ORÇAMENTO</button>
-        <button>BAIXAR PDF</button>
-        <button>ENVIAR PARA CLIENTE VIA WHATSAPP</button>
-    </div>
+    
 
 <!-- Modal -->
     <!-- Formulário para cadastrar novo veículo -->
     <div class="overlay" id="overlay">
         <form class="form-cliente">
-
             <!-- Botão de fechar o formulário -->
-            <span class="btn-fechar" id="btnFechar">×</span>
+            <span class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></span>
             <h2>Cadastrar Cliente</h2>
 
             <!--Dados do cliente-->
@@ -130,6 +145,11 @@
                 <div class="campo">
                     <input type="text" required>
                     <label>Nome</label>
+                </div>
+
+                <div class="campo">
+                    <input type="text" required>
+                    <label>Endereço</label>
                 </div>
 
                 <div class="linha-cliente">
@@ -143,24 +163,6 @@
                         <label>CPF/CNPJ</label>
                     </div>
                 </div>
-
-                <div class="linha-cliente">
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Bairro</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Rua</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Nº</label>
-                    </div>
-                </div>
-
             </div>
 
             <!--Dados do veículo-->
