@@ -165,7 +165,12 @@ body.dark .index h1{
     color: var(--dark-blue);
 }
 
-body.dark .index input, body.dark .resumo-card, body.dark .card-servicos{
+body.dark .index input{
+    background-color: var(--dark-cinza-escuro);
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .resumo-card, body.dark .card-servicos{
     background-color: var(--dark-cinza-escuro);
 }
 
