@@ -25,6 +25,7 @@
     --dark-cinza-escuro: #1c1b1e;
     --dark-cinza-claro: #989898;
     --dark-cinza: #2e2e2e;
+    --dark-laranja: #ff7a00;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -157,6 +158,45 @@ span.red {
     height: 1px;
     margin: 8px 0;
     background-color: white;
+}
+
+/* Modo escuro */
+body.dark .index h1{
+    color: var(--dark-blue);
+}
+
+body.dark .index input, body.dark .resumo-card, body.dark .card-servicos{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .index .blue, body.dark .ver-detalhes, body.dark .preco{
+    color: var(--dark-blue);
+}
+
+body.dark .index .orange{
+    color: var(--dark-laranja);
+}
+
+body.dark .card-servicos{
+    border: none;
+}
+
+body.dark .info-servico, body.dark .info-secundaria{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .card-servicos .info-destaque{
+    color: white;
+}
+
+body.dark .status.pendente{
+    background-color: transparent;
+    border: 1px solid var(--dark-laranja);
+    color: var(--dark-laranja);
+}
+
+body.dark .menuInferior a{
+    color: var(--dark-cinza-claro);
 }
 
 /* ===== página de clientes -> Isabella =====*/

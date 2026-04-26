@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="style.css" />
   <script src="./js/menu-lateral.js"></script>
   <!-- link para os ícones -->
-  <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
-  <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-  <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+  <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+  <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+  <link href="../assets/icons/css/regular.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -18,10 +18,10 @@
   <div id="menuContainer"></div>
 
   <!-- conteúdo principal -->
-  <main>
+  <main class="index">
     <!-- título da página -->
     <h1>Página Inicial</h1>
-    
+
     <!-- Barra de pesquisa -->
     <div class="pesquisa">
       <input type="text" placeholder="Busca rápida por cliente/placa..." />
@@ -30,29 +30,29 @@
 
     <!-- resumo de serviços, rendimentos e peças -->
     <div class="resumo">
-      <div class="resumo-card">              
-        <span>R$0,00</span>
+      <div class="resumo-card">
+        <span class="blue">R$0,00</span>
         <p>Rendimento esta semana</p>
       </div>
       <div class="resumo-links">
         <a href="servicos.html" class="resumo-card">
           <i class="fa-solid fa-up-right-from-square"></i>
-          <span>4</span>
-          <p>Serviços pendentes</p>          
+          <span class="orange">4</span>
+          <p>Serviços pendentes</p>
         </a>
         <a href="estoque.html" class="resumo-card">
           <i class="fa-solid fa-up-right-from-square"></i>
           <span class="red">3</span>
-          <p>Peças em falta</p>          
+          <p>Peças em falta</p>
         </a>
       </div>
     </div>
 
     <!-- serviços em andamento -->
     <div>
-      <h2>Serviços em andamento</h2>      
+      <h2>Serviços em andamento</h2>
       <div class="card-servicos">
-        <span class="info-servico">Serviço #4</span>          
+        <span class="info-servico">Serviço #4</span>
         <span class="info-destaque">Marca Modelo (2020)</span>
         <span class="info-secundaria">Veículo (Placa)</span>
         <span class="ver-detalhes">Ver detalhes</span>
@@ -60,7 +60,7 @@
         <span class="preco">R$220,00</span>
       </div>
       <div class="card-servicos">
-        <span class="info-servico">Serviço #5</span>          
+        <span class="info-servico">Serviço #5</span>
         <span class="info-destaque">Marca Modelo (2020)</span>
         <span class="info-secundaria">Veículo (Placa)</span>
         <span class="ver-detalhes">Ver detalhes</span>
@@ -69,7 +69,7 @@
       </div>
     </div>
   </main>
-  
+
   <!-- menu inferior -->
   <div class="menuInferior">
     <a href="index.html" class="atual">
@@ -96,9 +96,13 @@
   .then(html => {
     document.getElementById("menuContainer").innerHTML = html;
 
-    initMenuLateral();
+  initMenuLateral();
   });
-</script>
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+  </script>
 
 </body>
 </html>
