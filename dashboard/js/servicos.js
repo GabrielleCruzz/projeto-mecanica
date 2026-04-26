@@ -19,6 +19,9 @@ function filtrar(tipo, elemento) {
         else if (tipo == "concluidos") {
             card.querySelector(".concluido") ? card.style.display = "flex" : card.style.display = "none";
         }
+        else if (tipo == "andamento") {
+            card.querySelector(".andamento") ? card.style.display = "flex" : card.style.display = "none";
+        }
         else {
             card.style.display = "flex";
         }
@@ -36,10 +39,22 @@ function mais() {
         classe = "pendente";
         texto = "Pendente";
     }
+    else if (filtro == "andamento") {
+        classe = "andamento";
+        texto = "Em andamento";
+    }
     else {
-        random = Math.random() < 0.5;
-        classe = random ? "pendente" : "concluido";
-        texto = random ? "Pendente" : "Concluído";
+        const random = Math.floor(Math.random() * 3);
+        if (random == 0) {
+            classe = "pendente";
+            texto = "Pendente";
+        } else if (random == 1) {
+            classe = "andamento";
+            texto = "Em andamento";
+        } else {
+            classe = "concluido";
+            texto = "Concluído";
+        }
     }
 
     // pega a quantidade de cards pra definir o numero do novo card

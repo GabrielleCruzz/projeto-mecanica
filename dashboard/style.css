@@ -189,7 +189,7 @@ body.dark .card-servicos .info-destaque{
     color: white;
 }
 
-body.dark .status.pendente{
+body.dark .status.andamento{
     background-color: transparent;
     border: 1px solid var(--dark-laranja);
     color: var(--dark-laranja);
@@ -340,15 +340,21 @@ body.dark .menuInferior a{
 }
 
 .card-servicos .status.pendente {
-    border: solid 1px #d668001a;
-    color: #d46700;
-    background-color: #fff2e7;
+    border: solid 1px #6060601a;
+    color: #606060;
+    background-color: #ececec;
 }
 
 .card-servicos .status.concluido {
     border: solid 1px #0092001a;
     color: #009200;
     background-color: #e7ffe7;
+}
+
+.card-servicos .status.andamento {
+    border: solid 1px #d668001a;
+    color: #d46700;
+    background-color: #fff2e7;
 }
 
 .card-servicos .preco {
@@ -874,9 +880,19 @@ button[type="submit"]{
 /* ===== página de serviços -> Alex - Isabella =====*/
 
 /* filtros */
+div.filtro {
+    display: flex;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: auto;
+    scrollbar-color: var(--cor3) var(--cor4);
+    scrollbar-width: thin;
+}
+
 .filtro .opcao{
+    margin-bottom: 8px;
     transition: 0.3s ease;
-    font-size: var(--font-base); 
+    font-size: var(--font-small); 
     border: none;
     background-color: #e6e6e6;
     color: var(--cor5);
@@ -901,6 +917,7 @@ button[type="submit"]{
     cursor: pointer;
     border: none;
     color: var(--cor1);
+    background: none;
 }
 
 .mostrarMais button:hover {
