@@ -404,6 +404,67 @@ body.dark .cliente-card .ver-detalhes{
     text-decoration: none;
 }
 
+/* Modo escuro */
+
+body.dark .voltar{
+    color: var(--dark-blue);
+}
+
+body.dark .cliente-detalhes{
+    background-color: var(--dark-cinza-escuro);
+    border: none;
+}
+
+body.dark .cliente-detalhes .info-destaque{
+    color: white;
+}
+
+body.dark .cliente-detalhes button{
+    background-color: var(--dark-cinza);
+    border: none;
+}
+
+body.dark .cliente-detalhes a{
+    color: var(--dark-blue);
+}
+
+body.dark .card-veiculos{
+    background-color: var(--dark-cinza-escuro);
+    border: none;
+    color: white;
+}
+
+body.dark .novo-orcamento{
+    background-color: var(--dark-blue);
+    color: var(--dark-cinza-escuro);
+    font-weight: 500;
+}
+
+/* Modo escuro - Ver detalhes */
+
+body.dark .form-cliente{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .form-cliente input{
+    background-color: var(--dark-cinza);
+    border: none;
+}
+
+body.dark .form-cliente h2, body.dark .btn-fechar-servico{
+    color: white;
+}
+
+body.dark .form-cliente .btn-excluir{
+    color: red;
+}
+
+body.dark #btnAdicionar, body.dark .btn-salvar{
+    background-color: var(--dark-blue);
+    color: var(--dark-cinza-escuro);
+    font-weight: 500;
+}
+
 /* ===== Página de Orçamentos -> Gabrielle ===== */
 
 .pagina-orcamento > div {
@@ -1145,7 +1206,7 @@ body.dark{
     transition: .5s;
 }
 
-body.dark h2{
+body.dark .configuracao h2{
     color: white;
 }
 

@@ -121,7 +121,7 @@
 
                 <button type="button" id="btnAdicionar" onclick="criarLinhaVeiculo()">+ Novo veículo</button>
             </div>
-            <button type="submit">Salvar alterações</button>
+            <button type="submit" class="btn-salvar">Salvar alterações</button>
         </form>
     </div>
 
@@ -178,6 +178,12 @@
 
 
 <script>
+
+    // Modo escuro
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+
     // editar dados do cliente
 
     // Abre o modal e trava o scroll da página
