@@ -954,7 +954,7 @@ button[type="submit"]{
 .menu{
     position: fixed;
     top: 0;
-    left: -230px; /* escondido */
+    left: -250px; /* escondido */
     width: 230px;
     height: 100%;
     background-color: #000199;
@@ -1006,6 +1006,18 @@ button[type="submit"]{
 .no-scroll {
     overflow: hidden;
 }
+
+/* Modo escuro */
+
+body.dark .menu h1{
+    color: white;
+}
+
+body.dark .menu{
+    background-color: var(--dark-cinza);
+    box-shadow: 0 0 15px black;
+}
+
 
 /* ===== página de serviços -> Alex - Isabella =====*/
 
