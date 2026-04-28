@@ -23,7 +23,7 @@
     --dark-blue: #3976ff;
     --dark-bg: #111013;
     --dark-cinza-escuro: #1c1b1e;
-    --dark-cinza-claro: #989898;
+    --dark-cinza-claro: #a5a4a4;
     --dark-cinza: #2e2e2e;
     --dark-laranja: #ff7a00;
     --dark-verde: #00a210;
@@ -886,6 +886,44 @@ button[type="submit"]{
     background-color: var(--cor3);
     margin-bottom: 10px;
 }
+
+/* Modo escuro */
+body.dark .diagnostico textarea, body.dark .linha, body.dark .mao-de-obra{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .peca, body.dark .tipo-servico{
+    background-color: var(--dark-cinza-escuro);
+    color: white;
+    border: none;
+}
+
+body.dark .mao-de-obra span{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .mao-de-obra h3{
+    color: white;
+}
+
+body.dark .valor{
+    background-color: var(--dark-cinza-escuro);
+}
+
+body.dark .valor span{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .botoes-orcamento .salvar{
+    background-color: var(--dark-blue);
+}
+
+body.dark .botoes-orcamento button{
+    background-color: var(--dark-cinza-escuro);
+    color: white;
+    border: 2px solid var(--dark-blue);
+}
+
 
 /* Menu inferior -> Isabella */
 

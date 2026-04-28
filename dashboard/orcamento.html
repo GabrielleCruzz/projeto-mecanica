@@ -105,11 +105,11 @@
         </div>        
         
         <div class="valores">
-            <div>
+            <div class="mao-de-obra">
                 <span>Mão de obra</span>
                 <h3>R$330,00</h3>
             </div>
-            <div>
+            <div class="mao-de-obra">
                 <span>Peças</span>
                 <h3>R$80,00</h3>
             </div>
@@ -192,7 +192,7 @@
                 <button type="button" id="btnAdicionar">+ Novo veículo</button>
             </div>
 
-            <button type="submit">Cadastrar cliente</button>
+            <button class="btn-salvar" type="submit">Cadastrar cliente</button>
         </form>
     </div>
 </div>
@@ -225,6 +225,11 @@
 
                 initMenuLateral();
             });
+
+        // Modo escuro
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
     </script>
 
 </body>
