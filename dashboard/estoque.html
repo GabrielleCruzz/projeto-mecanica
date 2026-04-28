@@ -16,7 +16,7 @@
     <div id="menuContainer"></div>
 
     <!-- conteúdo principal -->
-    <main>
+    <main class="estoque">
         <!-- título da página -->
         <h1>Estoque</h1>
         
@@ -97,13 +97,13 @@
                     <label>Quantidade no estoque</label>
                 </div>                
             </div>
-            <button type="submit">Adicionar ao estoque</button>
+            <button class="btn-add-estoque" type="submit">Adicionar ao estoque</button>
         </form>
     </div>
 
     <!-- menu inferior -->
     <div class="menuInferior">
-        <a href="index.html" class="atual">
+        <a href="index.html">
             <i class="fa-solid fa-home"></i>
             <span>Início</span>
         </a>
@@ -153,6 +153,10 @@
 
             initMenuLateral();
         });
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
     </script>
 </body>
 </html>

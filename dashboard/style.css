@@ -23,7 +23,7 @@
     --dark-blue: #3976ff;
     --dark-bg: #111013;
     --dark-cinza-escuro: #1c1b1e;
-    --dark-cinza-claro: #a5a4a4;
+    --dark-cinza-claro: #bcbbbb;
     --dark-cinza: #2e2e2e;
     --dark-laranja: #ff7a00;
     --dark-verde: #00a210;
@@ -1249,6 +1249,45 @@ body.dark .filtro .opcao{
     background-color: var(--cor4);   
     border-radius: var(--radius-small);
 }
+
+/* Modo escuro */
+body.dark .estoque .btn-nova-peca{
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+body.dark .peca-cards .peca-card{
+    background-color: var(--dark-cinza-escuro);
+    border: none;
+}
+
+body.dark .peca-card .info-id{
+    color: var(--dark-blue);
+}
+
+body.dark .peca-card .info-destaque{
+    color: white;
+}
+
+body.dark .peca-card .btn-edt{
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+}
+
+body.dark .peca-card .btn-qnt{
+    background-color: var(--dark-blue);
+}
+
+body.dark .peca-card .btn-qnt.zero{
+    background-color: red;
+}
+
+body.dark .btn-add-estoque{
+    background-color: var(--dark-blue);
+    color: white;
+}
+
 
 /* ===== página de configuração -> Alex / Gabrielle ===== */
 
