@@ -205,6 +205,10 @@ body.dark .menuInferior a{
     color: var(--dark-cinza-claro);
 }
 
+body.dark .texto, body.dark .menuInferior .atual i{
+    color: var(--dark-blue);
+}
+
 /* ===== página de clientes -> Isabella =====*/
 
 /* .title ta sendo usada na pág. de clientes e serviços */
