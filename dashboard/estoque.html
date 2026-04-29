@@ -10,6 +10,7 @@
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
     <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
     <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/brands.css" rel="stylesheet"/>
 </head>
 <body>
     <!-- menu lateral -->
@@ -54,7 +55,9 @@
                 <button class="btn-qnt zero">0 unidades <i class="fa-solid fa-pen"></i></button>
                 <button class="btn-edt">Editar</button>
             </div>
+            
         </div>
+        <button class="contato-fornecedor"><i class="fa-brands fa-whatsapp"></i> Solicitar pedido</button>
     </main>
 
     <div class="overlay" id="overlay">
@@ -146,6 +149,8 @@
 
     <!-- seleção de filtro -->
     <script>
+        const contato = document.querySelector(".contato-fornecedor");
+        const divCards = document.querySelector(".peca-cards");
         const cards = document.querySelectorAll(".peca-card");
         const filtros = document.querySelectorAll(".opcao");
         function falta(btn) {            
@@ -156,7 +161,8 @@
                 filtro.className = "opcao";
             });
             btn.className = "opcao selected";
-            const novo = document.createElement("div");
+            
+            contato.style.display = "block";
         }
         
         function todos(btn) {
@@ -167,6 +173,8 @@
                 filtro.className = "opcao";
             });
             btn.className = "opcao selected";
+            
+            contato.style.display = "none";
         }    
     </script>
 

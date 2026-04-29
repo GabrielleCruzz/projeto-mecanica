@@ -1254,6 +1254,15 @@ body.dark .filtro .opcao{
     border-radius: var(--radius-small);
 }
 
+.contato-fornecedor {
+    background-color: var(--cor);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--spacing-small);
+    display: none;
+}
+
 /* Modo escuro */
 body.dark .estoque .btn-nova-peca{
     background-color: var(--dark-blue);
