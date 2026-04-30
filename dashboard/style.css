@@ -1056,7 +1056,7 @@ body.dark .menu h1{
 }
 
 body.dark .menu{
-    background-color: var(--dark-cinza);
+    background-color: var(--dark-cinza-escuro);
     box-shadow: 0 0 15px black;
 }
 
