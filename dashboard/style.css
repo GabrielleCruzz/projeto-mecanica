@@ -1263,6 +1263,33 @@ body.dark .filtro .opcao{
     display: none;
 }
 
+.peca-info-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.unidades {
+    display: flex;
+    white-space: nowrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.unidades input {
+    font-size: var(--font-base);
+    width: 80px;
+    background-color: var(--cor4);
+    border: 1px solid var(--cor3);    
+}
+
+.unidades input:focus {
+    outline: 1px solid #b4b4b4;
+}
+
+.form-cliente .btn-nova-peca {
+    padding: 8px;
+}
+
 /* Modo escuro */
 body.dark .estoque .btn-nova-peca{
     background-color: var(--dark-blue);

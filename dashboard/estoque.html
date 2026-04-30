@@ -60,6 +60,26 @@
         <button class="contato-fornecedor"><i class="fa-brands fa-whatsapp"></i> Solicitar pedido</button>
     </main>
 
+    <!-- modal alterar quantidade no estoque -->
+    <div class="overlay" id="overlayUnidades">
+        <div class="form-cliente">
+            <span class="btn-fechar" id="btnFecharUnidades"><i class="fa-solid fa-xmark"></i></span>
+            <div class="peca-info-modal">
+                <span class="info-id">#1</span>
+                <span class="info-destaque">Nome da peça</span>
+                <span class="info-destaque">R$80,00</span>
+                <span class="info-secundaria">Veículo compatível</span>
+                <span class="info-secundaria">120x120cm</span>
+            </div>
+            <div class="unidades">
+                <span>No estoque:</span>
+                <input type="number" min="0" value="0">
+            </div>
+            <button class="btn-nova-peca" id="salvar-unidade">Salvar alterações</button>
+        </div>
+    </div>
+
+    <!-- modal adicionar peça -->
     <div class="overlay" id="overlay">
         <form class="form-cliente">
             <!-- Botão de fechar o formulário -->
@@ -104,6 +124,51 @@
         </form>
     </div>
 
+    <!-- modal editar peça -->
+    <div class="overlay" id="overlayEditar">
+        <form class="form-cliente">
+            <!-- Botão de fechar o formulário -->
+            <span class="btn-fechar" id="btnFecharEditar"><i class="fa-solid fa-xmark"></i></span>
+            <h2>Adicionar peça</h2>
+
+            <!--dados da peça-->
+            <div class="campos-cliente">
+                <div class="campo">
+                    <input type="text" required value="Nome da peça">
+                    <label>Nome da peça</label>
+                </div>
+
+                <div class="linha-cliente">
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required value="#1">
+                        <label>Código</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" inputmode="numeric" required value="R$80,00">
+                        <label>Preço (R$)</label>
+                    </div>                    
+                </div>
+
+                <div class="campo">
+                    <input type="text" required value="Veículo compatível">
+                    <label>Compatibidade</label>
+                </div>
+                
+                <div class="campo">
+                    <input type="text" required value="120x120cm">
+                    <label>Tamanho/Medida (opcional)</label>
+                </div>
+
+                <div class="campo">
+                    <input type="number" required value="1">
+                    <label>Quantidade no estoque</label>
+                </div>                
+            </div>
+            <button class="btn-add-estoque" type="submit">Salvar alterações</button>
+        </form>
+    </div>
+
     <!-- menu inferior -->
     <div class="menuInferior">
         <a href="index.html">
@@ -143,6 +208,56 @@
         // Fecha o modal e libera o scroll da página
         function fecharModal() {
             overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+    <!-- script modal atualizar quantidade -->
+    <script>
+        const btnQnt = document.querySelectorAll(".btn-qnt");
+        const overlayUnidades = document.getElementById("overlayUnidades");
+        const btnFecharUnidades = document.getElementById("btnFecharUnidades");
+
+        // Eventos de abrir e fechar o modal
+        btnQnt.forEach(btn => {
+            btn.onclick = abrirQnt;
+        });
+        btnFecharUnidades.onclick = fecharQnt;
+
+        // Abre o modal e trava o scroll da página
+        function abrirQnt() {
+            overlayUnidades.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // Fecha o modal e libera o scroll da página
+        function fecharQnt() {
+            overlayUnidades.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+    <!-- script modal editar peça -->
+    <script>
+        const btnEditar = document.querySelectorAll(".btn-edt");
+        const overlayEditar = document.getElementById("overlayEditar");
+        const btnFecharEditar = document.getElementById("btnFecharEditar");
+
+        // Eventos de abrir e fechar o modal
+        btnEditar.forEach(btn => {
+            btn.onclick = abrirEditar;
+        });
+        btnFecharEditar.onclick = fecharEditar;
+
+        // Abre o modal e trava o scroll da página
+        function abrirEditar() {
+            overlayEditar.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // Fecha o modal e libera o scroll da página
+        function fecharEditar() {
+            overlayEditar.style.display = "none";
             document.body.style.overflow = "auto";
         }
     </script>
