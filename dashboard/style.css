@@ -1323,9 +1323,27 @@ body.dark .peca-card .btn-qnt.zero{
     background-color: red;
 }
 
-body.dark .btn-add-estoque{
+body.dark .btn-add-estoque, body.dark .contato-fornecedor{
     background-color: var(--dark-blue);
     color: white;
+}
+
+/* Modal para alterar quantidade */
+body.dark .peca-info-modal .info-id{
+    color: var(--dark-blue);
+}
+
+body.dark .peca-info-modal .info-destaque, body.dark .unidades span{
+    color: white;
+}
+
+body.dark .peca-info-modal .info-secundaria{
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .btn-nova-peca{
+    color: white;
+    background-color: var(--dark-blue);
 }
 
 
