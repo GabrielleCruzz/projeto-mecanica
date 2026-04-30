@@ -528,7 +528,7 @@ body.dark .mudarStatus{
     display: none;
     max-height: 150px;
     overflow-y: auto; /*ativa o scroll*/
-    z-index: 99;
+    z-index: 1;
 }
 
 /* itens */
@@ -746,6 +746,7 @@ div.botoes-orcamento{
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 2;
 }
 
 .form-cliente{
