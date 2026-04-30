@@ -23,8 +23,8 @@ header {
     justify-content: space-evenly;
     align-items: center;    
     background-color: #f1f1f1; 
-    border-bottom: 2px solid #d5d5d5; 
     padding: 10px 10px;
+    box-shadow: 0 1px 6px #98989840;
 }
 
 nav {
@@ -32,6 +32,7 @@ nav {
     gap: 15px; /*espaçamento entre os links do menu*/
     font-size: 10px;    
     margin-left: auto; /*alinha os links a direita do menu*/ 
+    
 }
 
 nav a {
@@ -341,16 +342,18 @@ main {
 main .container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 14px;
     width: 100%;
     max-width: 350px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.209);
+    /* text-align: center; */
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.209); */
 }
 
 main .container h1 {
-    margin-bottom: 30px;
-    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
 }
 
 main form input {
@@ -358,18 +361,30 @@ main form input {
     padding: 12px;
     margin-bottom: 15px;
     border-radius: 12px;
+    background-color: #f1f1f1;
     border: 1px solid #ddd;
     outline: none;
     font-size: 14px;
 }
 
+main form input:focus {
+    outline: 1px solid #D5D5D5
+}
+
+main form label {
+    color: #72777f;
+    font-size: 12px;
+    text-align: left;
+}
+
 main button {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background-color: #000199;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 32px;
+    font-weight: 500;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
