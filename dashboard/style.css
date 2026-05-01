@@ -25,6 +25,7 @@
     --dark-cinza-escuro: #1c1b1e;
     --dark-cinza-claro: #bcbbbb;
     --dark-cinza: #2e2e2e;
+    --dark-cinza-borda: #797979;
     --dark-laranja: #ff7a00;
     --dark-verde: #00a210;
     
@@ -169,6 +170,12 @@ body.dark .index h1{
 body.dark input{
     background-color: var(--dark-cinza-escuro);
     color: var(--dark-cinza-claro);
+    border: 2px solid var(--dark-cinza-escuro);
+}
+
+body.dark input:focus{
+    outline: none;
+    border: 2px solid var(--dark-cinza);
 }
 
 body.dark .resumo-card, body.dark .card-servicos{
@@ -457,9 +464,13 @@ body.dark .form-cliente{
     background-color: var(--dark-cinza-escuro);
 }
 
-body.dark .form-cliente input{
+body.dark .form-cliente .campo input{
     background-color: var(--dark-cinza);
-    border: none;
+    border: 2px solid var(--dark-cinza);
+}
+
+body.dark .form-cliente .campo input:focus{
+    border: 2px solid var(--dark-cinza-borda);
 }
 
 body.dark h2, body.dark .btn-fechar{
@@ -893,8 +904,19 @@ button[type="submit"]{
 }
 
 /* Modo escuro */
-body.dark .diagnostico textarea, body.dark .linha, body.dark .mao-de-obra{
+body.dark .linha, body.dark .mao-de-obra{
     background-color: var(--dark-cinza-escuro);
+}
+
+body.dark textarea{
+    background-color: var(--dark-cinza-escuro);
+    border: 2px solid var(--dark-cinza-escuro);
+    color: var(--dark-cinza-claro);
+}
+
+body.dark textarea:focus{
+    outline: none;
+    border: 2px solid var(--dark-cinza);
 }
 
 body.dark .peca, body.dark .tipo-servico{
@@ -1427,7 +1449,6 @@ body.dark .btn-nova-peca{
     padding: 13px;
     font-size: 12px;
     color: var(--cor5);
-    transition: 0.3s ease;
 }
 
 /*Texto*/
@@ -1506,6 +1527,11 @@ body .campo.editando {
 body.dark .campo.editando {
     background-color: var(--dark-cinza);
     color: var(--dark-cinza-claro);
+    border: 2px solid var(--dark-cinza);
+}
+
+body.dark .campo.editando:focus {
+    border: 2px solid var(--dark-cinza-borda);
 }
 
 body.dark .nav-bar {
