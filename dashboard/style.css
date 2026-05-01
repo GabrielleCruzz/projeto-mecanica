@@ -898,9 +898,9 @@ body.dark .diagnostico textarea, body.dark .linha, body.dark .mao-de-obra{
 }
 
 body.dark .peca, body.dark .tipo-servico{
-    background-color: var(--dark-cinza-escuro);
+    background-color: var(--dark-bg);
     color: white;
-    border: none;
+    border: 2px solid var(--dark-cinza);
 }
 
 body.dark .mao-de-obra span{
