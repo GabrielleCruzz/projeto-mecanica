@@ -11,28 +11,52 @@
 
 body{
     background-color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     user-select: none; /* impede a seleção */
     -webkit-user-select: none; /* garante que funcione em outros navegadores */
     -webkit-tap-highlight-color: transparent; /*tira o destque azul ao tocar nos elementos*/
 }
 
-/*Menu*/
+/* landing index */
+:root {
+    --header-img: 50px;
+    --header-font: 12px;
+    --footer-img: 40px;
 
+    --main-gap: 30px;
+    --main-padding: 24px;
+
+    --banner-height: 132px;
+    --banner-text-width: 30px;
+    --banner-h1-text: 20px;
+    --banner-h2-text: 18px;
+
+    --botoes-font: 12px;
+
+    --sections-h1: 14px;
+    --sobre-font: 12px;
+    --contato-font: 12px;
+
+    --msg: 10px;
+}
+
+/*Menu*/
 header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;    
     background-color: #f1f1f1; 
-    padding: 10px 10px;
+    padding: 14px;
     box-shadow: 0 1px 6px #98989840;
 }
 
 nav {
     display: flex;
-    gap: 15px; /*espaçamento entre os links do menu*/
-    font-size: 10px;    
+    gap: 16px; /*espaçamento entre os links do menu*/
+    font-size: var(--header-font);    
     margin-left: auto; /*alinha os links a direita do menu*/ 
-    
 }
 
 nav a {
@@ -40,9 +64,6 @@ nav a {
     color: #0002f1;
     font-weight: 500;
     position: relative; /* pra animação */
-}
-
-nav a {
     transition: color 0.3s ease;
 }
 
@@ -67,131 +88,159 @@ nav a:hover::after {
 }
 
 .logo-menu {
-    width: 60px;
+    width: var(--header-img);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    gap: var(--main-gap);
+    padding: var(--main-padding);
 }
 
 /*Banner*/
-
 .banner{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 15px;
-    margin-top: 30px;
+    flex-direction: column;    
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    height: var(--banner-height);
 }
 
-.banner h1{
+.banner h1{   
     color: #0002f1;
     font-weight: 350;
-    font-size: 20px;
-    padding: 15px;
-    width: 30px;
+    font-size: var(--banner-h1-text);
+    width: var(--banner-text-width);
+}
+
+.banner h2 {
+    display: none;
+    width: var(--banner-text-width);
+    font-size: var(--banner-h2-text);
 }
 
 .banner img{
-    border-top-left-radius: 15px;
-    border-end-start-radius: 15px;
-    width: 50%;
+    border-radius: 14px 0 0 14px;
+    position: absolute;
+    right: -70px;
+    height: 100%;
+    transition: 0.3s ease;
+    width: auto;
 }
 
 /*Texto descritivo do sistema*/
-
 .headline{
     background-color: white;
-    margin: 30px;
-    font-size: 6px;
-    border-radius: 5px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 24px;
     text-align: center;
+}
+
+.headline h1 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.headline span {
+    font-weight: 700;
 }
 
 /*Botões de acesso*/
-
-.botoes-acesso{
+.botoes-acesso {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-    padding: 0 30px;
+    gap: 12px;
+    width: 100%;
 }
 
-.botoes-acesso button{
-    background-color: white;
-    border: 0px;
-    border-radius: 5px;
-    padding: 15px;
-    flex: 1;
-    font-size: 10px;
+.botoes-acesso * {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: var(--botoes-font);
+    border: none;
+    background-color: white;    
+    border-radius: 12px;
+    padding: 16px;
     box-shadow: 2px 2px 2px #e0e0e0;
+}
+
+.botoes-acesso button {
+    color: #0002F1;
+    font-weight: 700;
 }
 
 /*Sobre nós*/
-
-.sobre-nos{
+.sobre-nos, .contato{
     display: flex;
     justify-content: center; /*Alinha no centro horizontalmente*/
     flex-direction: column;
-    margin-top: 30px;
-    font-size: 15px;
-    padding: 0 30px;
-}
-
-.sobre-nos h1{
-    text-align: center; /*Alinha no centro horizontalmente*/
-    margin-top: 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.sobre-nos p{
-    text-align: justify;
-    background-color: white;
-    padding: 17px;
+    gap: 6px;
     width: 100%;
-    margin: 0 auto; /*Alinha no centro horizontalmente*/
-    border-radius: 5px;
-    font-size: 12px;
+    align-items: center;
 }
 
-/*Contato*/
-
-.contato{
+.txt-sobre {
+    border-radius: 12px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    margin: 30px auto; /*Centraliza horizontalmente*/
-    width: 300px;
-}
-
-.contato h1{
-    text-align: center;
-    font-size: 14px;
-}
-
-.contato input, .contato button, .msg{
     background-color: white;
-    width: 100%;
-    border: 0;
-    border-radius: 5px;
-    padding: 12px;
-    margin-top: 18px;
-    font-size: 10px;
+    padding: 16px;
+    gap: 20px;
 }
 
-.msg{ /*Campo para escrever a mensagem*/
+.txt-sobre img {
+    display: none;
+    width: var(--sobre-img-width);
+    border-radius: 10px;
+}
+
+.sobre-nos h1, .contato h1{
+    text-align: center; /*Alinha no centro horizontalmente*/
+    font-size: var(--sections-h1);
+    font-weight: 600;
+}
+
+.sobre-nos p {
+    text-align: justify;
+    font-size: var(--sobre-font);
+}
+
+.contato input, .contato button, .msg {
+    width: 100%;
+    background-color: white;
+    max-width: 600px;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px;
+    color: black;
+    font-size: var(--contato-font);
+}
+
+.msg { /*Campo para escrever a mensagem*/
     height: 120px;
     resize: none;
+    margin: 6px 0;
 }
 
-.contato button{
+.contato button {
     box-shadow: 2px 2px 2px #e0e0e0;
 }
 
-#mensagem { /*Mensagem: "Mensgem enviada!"*/
+#mensagem { /*Mensagem: "Mensagem enviada!"*/
     margin-top: 10px;
     color: #0002f1;
     opacity: 0;
     transition: opacity 0.5s ease;
-    font-size: 10px;
+    font-size: var(--msg);
     text-align: center;
 }
 
@@ -199,23 +248,146 @@ nav a:hover::after {
     opacity: 1;
 }
 
-/* Rodapé */
+/* responsividade pra index  */
+@media (min-width:375px) {
+    .banner img {
+        right: -24px;
+        border-radius: 14px 0 0 14px;
+    }
+}
 
+@media (min-width:425px) {
+    .banner img {
+        right: 0px;
+        border-radius: 14px;
+    }
+}
+
+@media (min-width:500px) {
+    :root {
+        --main-gap: 26px;
+        --main-padding: 24px;
+
+        --banner-height: 132px;
+        --banner-text-width: 230px;
+        --banner-h1-text: 21px;
+        --banner-h2-text: 13px;
+
+        --botoes-font: 14px;
+    }   
+
+    .banner h2 {
+        display: block;
+        font-weight: 400;
+    }
+
+    .headline {
+        display: none;
+    }
+}
+
+@media (min-width:768px) {
+    :root {
+        --header-img: 60px;
+        --header-font: 16px;
+
+        --main-gap: 40px;
+        --main-padding: 40px;
+
+        --banner-height: 220px;
+        --banner-text-width: 310px;
+        --banner-h1-text: 28px;
+        --banner-h2-text: 18px;
+
+        --botoes-font: 16px;
+
+        --sections-h1: 18px;
+        --sobre-img-width: 40%;
+        --sobre-font: 16px;
+        --msg: 14px;
+    }
+
+    .txt-sobre img {
+        display: block;        
+    }
+
+    .banner h2 {
+        font-weight: 300;
+    }
+
+    .banner span {
+        font-weight: 500;
+    }
+
+    .botoes-acesso {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 920px) {
+    :root {        
+        --main-gap: 60px;
+        --main-padding: 70px;
+
+        --banner-text-width: 400px;
+        --banner-h1-text: 36px;
+        --banner-h2-text: 22px;
+
+        --botoes-font: 18px;
+
+        --sections-h1: 20px;
+        --sobre-img-width: 30%;
+        --sobre-font: 18px;
+        --contato-font:16px;
+        --msg: 16px;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        --header-img: 60px;
+        --header-font: 16px;
+        
+        --main-gap: 80px;
+        --main-padding: 70px 180px;
+
+        --banner-height: 360px;
+        --banner-text-width: 440px;
+        --banner-h1-text: 42px;
+        --banner-h2-text: 28px;
+
+        --botoes-font: 20px;
+
+        --sections-h1: 22px;
+        --sobre-img-width: 20%;
+        --sobre-font: 20px;
+        --msg: 18px;
+    }
+
+    .contato input, .contato button, .msg {
+        padding: 20px;
+    }
+
+    .msg { /*Campo para escrever a mensagem*/
+        height: 190px;
+        margin: 14px 0;
+    }
+}
+
+/* Rodapé */
 footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
-    border-top: 2px solid #d5d5d5; 
+    box-shadow: 0 -1px 6px #98989840;
     padding: 8px;
 }
 
 footer img {
-    width: 40px;
+    width: var(--footer-img);
 }
 
 /*Card do login*/
-
 .overlay{
     position: fixed;
     top: 0;
@@ -259,7 +431,6 @@ footer img {
 }
 
 /*Esconder senha*/
-
 .container-senha{
     position: relative;
     width: 100%;
@@ -330,28 +501,17 @@ footer img {
 }
 
 /* ===== página de cadastro -> Nicole ===== */
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    padding: 20px;
-}
-
 main .container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 14px;
     width: 100%;
     max-width: 350px;
-    /* text-align: center; */
-    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.209); */
 }
 
 main .container h1 {
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 20px;
     text-align: center;
 }
@@ -359,7 +519,7 @@ main .container h1 {
 main form input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 12px;
     background-color: #f1f1f1;
     border: 1px solid #ddd;
@@ -377,113 +537,21 @@ main form label {
     text-align: left;
 }
 
-main button {
+main form button {
     width: 100%;
     padding: 10px;
+    margin-top: 10px;
     background-color: #000199;
     color: white;
     border: none;
-    border-radius: 32px;
+    border-radius: 12px;
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-main button:hover {
-    background-color: #0808cb;
 }
 
 /* Tablet */
 @media (min-width: 768px) {
-
-    .links-menu{
-        font-size: 20px;
-        gap: 35px;
-    }
-
-    .logo-menu{
-        width: 100px;
-    }
-
-    .banner{
-        flex-direction: row;
-        margin-top: 40px;
-    }
-
-    .banner h1{
-        font-size: 40px;
-        margin-left: 40px;
-        width: 30px;
-    }
-
-    .headline h1{
-        font-size: 25px;
-        text-align: center;
-    }
-
-    .headline{
-        margin: 50px;
-    }
-
-    .botoes-acesso{
-        flex-direction: row;
-        flex-wrap: nowrap;
-        margin-top: 40px;
-        padding: 0 50px;
-    }
-
-    .botoes-acesso button{
-        width: auto;
-        flex: 1;
-        font-size: 18px;
-    }
-
-    .sobre-nos{
-        width: 100%;
-        padding: 0 50px;
-    }
-
-    .sobre-nos h1{
-        font-size: 25px;
-    }
-
-    .sobre-nos p{
-        font-size: 20px;
-        padding: 30px;
-    }
-
-    .contato{
-        margin-top: 40px;
-        align-items: center;
-        width: 100%;
-    }
-
-    .contato h1{
-        font-size: 25px;
-    }
-
-    .contato input, 
-    .contato button, 
-    .msg {
-        width: 100%;
-        max-width: 400px;
-        font-size: 17px;    
-    }
-
-    .msg{
-        height: 160px;
-    }
-    
-    #mensagem{
-        font-size: 15px;
-    }
-
-    .logo-footer {
-        width: 80px;
-        margin: 10px;
-    }
-
     .login-card{
         width: 100%;
         max-width: 500px;
@@ -530,135 +598,6 @@ main button:hover {
 
 /* Desktop */
 @media (min-width: 1280px) {
-    
-    .links-menu{
-        font-size: 30px;
-        gap: 45px;
-    }
-
-    .logo-menu{
-        width: 150px;
-    }
-
-    .banner{
-        margin-top: 80px;
-        display: flex;
-        width: 100%;
-        max-width: 1200px;
-    }
-
-    .banner h1{
-        font-size: 45px;
-        width: 340px;
-        padding-bottom: 200px;
-    }
-
-    .banner img{
-        content: url('../assets/img/banner-desktop.jpg');
-        border-radius: 15px;
-        width: 700px;
-    }
-
-    .headline h1{
-        font-size: 30px;
-        text-align: left;
-        font-weight: 300;
-        width: 380px;
-        position: absolute;
-        top: 55%;
-    }
-
-    .headline{
-        background-color: #f1f1f1;
-        width: 300px;
-    }
-
-    .botoes-acesso{
-        margin-top: 40px;
-        padding: 0 70px;
-        gap: 30px;
-    }
-
-    .botoes-acesso button{
-        width: auto;
-        height: 110px;
-        flex: 1;
-        font-size: 30px;
-        border-radius: 20px;
-    }
-
-    .sobre-nos{
-        width: 100%;
-        max-width: 1140px;
-        background-color: white;
-        margin: 40px auto;
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        border-radius: 20px;
-        margin-top: 70px;
-    }
-
-    .img-desktop{
-        background-image: url("../assets/img/sobre-nos-desktop.jpg");
-        background-size: cover;
-        background-position: center;
-        flex: 1;
-        width: 50%;
-        height: 350px;
-        border-radius: 15px;
-    }
-
-    .txt-sobre{
-        align-items: center;
-        display: flex;
-        gap: 30px;
-    }
-
-    .sobre-nos h1{
-        font-size: 35px;
-    }
-
-    .sobre-nos p{
-        font-size: 27px;
-        flex: 1;
-    }
-
-    .contato{
-        margin-top: 80px;
-        align-items: center;
-        width: 100%;
-        gap: 12px;
-    }
-
-    .contato h1{
-        font-size: 35px;
-    }
-
-    .contato input, 
-    .contato button, 
-    .msg {
-        width: 100%;
-        font-size: 25px;   
-        max-width: 600px; 
-        padding: 20px;
-        border-radius: 20px;
-    }
-
-    .msg{
-        height: 220px;
-    }
-    
-    #mensagem{
-        font-size: 25px;
-        margin-top: 10px;
-    }
-
-    .logo-footer {
-        width: 100px;
-        margin: 20px;
-    }
-
     .login-card{
         width: 100%;
         max-width: 600px;
