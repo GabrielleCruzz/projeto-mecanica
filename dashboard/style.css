@@ -1528,7 +1528,6 @@ body .campo.editando {
 body.dark .campo.editando {
     background-color: var(--dark-cinza);
     color: var(--dark-cinza-claro);
-    border: 2px solid var(--dark-cinza);
 }
 
 body.dark .campo.editando:focus {
