@@ -548,8 +548,8 @@ body.dark .mudarStatus{
     cursor: pointer;
 }
 
-.item-cliente:hover {
-    background-color: var(--cor6);
+.item-cliente:hover, .item-veiculo:hover{
+    background-color: var(--dark-cinza);
 }
 
 .container{
