@@ -549,6 +549,10 @@ body.dark .mudarStatus{
 }
 
 .item-cliente:hover, .item-veiculo:hover{
+    background-color: var(--cor4);
+}
+
+body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     background-color: var(--dark-cinza);
 }
 
