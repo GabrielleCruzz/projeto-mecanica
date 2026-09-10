@@ -32,7 +32,7 @@ btnFechar.addEventListener("click", () => {
 
 formLogin.addEventListener("submit" , function(e) {
     e.preventDefault();
-    window.location.href = "../dashboard/index.html";
+    window.location.href = "./dashboard/index.html";
 });
 
 // Esconder e mostrar a senha

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuração</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="./js/menu-lateral.js"></script>
-    <script src="./js/configuracoes.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="../assets/js/menu-lateral.js"></script>
+    <script src="../assets/js/configuracoes.js" defer></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
     <link href="../assets/icons/css/solid.css" rel="stylesheet" />
@@ -48,7 +48,7 @@
                 <i class="fa-solid fa-gear"></i>
                 <span>Configurações</span>
             </a>
-            <a href="../landing/index.html">
+            <a href="../index.html">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Desconectar</span>
             </a>
@@ -124,7 +124,7 @@
     </div>
 
     <script>
-        fetch("menu-lateral.html")
+        fetch("components/menu-lateral.html")
             .then(res => res.text())
             .then(html => {
                 document.getElementById("menuContainer").innerHTML = html;

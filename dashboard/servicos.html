@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="./js/servicos.js" defer></script>
-    <script src="./js/menu-lateral.js" defer></script>    
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="../assets/js/servicos.js" defer></script>
+    <script src="../assets/js/menu-lateral.js" defer></script>
     <!-- link para os ícones -->
-    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+    <link href="../assets/icons/css/regular.css" rel="stylesheet" />
     <link href="../assets/icons/css/brands.css" rel="stylesheet" />
 </head>
+
 <body>
     <!-- menu -->
     <div id="menuContainer"></div>
 
-        <div class="sidebar">
+    <div class="sidebar">
         <div>
             <div class="perfil">
                 <i class="fa-solid fa-circle-user"></i>
@@ -41,17 +43,17 @@
                     <span>Clientes</span>
                 </a>
             </div>
-        </div>    
+        </div>
         <div class="b-links">
             <a href="configuracoes.html">
                 <i class="fa-solid fa-gear"></i>
                 <span>Configurações</span>
             </a>
-            <a href="../landing/index.html">
+            <a href="../index.html">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Desconectar</span>
             </a>
-        </div>  
+        </div>
     </div>
 
     <!-- conteúdo principal -->
@@ -66,7 +68,7 @@
         <!--Barra de pesquisa-->
         <div class="pesquisa">
             <input type="text" placeholder="Buscar por serviço, nome ou carro " />
-            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20"/>
+            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
         </div>
 
         <!--Filtro-->
@@ -77,10 +79,10 @@
             <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos</button>
         </div>
 
-        <section >
+        <section>
             <div id="cards">
                 <div class="card-servicos">
-                    <span class="info-servico">Serviço #1</span>          
+                    <span class="info-servico">Serviço #1</span>
                     <span class="info-destaque">Tipo de serviço</span>
                     <span class="info-secundaria">Nome do cliente</span>
                     <span class="info-secundaria">Carro - Placa</span>
@@ -90,7 +92,7 @@
                 </div>
 
                 <div class="card-servicos">
-                    <span class="info-servico">Serviço #2</span>          
+                    <span class="info-servico">Serviço #2</span>
                     <span class="info-destaque">Tipo de serviço</span>
                     <span class="info-secundaria">Nome do cliente</span>
                     <span class="info-secundaria">Carro - Placa</span>
@@ -100,7 +102,7 @@
                 </div>
 
                 <div class="card-servicos">
-                    <span class="info-servico">Serviço #3</span>          
+                    <span class="info-servico">Serviço #3</span>
                     <span class="info-destaque">Tipo de serviço</span>
                     <span class="info-secundaria">Nome do cliente</span>
                     <span class="info-secundaria">Carro - Placa</span>
@@ -117,7 +119,7 @@
         </section>
     </main>
 
-<div class="overlay" id="overlay">
+    <div class="overlay" id="overlay">
         <div class="servico-detalhes">
             <h2>Serviço #1</h2>
             <button class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
@@ -132,18 +134,18 @@
 
             <div class="detalhes-info">
                 <span class="small">serviço</span>
-                <span>Tipo de serviço</span>                
+                <span>Tipo de serviço</span>
             </div>
             <div class="detalhes-info">
-                    <span class="small">Peça</span>
-                    <span>Nome da peça, código da peça</span>
+                <span class="small">Peça</span>
+                <span>Nome da peça, código da peça</span>
             </div>
             <div class="detalhes-info">
-                    <span class="small">Valor</span>
-                    <span>R$300,00</span>
+                <span class="small">Valor</span>
+                <span>R$300,00</span>
             </div>
-            
-            <button class="mudarStatus" >Marcar como concluído</button>
+
+            <button class="mudarStatus">Marcar como concluído</button>
 
         </div>
     </div>
@@ -168,19 +170,20 @@
         </a>
     </div>
 
-<script>
-  fetch("menu-lateral.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("menuContainer").innerHTML = html;
+    <script>
+        fetch("components/menu-lateral.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("menuContainer").innerHTML = html;
 
-    initMenuLateral();
-  });
+                initMenuLateral();
+            });
 
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
-</script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+    </script>
 
 </body>
+
 </html>
