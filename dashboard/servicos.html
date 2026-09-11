@@ -21,9 +21,8 @@
 
     <div class="sidebar">
         <div>
-            <div class="perfil">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Nome da Oficina</span>
+            <div class="sidebar-btn" id="sidebarBtn">
+                <i class="fa-solid fa-bars"></i>
             </div>
             <div class="links">
                 <a href="index.html">
@@ -182,6 +181,19 @@
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark");
         }
+
+        // menu lateral para desktop
+
+        function initSidebar() {
+            const sidebarBtn = document.getElementById('sidebarBtn');
+            const sidebar = document.querySelector('.sidebar');
+
+            sidebarBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("open");
+            });
+        }
+
+        initSidebar();
     </script>
 
 </body>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,19 @@
     <script src="../assets/js/menu-lateral.js"></script>
     <script src="../assets/js/orcamento.js" defer></script>
     <!-- link para os ícones -->
-    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/>
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+    <link href="../assets/icons/css/regular.css" rel="stylesheet" />
 </head>
+
 <body>
     <!-- menu -->
     <div id="menuContainer"></div>
 
-        <div class="sidebar">
+    <div class="sidebar">
         <div>
-            <div class="perfil">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Nome da Oficina</span>
+            <div class="sidebar-btn" id="sidebarBtn">
+                <i class="fa-solid fa-bars"></i>
             </div>
             <div class="links">
                 <a href="index.html">
@@ -40,7 +41,7 @@
                     <span>Clientes</span>
                 </a>
             </div>
-        </div>    
+        </div>
         <div class="b-links">
             <a href="configuracoes.html">
                 <i class="fa-solid fa-gear"></i>
@@ -50,7 +51,7 @@
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Desconectar</span>
             </a>
-        </div>  
+        </div>
     </div>
 
     <!-- conteúdo principal -->
@@ -65,9 +66,9 @@
         <!-- barra de pesquisa de cliente -->
         <div class="pesquisa">
             <input type="text" placeholder="Buscar por nome, placa, telefone..." />
-            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20"/>
+            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
         </div>
-        
+
         <!-- cards de informações de clientes -->
         <section>
             <div class="cliente-card">
@@ -179,19 +180,20 @@
         </a>
     </div>
 
-<script>
-  fetch("components/menu-lateral.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("menuContainer").innerHTML = html;
+    <script>
+        fetch("components/menu-lateral.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("menuContainer").innerHTML = html;
 
-    initMenuLateral();
-  });
+                initMenuLateral();
+            });
 
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
-</script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+    </script>
 
 </body>
+
 </html>

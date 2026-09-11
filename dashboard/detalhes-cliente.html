@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,18 @@
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="js/servicos.js"></script>
     <!-- link para os ícones -->
-    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/solid.css" rel="stylesheet"/>
-    <link href="../assets/icons/css/regular.css" rel="stylesheet"/> 
+    <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+    <link href="../assets/icons/css/regular.css" rel="stylesheet" />
     <link href="../assets/icons/css/brands.css" rel="stylesheet" />
 </head>
+
 <body>
 
-        <div class="sidebar">
+    <div class="sidebar">
         <div>
-            <div class="perfil">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Nome da Oficina</span>
+            <div class="sidebar-btn" id="sidebarBtn">
+                <i class="fa-solid fa-bars"></i>
             </div>
             <div class="links">
                 <a href="index.html">
@@ -38,7 +39,7 @@
                     <span>Clientes</span>
                 </a>
             </div>
-        </div>    
+        </div>
         <div class="b-links">
             <a href="configuracoes.html">
                 <i class="fa-solid fa-gear"></i>
@@ -48,33 +49,33 @@
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Desconectar</span>
             </a>
-        </div>  
+        </div>
     </div>
 
     <main>
         <a href="clientes.html" class="voltar"><i class="fa-solid fa-angle-left"></i></a>
-        
+
         <!-- área de informações pessoais do cliente -->
         <section>
-            <div class="cliente-detalhes">            
+            <div class="cliente-detalhes">
                 <span class="info-destaque">Nome e Sobrenome do Cliente</span>
                 <span class="info-secundaria"><i class="fa-solid fa-phone"></i> (11) 99999-9999</span>
-                <span class="info-secundaria"><i class="fa-address-card fa-solid"></i>  123.456.789-00</span>
+                <span class="info-secundaria"><i class="fa-address-card fa-solid"></i> 123.456.789-00</span>
                 <span class="info-secundaria">Endereço: Em algum lugar ai</span>
                 <button id="editar">Editar</button>
                 <a href=""><i class="fa-brands fa-whatsapp"></i> Entrar em contato</a>
-            </div>            
+            </div>
         </section>
 
         <!-- área de veículos do cliente -->
         <section>
             <h2>Veículos</h2>
 
-            <div class="card-veiculos">            
+            <div class="card-veiculos">
                 <span class="info-destaque">Marca Modelo - 2026</span>
                 <span class="info-secundaria">Placa: AAA1A11</span>
             </div>
-            <div class="card-veiculos">            
+            <div class="card-veiculos">
                 <span class="info-destaque">Marca Modelo - 2026</span>
                 <span class="info-secundaria">Placa: AAA1A11</span>
             </div>
@@ -85,7 +86,7 @@
             <h2>Serviços</h2>
 
             <div class="card-servicos">
-                <span class="info-servico">Serviço #1</span>          
+                <span class="info-servico">Serviço #1</span>
                 <span class="info-destaque">Marca Modelo (2026)</span>
                 <span class="info-secundaria">Veículo (Placa)</span>
                 <span class="ver-detalhes">Ver detalhes</span>
@@ -93,7 +94,7 @@
                 <span class="preco">R$1,00</span>
             </div>
             <div class="card-servicos">
-                <span class="info-servico">Serviço #2</span>          
+                <span class="info-servico">Serviço #2</span>
                 <span class="info-destaque">Marca Modelo (2026)</span>
                 <span class="info-secundaria">Veículo (Placa)</span>
                 <span class="ver-detalhes">Ver detalhes</span>
@@ -109,7 +110,7 @@
     <div class="overlay" id="overlayEditar">
         <form class="form-cliente editar-cliente">
             <h2>Editar dados</h2>
-            <button class="btn-fechar" id="btnFecharEditar"><i class="fa-solid fa-xmark " ></i></button>
+            <button class="btn-fechar" id="btnFecharEditar"><i class="fa-solid fa-xmark "></i></button>
             <div class="campos-cliente">
 
                 <div class="campo">
@@ -177,18 +178,18 @@
 
             <div class="detalhes-info">
                 <span class="small">serviço</span>
-                <span>Tipo de serviço</span>                
+                <span>Tipo de serviço</span>
             </div>
             <div class="detalhes-info">
-                    <span class="small">Peça</span>
-                    <span>Nome da peça, código da peça</span>
+                <span class="small">Peça</span>
+                <span>Nome da peça, código da peça</span>
             </div>
             <div class="detalhes-info">
-                    <span class="small">Valor</span>
-                    <span>R$300,00</span>
+                <span class="small">Valor</span>
+                <span>R$300,00</span>
             </div>
-            
-            <button class="mudarStatus" >Marcar como concluído</button>
+
+            <button class="mudarStatus">Marcar como concluído</button>
 
         </div>
     </div>
@@ -214,52 +215,52 @@
     </div>
 
 
-<script>
+    <script>
 
-    // Modo escuro
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
+        // Modo escuro
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
 
-    // editar dados do cliente
+        // editar dados do cliente
 
-    // Abre o modal e trava o scroll da página
-    function abrirModalEditar() {
-        const overlay = document.getElementById("overlayEditar");
-        overlay.style.display = "flex";
-        document.body.style.overflow = "hidden";
-    }
+        // Abre o modal e trava o scroll da página
+        function abrirModalEditar() {
+            const overlay = document.getElementById("overlayEditar");
+            overlay.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
 
-    // Fecha o modal e libera o scroll da página
-    function fecharModalEditar() {
-        const overlay = document.getElementById("overlayEditar");
-        overlay.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
+        // Fecha o modal e libera o scroll da página
+        function fecharModalEditar() {
+            const overlay = document.getElementById("overlayEditar");
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        botoesFuncionarEditar();
-    })
+        document.addEventListener("DOMContentLoaded", function () {
+            botoesFuncionarEditar();
+        })
 
-    function botoesFuncionarEditar() {
-        const btnFechar = document.getElementById("btnFecharEditar");
-        const editar = document.getElementById("editar");
-        
-        editar.onclick = abrirModalEditar;
-        btnFechar.onclick = fecharModalEditar;
-    }
+        function botoesFuncionarEditar() {
+            const btnFechar = document.getElementById("btnFecharEditar");
+            const editar = document.getElementById("editar");
 
-    // Veículos
+            editar.onclick = abrirModalEditar;
+            btnFechar.onclick = fecharModalEditar;
+        }
 
-    const btnAdicionar = document.getElementById("btnAdicionar");
-    const containerVeiculos = document.querySelector(".campos-veiculo");
+        // Veículos
 
-    // Cria uma nova linha de veículo
-    function criarLinhaVeiculo() {
-        const linha = document.createElement("div");
-        linha.classList.add("linha-veiculo");
+        const btnAdicionar = document.getElementById("btnAdicionar");
+        const containerVeiculos = document.querySelector(".campos-veiculo");
 
-        linha.innerHTML = `
+        // Cria uma nova linha de veículo
+        function criarLinhaVeiculo() {
+            const linha = document.createElement("div");
+            linha.classList.add("linha-veiculo");
+
+            linha.innerHTML = `
             <div class="linha-separadora"></div>
             <div class="campo">
                 <input type="text" required>
@@ -276,16 +277,17 @@
             <button type="button" class="btn-excluir">Excluir</button>
         `;
 
-        // Remove a linha ao clicar no botão excluir
-        linha.querySelector(".btn-excluir").onclick = () => linha.remove();
+            // Remove a linha ao clicar no botão excluir
+            linha.querySelector(".btn-excluir").onclick = () => linha.remove();
 
-        return linha;
-    }
+            return linha;
+        }
 
-    // Adiciona nova linha de veículo antes do botão
-    btnAdicionar.onclick = () => {
-        containerVeiculos.insertBefore(criarLinhaVeiculo(), btnAdicionar);
-    };
-</script>
+        // Adiciona nova linha de veículo antes do botão
+        btnAdicionar.onclick = () => {
+            containerVeiculos.insertBefore(criarLinhaVeiculo(), btnAdicionar);
+        };
+    </script>
 </body>
+
 </html>
