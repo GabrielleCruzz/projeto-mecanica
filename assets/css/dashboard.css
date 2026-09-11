@@ -1401,7 +1401,7 @@ body.dark .nav-bar {
     .sidebar {
         display: flex;
         background-color: white;
-        width: 83px;
+        width: 80px;
         height: 100vh;
         overflow: hidden;
         flex-direction: column;
@@ -1410,8 +1410,8 @@ body.dark .nav-bar {
         z-index: 1;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         justify-content: space-between;
-        padding: 30px 16px 40px;
-        transition: width 0.3s ease;
+        padding: 30px 16px 40px 16px;
+        transition: .5s;
     }
 
     .sidebar.open {
@@ -1441,7 +1441,7 @@ body.dark .nav-bar {
     }
 
     .sidebar a i {
-        min-width: 24px;
+        min-width: 23px;
     }
 
     .sidebar-btn i{
@@ -1467,7 +1467,7 @@ body.dark .nav-bar {
         gap: 10px;
     }
 
-    body.dark .sidebar a {
+    body.dark .sidebar a, body.dark .sidebar-btn i {
         color: var(--dark-cinza-claro);
     }
 
