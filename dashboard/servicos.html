@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="../assets/js/servicos.js" defer></script>
     <script src="../assets/js/menu-lateral.js" defer></script>
+    <script src="../assets/js/sidebar-desktop.js" defer></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
     <link href="../assets/icons/css/solid.css" rel="stylesheet" />
@@ -19,41 +20,7 @@
     <!-- menu -->
     <div id="menuContainer"></div>
 
-    <div class="sidebar">
-        <div>
-            <div class="sidebar-btn" id="sidebarBtn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <div class="links">
-                <a href="index.html">
-                    <i class="fa-solid fa-home"></i>
-                    <span>Início</span>
-                </a>
-                <a href="orcamento.html">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Novo Orçamento</span>
-                </a>
-                <a href="servicos.html" class="atual">
-                    <i class="fa-regular fa-clipboard"></i>
-                    <span>Serviços</span>
-                </a>
-                <a href="clientes.html">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Clientes</span>
-                </a>
-            </div>
-        </div>
-        <div class="b-links">
-            <a href="configuracoes.html">
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </a>
-            <a href="../index.html">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Desconectar</span>
-            </a>
-        </div>
-    </div>
+    <div id="sidebarContainer"></div>
 
     <!-- conteúdo principal -->
     <main class="servicos">
@@ -182,18 +149,6 @@
             document.body.classList.add("dark");
         }
 
-        // menu lateral para desktop
-
-        function initSidebar() {
-            const sidebarBtn = document.getElementById('sidebarBtn');
-            const sidebar = document.querySelector('.sidebar');
-
-            sidebarBtn.addEventListener("click", () => {
-                sidebar.classList.toggle("open");
-            });
-        }
-
-        initSidebar();
     </script>
 
 </body>

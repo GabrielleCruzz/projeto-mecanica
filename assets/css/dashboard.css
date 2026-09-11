@@ -1401,7 +1401,7 @@ body.dark .nav-bar {
     .sidebar {
         display: flex;
         background-color: white;
-        width: 85px;
+        width: 83px;
         height: 100vh;
         overflow: hidden;
         flex-direction: column;
@@ -1415,7 +1415,7 @@ body.dark .nav-bar {
     }
 
     .sidebar.open {
-        width: 400px;
+        width: 280px;
     }
 
     .sidebar span {
@@ -1442,7 +1442,6 @@ body.dark .nav-bar {
 
     .sidebar a i {
         min-width: 24px;
-        text-align: center;
     }
 
     .sidebar-btn i{

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="../assets/js/orcamento.js" defer></script>
-    <script src="../assets/js/menu-lateral.js"></script>
+    <script src="../assets/js/menu-lateral.js" defer></script>
+        <script src="../assets/js/sidebar-desktop.js" defer></script>
     <title>Criar Orçamentos</title>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet"/>
@@ -18,41 +19,7 @@
 
     <div id="menuContainer"></div>
 
-    <div class="sidebar">
-        <div>
-            <div class="sidebar-btn" id="sidebarBtn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <div class="links">
-                <a href="index.html">
-                    <i class="fa-solid fa-home"></i>
-                    <span>Início</span>
-                </a>
-                <a href="orcamento.html" class="atual">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Novo Orçamento</span>
-                </a>
-                <a href="servicos.html">
-                    <i class="fa-regular fa-clipboard"></i>
-                    <span>Serviços</span>
-                </a>
-                <a href="clientes.html">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Clientes</span>
-                </a>
-            </div>
-        </div>    
-        <div class="b-links">
-            <a href="configuracoes.html">
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </a>
-            <a href="./index.html">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Desconectar</span>
-            </a>
-        </div>  
-    </div>
+    <div id="sidebarContainer"></div>
 
     <main class="pagina-orcamento">
         <h1>Criar Orçamentos</h1>
