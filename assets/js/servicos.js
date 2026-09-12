@@ -80,7 +80,16 @@ function mais() {
         <span class="preco">R$300</span>
         <div class="btns">
             <button class="atualizar">Atualizar status</button>
-            <button class="mais">Mais ações</button>
+            <div class="acoes">
+                <button type="button" class="btn-acoes">
+                    Mais ações
+                </button>
+                <div class="opcoes-acoes">
+                    <button type="button">Ver detalhes</button>
+                    <button type="button">Editar OS</button>
+                    <button type="button">Compartilhar</button>
+                </div>
+            </div>
         </div>
     `;
 
@@ -110,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function botoesFuncionar() {
     const btnFechar = document.getElementById("btnFechar");
     const btnDetalhes = document.querySelectorAll(".ver-detalhes");
-    
+
     btnDetalhes.forEach(btn => {
         btn.onclick = abrirModal;
     });
@@ -140,5 +149,42 @@ ordemOpcoes.forEach(opcao => {
 document.addEventListener('click', (event) => {
     if (!ordemFiltro.contains(event.target)) {
         ordemFiltro.classList.remove('aberto');
+    }
+});
+
+
+// Mais opções
+
+// controla os cliques dos botões "Mais ações"
+document.addEventListener('click', (event) => {
+    const btnAcoes = event.target.closest('.btn-acoes');
+
+    // abre o menu clicado e fecha os outros
+    if (btnAcoes) {
+        const acao = btnAcoes.closest('.acoes');
+        document.querySelectorAll('.acoes').forEach(outro => {
+
+            if (outro !== acao) {
+                outro.classList.remove('aberto');
+            }
+        });
+
+        acao.classList.toggle('aberto');
+        return;
+    }
+
+    const opcao = event.target.closest('.opcoes-acoes button');
+
+    // fecha o menu depois de escolher uma opção
+    if (opcao) {
+        opcao.closest('.acoes').classList.remove('aberto');
+        return;
+    }
+
+    // fecha o menu quando clica fora dele
+    if (!event.target.closest('.acoes')) {
+        document.querySelectorAll('.acoes').forEach(acao => {
+            acao.classList.remove('aberto');
+        });
     }
 });

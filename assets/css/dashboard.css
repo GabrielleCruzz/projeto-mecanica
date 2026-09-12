@@ -1555,6 +1555,8 @@ body.dark .nav-bar {
         align-items: center;
     }
 
+    /* Filtro de ordem */
+
     .ordem-filtro{
         display: block;
     }
@@ -1614,6 +1616,8 @@ body.dark .nav-bar {
         background-color: #00009910;
     }
 
+    /* filtro por status */
+
     .filtro .opcao{
         border-radius: var(--radius-small);
         background-color: transparent;
@@ -1641,7 +1645,6 @@ body.dark .nav-bar {
 
     .card-servicos{
         width: 100%;
-        padding: var(--spacing-big);
     }
 
     .card-servicos .status{
@@ -1698,7 +1701,7 @@ body.dark .nav-bar {
         gap: 10px;
     }
 
-    .btns button{
+    .btns button {
         padding: 3px;
         border-radius: var(--radius-small);
         cursor: pointer;
@@ -1712,10 +1715,57 @@ body.dark .nav-bar {
         width: 50%;
     }
 
-    .mais{
-        background-color: transparent;
-        color: var(--cor);
-        border: 1px solid var(--cor);
+    /* Botão de mais ações */
+
+    .acoes {
+        position: relative;
         width: 50%;
     }
+
+    .btn-acoes {
+        border: 2px solid var(--cor);
+        color: var(--cor);
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .opcoes-acoes {
+        position: absolute;
+        right: 0;
+        top: 30px;
+        min-width: 100%;
+        padding: 6px;
+        background-color: white;
+        border-radius: var(--radius-small);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .acoes.aberto .opcoes-acoes {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .card-servicos:has(.acoes.aberto) {
+        z-index: 10;
+    }
+
+    .opcoes-acoes button {
+        display: block;
+        width: 100%;
+        padding: 5px 10px;
+        border: none;
+        border-radius: var(--radius-small);
+        background-color: transparent;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .opcoes-acoes button:hover {
+        background-color: #00009910;
+    }
+
 }
