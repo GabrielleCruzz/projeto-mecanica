@@ -110,7 +110,7 @@ div.pesquisa > img{
     pointer-events: none;
 }
 
-.btn-novo {
+.btn-novo, .ordem-filtro, .btns{
     display: none;
 }
 
@@ -273,6 +273,10 @@ body.dark .texto, body.dark .menuInferior .atual i{
 .info-secundaria{
     font-size: var(--font-small);
     color: #72777f;
+}
+
+.info-terciaria{
+    display: none;
 }
 
 .ver-detalhes {
@@ -1410,7 +1414,7 @@ body.dark .nav-bar {
 
     main {
         width: 100%;        
-        padding: 40px;
+        padding: 50px;
         margin: 0px;
     }
 
@@ -1551,6 +1555,10 @@ body.dark .nav-bar {
         align-items: center;
     }
 
+    .ordem-filtro{
+        display: block;
+    }
+
     .ordem-btn {
         display: flex;
         align-items: center;
@@ -1621,5 +1629,93 @@ body.dark .nav-bar {
     .filtro .selected, .filtro .opcao:hover{
         background-color: var(--cor);
         color: white;
+    }
+
+    /* cards */
+
+    .cards{
+        justify-content: space-between;
+        display: flex;
+        gap: 20px;
+    }
+
+    .card-servicos{
+        width: 100%;
+        padding: var(--spacing-big);
+    }
+
+    .card-servicos .status{
+        border-radius: var(--radius-small);
+    }
+
+    .card-servicos .status.pendente{
+        border: 1px solid var(--dark-laranja);
+        background-color: #fff2e7;
+        color: var(--dark-laranja);
+    }
+
+    .card-servicos .status.andamento{
+        border: 1px solid var(--dark-blue);
+        background-color: #ebf1fa;
+        color: var(--dark-blue);
+    }
+
+    .card-servicos .status.concluido{
+        border: 1px solid var(--dark-verde);
+    }
+
+    .card-servicos .info-destaque{
+        font-size: var(--font-medium);
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .info-terciaria{
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: var(--font-small);
+        color: var(--cor5);
+    }
+
+    .card-servicos .destaque{
+        color: var(--dark-cinza);
+    }
+
+    .card-servicos .preco, .card-servicos .ver-detalhes{
+        display: none;
+    }
+
+    .card-servicos .info-servico{
+        margin-bottom: 10px;
+        font-size: var(--font-small);
+    }
+
+    .card-servicos .btns{
+        display: block;
+        justify-content: space-between;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btns button{
+        padding: 3px;
+        border-radius: var(--radius-small);
+        cursor: pointer;
+        font-size: var(--font-small);
+    }
+
+    .atualizar{
+        background-color: var(--cor);
+        color: white;
+        border: none;
+        width: 50%;
+    }
+
+    .mais{
+        background-color: transparent;
+        color: var(--cor);
+        border: 1px solid var(--cor);
+        width: 50%;
     }
 }
