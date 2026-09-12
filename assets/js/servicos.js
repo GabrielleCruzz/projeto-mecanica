@@ -65,15 +65,23 @@ function mais() {
     const cards = document.getElementById("cards");
     const novo = document.createElement("div");
 
+    // veriafica se o status é "em andamento"
+    let dataTxt = classe === "andamento" ? "Atualizado em" : "Criado em";
+
     novo.className = "card-servicos";
     novo.innerHTML = `
-        <span class="info-servico">Serviço #${num}</span>          
+        <span class="info-servico">Ordem de serviço #${num}</span>
         <span class="info-destaque">Tipo de serviço</span>
-        <span class="info-secundaria">Nome do cliente</span>
-        <span class="info-secundaria">Carro - Placa</span>
+        <span class="info-secundaria">Cliente: <span class="destaque">Nome do Cliente</span></span>
+        <span class="info-secundaria">Veículo: <span class="destaque">Nome - Placa</span></span>
+        <span class="info-terciaria">${dataTxt}: <span class="destaque">25/08/2026 - R$300,00</span></span>
         <span class="ver-detalhes">Ver detalhes</span>
         <span class="status ${classe}">${texto}</span>
-        <span class="preco">R$900</span>
+        <span class="preco">R$300</span>
+        <div class="btns">
+            <button class="atualizar">Atualizar status</button>
+            <button class="mais">Mais ações</button>
+        </div>
     `;
 
     cards.appendChild(novo);
