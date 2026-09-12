@@ -109,3 +109,28 @@ function botoesFuncionar() {
 
     btnFechar.onclick = fecharModal;
 }
+
+
+// Filtro de ordem 
+
+const ordemFiltro = document.querySelector('.ordem-filtro');
+const ordemBtn = ordemFiltro.querySelector('.ordem-btn');
+const ordemTexto = ordemBtn.querySelector('span');
+const ordemOpcoes = ordemFiltro.querySelectorAll('.ordem-opcoes button');
+
+ordemBtn.addEventListener('click', () => {
+    ordemFiltro.classList.toggle('aberto');
+});
+
+ordemOpcoes.forEach(opcao => {
+    opcao.addEventListener('click', () => {
+        ordemTexto.textContent = opcao.textContent;
+        ordemFiltro.classList.remove('aberto');
+    });
+});
+
+document.addEventListener('click', (event) => {
+    if (!ordemFiltro.contains(event.target)) {
+        ordemFiltro.classList.remove('aberto');
+    }
+});
