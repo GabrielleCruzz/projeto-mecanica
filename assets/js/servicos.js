@@ -94,7 +94,7 @@ function mais() {
     `;
 
     cards.appendChild(novo);
-
+    atualizarContador(); 
     botoesFuncionar();
 }
 
@@ -208,4 +208,42 @@ document.addEventListener("click", (event) => {
         modalDetalhes.style.display = "none";
         document.body.style.overflow = "auto";
     }
+});
+
+
+// contador dos filtros por status
+
+function atualizarContador() {
+
+    const cards = document.querySelectorAll(".card-servicos");
+    let pendente = 0;
+    let andamento = 0;
+    let concluido = 0;
+
+    cards.forEach(card => {
+
+        if (card.querySelector(".pendente")) {
+            pendente++;
+        };
+
+        if (card.querySelector(".andamento")) {
+            andamento++;
+        };
+
+        if (card.querySelector(".concluido")) {
+            concluido++;
+        };
+
+    });
+
+    document.querySelector(".contador-todos").textContent = cards.length;
+    document.querySelector(".contador-pendente").textContent = pendente;
+    document.querySelector(".contador-andamento").textContent = andamento;
+    document.querySelector(".contador-concluido").textContent = concluido;
+    
+}
+
+// roda a função quando a página carrega
+document.addEventListener("DOMContentLoaded", () => {  
+    atualizarContador();
 });

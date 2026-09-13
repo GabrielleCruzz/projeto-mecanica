@@ -43,10 +43,10 @@
         <!--Filtro-->
         <div class="filtro">
             <div class="btn-filtro">
-                <button class="opcao selected" onclick="filtrar('todos', this)">Todos</button>
-                <button class="opcao" onclick="filtrar('pendentes', this)">Pendentes</button>
-                <button class="opcao" onclick="filtrar('andamento', this)">Em andamento</button>
-                <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos</button>
+                <button class="opcao selected" onclick="filtrar('todos', this)">Todos <span class="contador-todos">0</span></button>
+                <button class="opcao" onclick="filtrar('pendentes', this)">Pendentes <span class="contador-pendente">0</span></button>
+                <button class="opcao" onclick="filtrar('andamento', this)">Em andamento <span class="contador-andamento">0</span></button>
+                <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos <span class="contador-concluido">0</span></button>
             </div>
             <div class="ordem-filtro">
                 <button type="button" class="ordem-btn">
