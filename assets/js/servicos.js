@@ -86,7 +86,7 @@ function mais() {
                 </button>
                 <div class="opcoes-acoes">
                     <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
-                    <button type="button">Editar OS</button>
+                    <button type="button" class="editar-os-acao">Editar OS</button>
                     <button type="button">Compartilhar</button>
                 </div>
             </div>
@@ -94,7 +94,7 @@ function mais() {
     `;
 
     cards.appendChild(novo);
-    atualizarContador(); 
+    atualizarContador();
     botoesFuncionar();
 }
 
@@ -190,24 +190,51 @@ document.addEventListener('click', (event) => {
 });
 
 
+// abrir modal
+
+function abrirModal(modal) {
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+// fechar modal
+
+function fecharModal(modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
 // Modal "Ver detalhes" - Desktop
 
 const modalDetalhes = document.getElementById("modalDetalhes");
+const fecharDetalhes = modalDetalhes.querySelector(".btn-fechar");
+
 document.addEventListener("click", (event) => {
-
     const btnDetalhes = event.target.closest(".ver-detalhes-acao");
-
     if (btnDetalhes) {
-        modalDetalhes.style.display = "flex";
-        document.body.style.overflow = "hidden";
+        abrirModal(modalDetalhes);
     }
+});
 
-    const btnFechar = event.target.closest(".btn-fechar-detalhes");
+fecharDetalhes.addEventListener("click", () => {
+    fecharModal(modalDetalhes);
+});
 
-    if (btnFechar) {
-        modalDetalhes.style.display = "none";
-        document.body.style.overflow = "auto";
+
+// Modal de "Editar OS" - Desktop
+
+const modalEditar = document.getElementById("modalEditar");
+const fecharEdt = modalEditar.querySelector(".btn-fechar");
+
+document.addEventListener("click", (event) => {
+    const btnEditar = event.target.closest(".editar-os-acao");
+    if (btnEditar) {
+        abrirModal(modalEditar);
     }
+});
+
+fecharEdt.addEventListener("click", () => {
+    fecharModal(modalEditar);
 });
 
 
@@ -240,10 +267,10 @@ function atualizarContador() {
     document.querySelector(".contador-pendente").textContent = pendente;
     document.querySelector(".contador-andamento").textContent = andamento;
     document.querySelector(".contador-concluido").textContent = concluido;
-    
+
 }
 
 // roda a função quando a página carrega
-document.addEventListener("DOMContentLoaded", () => {  
+document.addEventListener("DOMContentLoaded", () => {
     atualizarContador();
 });

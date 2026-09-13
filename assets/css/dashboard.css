@@ -1631,6 +1631,7 @@ body.dark .nav-bar {
         background-color: transparent;
         border: 2px solid var(--cor3);
         padding: var(--spacing-small-btn);
+        font-weight: 500;
     }
 
     .btn-filtro{
@@ -1641,6 +1642,15 @@ body.dark .nav-bar {
     .filtro .selected, .filtro .opcao:hover{
         background-color: var(--cor);
         color: white;
+    }
+
+    .filtro .selected span{
+        color: #9dc3fc;
+    }
+
+    .filtro span{
+        color: var(--cor2);
+        margin-left: 5px;
     }
 
     /* cards */
@@ -1778,14 +1788,14 @@ body.dark .nav-bar {
 
     /* Modal "Ver detalhes" */
 
-    .modal-detalhes {
+    .modal-detalhes, .modal-editar{
         width: 30%;
         height: 80%;
         background-color: white;
         border-radius: var(--radius-small);
         padding: 30px 40px;
         position: relative;
-        overflow: auto; /* caso as info ultrapassem o tamanho do modal */
+        overflow: auto; /* caso as infos ultrapassem o tamanho do modal */
     }
 
     /* barra de rolagem */
@@ -1807,7 +1817,8 @@ body.dark .nav-bar {
         margin-bottom: 25px;
     }
 
-    .btn-fechar-detalhes {
+    /* padrão botão para fechar modal */
+    .btn-fechar {
         background-color: transparent;
         border: none;
         color: #747474;
@@ -1866,5 +1877,4 @@ body.dark .nav-bar {
         font-size: var(--font-base);
         cursor: pointer;
     }
-
 }
