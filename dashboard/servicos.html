@@ -78,7 +78,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -102,7 +102,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -127,7 +127,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -151,7 +151,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -176,7 +176,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -201,7 +201,7 @@
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes">
-                                <button type="button">Ver detalhes</button>
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                 <button type="button">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
@@ -217,6 +217,7 @@
         </section>
     </main>
 
+    <!-- modal "Ver detalhes" - Mobile  -->
     <div class="overlay" id="overlay">
         <div class="servico-detalhes">
             <h2>Serviço #1</h2>
@@ -266,6 +267,46 @@
             <i class="fa-regular fa-user"></i>
             <span>Clientes</span>
         </a>
+    </div>
+
+    <!-- modal "Ver detalhes" - Desktop -->
+
+    <div class="overlay" id="modalDetalhes">
+        <div class="modal modal-detalhes">
+            <button type="button" class="btn-fechar-detalhes">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h1>Ordem de serviço #01</h1>
+            <div class="informacoes">
+                <p>Cliente: <span>Nome e Sobrenome</span></p>
+                <p>Veículo: <span>Carro e Placa</span></p>
+                <p>Diagnóstico: <span>Diagnóstico do veículo</span></p>
+                <p>Mecânico: <span>Nome do mecânico</span></p>
+            </div>
+
+            <div class="detalhes">
+                <div class="detales-servico">
+                    <h2>Serviços</h2>
+                    <p>Limpeza &#8226; R$100,00</p>
+                    <p>Troca de peça &#8226; R$80,00</p>
+                </div>
+
+                <div class="detalhes-pecas">
+                    <h2>Peças</h2>
+                    <p>Nome da peça &#8226; R$80,00</p>
+                </div>
+                <hr class="linha">
+            </div>
+            <div class="detalhes-valor">
+                <p>Mão de obra: R$210,00</p>
+                <p>Peças: R$80,00</p>
+                <div class="valor-orcamento">
+                    <h2>Valor total do orçamento</h2>
+                    <p>R$290,00</p>
+                </div>
+            </div>
+            <p class="baixar-pdf">Baixar PDF</p>
+        </div>
     </div>
 
     <script>

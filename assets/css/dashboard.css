@@ -48,13 +48,20 @@
     --radius: 14px;         /* cards e geral */
     --radius-small: 8px;    /* botões pequenos */
     --radius-round: 30px;   /* 100% redondo */
+
+    /* padão modal */
+    --title-color: #747474;
+    --title-size: 18px;
+    --title-weight: 600;
+    --subtitle-size: 15px;
+    --subtitle-weight: 500; 
 }
 
 body{
     background-color: var(--cor4);
     user-select: none; /* impede a seleção */
     -webkit-user-select: none; /* garante que funcione em outros navegadores */
-    -webkit-tap-highlight-color: transparent; /*tira o destque azul ao tocar nos elementos*/
+    -webkit-tap-highlight-color: transparent; /*tira o destaque azul ao tocar nos elementos*/
 }
 
 /* conteúdo principal */
@@ -698,9 +705,10 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
 /* linha de separação */
 .linha{
     width: 100%;
-    height: 1.5px;
+    height: 2px;
     background-color: var(--cor3);
     margin: 8px 0;
+    border: none;
 }
 
 /* valor do serviço e peças */
@@ -1766,6 +1774,85 @@ body.dark .nav-bar {
 
     .opcoes-acoes button:hover {
         background-color: #00009910;
+    }
+
+    /* Modal "Ver detalhes" */
+
+    .modal-detalhes {
+        width: 30%;
+        height: 80%;
+        background-color: white;
+        border-radius: var(--radius-small);
+        padding: 30px 40px;
+        position: relative;
+    }
+
+    .modal-detalhes h1 {
+        color: var(--title-color);
+        font-size: var(--title-size);
+        font-weight: var(--title-weight);
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .btn-fechar-detalhes {
+        background-color: transparent;
+        border: none;
+        color: #747474;
+        font-size: var(--font-medium);
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .modal-detalhes .informacoes, .detalhes-valor{
+        font-size: var(--font-base);
+        color: var(--cor2);
+        font-weight: 500;
+        gap: 3px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .informacoes span{
+        color: var(--cor5);
+    }
+
+    .detalhes{
+        margin: 35px 0 20px;
+        gap: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .detalhes h2, .detalhes-valor h2{
+        font-weight: var(--subtitle-weight);
+        font-size: var(--subtitle-size);
+    }
+
+    .detalhes p{
+        font-size: var(--font-base);
+        color: var(--cor2);
+        font-weight: 500;
+    }
+
+    .valor-orcamento{
+        margin-top: 15px;
+    }
+
+    .valor-orcamento p{
+        color: black;
+        font-weight: 600;
+        font-size: var(--font-medium);
+    }
+
+    .baixar-pdf{
+        color: var(--cor);
+        margin-top: 15px;
+        text-decoration: underline;
+        font-size: var(--font-base);
+        cursor: pointer;
     }
 
 }

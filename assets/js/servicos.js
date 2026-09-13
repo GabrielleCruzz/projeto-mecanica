@@ -85,7 +85,7 @@ function mais() {
                     Mais ações
                 </button>
                 <div class="opcoes-acoes">
-                    <button type="button">Ver detalhes</button>
+                    <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                     <button type="button">Editar OS</button>
                     <button type="button">Compartilhar</button>
                 </div>
@@ -186,5 +186,26 @@ document.addEventListener('click', (event) => {
         document.querySelectorAll('.acoes').forEach(acao => {
             acao.classList.remove('aberto');
         });
+    }
+});
+
+
+// Modal "Ver detalhes" - Desktop
+
+const modalDetalhes = document.getElementById("modalDetalhes");
+document.addEventListener("click", (event) => {
+
+    const btnDetalhes = event.target.closest(".ver-detalhes-acao");
+
+    if (btnDetalhes) {
+        modalDetalhes.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    const btnFechar = event.target.closest(".btn-fechar-detalhes");
+
+    if (btnFechar) {
+        modalDetalhes.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 });
