@@ -1785,6 +1785,18 @@ body.dark .nav-bar {
         border-radius: var(--radius-small);
         padding: 30px 40px;
         position: relative;
+        overflow: auto; /* caso as info ultrapassem o tamanho do modal */
+    }
+
+    /* barra de rolagem */
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--cor3);
+        border-radius: 5px;
     }
 
     .modal-detalhes h1 {
