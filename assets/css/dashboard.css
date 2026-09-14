@@ -1795,6 +1795,8 @@ body.dark .nav-bar {
         border-radius: var(--radius-small);
         padding: 30px 40px;
         position: relative;
+        border-top: 5px solid white; /* deixa um espaço para a barra de rolagem não chegar no fim do modal */
+        border-bottom: 5px solid white;
         overflow: auto; /* caso as infos ultrapassem o tamanho do modal */
     }
 
@@ -1809,7 +1811,7 @@ body.dark .nav-bar {
         border-radius: 5px;
     }
 
-    .modal-detalhes h1 {
+    .modal-detalhes h1, .modal-editar h1{
         color: var(--title-color);
         font-size: var(--title-size);
         font-weight: var(--title-weight);
@@ -1876,5 +1878,130 @@ body.dark .nav-bar {
         text-decoration: underline;
         font-size: var(--font-base);
         cursor: pointer;
+    }
+
+    /* Modal "Editar OS" */
+
+    .campos-form{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .campo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-edt-os input {
+        border-radius: var(--radius-small);
+        padding: var(--spacing-small-btn);
+        border: 2px solid var(--cor3);
+        color: var(--dark-cinza);
+    }
+
+    .form-edt-os label{
+        color: var(--cor5);
+        font-size: 13px;
+    }
+
+    .campo-form .adicionar{
+        background: transparent;
+        color: var(--cor);
+        text-decoration: underline;
+        border: none;
+        display: flex;
+        justify-content: flex-end;
+        font-size: var(--font-small);
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .input-peca, .input-servico {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid #9fc1ff;
+        background-color: #f5f9ff;
+        border-radius: var(--radius-small);
+        padding: var(--spacing-small-btn);
+    }
+
+    .input-peca input, .input-servico input{
+        border: none;
+        background: transparent;
+        outline: none;
+        padding: 0;
+    }
+
+    .direita-input {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: var(--font-small);
+    }
+
+    .direita-input i{
+        color: red;
+        font-size: var(--font-smaller);
+        cursor: pointer;
+    }
+
+    .campo-resumo .resumo-infos{
+        border: 2px solid var(--cor3);
+        width: 100%;
+        border-radius: var(--radius-small);
+        padding: var(--spacing-small);
+    }
+
+    .resumo-pecas, .resumo-servicos{
+        display: flex;
+        justify-content: space-between;
+        font-size: var(--font-small);
+        color: #7f7f7f;
+        font-weight: 500;
+    }
+
+    .linha-resumo{
+        height: 1px;
+        background-color: var(--cor3);
+        margin: 8px 0;
+        border: none;   
+    }
+
+    .resumo-total{
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: var(--font-small);
+    }
+
+    .resumo-btns{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .resumo-btns button{
+        background-color: transparent;
+        border-radius: var(--radius-small);
+        padding: var(--spacing-small-btn);
+        width: 100%;
+        font-size: var(--font-small);
+        cursor: pointer;
+        font-size: var(--font-small);
+    }
+
+    .resumo-btns .resumo-cancelar{
+        color: #b64f4f;
+        font-weight: 600;
+        border: 2px solid #b64f4f;
+    }
+
+    .resumo-btns .resumo-confirmar{
+        background-color: var(--cor);
+        border: none;
+        color: white;
     }
 }

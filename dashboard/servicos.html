@@ -43,10 +43,14 @@
         <!--Filtro-->
         <div class="filtro">
             <div class="btn-filtro">
-                <button class="opcao selected" onclick="filtrar('todos', this)">Todos <span class="contador-todos">0</span></button>
-                <button class="opcao" onclick="filtrar('pendentes', this)">Pendentes <span class="contador-pendente">0</span></button>
-                <button class="opcao" onclick="filtrar('andamento', this)">Em andamento <span class="contador-andamento">0</span></button>
-                <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos <span class="contador-concluido">0</span></button>
+                <button class="opcao selected" onclick="filtrar('todos', this)">Todos <span
+                        class="contador-todos">0</span></button>
+                <button class="opcao" onclick="filtrar('pendentes', this)">Pendentes <span
+                        class="contador-pendente">0</span></button>
+                <button class="opcao" onclick="filtrar('andamento', this)">Em andamento <span
+                        class="contador-andamento">0</span></button>
+                <button class="opcao" onclick="filtrar('concluidos', this)">Concluídos <span
+                        class="contador-concluido">0</span></button>
             </div>
             <div class="ordem-filtro">
                 <button type="button" class="ordem-btn">
@@ -310,12 +314,79 @@
     </div>
 
     <!-- modal "Editar OS" - Desktop -->
-    
+
     <div class="overlay" id="modalEditar">
         <div class="modal modal-editar">
             <button type="button" class="btn-fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
+            <h1>Editar Ordem de Serviço #01</h1>
+
+            <form class="form-edt-os">
+                <div class="campos-form">
+                    <div class="campo-form">
+                        <label>Cliente</label>
+                        <input value="José Silva" type="text" class="campo-cliente" id="cliente">
+                    </div>
+                    <div class="campo-form">
+                        <label>Veículo</label>
+                        <input value="Honda Civic 1998" type="text" class="campo-veiculo" id="veiculo">
+                    </div>
+                    <div class="campo-form">
+                        <label>Diagnóstico do veículo</label>
+                        <input value="Vencimento do óleo" type="text" class="campo-diag" id="diagnostico">
+                    </div>
+
+                    <div class="campo-form selecionar" id="select-servico">
+                        <label>Serviço</label>
+                        <div class="input-servico">
+                            <input value="Troca de óleo" type="text" class="campo-diag" id="diagnostico">
+                            <div class="direita-input">
+                                <p class="valor">R$70,00</p>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                        <button type="button" class="adicionar">Adicionar serviço</button>
+
+                    </div>
+                    <div class="campo-form selecionar" id="select-peca">
+                        <label>Peças</label>
+                        <div class="input-peca">
+                            <input value="Óleo 10w30 mineral" type="text" class="campo-diag" id="diagnostico">
+                            <div class="direita-input">
+                                <p class="valor">R$200,00</p>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                        <button type="button" class="adicionar">Adicionar peça</button>
+                    </div>
+                    <div class="campo-resumo">
+                        <label>Resumo</label>
+
+                        <div class="resumo-infos">
+                            <div class="resumo-servicos">
+                                <p>Serviços:</p>
+                                <p>R$70,00</p>
+                            </div>
+                            <div class="resumo-pecas">
+                                <p>Peças:</p>
+                                <p>R$200,00</p>
+                            </div>
+
+                            <hr class="linha-resumo">
+
+                            <div class="resumo-total">
+                                <p>VALOR TOTAL</p>
+                                <p>R$270,00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resumo-btns">
+                        <button class="resumo-cancelar">Cancelar alterações</button>
+                        <button class="resumo-confirmar">Confirmar alterações</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
