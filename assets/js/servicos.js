@@ -238,6 +238,44 @@ fecharEdt.addEventListener("click", () => {
 });
 
 
+// Modal de "Atualizar Status" - Desktop
+
+const modalStatus = document.getElementById("modalStatus");
+const fecharStatus = modalStatus.querySelector(".btn-fechar");
+
+document.addEventListener("click", (event) => {
+    const btnStatus = event.target.closest(".atualizar");
+    if (btnStatus) {
+        abrirModal(modalStatus);
+    }
+});
+
+fecharStatus.addEventListener("click", () => {
+    fecharModal(modalStatus);
+});
+
+document.querySelector('.confirmar-status').addEventListener("click", () => {
+    fecharModal(modalStatus);
+});
+
+// opcoes de atualizar status
+
+const opcoesStatus = document.querySelectorAll('.status-opcoes div');
+
+opcoesStatus.forEach(status => {
+    status.addEventListener("click", () => {
+        trocar(status)
+    })    
+});
+
+function trocar(statusSelecionado) {
+    opcoesStatus.forEach(status => {
+        status.classList.remove('status-ativo');
+    });
+    statusSelecionado.classList.add('status-ativo');
+}
+
+
 // contador dos filtros por status
 
 function atualizarContador() {

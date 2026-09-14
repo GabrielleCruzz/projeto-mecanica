@@ -390,6 +390,27 @@
         </div>
     </div>
 
+    <!-- modal "Atualizar Status" - Desktop -->
+
+    <div class="overlay" id="modalStatus">
+        <div class="modal modal-status">
+            <button type="button" class="btn-fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h1>Status da OS #01</h1>
+            <h2>Selecione o estado atual da ordem de serviço</h2>
+
+            <div class="status-opcoes">
+                <div class="status-pendente status-ativo">Pendente</div>
+                <div class="status-andamento">Em andamento</div>
+                <div class="status-concluido">Concluída</div>
+            </div>
+
+            <button class="confirmar-status">Atualizar Status</button>
+        </div>
+    </div>
+
     <script>
         fetch("components/menu-lateral.html")
             .then(res => res.text())

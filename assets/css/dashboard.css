@@ -1788,9 +1788,9 @@ body.dark .nav-bar {
 
     /* Modal "Ver detalhes" */
 
-    .modal-detalhes, .modal-editar{
+    .modal-detalhes, .modal-editar, .modal-status{
         width: 30%;
-        height: 80%;
+        max-height: 80%;
         background-color: white;
         border-radius: var(--radius-small);
         padding: 30px 40px;
@@ -1811,12 +1811,70 @@ body.dark .nav-bar {
         border-radius: 5px;
     }
 
-    .modal-detalhes h1, .modal-editar h1{
+    .modal-detalhes h1, .modal-editar h1, .modal-status h1{
         color: var(--title-color);
         font-size: var(--title-size);
         font-weight: var(--title-weight);
         text-align: center;
         margin-bottom: 25px;
+    }
+
+    .modal-status h1 {
+        margin-bottom: 0;
+    }
+
+    .modal-status h2 {
+        color: var(--cor2);
+        font-size: 14px;        
+        text-align: center;
+    }
+
+    .status-opcoes {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 25px;
+        gap: 10px;
+        
+    }
+
+    .status-opcoes div {
+       background-color: #f6f6f6;
+       border: 1px solid #ffffff00;
+       padding: 10px 20px;
+       border-radius: var(--radius-small);
+       color: #747474;
+       cursor: pointer;
+    }
+
+    .status-ativo.status-pendente {
+        border-color: var(--dark-laranja);
+        background-color: #fff2e7;
+        color: var(--dark-laranja);
+    }
+
+    .status-ativo.status-andamento {
+        border-color: var(--dark-blue);
+        background-color: #ebf1fa;
+        color: var(--dark-blue);
+    }
+
+    .status-ativo.status-concluido {
+        border-color: var(--dark-verde);
+        background-color: #e7ffe7;
+        color: var(--dark-verde);
+    }
+
+    .confirmar-status {
+        width: 100%;
+        margin: 25px 0 0 0;
+        padding: 8px;
+        background-color: var(--cor);
+        color: white;
+        border: none;
+        border-radius: var(--radius-small);
+        cursor: pointer;
+        font-size: var(--font-medium);
     }
 
     /* padrão botão para fechar modal */
