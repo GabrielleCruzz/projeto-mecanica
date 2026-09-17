@@ -11,7 +11,6 @@
 
 :root{
     --cor:  #1d5cb9;
-    --cor1: #0002F1;
     --cor2: #989898;
     --cor3: #D5D5D5;
     --cor4: #F1F1F1;
@@ -28,6 +27,7 @@
     --dark-cinza-borda: #797979;
     --dark-laranja: #ff7a00;
     --dark-verde: #00a210;
+    --dark-hover: #3d3c3c;
     
     /* padding, gap, margin */
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
@@ -76,7 +76,7 @@ main{
 /* títulos das páginas */
 main > h1{
     font-size: var(--font-big);
-    color: var(--cor1);
+    color: var(--cor);
 }
 
 /* títulos menores */
@@ -147,7 +147,7 @@ div.pesquisa > img{
 }
 
 .resumo-card > span {
-    color: var(--cor1);
+    color: var(--cor);
     font-weight: 400;
     font-size: 2em;
 }
@@ -241,7 +241,7 @@ body.dark .texto, body.dark .menuInferior .atual i{
 }
 
 .title h1 {
-    color: var(--cor1);
+    color: var(--cor);
     font-size: var(--font-big);
 }
 
@@ -290,7 +290,7 @@ body.dark .texto, body.dark .menuInferior .atual i{
     margin-top: 12px;
     margin-right: auto; /* pra não pegar a linha inteira */
     font-size: var(--font-small);
-    color: var(--cor1);
+    color: var(--cor);
     text-decoration: none;
 }
 
@@ -327,13 +327,13 @@ body.dark .cliente-card .ver-detalhes{
 
 .voltar {
     margin-right: auto;
-    color: var(--cor1);
+    color: var(--cor);
     font-size: var(--font-medium);
     border-radius: var(--radius-small); 
 }
 
 .voltar:hover {
-    background-color: var(--cor1);
+    background-color: var(--cor);
     color: white;
     transition: 0.1s ease;
 }
@@ -362,7 +362,7 @@ body.dark .cliente-card .ver-detalhes{
 
 .cliente-detalhes a {
     text-decoration: none;
-    color: var(--cor1);    
+    color: var(--cor);    
     font-size: 10px;
     margin-top: 10px;
 }
@@ -426,7 +426,7 @@ body.dark .cliente-card .ver-detalhes{
 .card-servicos .preco {
     position: absolute;
     font-size: var(--font-medium);
-    color: var(--cor1);
+    color: var(--cor);
     top: 38px;
     right: 12px;
 }
@@ -589,7 +589,7 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
 }
 
 .titulo{
-    color: var(--cor1);
+    color: var(--cor);
     font-size: 1.4em;
     margin-bottom: 10px;
 }
@@ -748,7 +748,7 @@ div.valor{
 }
 
 .valor h1{
-    color: var(--cor1);
+    color: var(--cor);
     font-size: 1.7em;
 }
 
@@ -1019,7 +1019,7 @@ body.dark .lista-cliente, body.dark .lista-veiculos{
 }
 
 .menuInferior .atual, .menuInferior .atual i{
-    color: var(--cor1);
+    color: var(--cor);
 }
 
 
@@ -1035,7 +1035,7 @@ body.dark .lista-cliente, body.dark .lista-veiculos{
 
 /* botão para abrir o menu */
 .menu-btn, .nav-bar a{
-    color: var(--cor1);
+    color: var(--cor);
     font-size: var(--font-menu);
     cursor: pointer;
     display: flex;
@@ -1158,7 +1158,7 @@ div.filtro {
 .mostrarMais button {    
     cursor: pointer;
     border: none;
-    color: var(--cor1);
+    color: var(--cor);
     background: none;
 }
 
@@ -1248,7 +1248,7 @@ body.dark .filtro .opcao{
 /*Titulo*/
 .configuracao > h1{
     display: flex;
-    color: var(--cor1);
+    color: var(--cor);
     font-size: 1.2em;
     margin: 0 0 15px 0;
 }
@@ -1268,7 +1268,7 @@ body.dark .filtro .opcao{
 
 .conta-editar button{
     border: none;
-    color: var(--cor1);
+    color: var(--cor);
     font-weight: 650;
     margin-top: 10px;
     background: transparent;
@@ -1327,11 +1327,11 @@ body.dark .filtro .opcao{
 
 .sair a {
     font-size: 12px;
-    color: var(--cor1);
+    color: var(--cor);
     text-decoration: none;
     padding: 10px;
     font-weight: 600;
-    border: 1.5px solid var(--cor1);
+    border: 1.5px solid var(--cor);
     border-radius: 10px;
 }
 
@@ -1502,7 +1502,7 @@ body.dark .nav-bar {
     }
 
     .sidebar a:hover {
-        color: var(--cor1);
+        color: var(--cor);
         background-color: #00009910;
     }
 
@@ -2062,4 +2062,104 @@ body.dark .nav-bar {
         border: none;
         color: white;
     }
+
+    /* modo escuro */
+
+    body.dark .ordem-filtro i{
+        color: var(--cor2);
+    }
+
+    body.dark .btn-filtro .opcao{
+        border: 2px solid var(--dark-cinza);
+    }
+
+    body.dark .ordem-opcoes,
+    body.dark .opcoes-acoes, 
+    body.dark .modal .linha,
+    body.dark .modal input{
+        background-color: var(--dark-cinza);
+    }
+
+    body.dark .modal .input-servico,
+    body.dark .modal .input-peca{
+        background-color: var(--dark-cinza);
+        border: 2px solid var(--cor5);
+    }
+
+    body.dark .campo-diag{
+        border: none;
+    }
+
+    body.dark .direita-input .valor{
+        background: transparent;
+        color: var(--dark-cinza-claro);
+    }
+
+    body.dark .card-servicos .destaque,
+    body.dark .card-servicos span,
+    body.dark .ordem-opcoes button,
+    body.dark .opcoes-acoes button,
+    body.dark .modal-status h2{
+        color: var(--dark-cinza-claro);
+    }
+
+    body.dark .ordem-opcoes button:hover, 
+    body.dark .opcoes-acoes button:hover{
+        background-color: var(--dark-hover);
+    }
+
+    body.dark .atualizar, 
+    body.dark .valor-orcamento p,
+    body.dark .resumo-total,
+    body.dark .confirmar-status,
+    body.dark .modal h1{
+        color: white;
+    }
+
+    body.dark .modal{
+        background-color: var(--dark-cinza-escuro);
+        border-top: 5px solid var(--dark-cinza-escuro);
+        border-bottom: 5px solid var(--dark-cinza-escuro);
+    }
+
+    body.dark .baixar-pdf,
+    body.dark .adicionar{
+        color: var(--dark-blue);
+        font-weight: 400;
+    }
+
+    body.dark .resumo-infos{
+        border: 2px solid var(--cor5);
+    }
+
+    body.dark .linha-resumo{
+        background-color: var(--cor5);
+    }
+
+    body.dark .resumo-cancelar{
+        color: #cd2929;
+        border: 2px solid #cd2929;
+    }
+
+    body.dark ::-webkit-scrollbar-thumb {
+        background: var(--dark-cinza);
+    }
+
+    body.dark .status-opcoes div{
+        color: var(--cor5);
+        background-color: var(--dark-cinza);
+    }
+
+    body.dark .status-ativo.status-pendente {
+        color: var(--dark-laranja);
+    }
+
+    body.dark .status-ativo.status-andamento {
+        color: var(--dark-blue);
+    }
+
+    body.dark .status-ativo.status-concluido {
+        color: var(--dark-verde);
+    }
+
 }
