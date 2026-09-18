@@ -219,9 +219,9 @@ body.dark .card-servicos .info-destaque{
 }
 
 body.dark .status.andamento{
+    border: 1px solid #6c8df8;
     background-color: transparent;
-    border: 1px solid var(--dark-laranja);
-    color: var(--dark-laranja);
+    color: #6c8df8;
 }
 
 body.dark .menuInferior a{
@@ -406,21 +406,21 @@ body.dark .cliente-card .ver-detalhes{
 }
 
 .card-servicos .status.pendente {
-    border: solid 1px #6060601a;
-    color: #606060;
-    background-color: #ececec;
+    border: 1px solid var(--dark-laranja);
+    color: var(--dark-laranja);
+    background-color: #fff2e7;
 }
 
 .card-servicos .status.concluido {
-    border: solid 1px #0092001a;
+    border: 1px solid var(--dark-verde);
     color: #009200;
     background-color: #e7ffe7;
 }
 
 .card-servicos .status.andamento {
-    border: solid 1px #d668001a;
-    color: #d46700;
-    background-color: #fff2e7;
+    border: 1px solid var(--dark-blue);
+    background-color: #ebf1fa;
+    color: var(--dark-blue);
 }
 
 .card-servicos .preco {
@@ -478,9 +478,7 @@ body.dark .novo-orcamento{
 }
 
 body.dark .status.pendente{
-    color: var(--dark-laranja);
     background: transparent;
-    border: 1px solid var(--dark-laranja);
 }
 
 /* Modo escuro - Ver detalhes */
@@ -1174,12 +1172,6 @@ body.dark .status.concluido{
     color: var(--dark-verde);
 }
 
-body.dark .status.pendente{
-    background-color: transparent;
-    border: 1px solid var(--dark-cinza-claro);
-    color: var(--dark-cinza-claro);
-}
-
 body.dark .btn-novo{
     background-color: var(--dark-blue);
 }
@@ -1187,11 +1179,13 @@ body.dark .btn-novo{
 body.dark .filtro .opcao.selected{
     background-color: var(--dark-blue);
     color: white;
+    border: 1px solid var(--dark-blue);
 }
 
 body.dark .filtro .opcao{
     background-color: var(--dark-cinza);
     color: var(--dark-cinza-claro);
+    border: 1px solid var(--dark-cinza);
 }
 
 /* modal detalhes do serviço - isabella */
@@ -1657,32 +1651,17 @@ body.dark .nav-bar {
 
     .cards{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
     .card-servicos{
         width: 100%;
+        margin: 0;
     }
 
     .card-servicos .status{
         border-radius: var(--radius-small);
-    }
-
-    .card-servicos .status.pendente{
-        border: 1px solid var(--dark-laranja);
-        background-color: #fff2e7;
-        color: var(--dark-laranja);
-    }
-
-    .card-servicos .status.andamento{
-        border: 1px solid var(--dark-blue);
-        background-color: #ebf1fa;
-        color: var(--dark-blue);
-    }
-
-    .card-servicos .status.concluido{
-        border: 1px solid var(--dark-verde);
     }
 
     .card-servicos .info-destaque{
@@ -2160,6 +2139,14 @@ body.dark .nav-bar {
 
     body.dark .status-ativo.status-concluido {
         color: var(--dark-verde);
+    }
+
+}
+
+@media (min-width:1340px) {
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
     }
 
 }
