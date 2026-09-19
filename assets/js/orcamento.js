@@ -1,4 +1,4 @@
-const btnCadastrar = document.getElementById("cadastrarCliente");
+const btnCadastrar = document.querySelectorAll(".cadastrarCliente");
 const overlay = document.getElementById("overlay");
 const btnFechar = document.getElementById("btnFechar");
 
@@ -17,7 +17,9 @@ function fecharModal() {
 }
 
 // Eventos de abrir e fechar o modal
-btnCadastrar.onclick = abrirModal;
+btnCadastrar.forEach(btn => {
+    btn.onclick = abrirModal;
+});
 btnFechar.onclick = fecharModal;
 
 // Veículos

@@ -24,40 +24,81 @@
     <!-- conteúdo principal -->
     <main>
 
-        <!-- título da página e botão para cadastrar cliente -->
+        <!-- título da página -->
         <div class="title">
             <h1>Clientes</h1>
-            <button id="cadastrarCliente">+ Novo</button>
+            <p>Gerencie seus clientes e veículos</p>
         </div>
 
         <!-- barra de pesquisa de cliente -->
-        <div class="pesquisa">
-            <input type="text" placeholder="Buscar por nome, placa, telefone..." />
-            <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
+        <div class="buscar-add">
+            <div class="pesquisa">
+                <input type="text" placeholder="Buscar por nome, placa, telefone..." />
+                <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="23" height="23" />
+            </div>        
+            <button class="btn-novo cadastrarCliente">+ Cadastrar cliente</button>
+            <button class="add cadastrarCliente">+ Novo</button>
         </div>
 
         <!-- cards de informações de clientes -->
         <section>
-            <div class="cliente-card">
-                <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                <span class="info-secundaria">Telefone: (11) 99999-9999</span>
-                <span class="info-secundaria">2 veículos vinculados</span>
-                <a href="detalhes-cliente.html" class="ver-detalhes">Ver detalhes</a>
+            <div class="ordem-filtro ordem-clientes">
+                <button type="button" class="ordem-btn">
+                    <span>Exibindo mais recente</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <!-- <div class="ordem-opcoes">
+                    <button type="button">Exibindo mais recente</button>
+                    <button type="button">Exibindo mais antigo</button>
+                </div> -->
             </div>
 
-            <div class="cliente-card">
-                <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                <span class="info-secundaria">Telefone: (11) 99999-9999</span>
-                <span class="info-secundaria">2 veículos vinculados</span>
-                <a href="detalhes-cliente.html" class="ver-detalhes">Ver detalhes</a>
-            </div>
+            <div class="cards cards-clientes">
+                <a href="detalhes-cliente.html" class="cliente-card">
+                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                    <div class="infos-sec">
+                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                    </div>                
+                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
+                </a>
 
-            <div class="cliente-card">
-                <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                <span class="info-secundaria">Telefone: (11) 99999-9999</span>
-                <span class="info-secundaria">2 veículos vinculados</span>
-                <a href="detalhes-cliente.html" class="ver-detalhes">Ver detalhes</a>
-            </div>
+                <a href="detalhes-cliente.html" class="cliente-card">
+                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                    <div class="infos-sec">
+                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                    </div>
+                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
+                </a>
+
+                <a href="detalhes-cliente.html" class="cliente-card">
+                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                    <div class="infos-sec">
+                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                    </div>
+                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
+                </a>
+
+                <a href="detalhes-cliente.html" class="cliente-card">
+                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                    <div class="infos-sec">
+                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                    </div>
+                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
+                </a>
+                
+                <a href="detalhes-cliente.html" class="cliente-card">
+                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
+                    <div class="infos-sec">
+                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                    </div>
+                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
+                </a>
+            </div>            
         </section>
     </main>
 

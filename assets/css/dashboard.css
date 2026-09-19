@@ -257,19 +257,44 @@ body.dark .texto, body.dark .menuInferior .atual i{
     border: none;
 }
 
+.ordem-filtro.ordem-clientes {
+    position: static;
+}
+
+.ordem-filtro.ordem-clientes button {
+    margin-left: auto;
+}
+
 .cliente-card {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     background-color: white;
     border-radius: var(--radius);
-    padding: var(--spacing-small);
+    padding: var(--spacing-base);
     margin: var(--spacing-cards);
     border: 2px solid var(--cor6);
+    text-decoration: none;
+    box-shadow: 1px 1px 2px var(--cor6);
+}
+
+.cliente-card:hover {
+    box-shadow: 3px 3px 2px var(--cor6);
+    transform: scale(1.005);
+    transition: 0.2s;
 }
 
 /* texto principal do card */
 .info-destaque {
     font-size: var(--font-base);
+    font-weight: 500;
+    color: #000;
+}
+
+/* classe pra agrupar infos secundárias dos cards de clientes */
+.infos-sec {
+    display: flex;
+    flex-direction: column;
 }
 
 /* textos menores */
@@ -278,17 +303,15 @@ body.dark .texto, body.dark .menuInferior .atual i{
     color: #72777f;
 }
 
-.ver-detalhes {
-    margin-top: 12px;
-    margin-right: auto; /* pra não pegar a linha inteira */
+.ver-detalhes {   
+    margin-right: auto; 
     font-size: var(--font-small);
     color: var(--cor);
     text-decoration: none;
 }
 
 .ver-detalhes:hover {
-    text-decoration: underline;
-    cursor: pointer;
+    text-decoration: underline;    
 }
 
 /* Modo escuro */
@@ -1241,6 +1264,8 @@ div.filtro {
     border-radius: var(--radius-small);
     text-align: center;
     font-size: var(--font-small);
+    cursor: pointer;
+    border: none;
 }
 
 .card-servicos .status{
@@ -1249,7 +1274,6 @@ div.filtro {
 
 .card-servicos .info-destaque{
     font-size: var(--font-medium);
-    font-weight: 500;
     margin-bottom: 20px;
 }
 
@@ -1260,7 +1284,7 @@ div.filtro {
     color: var(--cor5);
 }
 
-.card-servicos .destaque{
+.destaque{
     color: var(--dark-cinza);
 }
 
@@ -1996,8 +2020,16 @@ body.dark .nav-bar {
         gap: 20px;
     }
 
+    .cliente-card {
+        margin: 0;
+    }
+
     .ordem-filtro{
         position: static;
+    }
+
+    .ordem-filtro.ordem-clientes {
+        margin: 4px 0 16px 0;
     }
 
     .card-servicos{
@@ -2155,7 +2187,9 @@ body.dark .nav-bar {
         align-items: center;
     }
 
-    .btn-novo{
+    .btn-novo {
+        cursor: pointer;
+        border: none;
         display: block;
         text-decoration: none;
         width: 200px;
@@ -2185,6 +2219,10 @@ body.dark .nav-bar {
 
     .cards {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cards-clientes {
+        grid-template-columns: repeat(4, 1fr);
     }
 
 }
