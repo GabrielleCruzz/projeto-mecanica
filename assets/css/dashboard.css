@@ -992,7 +992,7 @@ body.dark .lista-cliente, body.dark .lista-veiculos{
     box-shadow: 0 -1px 10px var(--shadow);
     border-top-left-radius: var(--radius-round);
     border-top-right-radius: var(--radius-round);
-    z-index: 100;
+    z-index: 10;
 }
 
 .menuInferior a {
