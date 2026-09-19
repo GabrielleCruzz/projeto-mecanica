@@ -33,7 +33,7 @@
     --spacing-big: 18px;            /* espaçamento da tela, input de busca, botões da pág. inicial */
     --spacing-base: 16px;           /* espaçamento de div/sections/conteúdo */
     --spacing-small: 12px;          /* espaçamento dentro dos cards */
-    --spacing-cards: 6px 0;         /* espaçamento entre cards */
+    --spacing-cards: 12px 0;         /* espaçamento entre cards */
     --spacing-small-btn: 6px 10px;  /* botões pequenos */
 
     /* font-sizes */    
@@ -94,11 +94,11 @@ div.pesquisa{
 
 div.pesquisa > input{
     width: 100%;
-    border-radius: var(--radius);
-    padding: var(--spacing-big);
     font-size: var(--font-base);
     background-color: white;
     border: none;
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small);
 }
 
 .pesquisa input::placeholder{
@@ -115,10 +115,6 @@ div.pesquisa > img{
     top: 50%; 
     transform: translateY(-50%);
     pointer-events: none;
-}
-
-.btn-novo, .ordem-filtro, .btns{
-    display: none;
 }
 
 /* ===== Página inicial -> Alex - Isabella ===== */
@@ -280,10 +276,6 @@ body.dark .texto, body.dark .menuInferior .atual i{
 .info-secundaria{
     font-size: var(--font-small);
     color: #72777f;
-}
-
-.info-terciaria{
-    display: none;
 }
 
 .ver-detalhes {
@@ -477,7 +469,7 @@ body.dark .novo-orcamento{
     font-weight: 500;
 }
 
-body.dark .status.pendente{
+body.dark .status.pendente, body.dark .status.concluido{
     background: transparent;
 }
 
@@ -1000,6 +992,7 @@ body.dark .lista-cliente, body.dark .lista-veiculos{
     box-shadow: 0 -1px 10px var(--shadow);
     border-top-left-radius: var(--radius-round);
     border-top-right-radius: var(--radius-round);
+    z-index: 100;
 }
 
 .menuInferior a {
@@ -1127,22 +1120,530 @@ div.filtro {
     gap: 4px;
     white-space: nowrap;
     scrollbar-width: none;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
-.filtro .opcao{
-    transition: 0.3s ease;
-    font-size: var(--font-small); 
+.btn-filtro{
+    width: 100%;
+    overflow: auto;
+}
+
+/* deixa a barra de rolagem do filtro invisivel */
+.btn-filtro::-webkit-scrollbar {
+  display: none;
+}
+
+.ordem-filtro{
+    position: absolute;
+    top: 260px;
+    right: 20px;
+}
+
+.ordem-filtro.aberto .ordem-opcoes {
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+}
+
+.ordem-filtro.aberto .ordem-btn i {
+    transform: rotate(180deg);
+}
+
+.ordem-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
     border: none;
-    background-color: #e6e6e6;
-    color: var(--cor5);
-    padding: 8px 16px;
-    border-radius: var(--radius-round);
+    color: var(--cor2);
+    font: inherit;
     cursor: pointer;
+    font-size: var(--font-base);
+}
+
+.ordem-btn i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.ordem-opcoes {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    padding: 6px;
+    background-color: white;
+    border-radius: var(--radius-small);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.ordem-opcoes button {
+    display: block;
+    width: 100%;
+    padding: 9px 10px;
+    border: none;
+    border-radius: var(--radius-small);
+    background-color: transparent;
+    color: var(--cor5);
+    text-align: left;
+    cursor: pointer;
+}
+
+.ordem-opcoes button:hover {
+    background-color: #00009910;
+}
+
+/* filtro por status */
+
+.filtro .opcao{
+    border-radius: var(--radius-small);
+    background-color: transparent;
+    border: 2px solid var(--cor3);
+    padding: var(--spacing-small-btn);
+    color: var(--cor5);
+    font-size: var(--font-small);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-filtro{
+    display: flex;
+    gap: 8px;
 }
 
 .filtro .selected, .filtro .opcao:hover{
     background-color: var(--cor);
+    color: white;
+}
+
+.filtro .selected span{
+    color: #9dc3fc;
+}
+
+.filtro span{
+    color: var(--cor2);
+    margin-left: 5px;
+}
+
+.btn-novo {
+    display: none;
+}
+
+.add {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    text-decoration: none;
+    background-color: var(--cor);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--radius-small);
+    text-align: center;
+    font-size: var(--font-small);
+}
+
+.card-servicos .status{
+    border-radius: var(--radius-small);
+}
+
+.card-servicos .info-destaque{
+    font-size: var(--font-medium);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.info-terciaria{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: var(--font-small);
+    color: var(--cor5);
+}
+
+.card-servicos .destaque{
+    color: var(--dark-cinza);
+}
+
+.card-servicos .preco, .card-servicos .ver-detalhes{
+    display: none;
+}
+
+.card-servicos .info-servico{
+    margin-bottom: 10px;
+    font-size: var(--font-small);
+}
+
+.card-servicos .btns{
+    justify-content: space-between;
+    display: flex;
+    gap: 10px;
+}
+
+.btns button {
+    padding: 3px;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: var(--font-small);
+}
+
+.atualizar{
+    background-color: var(--cor);
+    color: white;
+    border: none;
+    width: 50%;
+}
+
+/* Botão de mais ações */
+
+.acoes {
+    position: relative;
+    width: 50%;
+}
+
+.btn-acoes {
+    border: 2px solid var(--cor);
+    color: var(--cor);
+    background-color: transparent;
+    width: 100%;
+}
+
+.opcoes-acoes {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    min-width: 100%;
+    padding: 6px;
+    background-color: white;
+    border-radius: var(--radius-small);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.acoes.aberto .opcoes-acoes {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.card-servicos:has(.acoes.aberto) {
+    z-index: 10;
+}
+
+.opcoes-acoes button {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: var(--radius-small);
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.opcoes-acoes button:hover {
+    background-color: #00009910;
+}
+
+/* Modal "Ver detalhes" */
+
+.modal-detalhes, .modal-editar, .modal-status {
+    width: 100%;
+    max-height: 80%;
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 30px 40px;
+    position: relative;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    overflow: auto;
+    animation: subirModal 0.3s ease forwards;
+}
+
+@keyframes subirModal {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes descerModal {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.modal-fechando {
+    animation: descerModal 0.3s ease forwards;
+}
+
+/* barra de rolagem */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cor3);
+    border-radius: 5px;
+}
+
+.modal-detalhes h1, .modal-editar h1, .modal-status h1{
+    color: var(--title-color);
+    font-size: var(--title-size);
+    font-weight: var(--title-weight);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal-status h1 {
+    margin-bottom: 0;
+}
+
+.modal-status h2 {
+    color: var(--cor2);
+    font-size: 14px;        
+    text-align: center;
+}
+
+.status-opcoes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+    gap: 10px;
+    
+}
+
+.status-opcoes div {
+    background-color: #f6f6f6;
+    border: 1px solid #ffffff00;
+    padding: 10px 20px;
+    border-radius: var(--radius-small);
+    color: #747474;
+    cursor: pointer;
+}
+
+.status-ativo.status-pendente {
+    border-color: var(--dark-laranja);
+    background-color: #fff2e7;
+    color: var(--dark-laranja);
+}
+
+.status-ativo.status-andamento {
+    border-color: var(--dark-blue);
+    background-color: #ebf1fa;
+    color: var(--dark-blue);
+}
+
+.status-ativo.status-concluido {
+    border-color: var(--dark-verde);
+    background-color: #e7ffe7;
+    color: var(--dark-verde);
+}
+
+.confirmar-status {
+    width: 100%;
+    margin: 25px 0 0 0;
+    padding: 8px;
+    background-color: var(--cor);
+    color: white;
+    border: none;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: var(--font-medium);
+}
+
+/* padrão botão para fechar modal */
+.btn-fechar {
+    background-color: transparent;
+    border: none;
+    color: #747474;
+    font-size: var(--font-medium);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.modal-detalhes .informacoes, .detalhes-valor{
+    font-size: var(--font-base);
+    color: var(--cor2);
+    font-weight: 500;
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.informacoes span{
+    color: var(--cor5);
+}
+
+.detalhes{
+    margin: 35px 0 20px;
+    gap: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detalhes h2, .detalhes-valor h2{
+    font-weight: var(--subtitle-weight);
+    font-size: var(--subtitle-size);
+}
+
+.detalhes p{
+    font-size: var(--font-base);
+    color: var(--cor2);
+    font-weight: 500;
+}
+
+.valor-orcamento{
+    margin-top: 15px;
+}
+
+.valor-orcamento p{
+    color: black;
+    font-weight: 600;
+    font-size: var(--font-medium);
+}
+
+.baixar-pdf{
+    color: var(--cor);
+    margin-top: 15px;
+    text-decoration: underline;
+    font-size: var(--font-base);
+    cursor: pointer;
+}
+
+/* Modal "Editar OS" */
+
+.campos-form{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.campo-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-edt-os input {
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small-btn);
+    border: 2px solid var(--cor3);
+    color: var(--dark-cinza);
+}
+
+.form-edt-os label{
+    color: var(--cor5);
+    font-size: 13px;
+}
+
+.campo-form .adicionar{
+    background: transparent;
+    color: var(--cor);
+    text-decoration: underline;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+    font-size: var(--font-small);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.input-peca, .input-servico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #9fc1ff;
+    background-color: #f5f9ff;
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small-btn);
+}
+
+.input-peca input, .input-servico input{
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+}
+
+.direita-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-small);
+}
+
+.direita-input i{
+    color: red;
+    font-size: var(--font-smaller);
+    cursor: pointer;
+}
+
+.campo-resumo .resumo-infos{
+    border: 2px solid var(--cor3);
+    width: 100%;
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small);
+}
+
+.resumo-pecas, .resumo-servicos{
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-small);
+    color: #7f7f7f;
+    font-weight: 500;
+}
+
+.linha-resumo{
+    height: 1px;
+    background-color: var(--cor3);
+    margin: 8px 0;
+    border: none;   
+}
+
+.resumo-total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: var(--font-small);
+}
+
+.resumo-btns{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.resumo-btns button{
+    background-color: transparent;
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small-btn);
+    width: 100%;
+    font-size: var(--font-small);
+    cursor: pointer;
+    font-size: var(--font-small);
+}
+
+.resumo-btns .resumo-cancelar{
+    color: #b64f4f;
+    font-weight: 600;
+    border: 2px solid #b64f4f;
+}
+
+.resumo-btns .resumo-confirmar{
+    background-color: var(--cor);
+    border: none;
     color: white;
 }
 
@@ -1166,27 +1667,102 @@ div.filtro {
 
 /* Modo escuro */
 
-body.dark .status.concluido{
-    background-color: transparent;
-    border: 1px solid var(--dark-verde);
-    color: var(--dark-verde);
-}
+    body.dark .ordem-filtro i{
+        color: var(--cor2);
+    }
 
-body.dark .btn-novo{
-    background-color: var(--dark-blue);
-}
+    body.dark .btn-filtro .opcao{
+        border: 2px solid var(--dark-cinza);
+    }
 
-body.dark .filtro .opcao.selected{
-    background-color: var(--dark-blue);
-    color: white;
-    border: 1px solid var(--dark-blue);
-}
+    body.dark .ordem-opcoes,
+    body.dark .opcoes-acoes, 
+    body.dark .modal .linha,
+    body.dark .modal input{
+        background-color: var(--dark-cinza);
+    }
 
-body.dark .filtro .opcao{
-    background-color: var(--dark-cinza);
-    color: var(--dark-cinza-claro);
-    border: 1px solid var(--dark-cinza);
-}
+    body.dark .modal .input-servico,
+    body.dark .modal .input-peca{
+        background-color: var(--dark-cinza);
+        border: 2px solid var(--cor5);
+    }
+
+    body.dark .campo-diag{
+        border: none;
+    }
+
+    body.dark .direita-input .valor{
+        background: transparent;
+        color: var(--dark-cinza-claro);
+    }
+
+    body.dark .card-servicos .destaque,
+    body.dark .card-servicos span,
+    body.dark .ordem-opcoes button,
+    body.dark .opcoes-acoes button,
+    body.dark .modal-status h2{
+        color: var(--dark-cinza-claro);
+    }
+
+    body.dark .ordem-opcoes button:hover, 
+    body.dark .opcoes-acoes button:hover{
+        background-color: var(--dark-hover);
+    }
+
+    body.dark .atualizar, 
+    body.dark .valor-orcamento p,
+    body.dark .resumo-total,
+    body.dark .confirmar-status,
+    body.dark .modal h1{
+        color: white;
+    }
+
+    body.dark .modal{
+        background-color: var(--dark-cinza-escuro);
+        border-top: 5px solid var(--dark-cinza-escuro);
+        border-bottom: 5px solid var(--dark-cinza-escuro);
+    }
+
+    body.dark .baixar-pdf,
+    body.dark .adicionar{
+        color: var(--dark-blue);
+        font-weight: 400;
+    }
+
+    body.dark .resumo-infos{
+        border: 2px solid var(--cor5);
+    }
+
+    body.dark .linha-resumo{
+        background-color: var(--cor5);
+    }
+
+    body.dark .resumo-cancelar{
+        color: #cd2929;
+        border: 2px solid #cd2929;
+    }
+
+    body.dark ::-webkit-scrollbar-thumb {
+        background: var(--dark-cinza);
+    }
+
+    body.dark .status-opcoes div{
+        color: var(--cor5);
+        background-color: var(--dark-cinza);
+    }
+
+    body.dark .status-ativo.status-pendente {
+        color: var(--dark-laranja);
+    }
+
+    body.dark .status-ativo.status-andamento {
+        color: var(--dark-blue);
+    }
+
+    body.dark .status-ativo.status-concluido {
+        color: var(--dark-verde);
+    }
 
 /* modal detalhes do serviço - isabella */
 
@@ -1402,10 +1978,58 @@ body.dark .nav-bar {
     display: none;
 }
 
+
+/* Tablet */
+
+@media (min-width:768px) {
+
+    .menuInferior {
+        display: none;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .ordem-filtro{
+        position: static;
+    }
+
+    .card-servicos{
+        margin: 0;
+        width: 100%;
+    }
+
+    div.filtro{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        align-items: center;
+        margin-bottom: 8px;
+        overflow: visible;
+        z-index: 2;
+    }
+
+    .modal-detalhes, .modal-editar, .modal-status{
+        max-width: 500px;
+        animation: none;
+        transform: none;
+        border-radius: var(--radius-small);
+    }
+
+    .overlay {
+        align-items: center;
+    }
+
+}
+
 /* Desktop */
 
 @media (min-width:1024px) {
-    #menuContainer, .menuInferior {
+
+    #menuContainer, .add{
         display: none;
     }
 
@@ -1522,12 +2146,6 @@ body.dark .nav-bar {
         font-size: 14px;
     }
 
-
-    div.pesquisa input{
-        border-radius: var(--radius-small);
-        padding: var(--spacing-small);
-    }
-
     .buscar-add{
         display: flex;
         justify-content: space-between;
@@ -1535,613 +2153,30 @@ body.dark .nav-bar {
     }
 
     .btn-novo{
+        display: block;
         text-decoration: none;
-        width: 190px;
+        width: 200px;
         background-color: var(--cor);
         color: white;
         padding: var(--spacing-small);
         border-radius: var(--radius-small);
         text-align: center;
         font-size: var(--font-base);
-        display: block;
     }
 
     div.pesquisa > input{
         width: 98%;
     }
 
-    .filtro{
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        align-items: center;
-    }
-
-    /* Filtro de ordem */
-
-    .ordem-filtro{
-        display: block;
-    }
-
-    .ordem-btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: transparent;
-        border: none;
-        color: var(--cor2);
-        font: inherit;
-        cursor: pointer;
-        font-size: var(--font-base);
-    }
-
-    .ordem-btn i {
-        font-size: 12px;
-        transition: transform 0.2s ease;
-    }
-
-    .ordem-filtro.aberto .ordem-btn i {
-        transform: rotate(180deg);
-    }
-
-    .ordem-opcoes {
-        position: absolute;
-        right: 0;
-        top: 30px;
-        padding: 6px;
-        background-color: white;
-        border-radius: var(--radius-small);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-        opacity: 0;
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-    }
-
-    .ordem-filtro.aberto .ordem-opcoes {
-        visibility: visible;
-        opacity: 1;
-        z-index: 10;
-    }
-
-    .ordem-opcoes button {
-        display: block;
-        width: 100%;
-        padding: 9px 10px;
-        border: none;
-        border-radius: var(--radius-small);
-        background-color: transparent;
-        color: var(--cor5);
-        text-align: left;
-        cursor: pointer;
-    }
-
-    .ordem-opcoes button:hover {
-        background-color: #00009910;
-    }
-
-    /* filtro por status */
-
-    .filtro .opcao{
-        border-radius: var(--radius-small);
-        background-color: transparent;
-        border: 2px solid var(--cor3);
-        padding: var(--spacing-small-btn);
-        font-weight: 500;
-    }
-
-    .btn-filtro{
-        display: flex;
-        gap: 8px;
-    }
-
-    .filtro .selected, .filtro .opcao:hover{
-        background-color: var(--cor);
-        color: white;
-    }
-
-    .filtro .selected span{
-        color: #9dc3fc;
-    }
-
-    .filtro span{
-        color: var(--cor2);
-        margin-left: 5px;
-    }
-
     /* cards */
 
     .cards{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .card-servicos{
-        width: 100%;
-        margin: 0;
-    }
-
-    .card-servicos .status{
-        border-radius: var(--radius-small);
-    }
-
-    .card-servicos .info-destaque{
-        font-size: var(--font-medium);
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
-
-    .info-terciaria{
-        display: block;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        font-size: var(--font-small);
-        color: var(--cor5);
-    }
-
-    .card-servicos .destaque{
-        color: var(--dark-cinza);
-    }
-
-    .card-servicos .preco, .card-servicos .ver-detalhes{
-        display: none;
-    }
-
-    .card-servicos .info-servico{
-        margin-bottom: 10px;
-        font-size: var(--font-small);
-    }
-
-    .card-servicos .btns{
-        display: block;
-        justify-content: space-between;
-        display: flex;
-        gap: 10px;
-    }
-
-    .btns button {
-        padding: 3px;
-        border-radius: var(--radius-small);
-        cursor: pointer;
-        font-size: var(--font-small);
-    }
-
-    .atualizar{
-        background-color: var(--cor);
-        color: white;
-        border: none;
-        width: 50%;
-    }
-
-    /* Botão de mais ações */
-
-    .acoes {
-        position: relative;
-        width: 50%;
-    }
-
-    .btn-acoes {
-        border: 2px solid var(--cor);
-        color: var(--cor);
-        background-color: transparent;
-        width: 100%;
-    }
-
-    .opcoes-acoes {
-        position: absolute;
-        right: 0;
-        top: 30px;
-        min-width: 100%;
-        padding: 6px;
-        background-color: white;
-        border-radius: var(--radius-small);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-    }
-
-    .acoes.aberto .opcoes-acoes {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    .card-servicos:has(.acoes.aberto) {
-        z-index: 10;
-    }
-
-    .opcoes-acoes button {
-        display: block;
-        width: 100%;
-        padding: 5px 10px;
-        border: none;
-        border-radius: var(--radius-small);
-        background-color: transparent;
-        text-align: left;
-        cursor: pointer;
-    }
-
-    .opcoes-acoes button:hover {
-        background-color: #00009910;
-    }
-
-    /* Modal "Ver detalhes" */
-
-    .modal-detalhes, .modal-editar, .modal-status{
-        width: 30%;
-        max-height: 80%;
-        background-color: white;
-        border-radius: var(--radius-small);
-        padding: 30px 40px;
-        position: relative;
-        border-top: 5px solid white; /* deixa um espaço para a barra de rolagem não chegar no fim do modal */
-        border-bottom: 5px solid white;
-        overflow: auto; /* caso as infos ultrapassem o tamanho do modal */
-    }
-
-    /* barra de rolagem */
-
-    ::-webkit-scrollbar {
-        width: 7px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--cor3);
-        border-radius: 5px;
-    }
-
-    .modal-detalhes h1, .modal-editar h1, .modal-status h1{
-        color: var(--title-color);
-        font-size: var(--title-size);
-        font-weight: var(--title-weight);
-        text-align: center;
-        margin-bottom: 25px;
-    }
-
-    .modal-status h1 {
-        margin-bottom: 0;
-    }
-
-    .modal-status h2 {
-        color: var(--cor2);
-        font-size: 14px;        
-        text-align: center;
-    }
-
-    .status-opcoes {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 25px;
-        gap: 10px;
-        
-    }
-
-    .status-opcoes div {
-       background-color: #f6f6f6;
-       border: 1px solid #ffffff00;
-       padding: 10px 20px;
-       border-radius: var(--radius-small);
-       color: #747474;
-       cursor: pointer;
-    }
-
-    .status-ativo.status-pendente {
-        border-color: var(--dark-laranja);
-        background-color: #fff2e7;
-        color: var(--dark-laranja);
-    }
-
-    .status-ativo.status-andamento {
-        border-color: var(--dark-blue);
-        background-color: #ebf1fa;
-        color: var(--dark-blue);
-    }
-
-    .status-ativo.status-concluido {
-        border-color: var(--dark-verde);
-        background-color: #e7ffe7;
-        color: var(--dark-verde);
-    }
-
-    .confirmar-status {
-        width: 100%;
-        margin: 25px 0 0 0;
-        padding: 8px;
-        background-color: var(--cor);
-        color: white;
-        border: none;
-        border-radius: var(--radius-small);
-        cursor: pointer;
-        font-size: var(--font-medium);
-    }
-
-    /* padrão botão para fechar modal */
-    .btn-fechar {
-        background-color: transparent;
-        border: none;
-        color: #747474;
-        font-size: var(--font-medium);
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        cursor: pointer;
-    }
-
-    .modal-detalhes .informacoes, .detalhes-valor{
-        font-size: var(--font-base);
-        color: var(--cor2);
-        font-weight: 500;
-        gap: 3px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .informacoes span{
-        color: var(--cor5);
-    }
-
-    .detalhes{
-        margin: 35px 0 20px;
-        gap: 18px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .detalhes h2, .detalhes-valor h2{
-        font-weight: var(--subtitle-weight);
-        font-size: var(--subtitle-size);
-    }
-
-    .detalhes p{
-        font-size: var(--font-base);
-        color: var(--cor2);
-        font-weight: 500;
-    }
-
-    .valor-orcamento{
-        margin-top: 15px;
-    }
-
-    .valor-orcamento p{
-        color: black;
-        font-weight: 600;
-        font-size: var(--font-medium);
-    }
-
-    .baixar-pdf{
-        color: var(--cor);
-        margin-top: 15px;
-        text-decoration: underline;
-        font-size: var(--font-base);
-        cursor: pointer;
-    }
-
-    /* Modal "Editar OS" */
-
-    .campos-form{
-        display: flex;
-        gap: 10px;
-        flex-direction: column;
-    }
-
-    .campo-form{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form-edt-os input {
-        border-radius: var(--radius-small);
-        padding: var(--spacing-small-btn);
-        border: 2px solid var(--cor3);
-        color: var(--dark-cinza);
-    }
-
-    .form-edt-os label{
-        color: var(--cor5);
-        font-size: 13px;
-    }
-
-    .campo-form .adicionar{
-        background: transparent;
-        color: var(--cor);
-        text-decoration: underline;
-        border: none;
-        display: flex;
-        justify-content: flex-end;
-        font-size: var(--font-small);
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .input-peca, .input-servico {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 2px solid #9fc1ff;
-        background-color: #f5f9ff;
-        border-radius: var(--radius-small);
-        padding: var(--spacing-small-btn);
-    }
-
-    .input-peca input, .input-servico input{
-        border: none;
-        background: transparent;
-        outline: none;
-        padding: 0;
-    }
-
-    .direita-input {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: var(--font-small);
-    }
-
-    .direita-input i{
-        color: red;
-        font-size: var(--font-smaller);
-        cursor: pointer;
-    }
-
-    .campo-resumo .resumo-infos{
-        border: 2px solid var(--cor3);
-        width: 100%;
-        border-radius: var(--radius-small);
-        padding: var(--spacing-small);
-    }
-
-    .resumo-pecas, .resumo-servicos{
-        display: flex;
-        justify-content: space-between;
-        font-size: var(--font-small);
-        color: #7f7f7f;
-        font-weight: 500;
-    }
-
-    .linha-resumo{
-        height: 1px;
-        background-color: var(--cor3);
-        margin: 8px 0;
-        border: none;   
-    }
-
-    .resumo-total{
-        display: flex;
-        justify-content: space-between;
-        font-weight: 500;
-        font-size: var(--font-small);
-    }
-
-    .resumo-btns{
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .resumo-btns button{
-        background-color: transparent;
-        border-radius: var(--radius-small);
-        padding: var(--spacing-small-btn);
-        width: 100%;
-        font-size: var(--font-small);
-        cursor: pointer;
-        font-size: var(--font-small);
-    }
-
-    .resumo-btns .resumo-cancelar{
-        color: #b64f4f;
-        font-weight: 600;
-        border: 2px solid #b64f4f;
-    }
-
-    .resumo-btns .resumo-confirmar{
-        background-color: var(--cor);
-        border: none;
-        color: white;
-    }
-
-    /* modo escuro */
-
-    body.dark .ordem-filtro i{
-        color: var(--cor2);
-    }
-
-    body.dark .btn-filtro .opcao{
-        border: 2px solid var(--dark-cinza);
-    }
-
-    body.dark .ordem-opcoes,
-    body.dark .opcoes-acoes, 
-    body.dark .modal .linha,
-    body.dark .modal input{
-        background-color: var(--dark-cinza);
-    }
-
-    body.dark .modal .input-servico,
-    body.dark .modal .input-peca{
-        background-color: var(--dark-cinza);
-        border: 2px solid var(--cor5);
-    }
-
-    body.dark .campo-diag{
-        border: none;
-    }
-
-    body.dark .direita-input .valor{
-        background: transparent;
-        color: var(--dark-cinza-claro);
-    }
-
-    body.dark .card-servicos .destaque,
-    body.dark .card-servicos span,
-    body.dark .ordem-opcoes button,
-    body.dark .opcoes-acoes button,
-    body.dark .modal-status h2{
-        color: var(--dark-cinza-claro);
-    }
-
-    body.dark .ordem-opcoes button:hover, 
-    body.dark .opcoes-acoes button:hover{
-        background-color: var(--dark-hover);
-    }
-
-    body.dark .atualizar, 
-    body.dark .valor-orcamento p,
-    body.dark .resumo-total,
-    body.dark .confirmar-status,
-    body.dark .modal h1{
-        color: white;
-    }
-
-    body.dark .modal{
-        background-color: var(--dark-cinza-escuro);
-        border-top: 5px solid var(--dark-cinza-escuro);
-        border-bottom: 5px solid var(--dark-cinza-escuro);
-    }
-
-    body.dark .baixar-pdf,
-    body.dark .adicionar{
-        color: var(--dark-blue);
-        font-weight: 400;
-    }
-
-    body.dark .resumo-infos{
-        border: 2px solid var(--cor5);
-    }
-
-    body.dark .linha-resumo{
-        background-color: var(--cor5);
-    }
-
-    body.dark .resumo-cancelar{
-        color: #cd2929;
-        border: 2px solid #cd2929;
-    }
-
-    body.dark ::-webkit-scrollbar-thumb {
-        background: var(--dark-cinza);
-    }
-
-    body.dark .status-opcoes div{
-        color: var(--cor5);
-        background-color: var(--dark-cinza);
-    }
-
-    body.dark .status-ativo.status-pendente {
-        color: var(--dark-laranja);
-    }
-
-    body.dark .status-ativo.status-andamento {
-        color: var(--dark-blue);
-    }
-
-    body.dark .status-ativo.status-concluido {
-        color: var(--dark-verde);
     }
 
 }
+
+/* Desktop-large */
 
 @media (min-width:1340px) {
 

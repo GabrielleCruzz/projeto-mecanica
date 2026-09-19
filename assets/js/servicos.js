@@ -98,20 +98,6 @@ function mais() {
     botoesFuncionar();
 }
 
-// Abre o modal e trava o scroll da página
-function abrirModal() {
-    const overlay = document.getElementById("overlay");
-    overlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
-}
-
-// Fecha o modal e libera o scroll da página
-function fecharModal() {
-    const overlay = document.getElementById("overlay");
-    overlay.style.display = "none";
-    document.body.style.overflow = "auto";
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     botoesFuncionar();
 })
@@ -200,7 +186,20 @@ function abrirModal(modal) {
 // fechar modal
 
 function fecharModal(modal) {
-    modal.style.display = "none";
+
+    // adiciona a classe da animação de saída do modal
+    modal.querySelector(".modal-detalhes, .modal-editar, .modal-status")
+        ?.classList.add("modal-fechando");
+
+    // espera a animação terminar antes de esconder o modal
+    setTimeout(() => {
+        modal.style.display = "none";
+
+        // remove a classe para permitir que a animação funcione novamente ao abrir
+        modal.querySelector(".modal-detalhes, .modal-editar, .modal-status")
+            ?.classList.remove("modal-fechando");
+    }, 300);
+
     document.body.style.overflow = "auto";
 }
 
