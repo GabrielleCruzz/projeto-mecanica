@@ -243,7 +243,7 @@ body.dark .texto, body.dark .menuInferior .atual i{
 
 .title p {
     color: var(--cor2);
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .title button {
@@ -562,27 +562,54 @@ body.dark .mudarStatus{
 .pagina-orcamento > div {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+}
+
+.pagina-orcamento label{
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #484848;
+}
+
+.cliente-novo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cliente-novo button{
+    border: none;
+    color: var(--cor);
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.pagina-orcamento input{
+    border-radius: var(--radius-small);
+    width: 100%;
+    padding: var(--spacing-small-btn);
+    border: 1px solid var(--cor3);
 }
 
 /* lista */
-.lista-cliente {
+.lista-cliente, .lista-veiculos {
     position: absolute;
     top: 100%;
     width: 80%;
     background: white;
-    border-radius: 10px;
+    border-radius: var(--radius-small);
+    padding: 10px;
     margin-top: 10px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     display: none;
     max-height: 150px;
     overflow-y: auto; /*ativa o scroll*/
     z-index: 1;
+    font-size: 13px;
 }
 
 /* itens */
 .item-cliente, .item-veiculo{
-    padding: 5px;
+    padding: 3px;
     cursor: pointer;
 }
 
@@ -594,27 +621,6 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     background-color: var(--dark-cinza);
 }
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 25px;
-    margin-top: 25px;
-}
-
-.titulo{
-    color: var(--cor);
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.container h2{
-    color: var(--cor5);
-    font-weight: 300;
-    font-size: 1em;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
 /* Campo para buscar por um cliente */
 .busca{
     display: flex;
@@ -622,33 +628,12 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     position: relative;
 }
 
-.busca input{
-    width: 100%;
-    border-radius: 15px;
-    border: none;
-    padding: 15px;
-    margin-right: 15px;
-}
-
 /* Ícone de busca dentro do campo de pesquisa */
 .busca img{
     position: absolute;
-    right: 70px;
-    top: 15px;
+    right: 17px;
+    top: 6px;
     width: 20px;
-}
-
-/* Botão de adicionar cliente */
-.busca button{
-    background-color: var(--cor);
-    width: 55px;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
 }
 
 /* Campo para selecionar o veículo */
@@ -658,70 +643,76 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     position: relative;
 }
 
-.veiculo input{
-    width: 100%;
-    border-radius: 15px;
-    border: none;
-    padding: 15px;
-}
-
-.lista-veiculos{
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    background: white;
-    border-radius: 10px;
-    margin-top: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    max-height: 150px;
-    display: none;
-}
-
 /* campo para escrever o diagnóstico */
 .diagnostico textarea{
     width: 100%;
-    height: 100px;
-    border-radius: 15px;
+    height: 80px;
+    border-radius: var(--radius-small);
     border: none;
-    background-color: white;
-    padding: 15px;
-    font-size: 13px;
+    padding: 10px;
+    resize: none;
 }
 
-.pecas input, .tipo-servicos input, .mecanico input {
-    width: 100%;
-    border-radius: 15px;
-    border: none;
-    padding: 15px;
+/* campo de peça e serviço */
+.campo-servico, .campo-peca{
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
 }
 
-.peca, .tipo-servico {
+/* ajusta o tamanho dos campos de serviço e peça */
+.nome-peca, .tipo-servico{
+    flex: 3;
+}
+
+.valor-uni-peca, .valor-uni-servico{
+    flex: 2;
+}
+
+.qtd-peca{
+    flex: 1;
+}
+
+.pecas, .tipo-servicos{
+    gap: 8px;
+}
+
+.add-peca, .add-servico {
+    flex-shrink: 0;
+    width: 40px;
+    border: none;
+    border-radius: var(--radius-small);
+    background-color: var(--cor);
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.peca, .servico-escolhido {
     font-size: var(--font-small);
-    border: 2px solid var(--cor3);
-    padding: var(--spacing-small);
-    border-radius: var(--radius-round);
+    border: 2px solid #9fc1ff;
+    background-color: #f5f9ff;
+    padding: var(--spacing-small-btn);
+    border-radius: var(--radius-small);
     display: flex;
     justify-content: space-between;
     width: 100%;
+    color: var(--cor5);
+    font-weight: 500;
 }
 
-.peca div, .tipo-servico div {
+.peca div, .servico-escolhido div {
     align-items: center;
     display: flex;
     gap: 12px;
 }
 
-.peca i, .tipo-servico i {
+.peca i, .servico-escolhido i {
     color: #ef1b1b;
-}
-
-/* linha de separação */
-.linha{
-    width: 100%;
-    height: 2px;
-    background-color: var(--cor3);
-    margin: 8px 0;
-    border: none;
 }
 
 /* valor do serviço e peças */
@@ -769,14 +760,13 @@ div.valor{
 div.botoes-orcamento{
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-base);
-    font-size: 0.75em;
+    gap: var(--spacing-small);
 }
 
 .botoes-orcamento button{
-    border-radius: 30px;
-    padding: 15px;
-    font-weight: 500;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: var(--font-base);
 }
 
 .botoes-orcamento .salvar{
@@ -788,7 +778,8 @@ div.botoes-orcamento{
 .botoes-orcamento button:not(.salvar){
     background-color: white;
     color: var(--cor);
-    border: 2px solid var(--cor);
+    border: 1px solid var(--cor);
+    font-weight: 500;
 }
 
 /* Modal do formulário para adicionar novos clientes */
@@ -1616,11 +1607,13 @@ div.filtro {
     cursor: pointer;
 }
 
+/* campo resumo está sendo reutilizado na página de orçamentos */
 .campo-resumo .resumo-infos{
     border: 2px solid var(--cor3);
     width: 100%;
     border-radius: var(--radius-small);
     padding: var(--spacing-small);
+    background-color: white;
 }
 
 .resumo-pecas, .resumo-servicos{
@@ -2175,11 +2168,6 @@ body.dark .nav-bar {
     }
 
     /* ===== Página de serviços ===== */
-    
-    .title p {
-        color: var(--cor2);
-        font-size: 14px;
-    }
 
     .buscar-add{
         display: flex;

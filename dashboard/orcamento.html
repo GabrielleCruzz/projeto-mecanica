@@ -22,9 +22,15 @@
     <div id="sidebarContainer"></div>
 
     <main class="pagina-orcamento">
-        <h1>Criar Orçamentos</h1>
+        <div class="title">
+            <h1>Novo Orçamento</h1>
+            <p>Crie o orçamento de uma ordem de serviço</p>
+        </div>
         <div>
-            <h2>Cliente</h2>
+            <div class="cliente-novo">
+                <label>Cliente</label>
+                <button class="cadastra-cliente">Novo Cliente</button>
+            </div>
             <div class="busca">
                 <input id="busca" type="text" autocomplete="off" placeholder="Buscar por um cliente..." />
                 <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="20" height="20" />
@@ -40,13 +46,12 @@
                     <div class="item-cliente">Luis Ribeiro</div>
                     <div class="item-cliente">Ademar Costa</div>
                 </div>
-                <button class="cadastrarCliente">+</button>
             </div>
         </div>
 
         <!-- Selecionar o veículo -->
         <div>
-            <h2>Veículo</h2>
+            <label>Veículo</label>
             <div class="veiculo">
                 <input type="text" placeholder="Selecione o veículo">
                 <div id="listaVeiculo" class="lista-veiculos">
@@ -59,17 +64,27 @@
         
         <!-- Diagnóstico do veículo -->
         <div class="diagnostico">
-            <h2>Diagnóstico do veículo</h2>
+            <label>Diagnóstico do veículo</label>
             <textarea placeholder="Digite aqui"></textarea>
         </div>
 
+        <!-- Mecânico responsável pelo serviço -->
+        <div class="mecanico">
+            <label>Mecânico responsável</label>
+            <input  type="text" placeholder="Nome do mecânico">
+        </div> 
+
         <!-- Adicionar peças utilizadas -->
         <div class="pecas">
-            <h2>Peças</h2>
-            <input type="text" placeholder="Buscar por uma peça...">
+            <label>Peças</label>
+            <div class="campo-peca">
+                <input class="nome-peca" type="text" placeholder="Nome da peça">
+                <input class="valor-uni-peca" type="text" placeholder="Valor Uni.">
+                <input class="qtd-peca" type="text" placeholder="Qtd">
+                <button class="add-peca">+</button>
+            </div>
             <div class="peca">
                 <div>
-                    <span>#01</span>
                     <span>Nome da peça</span> 
                 </div>
                 <div>
@@ -81,54 +96,56 @@
 
         <!-- Adicionar peças utilizadas -->
         <div class="tipo-servicos">
-            <h2>Serviço</h2>
-            <input type="text" placeholder="Selecionar tipo de serviço">
-            <div class="tipo-servico">
+            <label>Serviço</label>
+            <div class="campo-servico">
+                <input class="tipo-servico" type="text" placeholder="Tipo de serviço">
+                <input class="valor-uni-servico" type="text" placeholder="Valor Uni.">
+                <button class="add-servico">+</button>
+            </div>
+            
+            <div class="servico-escolhido">
                 <span>Limpeza</span> 
                 <div>
                     <span>R$150,00</span>
                     <i class="fa-solid fa-xmark"></i>
                 </div>                               
             </div>
-            <div class="tipo-servico">
+            <div class="servico-escolhido">
                 <span>Troca de peça</span> 
                 <div>
                     <span>R$180,00</span>
                     <i class="fa-solid fa-xmark"></i>
                 </div>                               
             </div>
-        </div>
-
-        <!-- Linha de separação -->
-        <div class="linha"></div>
-
-        <div class="mecanico">
-            <h2>Mecânico responsável</h2>
-            <input  type="text" placeholder="Nome do mecânico">
-        </div>        
+        </div>    
         
-        <div class="valores">
-            <div class="mao-de-obra">
-                <span>Mão de obra</span>
-                <h3>R$330,00</h3>
-            </div>
-            <div class="mao-de-obra">
-                <span>Peças</span>
-                <h3>R$80,00</h3>
-            </div>
-        </div>
+        <div class="campo-resumo">
+            <label>Resumo</label>
 
-        <!-- Valor total do orçamento -->
-        <div class="valor">
-            <span>Valor total</span>
-            <h1>R$410,00</h1>
+            <div style="border: 1px solid #D5D5D5;" class="resumo-infos">
+                <div class="resumo-pecas">
+                    <p>Peças:</p>
+                    <p>R$80,00</p>
+                </div>
+                <div class="resumo-servicos">
+                    <p>Serviços:</p>
+                    <p>R$330,00</p>
+                </div>
+
+                <hr class="linha-resumo">
+
+                <div class="resumo-total">
+                    <p>VALOR TOTAL</p>
+                    <p>R$410,00</p>
+                </div>
+            </div>
         </div>
 
         <!-- Botões de ação -->
         <div class="botoes-orcamento">
-            <button class="salvar">SALVAR ORÇAMENTO</button>
-            <button>BAIXAR PDF</button>
-            <button>ENVIAR PARA CLIENTE VIA WHATSAPP</button>
+            <button class="salvar">Salvar orçamento</button>
+            <button>Baixar em PDF</button>
+            <button>Enviar para cliente via WhatsApp</button>
         </div>
     </main>
 
