@@ -643,14 +643,15 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     position: relative;
 }
 
-/* campo para escrever o diagnóstico */
-.diagnostico textarea{
+/* campo para escrever o diagnóstico e observações(modal) */
+.campo-textarea textarea{
     width: 100%;
     height: 80px;
     border-radius: var(--radius-small);
     border: none;
     padding: 10px;
     resize: none;
+    border: 1px solid var(--cor3);
 }
 
 /* campo de peça e serviço */
@@ -671,10 +672,6 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
 
 .qtd-peca{
     flex: 1;
-}
-
-.pecas, .tipo-servicos{
-    gap: 8px;
 }
 
 .add-peca, .add-servico {
@@ -703,6 +700,7 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     width: 100%;
     color: var(--cor5);
     font-weight: 500;
+    margin-top: 8px;
 }
 
 .peca div, .servico-escolhido div {
@@ -715,52 +713,12 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     color: #ef1b1b;
 }
 
-/* valor do serviço e peças */
-div.valores {
-    gap: var(--spacing-small);
-    flex-direction: row;
-}
-
-.valores div {
-    font-size: var(--font-small);
-    padding: var(--spacing-small);
-    border-radius: var(--radius);
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.valores span {
-    color: var(--cor5);
-}
-
-.valores h3 {
-    font-weight: 500;
-}
-
-/* Valor total do orçamento */
-div.valor{
-    background-color: white;
-    border-radius: var(--radius);
-    padding: var(--spacing-small);
-    gap: 0;
-}
-
-.valor span {
-    color: var(--cor5);
-}
-
-.valor h1{
-    color: var(--cor);
-    font-size: 1.7em;
-}
-
 /* Botões de ação do orçamento */
 div.botoes-orcamento{
     display: flex;
     flex-direction: column;
     gap: var(--spacing-small);
+    margin-top: 10px;
 }
 
 .botoes-orcamento button{
@@ -794,148 +752,63 @@ div.botoes-orcamento{
     z-index: 1000;
 }
 
-.form-cliente{
-    position: relative;
-    background-color: white;
-    width: 90%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--radius);
-    padding: var(--spacing-small);
-    gap: 10px;
-    max-height: 60vh; /* limita a altura do modal */
-    overflow-y: auto; /* adiciona barra de rolagem dentro do modal */
-}
-
-/* Botão para fechar o modal */
-.btn-fechar{
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: absolute;
-    font-size: var(--font-medium);
-    right: var(--spacing-small);
-}
-
 .form-cliente input{
     width: 100%;
-    padding: 12px;
-    border-radius: 10px;
+    padding: var(--spacing-small-btn);
+    border-radius: var(--radius-small);
+    border: 2px solid var(--cor3);
+    margin-bottom: 8px;
+}
+
+.btn-add-novo{
+    background: transparent;
     border: none;
-    background-color: var(--cor6);
-    font-size: 0.8em;
-}
-
-/* informações do cliente dentro do modal */
-.campos-cliente{
+    color: var(--cor);
+    text-decoration: underline;
+    font-weight: 500;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.linha-cliente{
-    display: flex;
-    gap: 5px;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 /* informações dos veículos dentro do modal */
-.campos-veiculo{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
 
-.linha-veiculo{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    align-items: center;
-}
-
-.linha-veiculo .campo{
-    flex: 1;
-    min-width: 120px;
-}
-
-.campo{
-    position: relative;
-    width: 100%;
-}
-
-.campo input{
-    border: 1px solid var(--cor3);
-    width: 100%;
-    border-radius: 10px;
-    outline: none;
-    padding: var(--spacing-big) var(--spacing-small) 8px var(--spacing-small);
-    background-color: var(--cor4);
-}
-
-.campo input:focus {
-    outline: 1px solid var(--cor5);
-}
-
-/* Rótulo dos campos */
-.campo label{
-    pointer-events: none;
-    position: absolute;
-    left: var(--spacing-small);
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: var(--font-small);
-    color: var(--cor5);
-    transition: 0.3s;
-}
-
-.campo input:focus + label,
-.campo input:valid + label{
-    top: 12px;
-    font-size: var(--font-smaller);
-}
-
-/* Botão de excluir veículo */
-.btn-excluir{
-    border: 1px solid red;
-    color: red;
-    background: transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 0.7em;
-    padding: 10px;
-}
-
-/* Botão para adicionar novo veículo */
-#btnAdicionar{
-    background: var(--cor);
-    color: white;
-    border: none;
-    padding: var(--spacing-small-btn);
-    border-radius: 20px;
-    cursor: pointer;
-    width: 130px;
-    font-size: 11px;
-}
-
-/* Botão para enviar o formulário */
-button[type="submit"]{
-    width: 100%;
-    background: var(--cor);
-    color: white;
-    border: none;
-    font-size: var(--font-base);
-    padding: var(--spacing-small);
-    border-radius: var(--radius-round);
+.form-cliente h2{
     font-weight: 500;
-    cursor: pointer;
+    margin-top: 20px;
+    color: var(--cor5);
 }
 
-/* Separa os veículos adicionados */
-.linha-separadora{
-    width: 100%;
-    height: 1px;
-    background-color: var(--cor3);
-    margin-bottom: 10px;
+.infos-veiculo{
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+/* botões do modal */
+
+.btns-add-cliente{
+    display: flex;
+    gap: 8px;
+}
+
+.btns-add-cliente button{
+    border: none;
+    background: transparent;
+    margin-top: 13px;
+    border-radius: var(--radius-small);
+    padding: var(--spacing-small-btn);
+    width: 50%;
+}
+
+.btns-add-cliente .btn-dell{
+    color: red;
+    border: 1px solid red;  
+}
+
+.btns-add-cliente .btn-salvar{
+    color: white;
+    background-color: var(--cor);
 }
 
 /* Modo escuro */
@@ -1361,9 +1234,9 @@ div.filtro {
     background-color: #00009910;
 }
 
-/* Modal "Ver detalhes" */
+/* Modais */
 
-.modal-detalhes, .modal-editar, .modal-status {
+.modal-detalhes, .modal-editar, .modal-status, .modal-add-cliente{
     width: 100%;
     max-height: 80%;
     background-color: white;
@@ -1376,6 +1249,8 @@ div.filtro {
     overflow: auto;
     animation: subirModal 0.3s ease forwards;
 }
+
+/* Animações de descer e bubir modal */
 
 @keyframes subirModal {
     from {
@@ -1410,7 +1285,7 @@ div.filtro {
     border-radius: 5px;
 }
 
-.modal-detalhes h1, .modal-editar h1, .modal-status h1{
+.modal-detalhes h1, .modal-editar h1, .modal-status h1, .modal-add-cliente h1{
     color: var(--title-color);
     font-size: var(--title-size);
     font-weight: var(--title-weight);
@@ -1557,7 +1432,7 @@ div.filtro {
     color: var(--dark-cinza);
 }
 
-.form-edt-os label{
+.form-edt-os label, .form-cliente label{
     color: var(--cor5);
     font-size: 13px;
 }

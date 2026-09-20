@@ -29,7 +29,7 @@
         <div>
             <div class="cliente-novo">
                 <label>Cliente</label>
-                <button class="cadastra-cliente">Novo Cliente</button>
+                <button class="cadastrarCliente">Novo Cliente</button>
             </div>
             <div class="busca">
                 <input id="busca" type="text" autocomplete="off" placeholder="Buscar por um cliente..." />
@@ -63,7 +63,7 @@
         </div>
         
         <!-- Diagnóstico do veículo -->
-        <div class="diagnostico">
+        <div class="campo-textarea">
             <label>Diagnóstico do veículo</label>
             <textarea placeholder="Digite aqui"></textarea>
         </div>
@@ -154,68 +154,63 @@
 <!-- Modal -->
     <!-- Formulário para cadastrar novo cliente -->
     <div class="overlay" id="overlay">
-        <form class="form-cliente">
-            <!-- Botão de fechar o formulário -->
-            <span class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></span>
-            <h2>Cadastrar Cliente</h2>
+        <div class="modal modal-add-cliente">
+            <form class="form-cliente">
+                <!-- Botão de fechar o formulário -->
+                <button type="button" class="btn-fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
 
-            <!--Dados do cliente-->
-            <div class="campos-cliente">
+                <h1>Cadastrar Cliente</h1>
 
-                <div class="campo">
-                    <input type="text" required>
+                <!--Dados do cliente-->
+                <div class="campos-cliente">
+                    <h2>Dados do cliente</h2>
                     <label>Nome</label>
-                </div>
-
-                <div class="campo">
                     <input type="text" required>
-                    <label>Endereço</label>
+
+                    <label>Telefone</label>
+                    <input type="tel" required>
+
+                    <button class="btn-add-novo">Adicionar novo</button>
                 </div>
 
-                <div class="linha-cliente">
-                    <div class="campo">
-                        <input type="tel" required>
-                        <label>Telefone</label>
+                <!--Dados do veículo-->
+                <div class="campos-veiculo">
+                    <h2>Veículos</h2>
+
+                    <div class="infos-veiculo">
+                        <div class="campo-placa">
+                            <label>Placa</label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="campo-marca">
+                            <label>Marca/Modelo</label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="campo-ano">
+                            <label>Ano</label>
+                            <input type="text" required>
+                        </div>
                     </div>
 
-                    <div class="campo">
-                        <input type="text" inputmode="numeric" required>
-                        <label>CPF/CNPJ</label>
-                    </div>
-                </div>
-            </div>
-
-            <!--Dados do veículo-->
-            <div class="campos-veiculo">
-                <h2>Veículos do cliente</h2>
-
-                <div class="linha-veiculo">
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Placa</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Marca</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required>
-                        <label>Modelo/Ano</label>
-                    </div>
-
-                    <!-- Botões de adição e exclusão de veículos -->
-                    <button type="button" class="btn-excluir">Excluir</button>
+                    <button class="btn-add-novo">Adicionar novo</button>
                 </div>
 
-                <button type="button" id="btnAdicionar">+ Novo veículo</button>
-            </div>
+                <div class="campo-textarea">
+                    <label>Observações</label>
+                    <textarea  style="border: 2px solid #D5D5D5;" class="obs-cliente"></textarea>
+                </div>
 
-            <button class="btn-salvar" type="submit">Cadastrar cliente</button>
-        </form>
+                <div class="btns-add-cliente">
+                    <button class="btn-dell">Descartar</button>
+                    <button class="btn-salvar">Cadastrar</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
     <!-- menu inferior -->
     <div class="menuInferior">

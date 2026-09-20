@@ -1,6 +1,7 @@
 const btnCadastrar = document.querySelectorAll(".cadastrarCliente");
 const overlay = document.getElementById("overlay");
-const btnFechar = document.getElementById("btnFechar");
+const modal = document.querySelector(".modal-add-cliente");
+const btnFechar = document.querySelector(".btn-fechar");
 
 // Modal
 
@@ -12,7 +13,18 @@ function abrirModal() {
 
 // Fecha o modal e libera o scroll da página
 function fecharModal() {
-    overlay.style.display = "none";
+
+    // adiciona a classe da animação de saída do modal
+    modal.classList.add("modal-fechando");
+
+    // espera a animação terminar antes de esconder o modal
+    setTimeout(() => {
+        overlay.style.display = "none";
+
+        // remove a classe para permitir que a animação funcione novamente ao abrir
+        modal.classList.remove("modal-fechando");
+    }, 300);
+
     document.body.style.overflow = "auto";
 }
 
@@ -20,6 +32,7 @@ function fecharModal() {
 btnCadastrar.forEach(btn => {
     btn.onclick = abrirModal;
 });
+
 btnFechar.onclick = fecharModal;
 
 // Veículos
