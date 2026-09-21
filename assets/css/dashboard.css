@@ -1864,7 +1864,7 @@ body.dark .nav-bar {
 .card-servicos .preco, 
 .card-servicos .ver-detalhes, 
 .btn-novo,
-.resumo-orcamento.desktop,
+.resumo-orcamento,
 .botoes-orcamento.desktop {
     display: none;
 }
