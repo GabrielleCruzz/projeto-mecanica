@@ -246,6 +246,12 @@ body.dark .texto, body.dark .menuInferior .atual i{
     font-size: 14px;
 }
 
+/* detalhes do cliente: link pra retornar pra página de clientes */
+.title a {
+    color: var(--cor);
+    font-size: 12px;
+}
+
 .title button {
     cursor: pointer;
     color: white;     
@@ -340,20 +346,46 @@ body.dark .cliente-card .ver-detalhes{
 
 /* ===== página de detalhes do cliente -> Isabella =====*/
 
-.voltar {
-    margin-right: auto;
-    color: var(--cor);
-    font-size: var(--font-medium);
-    border-radius: var(--radius-small); 
+/* título da página (não aparece no mobile) */
+.main-detalhes-cliente .title {
+    display: none;
 }
 
-.voltar:hover {
-    background-color: var(--cor);
-    color: white;
-    transition: 0.1s ease;
+/* nav bar personalizada para voltar para página de clientes */
+.nav-bar.nav-detalhes a {
+    gap: 8px;
+}
+
+.nav-bar.nav-detalhes a * {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.buscar-add.buscar-detalhes {
+    display: none;
+}
+
+.title-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-info button {
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    color: var(--cor);
+    font-size: var(--font-base);
+}
+
+.main-detalhes-cliente h2 {
+    color: var(--cor5);
+    font-size: var(--font-medium);
+    font-weight: 500;
 }
 
 .cliente-detalhes {
+    margin-top: 10px;
     position: relative;    
     display: flex;
     flex-direction: column;
@@ -362,17 +394,11 @@ body.dark .cliente-card .ver-detalhes{
     padding: var(--spacing-small);
     border-radius: var(--radius);
     border: 2px solid var(--cor6);
+    margin-bottom: 16px;
 }
 
-.cliente-detalhes button {
-    position: absolute;
-    font-size: var(--font-small);
-    background-color: var(--cor4);
-    border: 2px solid var(--cor6);
-    border-radius: var(--radius-small);    
-    padding: var(--spacing-small-btn);
-    right: var(--spacing-small);
-    cursor: pointer;
+.cliente-detalhes .info-destaque {
+    margin-bottom: 8px;
 }
 
 .cliente-detalhes a {
@@ -380,6 +406,36 @@ body.dark .cliente-card .ver-detalhes{
     color: var(--cor);    
     font-size: 10px;
     margin-top: 10px;
+}
+
+.btn-section {
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* margem entre seção de veículos e serviços (mobile) */
+.section-margin{
+    margin-bottom: 16px;
+}
+
+/* visibilidade das seções (mobile) */
+.section.open {
+    display: block;
+}
+
+.section {
+    display: none;
+}
+
+.btn-section i {
+    color: var(--cor5);
+    font-size: var(--font-base); 
 }
 
 .card-veiculos {
@@ -391,6 +447,40 @@ body.dark .cliente-card .ver-detalhes{
     padding: var(--spacing-small);    
     border-radius: var(--radius);
     border: 2px solid var(--cor6);
+    position: relative;
+}
+
+.info-historico {
+    color: var(--cor2);
+    margin-top: 8px;
+    font-size: var(--font-small);
+}
+
+.add-new {
+    width: 100%;
+    border-radius: var(--radius-small);
+    background-color: var(--cor);
+    padding: 8px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.editar-veiculo {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 4px 6px;
+    background-color: white;
+    border: 1px solid var(--cor);
+    border: none;
+    border-radius: 6px;
+    color: var(--cor);
+    font-weight: 500;
+    font-size: var(--font-small);
+    text-decoration: underline;
 }
 
 /* .card-servicos usado na pág. de serviços e detalhes do cliente */
@@ -2079,6 +2169,69 @@ body.dark .nav-bar {
         margin: 0px;
     }
 
+    /* ===== detalhes cliente ===== */
+
+    /* título da página aparecer no desktop */
+    .main-detalhes-cliente .title {
+        display: flex;
+    }
+
+    .nav-bar.nav-detalhes {
+        display: none;
+    }
+
+    /* desabilitar dropdown do mobile */
+    .btn-section {
+        pointer-events: none;
+    }
+
+    .btn-section i {
+        display: none;
+    }
+
+    .buscar-add.buscar-detalhes {
+        display: flex;
+    }
+
+    .pagina-detalhes {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "servicos info"
+            "servicos veiculos";
+        column-gap: 20px;
+    }
+
+    .area-info {
+        grid-area: info;
+    }
+
+    .area-veiculos {
+        grid-area: veiculos;
+    }
+
+    .area-servicos {
+        padding-right: 40px;
+        grid-area: servicos;        
+    }
+
+    .cards.cards-cliente {
+        border-radius: 8px;
+        padding-right: 16px;
+        max-height: 600px;
+        overflow-y: auto;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* garantir que todas as seções estejam visíveis */
+    #servicos, #veiculos {
+        display: block;
+    }
+
+    #servicos .buscar-add {
+        margin: 10px 0 16px 0;
+    }
+
     /* ===== Menu lateral ===== */
     
     .sidebar {
@@ -2225,4 +2378,15 @@ body.dark .nav-bar {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    /* largura dos cards na página de detalhes */
+    .cards.cards-cliente {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1700px) {
+    /* largura dos cards na página de detalhes */
+    .cards.cards-cliente {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
