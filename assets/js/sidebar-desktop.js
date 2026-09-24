@@ -4,6 +4,15 @@ function initSidebar() {
 
     sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        
+        // salvar no localStorage se a sidebar está aberta ou não
+        if (sidebar.classList.contains("open")) {
+            localStorage.setItem("sidebar", "open");
+        }
+        else {
+            localStorage.setItem("sidebar", "closed");
+        }
+        
     });
 }
 
@@ -21,6 +30,14 @@ function marcarPaginaAtual() {
     });
 }
 
+function marcarSidebarOpen() {
+    const sidebarElement = document.querySelector('.sidebar');
+
+    if (localStorage.getItem("sidebar") === "open") {
+        sidebarElement.classList.add("open");        
+    }
+}
+
 fetch("components/sidebar-desktop.html")
     .then(res => res.text())
     .then(html => {
@@ -28,4 +45,5 @@ fetch("components/sidebar-desktop.html")
 
         initSidebar();
         marcarPaginaAtual();
+        marcarSidebarOpen();
     });
