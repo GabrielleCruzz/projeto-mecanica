@@ -409,34 +409,9 @@ body.dark .cliente-card .ver-detalhes{
     margin-top: 10px;
 }
 
-.btn-section {
-    border: none;
-    border-radius: 8px;
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
 /* margem entre seção de veículos e serviços (mobile) */
 .section-margin{
     margin-bottom: 16px;
-}
-
-/* visibilidade das seções (mobile) */
-.section.open {
-    display: block;
-}
-
-.section {
-    display: none;
-}
-
-.btn-section i {
-    color: var(--cor5);
-    font-size: var(--font-base); 
 }
 
 .card-veiculos {
@@ -2053,15 +2028,6 @@ body.dark .nav-bar {
     }
 
     .nav-bar.nav-detalhes {
-        display: none;
-    }
-
-    /* desabilitar dropdown do mobile */
-    .btn-section {
-        pointer-events: none;
-    }
-
-    .btn-section i {
         display: none;
     }
 

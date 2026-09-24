@@ -56,12 +56,9 @@
                 </div>        
         
                 <!-- área de veículos do cliente -->
-                <div class="area-veiculos">
-                    <button class="btn-section" onclick="dropdown('veiculos', 'veiculosIcon')">
-                        <h2>Veículos</h2>
-                        <i class="fa-solid fa-chevron-down" id="veiculosIcon"></i>
-                    </button>
-                    <div id="veiculos" class="section open">            
+                <div class="area-veiculos">            
+                    <h2>Veículos</h2>                                            
+                    <div>            
                         <div class="card-veiculos">
                             <span class="info-destaque">ABC-1A23</span>
                             <span class="info-secundaria">Toyota Corolla • 2022</span>
@@ -83,19 +80,16 @@
     
             <!-- área de serviços com o cliente -->
             <div class="area-servicos">
-                <!-- título da área e botão dropdown (mobile) -->
-                <button class="btn-section" onclick="dropdown('servicos', 'servicosIcon')">
-                    <h2>Serviços</h2>
-                    <i class="fa-solid fa-chevron-down" id="servicosIcon"></i>
-                </button>
+                <!-- título da área -->
+                <h2>Serviços</h2>
                 <!-- conteúdo da área de serviços -->
-                <div id="servicos" class="section">
+                <div id="servicos">
                     <!-- pesquisa -->
                     <div class="buscar-add buscar-detalhes">
                         <div class="pesquisa">
                             <input type="text" placeholder="Buscar por serviço ou veículo" />
                             <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="23" height="23" />
-                        </div>
+                        </div>                
                         <a class="btn-novo" href="orcamento.html">+ Novo orçamento</a>
                     </div>
                     <!-- os cards de serviços -->
