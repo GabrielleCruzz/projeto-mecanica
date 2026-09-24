@@ -1317,7 +1317,7 @@ div.filtro {
 
 /* Modais */
 
-.modal-detalhes, .modal-editar, .modal-status, .modal-add-cliente{
+.modal {
     width: 100%;
     max-height: 80%;
     background-color: white;
@@ -2001,7 +2001,7 @@ body.dark .nav-bar {
         z-index: 2;
     }
 
-    .modal-detalhes, .modal-editar, .modal-status{
+    .modal {
         max-width: 500px;
         animation: none;
         transform: none;
