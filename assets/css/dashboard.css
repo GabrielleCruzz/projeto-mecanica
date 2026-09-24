@@ -1111,14 +1111,22 @@ div.filtro {
 
 .ordem-filtro{
     position: absolute;
+    
+}
+
+.ordem-filtro.servicos {
     top: 260px;
     right: 20px;
 }
 
 .ordem-filtro.aberto .ordem-opcoes {
-    visibility: visible;
+    display: block;
     opacity: 1;
     z-index: 10;
+}
+
+.ordem-filtro.ordem-clientes {
+    position: relative;
 }
 
 .ordem-filtro.aberto .ordem-btn i {
@@ -1143,6 +1151,7 @@ div.filtro {
 }
 
 .ordem-opcoes {
+    display: none;
     position: absolute;
     right: 0;
     top: 30px;

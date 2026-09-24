@@ -116,10 +116,10 @@ function botoesFuncionar() {
 
 // Filtro de ordem 
 
-const ordemFiltro = document.querySelector('.ordem-filtro');
-const ordemBtn = ordemFiltro.querySelector('.ordem-btn');
-const ordemTexto = ordemBtn.querySelector('span');
-const ordemOpcoes = ordemFiltro.querySelectorAll('.ordem-opcoes button');
+const ordemFiltro = document.querySelector('.ordem-filtro'); // div inteira
+const ordemBtn = ordemFiltro.querySelector('.ordem-btn'); // o filtro selecionado (atual)
+const ordemTexto = ordemBtn.querySelector('span'); // texto do atual
+const ordemOpcoes = ordemFiltro.querySelectorAll('.ordem-opcoes button'); // opções que aparecem ao abrir o filtro
 
 ordemBtn.addEventListener('click', () => {
     ordemFiltro.classList.toggle('aberto');
