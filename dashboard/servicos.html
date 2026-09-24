@@ -411,21 +411,6 @@
         </div>
     </div>
 
-    <script>
-        fetch("components/menu-lateral.html")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("menuContainer").innerHTML = html;
-
-                initMenuLateral();
-            });
-
-        if (localStorage.getItem("theme") === "dark") {
-            document.body.classList.add("dark");
-        }
-
-    </script>
-
 </body>
 
 </html>

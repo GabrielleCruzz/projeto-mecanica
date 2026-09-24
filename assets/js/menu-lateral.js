@@ -31,3 +31,30 @@ function initMenuLateral() {
         }
     });
 }
+
+function marcarPgAtual() {
+    const pgAtual = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".link-menu");
+
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+
+        if (href === pgAtual) {
+            link.classList.add("pg-atual");
+        }
+    });
+}
+
+
+fetch("components/menu-lateral.html")
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("menuContainer").innerHTML = html;
+
+        marcarPgAtual();
+        initMenuLateral();
+    });
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
