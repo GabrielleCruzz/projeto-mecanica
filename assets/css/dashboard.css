@@ -332,6 +332,7 @@ body.dark #cadastrarCliente{
 body.dark .cliente-card{
     background-color: var(--dark-cinza-escuro);
     border: none;
+    box-shadow: 3px 3px 3px var(--dark-cinza);
 }
 
 body.dark .cliente-card .info-destaque{
@@ -1929,6 +1930,11 @@ body.dark .texto, body.dark .menuInferior i{
 body.dark .cadastrarCliente{
     background: transparent;
     color: var(--dark-title);
+}
+
+body.dark .buscar-add .cadastrarCliente{
+    background-color: var(--cor);
+    color: white;
 }
 
 body.dark .sair i, body.dark .sair a, body.dark .nav-bar i{
