@@ -114,31 +114,6 @@ function botoesFuncionar() {
 }
 
 
-// Filtro de ordem 
-
-const ordemFiltro = document.querySelector('.ordem-filtro'); // div inteira
-const ordemBtn = ordemFiltro.querySelector('.ordem-btn'); // o filtro selecionado (atual)
-const ordemTexto = ordemBtn.querySelector('span'); // texto do atual
-const ordemOpcoes = ordemFiltro.querySelectorAll('.ordem-opcoes button'); // opções que aparecem ao abrir o filtro
-
-ordemBtn.addEventListener('click', () => {
-    ordemFiltro.classList.toggle('aberto');
-});
-
-ordemOpcoes.forEach(opcao => {
-    opcao.addEventListener('click', () => {
-        ordemTexto.textContent = opcao.textContent;
-        ordemFiltro.classList.remove('aberto');
-    });
-});
-
-document.addEventListener('click', (event) => {
-    if (!ordemFiltro.contains(event.target)) {
-        ordemFiltro.classList.remove('aberto');
-    }
-});
-
-
 // Mais opções
 
 // controla os cliques dos botões "Mais ações"
@@ -310,4 +285,28 @@ function atualizarContador() {
 // roda a função quando a página carrega
 document.addEventListener("DOMContentLoaded", () => {
     atualizarContador();
+});
+
+// Filtro de ordem 
+
+const ordemFiltro = document.querySelector('.ordem-filtro'); // div inteira
+const ordemBtn = ordemFiltro.querySelector('.ordem-btn'); // o filtro selecionado (atual)
+const ordemTexto = ordemBtn.querySelector('span'); // texto do atual
+const ordemOpcoes = ordemFiltro.querySelectorAll('.ordem-opcoes button'); // opções que aparecem ao abrir o filtro
+
+ordemBtn.addEventListener('click', () => {
+    ordemFiltro.classList.toggle('aberto');
+});
+
+ordemOpcoes.forEach(opcao => {
+    opcao.addEventListener('click', () => {
+        ordemTexto.textContent = opcao.textContent;
+        ordemFiltro.classList.remove('aberto');
+    });
+});
+
+document.addEventListener('click', (event) => {
+    if (!ordemFiltro.contains(event.target)) {
+        ordemFiltro.classList.remove('aberto');
+    }
 });
