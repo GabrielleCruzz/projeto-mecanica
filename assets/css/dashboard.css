@@ -19,7 +19,8 @@
     --shadow: #98989840;
 
     /* Modo escuro */
-    --dark-blue: #3976ff;
+    --dark-title: #3976ff;
+    --dark-red: #cd2929;
     --dark-bg: #111013;
     --dark-cinza-escuro: #1c1b1e;
     --dark-cinza-claro: #bcbbbb;
@@ -177,13 +178,13 @@ span.red {
 
 /* Modo escuro */
 body.dark .index h1{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 body.dark input{
     background-color: var(--dark-cinza-escuro);
     color: var(--dark-cinza-claro);
-    border: 2px solid var(--dark-cinza-escuro);
+    border: 1px solid var(--dark-cinza);
 }
 
 body.dark input:focus{
@@ -196,7 +197,7 @@ body.dark .resumo-card, body.dark .card-servicos{
 }
 
 body.dark .index .blue, body.dark .ver-detalhes, body.dark .preco{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 body.dark .index .orange{
@@ -226,7 +227,7 @@ body.dark .menuInferior a{
 }
 
 body.dark .texto, body.dark .menuInferior .atual i{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 /* ===== página de clientes -> Isabella =====*/
@@ -324,7 +325,7 @@ body.dark .texto, body.dark .menuInferior .atual i{
 /* Modo escuro */
 
 body.dark #cadastrarCliente{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     color: white;
 }
 
@@ -342,7 +343,7 @@ body.dark .cliente-card .info-secundaria{
 }
 
 body.dark .cliente-card .ver-detalhes{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 /* ===== página de detalhes do cliente -> Isabella =====*/
@@ -499,9 +500,9 @@ body.dark .cliente-card .ver-detalhes{
 }
 
 .card-servicos .status.andamento {
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--cor);
     background-color: #ebf1fa;
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 .card-servicos .preco {
@@ -524,7 +525,7 @@ body.dark .cliente-card .ver-detalhes{
 /* Modo escuro */
 
 body.dark .voltar{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 body.dark .cliente-detalhes{
@@ -537,13 +538,13 @@ body.dark .cliente-detalhes .info-destaque{
 }
 
 body.dark .cliente-detalhes button{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     border: none;
     color: white;
 }
 
 body.dark .cliente-detalhes a{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 body.dark .card-veiculos{
@@ -553,7 +554,7 @@ body.dark .card-veiculos{
 }
 
 body.dark .novo-orcamento{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     color: white;
     font-weight: 500;
 }
@@ -578,7 +579,7 @@ body.dark .form-cliente .campo input:focus{
 }
 
 body.dark h2, body.dark .btn-fechar{
-    color: white;
+    color: var(--dark-cinza-claro);
 }
 
 body.dark .form-cliente .btn-excluir{
@@ -586,7 +587,7 @@ body.dark .form-cliente .btn-excluir{
 }
 
 body.dark #btnAdicionar, body.dark .btn-salvar{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     color: white;
 }
 
@@ -618,7 +619,7 @@ body.dark .servico-detalhes span{
 }
 
 body.dark .mudarStatus{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     color: white;
 }
 
@@ -827,9 +828,9 @@ div.botoes-orcamento{
 .btn-add-novo{
     background: transparent;
     border: none;
-    color: var(--cor);
+    color: var(--dark-title);
     text-decoration: underline;
-    font-weight: 500;
+    font-weight: 400;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -840,6 +841,7 @@ div.botoes-orcamento{
 .form-cliente h2{
     font-weight: 500;
     margin-top: 20px;
+    margin-bottom: 8px;
     color: var(--cor5);
 }
 
@@ -876,13 +878,10 @@ div.botoes-orcamento{
 }
 
 /* Modo escuro */
-body.dark .linha, body.dark .mao-de-obra{
-    background-color: var(--dark-cinza-escuro);
-}
 
 body.dark textarea{
     background-color: var(--dark-cinza-escuro);
-    border: 2px solid var(--dark-cinza-escuro);
+    border: 1px solid var(--dark-cinza);
     color: var(--dark-cinza-claro);
 }
 
@@ -891,44 +890,66 @@ body.dark textarea:focus{
     border: 2px solid var(--dark-cinza);
 }
 
-body.dark .peca, body.dark .tipo-servico{
+body.dark .peca, body.dark .servico-escolhido{
     background-color: var(--dark-bg);
-    color: white;
+    color: var(--dark-cinza-claro);
     border: 2px solid var(--dark-cinza);
 }
 
-body.dark .mao-de-obra span{
+body.dark .card-resumo-orcamento{
+    background-color: var(--dark-cinza-escuro);
+    border: 1px solid var(--dark-cinza);
+}
+
+body.dark .pagina-orcamento label{
     color: var(--dark-cinza-claro);
 }
 
-body.dark .mao-de-obra h3{
-    color: white;
+body.dark .valor-orcamento p{
+    color: var(--cor5);
 }
 
-body.dark .valor{
-    background-color: var(--dark-cinza-escuro);
-}
-
-body.dark .valor span{
+body.dark .resumo-orcamento h2{
     color: var(--dark-cinza-claro);
 }
 
 body.dark .botoes-orcamento .salvar{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
+    border: 2px solid var(--cor);
+    color: white;
 }
 
 body.dark .botoes-orcamento button{
     background-color: var(--dark-cinza-escuro);
-    color: white;
-    border: 2px solid var(--dark-blue);
+    color: var(--dark-cinza-claro);
+    border: 1px solid var(--cor5);
 }
 
-body.dark .lista-cliente, body.dark .lista-veiculos{
-    background-color: var(--dark-cinza-escuro);
-    color: white;
-    box-shadow: 2px 2px 10px black;
+body.dark .resumo-orcamento hr{
+    border: 1px solid var(--dark-cinza);
 }
 
+body.dark .form-cliente input{
+    border: 1px solid var(--dark-cinza-borda);
+}
+
+body.dark .form-cliente textarea{
+    background-color: var(--dark-cinza);
+    color: var(--dark-cinza-claro);
+}
+
+body.dark .campo-textarea textarea{
+    border: 1px solid var(--dark-cinza-borda);
+}
+
+body.dark .form-orcamento textarea{
+    border: 1px solid var(--dark-cinza);
+}
+
+body.dark .btn-dell{
+    color: var(--dark-red);
+    border: 2px solid var(--dark-red);
+}
 
 /* Menu inferior -> Isabella */
 
@@ -1389,9 +1410,9 @@ div.filtro {
 }
 
 .status-ativo.status-andamento {
-    border-color: var(--dark-blue);
+    border-color: var(--cor);
     background-color: #ebf1fa;
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 .status-ativo.status-concluido {
@@ -1495,7 +1516,7 @@ div.filtro {
 
 .form-edt-os label, .form-cliente label{
     color: var(--cor5);
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .campo-form .adicionar{
@@ -1623,102 +1644,107 @@ div.filtro {
 
 /* Modo escuro */
 
-    body.dark .ordem-filtro i{
-        color: var(--cor2);
-    }
+body.dark .ordem-filtro i{
+    color: var(--cor2);
+}
 
-    body.dark .btn-filtro .opcao{
-        border: 2px solid var(--dark-cinza);
-    }
+body.dark .btn-filtro .opcao{
+    border: 2px solid var(--dark-cinza);
+}
 
-    body.dark .ordem-opcoes,
-    body.dark .opcoes-acoes, 
-    body.dark .modal .linha,
-    body.dark .modal input{
-        background-color: var(--dark-cinza);
-    }
+body.dark .ordem-opcoes,
+body.dark .opcoes-acoes, 
+body.dark .modal .linha{
+    background-color: var(--dark-cinza);
+}
 
-    body.dark .modal .input-servico,
-    body.dark .modal .input-peca{
-        background-color: var(--dark-cinza);
-        border: 2px solid var(--cor5);
-    }
+body.dark .modal .input-servico,
+body.dark .modal .input-peca{
+    border: 1px solid var(--dark-cinza-borda);
+    background-color: var(--dark-cinza);
+}
 
-    body.dark .campo-diag{
-        border: none;
-    }
+body.dark .campo-cliente,
+body.dark .campo-veiculo,
+body.dark .campo-diag{
+    border: 1px solid var(--dark-cinza-borda);
+}
 
-    body.dark .direita-input .valor{
-        background: transparent;
-        color: var(--dark-cinza-claro);
-    }
+body.dark .modal input{
+    background-color: var(--dark-cinza);
+}
 
-    body.dark .card-servicos .destaque,
-    body.dark .card-servicos span,
-    body.dark .ordem-opcoes button,
-    body.dark .opcoes-acoes button,
-    body.dark .modal-status h2{
-        color: var(--dark-cinza-claro);
-    }
+body.dark .direita-input .valor{
+    background: transparent;
+    color: var(--dark-cinza-claro);
+}
 
-    body.dark .ordem-opcoes button:hover, 
-    body.dark .opcoes-acoes button:hover{
-        background-color: var(--dark-hover);
-    }
+body.dark .card-servicos .destaque,
+body.dark .card-servicos span,
+body.dark .ordem-opcoes button,
+body.dark .opcoes-acoes button,
+body.dark .modal-status h2{
+    color: var(--dark-cinza-claro);
+}
 
-    body.dark .atualizar, 
-    body.dark .valor-orcamento p,
-    body.dark .resumo-total,
-    body.dark .confirmar-status,
-    body.dark .modal h1{
-        color: white;
-    }
+body.dark .ordem-opcoes button:hover, 
+body.dark .opcoes-acoes button:hover{
+    background-color: var(--dark-hover);
+}
 
-    body.dark .modal{
-        background-color: var(--dark-cinza-escuro);
-        border-top: 5px solid var(--dark-cinza-escuro);
-        border-bottom: 5px solid var(--dark-cinza-escuro);
-    }
+body.dark .atualizar, 
+body.dark .resumo-total,
+body.dark .confirmar-status,
+body.dark .modal h1{
+    color: white;
+}
 
-    body.dark .baixar-pdf,
-    body.dark .adicionar{
-        color: var(--dark-blue);
-        font-weight: 400;
-    }
+body.dark .modal{
+    background-color: var(--dark-cinza-escuro);
+    border-top: 5px solid var(--dark-cinza-escuro);
+    border-bottom: 5px solid var(--dark-cinza-escuro);
+}
 
-    body.dark .resumo-infos{
-        border: 2px solid var(--cor5);
-    }
+body.dark .baixar-pdf,
+body.dark .adicionar{
+    color: var(--dark-title);
+    font-weight: 400;
+}
 
-    body.dark .linha-resumo{
-        background-color: var(--cor5);
-    }
+body.dark .resumo-infos{
+    border: 1px solid var(--dark-cinza-borda);
+    background-color: var(--dark-cinza);
+}
 
-    body.dark .resumo-cancelar{
-        color: #cd2929;
-        border: 2px solid #cd2929;
-    }
+body.dark .linha-resumo{
+    background-color: var(--dark-cinza-borda);
+}
 
-    body.dark ::-webkit-scrollbar-thumb {
-        background: var(--dark-cinza);
-    }
+body.dark .resumo-cancelar{
+    color: #cd2929;
+    border: 2px solid #cd2929;
+}
 
-    body.dark .status-opcoes div{
-        color: var(--cor5);
-        background-color: var(--dark-cinza);
-    }
+body.dark ::-webkit-scrollbar-thumb {
+    background: var(--dark-cinza);
+}
 
-    body.dark .status-ativo.status-pendente {
-        color: var(--dark-laranja);
-    }
+body.dark .status-opcoes div{
+    color: var(--cor5);
+    background-color: var(--dark-cinza);
+}
 
-    body.dark .status-ativo.status-andamento {
-        color: var(--dark-blue);
-    }
+body.dark .status-ativo.status-pendente {
+    color: var(--dark-laranja);
+}
 
-    body.dark .status-ativo.status-concluido {
-        color: var(--dark-verde);
-    }
+body.dark .status-ativo.status-andamento {
+    color: var(--cor);
+}
+
+body.dark .status-ativo.status-concluido {
+    color: var(--dark-verde);
+}
 
 /* modal detalhes do serviço - isabella */
 
@@ -1823,7 +1849,7 @@ div.filtro {
 }
 
 .switch.dark{
-    background-color: var(--dark-blue);
+    background-color: var(--cor);
     transition: .5s;
 }
 
@@ -1884,7 +1910,7 @@ body.dark .configuracao h2{
 }
 
 body.dark h1{
-    color: var(--dark-blue);
+    color: var(--dark-title);
 }
 
 body.dark .configuracao input{
@@ -1900,16 +1926,17 @@ body.dark .texto, body.dark .menuInferior i{
     color: var(--dark-cinza-claro);
 }
 
-body.dark button{
-    color: var(--dark-blue);
+body.dark .cadastrarCliente{
+    background: transparent;
+    color: var(--dark-title);
 }
 
 body.dark .sair i, body.dark .sair a, body.dark .nav-bar i{
-    color: var(--dark-blue);
+    color: var(--cor);
 }
 
 body.dark .sair a{
-    border: 1.5px solid var(--dark-blue);
+    border: 1.5px solid var(--cor);
 }
 
 body .campo.editando {
@@ -2151,7 +2178,7 @@ body.dark .nav-bar {
     }
 
     body.dark .sidebar a:hover {
-        color: var(--dark-blue);
+        color: var(--cor);
         background-color: #afc7ff15;
     }
 
@@ -2161,7 +2188,7 @@ body.dark .nav-bar {
     }
 
     body.dark .sidebar a.atual {
-        background-color: var(--dark-blue);
+        background-color: var(--cor);
         color: white;
     }
 
