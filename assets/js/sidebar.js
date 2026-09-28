@@ -1,4 +1,5 @@
-function initMenuLateral() {
+function initSidebar() {
+    // sidebar mobile
     const menuBtn = document.getElementById("menuBtn");
     const btnFecharMenu = document.getElementById("btnFecharMenu");
     const menu = document.getElementById("menu");
@@ -30,29 +31,66 @@ function initMenuLateral() {
             body.classList.remove("no-scroll"); // libera rolagem
         }
     });
+
+    // sidebar desktop
+    const sidebarBtn = document.getElementById("sidebarBtn");
+    const sidebar = document.querySelector(".sidebar");
+
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+
+        // salvar no localStorage se a sidebar está aberta ou não
+        if (sidebar.classList.contains("open")) {
+            localStorage.setItem("sidebar", "open");
+        }
+        else {
+            localStorage.setItem("sidebar", "closed");
+        }
+
+    });
 }
 
-function marcarPgAtual() {
-    const pgAtual = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".link-menu");
+function marcarPaginaAtual() {
+    const paginaAtual = window.location.pathname.split("/").pop();
+
+    const links = document.querySelectorAll(".sidebar a, .link-menu");
 
     links.forEach(link => {
         const href = link.getAttribute("href");
+        console.log("oi")
 
-        if (href === pgAtual) {
-            link.classList.add("pg-atual");
+        if (href === paginaAtual) {
+            link.classList.add("atual", "pg-atual");
         }
     });
 }
 
+// manter a sidebar aberta (desktop)
+function marcarSidebarOpen() {
+    const sidebarElement = document.querySelector('.sidebar');
+
+    if (localStorage.getItem("sidebar") === "open") {
+        sidebarElement.classList.add("open");        
+    }
+}
+
+fetch("components/sidebar-desktop.html")
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("sidebarContainer").innerHTML = html;
+
+        marcarPaginaAtual();
+        marcarSidebarOpen();
+        initSidebar();
+});
 
 fetch("components/menu-lateral.html")
     .then(res => res.text())
     .then(html => {
         document.getElementById("menuContainer").innerHTML = html;
 
-        marcarPgAtual();
-        initMenuLateral();
+        marcarPaginaAtual();
+        initSidebar();
     });
 
 if (localStorage.getItem("theme") === "dark") {

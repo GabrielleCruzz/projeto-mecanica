@@ -58,6 +58,23 @@
     --subtitle-weight: 500; 
 }
 
+.sidebar .sidebar-atual, .link-menu.sidebar-atual {
+    background-color: var(--cor);
+    color: white;
+}
+.sidebar .sidebar-atual:hover, .link-menu.sidebar-atual:hover {
+    background-color: var(--cor);
+    color: white;
+}
+
+.link-menu {
+    border-radius: 8px;
+}
+
+.link-menu span {
+    margin-left: 4px;
+}
+
 body{
     background-color: var(--cor4);
     user-select: none; /* impede a seleção */
@@ -1066,7 +1083,7 @@ body.dark .btn-dell{
 .menu.active{ /* Menu aberto */
     left: 0;
 }
-
+/* 
 .pg-atual span, .pg-atual i{
     color: white;
 }
@@ -1074,7 +1091,7 @@ body.dark .btn-dell{
 .pg-atual{
     background-color: var(--cor);
     border-radius: 14px;
-}
+} */
 
 /*bloqueia clique em todos os elementos da página*/
 .no-click{
@@ -2201,15 +2218,15 @@ body.dark .nav-bar {
         background-color: #afc7ff15;
     }
 
-    .sidebar a.atual {
+    /* .sidebar a.atual {
         background-color: var(--cor);
         color: white;
-    }
+    } */
 
-    body.dark .sidebar a.atual {
+    /* body.dark .sidebar a.atual {
         background-color: var(--cor);
         color: white;
-    }
+    } */
 
     /* ===== Página de serviços ===== */
 
