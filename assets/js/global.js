@@ -14,7 +14,7 @@ ordemFiltros.forEach((ordemFiltro) => {
     ordemOpcoes.forEach(opcao => {
         opcao.addEventListener('click', () => {
             ordemTexto.textContent = opcao.textContent;
-            ordemFiltros.classList.remove('aberto');
+            ordemFiltro.classList.remove('aberto');
         });
     });
 });
