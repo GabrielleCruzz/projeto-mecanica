@@ -60,7 +60,7 @@ function marcarPaginaAtual() {
         console.log("oi")
 
         if (href === paginaAtual) {
-            link.classList.add("atual", "pg-atual");
+            link.classList.add("sidebar-atual", "pg-atual");
         }
     });
 }
