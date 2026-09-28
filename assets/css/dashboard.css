@@ -36,6 +36,7 @@
     --spacing-small: 12px;          /* espaçamento dentro dos cards */
     --spacing-cards: 12px 0;         /* espaçamento entre cards */
     --spacing-small-btn: 6px 10px;  /* botões pequenos */
+    --padding-input: 10px;
 
     /* font-sizes */    
     --font-menu: 30px;      /* ícones do menu */
@@ -116,7 +117,7 @@ div.pesquisa > input{
     background-color: white;
     border: none;
     border-radius: var(--radius-small);
-    padding: var(--spacing-small);
+    padding: var(--padding-input);
     border: 1px solid var(--cor3);
 }
 
@@ -687,7 +688,7 @@ body.dark .info-destaque{
 .pagina-orcamento input{
     border-radius: var(--radius-small);
     width: 100%;
-    padding: var(--spacing-small-btn);
+    padding: var(--padding-input);
     border: 1px solid var(--cor3);
 }
 
@@ -791,7 +792,7 @@ body.dark .item-cliente:hover, body.dark .item-veiculo:hover{
     font-size: var(--font-small);
     border: 1px solid #9fc1ff;
     background-color: #f5f9ff;
-    padding: var(--spacing-small-btn);
+    padding: var(--padding-input);
     border-radius: var(--radius-small);
     display: flex;
     justify-content: space-between;
@@ -854,9 +855,9 @@ div.botoes-orcamento{
 
 .form-cliente input{
     width: 100%;
-    padding: var(--spacing-small-btn);
+    padding: var(--padding-input);
     border-radius: var(--radius-small);
-    border: 2px solid var(--cor3);
+    border: 1px solid var(--cor3);
     margin-bottom: 8px;
 }
 
@@ -1544,7 +1545,7 @@ div.filtro {
 
 .form-edt-os input {
     border-radius: var(--radius-small);
-    padding: var(--spacing-small-btn);
+    padding: var(--padding-input);
     border: 1px solid var(--cor3);
     color: var(--dark-cinza);
 }
@@ -1573,7 +1574,7 @@ div.filtro {
     border: 1px solid #9fc1ff;
     background-color: #f5f9ff;
     border-radius: var(--radius-small);
-    padding: var(--spacing-small-btn);
+    padding: var(--padding-input);
 }
 
 .input-peca input, .input-servico input {
@@ -2273,10 +2274,6 @@ body.dark .nav-bar {
     .pagina-orcamento .title{
         flex-direction: column;
     }
-    
-    .pagina-orcamento input{
-        padding: 10px;
-    }
 
     .busca img{
         top: 13px;
@@ -2326,7 +2323,6 @@ body.dark .nav-bar {
     }    
 
     .pagina-orcamento input, .pagina-orcamento textarea{
-        padding: var(--spacing-small);
         font-size: var(--font-base);
     }
 
