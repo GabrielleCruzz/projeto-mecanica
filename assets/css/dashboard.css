@@ -2396,6 +2396,49 @@ body.dark .nav-bar {
         display: flex;
         align-items: center;
     }
+
+    /* ===== Página painel ===== */
+    .cards-dashboard{
+        grid-template-columns: repeat(4, 2fr);
+    }
+
+    .cards-resumo-servicos{
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .card-servicos-andamento, 
+    .card-total-servicos{
+        flex: 1;
+    }
+
+    .grafico-card,
+    .lista-servicos{
+        height: calc(100vh - 430px);
+    }
+
+    .index{
+        padding-bottom: 0px;
+    }
+
+    .lista-servicos{
+        overflow-y: auto;
+    }
+
+    .card-infos .descricao,
+    .ordem-servico p{
+        font-size: 14px;
+    }
+
+    .single-servico p{
+        font-size: 13px;
+    }
+
+    .mais-opcoes{
+        font-size: 20px;
+    }
+
 }
 
 /* Desktop-large */
