@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel</title>
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <script src="../assets/js/sidebar.js" defer></script>
+  <script src="../assets/js/painel.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- link para os ícones -->
+  <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
+  <link href="../assets/icons/css/solid.css" rel="stylesheet" />
+  <link href="../assets/icons/css/regular.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- menu -->
+  <div id="menuContainer"></div>
+
+  <div id="sidebarContainer"></div>
+
+  <!-- conteúdo principal -->
+  <main class="index">
+    <!-- título da página -->
+    <div class="title">
+      <h1>Painel</h1>
+      <p>Veja o resumo geral da oficina</p>
+    </div>
+
+    <!--Barra de pesquisa-->
+    <div class="buscar-add">
+      <div class="pesquisa">
+        <input type="text" placeholder="Buscar por serviço, nome ou carro " />
+        <img src="../assets/img/pesquisa-icon.png" alt="lupa de pesquisa" width="23" height="23" />
+      </div>
+      <a class="btn-novo" href="orcamento.html">+ Novo orçamento</a>
+      <a class="add" href="orcamento.html">+ Novo</a>
+    </div>
+
+    <!-- cards de informações no topo da página -->
+    <div class="cards-dashboard">
+      <div class="single-card">
+        <div class="card-infos">
+          <div class="icon-card">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+          <p class="descricao">Faturamento da Semana</p>
+          <p class="info">R$1.300,00</p>
+        </div>
+      </div>
+
+      <div class="single-card">
+        <div class="card-infos">
+          <div class="icon-card">
+            <i class="fa-solid fa-car-rear"></i>
+          </div>
+          <p class="descricao">Serviços pendentes</p>
+          <p class="info">3</p>
+        </div>
+      </div>
+
+      <div class="single-card">
+        <div class="card-infos">
+          <div class="icon-card">
+            <i class="fa-regular fa-calendar"></i>
+          </div>
+          <p class="descricao">Serviços este mês</p>
+          <p class="info">36</p>
+        </div>
+      </div>
+
+      <div class="single-card">
+        <div class="card-infos">
+          <div class="icon-card">
+            <i class="fa-solid fa-wrench"></i>
+          </div>
+          <p class="descricao">Serviços essa semana</p>
+          <p class="info">8</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- div com o card de serviços em andamento e gráfico de serviços -->
+    <div class="cards-resumo-servicos">
+      <!-- card com resumo dos serviços em andamento -->
+      <div class="card-servicos-andamento">
+        <h1>Serviços em andamento <span>4</span></h1>
+        <div class="lista-servicos">
+          <div class="single-servico">
+            <div class="ordem-servico">
+              <p>#01</p>
+            </div>
+            <div class="servico-resumo">
+              <span>ABC-1A23</span>
+              <p>Troca de peça, limpeza motor &bull; R$700,00</p>
+            </div>
+            <div class="mais-opcoes">&#8942;</div>
+          </div>
+
+          <div class="single-servico">
+            <div class="ordem-servico">
+              <p>#01</p>
+            </div>
+            <div class="servico-resumo">
+              <span>ABC-1A23</span>
+              <p>Troca de peça, limpeza motor &bull; R$700,00</p>
+            </div>
+            <div class="mais-opcoes">&#8942;</div>
+          </div>
+
+          <div class="single-servico">
+            <div class="ordem-servico">
+              <p>#01</p>
+            </div>
+            <div class="servico-resumo">
+              <span>ABC-1A23</span>
+              <p>Troca de peça, limpeza motor &bull; R$700,00</p>
+            </div>
+            <div class="mais-opcoes">&#8942;</div>
+          </div>
+
+          <div class="single-servico">
+            <div class="ordem-servico">
+              <p>#01</p>
+            </div>
+            <div class="servico-resumo">
+              <span>ABC-1A23</span>
+              <p>Troca de peça, limpeza motor &bull; R$700,00</p>
+            </div>
+            <div class="mais-opcoes">&#8942;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-total-servicos">
+        <h1>Faturamento mensal (2026)</h1>
+        <div class="campo-grafico">
+          <div class="grafico-card">
+            <h1 class="title-grafico"></h1>
+            <canvas id="graficoFinanceiro"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- menu inferior -->
+  <div class="menuInferior">
+    <a href="painel.html" class="atual">
+      <i class="fa-solid fa-home"></i>
+      <span>Início</span>
+    </a>
+    <a href="orcamento.html">
+      <i class="fa-solid fa-plus"></i>
+      <span>Novo</span>
+    </a>
+    <a href="servicos.html">
+      <i class="fa-regular fa-clipboard"></i>
+      <span>Serviços</span>
+    </a>
+    <a href="clientes.html">
+      <i class="fa-regular fa-user"></i>
+      <span>Clientes</span>
+    </a>
+  </div>
+</body>
+
+</html>

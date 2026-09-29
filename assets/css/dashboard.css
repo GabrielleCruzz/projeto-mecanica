@@ -139,59 +139,119 @@ div.pesquisa > img{
 
 /* ===== Página inicial -> Alex - Isabella ===== */
 
-/* div dos cards de resumo de rendimento, serviços e peças */
-.resumo {
+/* cards de informações no topo da página */
+.cards-dashboard{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.single-card{
+    background-color: white;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-small);
+    padding: var(--spacing-base);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-small);
 }
 
-/* div dos cards que levam para outra pagina */
-.resumo-links {
+.icon-card{
     display: flex;
-    gap: var(--spacing-small);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor);
+    border-radius: var(--radius-small);
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
 }
 
-.resumo-card {
+.card-infos .descricao{
+    color: var(--cor5);
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.card-infos .info{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--dark-cinza);
+}
+
+/* card com resumos de serviços em andamento */
+
+.lista-servicos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card-servicos-andamento h1, 
+.card-total-servicos h1{
+    font-size: 16px;
+    color: var(--dark-cinza);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-servicos-andamento span{
+    color: var(--cor5);
+    margin-left: 10px;
+}
+
+.single-servico{
+    background-color: white;
+    border-radius: var(--radius-small);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-small);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.single-servico span{
+    font-weight: 600;
+    color: var(--dark-cinza);
+    margin-left: 0;
+}
+
+.single-servico p{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cor5);
+}
+
+.ordem-servico{
+    color: var(--cor5);
+    font-weight: 600;
+}
+
+.mais-opcoes{
+    display: flex;
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+/* campo do gráfico */
+.grafico-card {
+    height: 250px;
     position: relative;
     background-color: white;
-    width: 100%;
-    height: 100px;
-    border-radius: var(--radius);
+    border-radius: var(--radius-small);
+    box-shadow: var(--shadow);
     padding: var(--spacing-base);
-    text-decoration: none;
 }
 
-.resumo-card > span {
-    color: var(--cor);
-    font-weight: 400;
-    font-size: 2em;
-}
-
-.resumo-card > p {
-    color: var(--cor5);
-    font-size: var(--font-small);
-    margin-top: -4px;
-}
-
-.resumo-card i {
-    font-size: var(--font-small);
-    color: #bdbdbd;
-    position: absolute;
-    top: var(--spacing-base);
-    right: var(--spacing-base);
-}
-
-span.red {
-    color: #ef1b1b;
-}
-
-/* divisor */
-.divisor{
-    width: 100%;
-    height: 1px;
-    margin: 8px 0;
-    background-color: white;
+.grafico-card canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Modo escuro */
