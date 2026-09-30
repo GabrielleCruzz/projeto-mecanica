@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="assets/css/landing.css">
     <script src="assets/js/landing.js" defer></script> <!-- defer carrega o html antes do js para evitar erros -->
     <title>Página inicial</title>
+    <!-- link para os ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 </head>
 <body>
 
@@ -15,77 +17,136 @@
         <img class="logo-menu" src="./assets/img/logo.png" alt="logo">
 
         <nav class="links-menu">
-            <a href="#" id="login">Login</a>
-            <a href="cadastro.html">Cadastre-se</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#formContato">Contato</a>
+            <a href="#" id="login">Entrar</a>
+            <a href="cadastro.html">Cadastrar-se</a>
+            <!-- <a href="#sobre">Sobre</a> -->
+            <!-- <a href="#formContato">Contato</a> -->
         </nav>    
     </header>    
 
     <main>
-        <!-- Banner -->
-        <div class="banner">
-            <h1><b>Precisão, tecnologia </b> e <b>confiança</b></h1>
-            <h2>Gerencie os orçamentos da sua mecânica automotiva de forma <span style="color: #0002f1;">prática</span> e <span style="color: #0002f1;">objetiva</span>.</h2>
-            <img src="./assets/img/banner-desktop.jpg" alt="banner" width="200px">
+        <div class="main-text">
+            <h1>Gestão de oficina precisa, eficiente e organizada</h1>
+            <h2>Substitua as pranchetas e blocos de papel pelo AutoTech. Gerencie os orçamentos da sua mecânica automotiva de forma digital, prática e objetiva.</h2>
+            <!-- <img class="ababa" src="assets/img/engrenagem.png" alt="" width="300px"> -->
+            <button>Comece agora</button>
+            <img src="assets/img/telas.png" alt="" width="100%">
         </div>
 
-        <!-- headline - Texto etrativo com resumo das funcionalidades do sistema -->
-        <div class="headline">
-            <h1>Gerencie os orçamentos da sua mecânica automotiva de forma <span style="color: #0002f1;">prática</span> e <span style="color: #0002f1;">objetiva</span>.</h1>
+        <!-- login / cadastro -->
+        <!-- <div class="formLogin">
+            <div class="formOption">
+                <span>Entrar</span>
+                <span>Cadastrar-se</span>
+            </div>
+            <div class="campo">
+                <label for="">E-mail</label>
+                <input type="text">
+            </div>
+            <div class="campo">
+                <label for="">Senha</label>
+                <input type="text">
+            </div>
+            <button>Entrar</button>
+        </div> -->
+
+        <!-- features -->
+        <div class="features">
+            <div>
+                <div class="icon">
+                    <i class="ti ti-check"></i>
+                </div>
+                <span>Acesso rápido aos clientes</span>
+            </div>
+            <div>
+                <div class="icon">
+                    <i class="ti ti-check"></i>
+                </div>
+                <span>Orçamentos digitalizados</span>
+            </div>
+            <div>
+                <div class="icon">
+                    <i class="ti ti-check"></i>
+                </div>
+                <span>Histórico de serviços</span>
+            </div>
+            <!-- <div>
+                <h1>Crie orçamentos</h1>
+                <p>
+                    Crie seus orçamentos de forma detalhada em rápida com muitas coisas legais pra fazer e muito mais
+                </p>                
+            </div>
+            <div>
+                <h1>Gerencie seus  serviços</h1>
+                <p>
+                    Visualize, defina informações e controle o progresso dos seus serviços de forma eficiente e simples
+                </p>
+            </div>
+            <div>
+                <h1>Acompanhe seu  progresso</h1>
+                <p>
+                    Tenha uma visão geral dos serviços realizados, faturamentos mensais e muito mais por aí
+                </p>
+            </div> -->
         </div>
 
-        <!-- Botões de login e cadastro -->
-        <div class="botoes-acesso">
-            <button id="btnlogin">Faça login</button>
-            <a href="cadastro.html">Cadastre sua oficina</a>
+        <!-- sobre -->
+        <div class="sobre-nos">
+            <h1>SOBRE NÓS</h1>
+            <p>
+                O AutoTech Mecânicas é uma solução tecnológica desenvolvida para otimizar os processos cotidianos de mecânicos que buscam migrar da gestão manual para o digital. Com dados de clientes, históricos de veículos e ordens de serviço integrados em um só lugar, o sistema entrega a organização necessária para elevar o nível de gestão de oficinas mecânicas.
+            </p>
         </div>
-
-        <!-- Texto sobre nós -->
-        <div class="sobre-nos" id="sobre">
-            <h1>Sobre nós</h1>
-            <div class="txt-sobre">
-                <img src="./assets/img/sobre-nos-desktop.jpg" alt="">
-                <p>A <span style="color:#0002f1; font-weight: 600;">AutoTech Mecânicas</span> é um sistema focado em simplificar o gerenciamento de serviços de oficinas mecânicas por meio de ferramentas de controle de orçamentos e clientes, com o objetivo de facilitar e organizar processos cotidianos.</p>
+        
+        <div class="div-recursos">
+            <h1>PRINCIPAIS RECURSOS</h1>
+            <div class="recursos">
+                <div class="icon">
+                    <i class="ti ti-user-plus"></i>
+                </div>
+                <div class="text">
+                    <h1>Cadastrar clientes</h1>
+                    <p>Aqui terá uma rápida descrição falando sobre a funcionalidade desse recurso</p>
+                </div>
+            </div>
+            <div class="recursos">
+                <div class="icon">
+                    <i class="ti ti-clipboard-text"></i>
+                </div>
+                <div class="text">
+                    <h1>Criar orçamentos</h1>
+                    <p>Aqui terá uma rápida descrição falando sobre a funcionalidade desse recurso</p>
+                </div>
+            </div>
+            <div class="recursos">
+                <div class="icon">
+                    <i class="ti ti-progress-check"></i>
+                </div>
+                <div class="text">
+                    <h1>Controlar progresso</h1>
+                    <p>Aqui terá uma rápida descrição falando sobre a funcionalidade desse recurso</p>
+                </div>
             </div>
         </div>
 
-        <!-- Formulário de contato -->
-        <form class="contato" id="formContato">
-            <h1>Entre em contato</h1>
-            <input type="email" placeholder="Seu e-mail" required>
-            <textarea class="msg" type="text" placeholder="Deixe sua mensagem" required></textarea>
-            <button type="submit">Enviar</button>
-            <p id="mensagem">Mensagem enviada!</p>
-        </form>
+        <div class="contato">
+            <h1>CONTATO</h1>
+
+            <form action="" class="formContato">
+                <div class="campo">
+                    <label for="">Seu e-mail</label>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <label for="">Seu e-mail</label>
+                    <input type="text">
+                </div>
+                <button>Enviar</button>
+            </form>
+        </div>
     </main>
-
-    
     <footer>        
-        <img src="./assets/img/logo.png" class="logo-footer">
+        <p>© 2026 AutoTech Mecânicas.</p>
     </footer>
-
-<!-- Formulário de login -->
-
-    <div class="overlay" id="overlay">
-        <form class="login-card" id="formLogin">
-            <span class="fechar">&times;</span> <!-- &times; adiciona um x -->
-            <img class="logo-login" src="./assets/img/logo.png" alt="logo">
-            <h2>Login</h2>
-            <input type="email" placeholder="E-mail" required>
-            <div class="container-senha"> <!-- Nova div para posiciona melhor o icone para mostrar e esconder a senha-->
-                <input type="password" placeholder="Senha" id="senha" required>
-                <span class="olho" id="toggleSenha"><img src="./assets/img/olho-fechado.png"></span>
-            </div>
-            <div class="esqueceu-senha">
-                <a href="redefinir-senha.html">Esqueceu sua senha?</a>
-            </div>    
-            <button type="submit">Entrar</button>
-            <div class="cadastro">
-                <p>Não tem uma conta?</p>
-                <a href="cadastro.html">Cadastre-se</a>
-            </div>    
-        </form>
-    </div>
 </body>
 </html>

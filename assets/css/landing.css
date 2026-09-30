@@ -48,8 +48,8 @@ header {
     justify-content: space-evenly;
     align-items: center;    
     background-color: #f1f1f1; 
-    padding: 14px;
-    box-shadow: 0 1px 6px #98989840;
+    padding: 24px;
+    /* box-shadow: 0 1px 6px #98989840; */
 }
 
 nav {
@@ -61,14 +61,15 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #0002f1;
+    color: #1d5cb9;
     font-weight: 500;
     position: relative; /* pra animação */
     transition: color 0.3s ease;
+    font-size: 16px;
 }
 
 nav a:hover {
-    color: #162199;
+    color: #1954ac;
 }
 
 /* animação da linha menu -> Nicole */
@@ -79,7 +80,7 @@ nav a::after {
     height: 2px;
     left: 0;
     bottom: -4px;
-    background-color: #1524c6;
+    background-color: #2768c9;
     transition: width 0.3s ease;
 }
 
@@ -94,10 +95,11 @@ nav a:hover::after {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    flex: 1;
-    overflow: hidden;
+    /* padding: 20px; */
+    /* flex: 1; */
+    /* overflow: hidden; */
     gap: var(--main-gap);
     padding: var(--main-padding);
 }
@@ -110,20 +112,244 @@ main {
     position: relative;
     width: 100%;
     height: var(--banner-height);
+    gap: 20px;
 }
 
-.banner h1{   
-    color: #0002f1;
-    font-weight: 350;
-    font-size: var(--banner-h1-text);
-    width: var(--banner-text-width);
+.main-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
 }
 
-.banner h2 {
-    display: none;
-    width: var(--banner-text-width);
-    font-size: var(--banner-h2-text);
+.main-text .ababa {
+    position: absolute;
+    right: -94px;
+    top: -54px;
 }
+
+.main-text img {
+
+}
+
+.main-text button {
+    background-color: #1d5cb9;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.main-text h1{   
+    font-weight: 600;
+    /* font-size: var(--banner-h1-text); */
+}
+
+.main-text h2 {
+    color: #2c2c2c;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.formLogin {
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    /* border: 1px solid rgb(214, 214, 214); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formLogin .formOption {
+    display: flex;
+    justify-content: space-around;
+}
+
+.formOption span {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.formLogin .campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin .campo input {
+    background-color: #f1f1f1;
+    border: 1px solid rgb(190, 190, 190);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.formLogin .campo label {
+    color: rgb(71, 71, 71);
+}
+
+.formLogin button {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    background-color: #1d5cb9;
+    color: white;
+    font-weight: 500;
+}
+
+.features {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* .features div {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    gap: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+.features > div {
+    background-color: white;
+    display: flex;
+    /* width: 100%; */
+    padding: 6px;
+    border-radius: 8px;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.features .icon {
+    background-color: #1d5bb91e;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    font-size: 20px;
+    color: #1d5cb9;    
+}
+
+.features div h1 {
+    font-size: 18px;
+}
+
+.features div p {
+    font-size: 12px;
+    color: rgb(56, 56, 56);
+}
+
+
+.sobre-nos h1, .div-recursos > h1, .contato h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(165, 165, 165);
+    /* margin: 6px 0 10px 0; */
+}
+.sobre-nos p {
+    margin-top: 8px;
+    color: #2e2e2e;
+    text-align: justify;
+    font-size: 16px;
+}
+
+
+.div-recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.recursos {
+    background-color: white;
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.recursos .icon {
+    color: #1d5cb9;
+    padding: 0 10px;
+    font-size: 20px;
+}
+
+.recursos .text {
+    
+}
+.recursos .text h1{
+    font-size: 18px;
+    font-weight: 600;
+}
+.recursos .text p{
+    font-size: 12px;
+}
+
+.contato {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formContato {
+    background-color: white;
+    padding: 14px;
+    border-radius: 8px;    
+}
+
+.formContato .campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.formContato .campo input {
+    background-color: #f1f1f1;
+    border: 1px solid rgb(190, 190, 190);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.formContato .campo label {
+    color: rgb(71, 71, 71);
+}
+
+.formContato button {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    background-color: #1d5cb9;
+    color: white;
+    font-weight: 500;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1954ac;
+}
+
+
+
+
 
 .banner img{
     border-radius: 14px 0 0 14px;
@@ -179,14 +405,14 @@ main {
 }
 
 /*Sobre nós*/
-.sobre-nos, .contato{
+/* .sobre-nos, .contato{
     display: flex;
-    justify-content: center; /*Alinha no centro horizontalmente*/
+    justify-content: center; 
     flex-direction: column;
     gap: 6px;
     width: 100%;
     align-items: center;
-}
+} */
 
 .txt-sobre {
     border-radius: 12px;
@@ -203,8 +429,8 @@ main {
     border-radius: 10px;
 }
 
-.sobre-nos h1, .contato h1{
-    text-align: center; /*Alinha no centro horizontalmente*/
+/* .sobre-nos h1, .contato h1{
+    text-align: center; 
     font-size: var(--sections-h1);
     font-weight: 600;
 }
@@ -212,9 +438,9 @@ main {
 .sobre-nos p {
     text-align: justify;
     font-size: var(--sobre-font);
-}
+} */
 
-.contato input, .contato button, .msg {
+/* .contato input, .contato button, .msg {
     width: 100%;
     background-color: white;
     max-width: 600px;
@@ -223,7 +449,7 @@ main {
     padding: 12px;
     color: black;
     font-size: var(--contato-font);
-}
+} */
 
 .msg { /*Campo para escrever a mensagem*/
     height: 120px;
@@ -231,9 +457,9 @@ main {
     margin: 6px 0;
 }
 
-.contato button {
+/* .contato button {
     box-shadow: 2px 2px 2px #e0e0e0;
-}
+} */
 
 #mensagem { /*Mensagem: "Mensagem enviada!"*/
     margin-top: 10px;
@@ -249,7 +475,7 @@ main {
 }
 
 /* responsividade pra index  */
-@media (min-width:375px) {
+/* @media (min-width:375px) {
     .banner img {
         right: -24px;
         border-radius: 14px 0 0 14px;
@@ -261,9 +487,9 @@ main {
         right: 0px;
         border-radius: 14px;
     }
-}
+} */
 
-@media (min-width:500px) {
+/* @media (min-width:500px) {
     :root {
         --main-gap: 26px;
         --main-padding: 24px;
@@ -284,8 +510,8 @@ main {
     .headline {
         display: none;
     }
-}
-
+} */
+/* 
 @media (min-width:768px) {
     :root {
         --header-img: 60px;
@@ -322,9 +548,9 @@ main {
     .botoes-acesso {
         flex-direction: row;
     }
-}
+} */
 
-@media (min-width: 920px) {
+/* @media (min-width: 920px) {
     :root {        
         --main-gap: 60px;
         --main-padding: 70px;
@@ -341,8 +567,8 @@ main {
         --contato-font:16px;
         --msg: 16px;
     }
-}
-
+} */
+/* 
 @media (min-width: 1280px) {
     :root {
         --header-img: 60px;
@@ -368,11 +594,11 @@ main {
         padding: 20px;
     }
 
-    .msg { /*Campo para escrever a mensagem*/
+    .msg {
         height: 190px;
         margin: 14px 0;
     }
-}
+} */
 
 /* Rodapé */
 footer{
@@ -380,7 +606,12 @@ footer{
     flex-direction: column;
     align-items: center;
     box-shadow: 0 -1px 6px #98989840;
-    padding: 8px;
+    padding: 10px;
+}
+
+footer p {
+    font-size: 12px;
+    color: rgb(121, 121, 121);
 }
 
 footer img {
