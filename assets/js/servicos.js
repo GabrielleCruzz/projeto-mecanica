@@ -80,11 +80,11 @@ function mais() {
         <span class="preco">R$300</span>
         <div class="btns">
             <button class="atualizar">Atualizar status</button>
-            <div class="acoes">
-                <button type="button" class="btn-acoes">
+            <div class="acoes servico">
+                <button type="button" class="btn-acoes servico">
                     Mais ações
                 </button>
-                <div class="opcoes-acoes">
+                <div class="opcoes-acoes servico">
                     <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                     <button type="button" class="editar-os-acao">Editar OS</button>
                     <button type="button">Compartilhar</button>
@@ -115,22 +115,39 @@ function botoesFuncionar() {
 
 
 // Mais opções
-
 // controla os cliques dos botões "Mais ações"
+
 document.addEventListener('click', (event) => {
+
     const btnAcoes = event.target.closest('.btn-acoes');
 
     // abre o menu clicado e fecha os outros
     if (btnAcoes) {
-        const acao = btnAcoes.closest('.acoes');
-        document.querySelectorAll('.acoes').forEach(outro => {
 
+        const acao = btnAcoes.closest('.acoes');
+
+        document.querySelectorAll('.acoes').forEach(outro => {
             if (outro !== acao) {
                 outro.classList.remove('aberto');
+                outro.classList.remove('abrir-cima');
             }
         });
 
         acao.classList.toggle('aberto');
+
+        // verifica o espaço disponível
+        if (acao.classList.contains('aberto')) {
+
+            const opcoes = acao.querySelector('.opcoes-acoes');
+            const rect = opcoes.getBoundingClientRect();
+
+            const espacoEmbaixo = window.innerHeight - rect.top;
+
+            if (espacoEmbaixo < rect.height) {
+                acao.classList.add('abrir-cima');
+            }
+        }
+
         return;
     }
 
@@ -146,8 +163,10 @@ document.addEventListener('click', (event) => {
     if (!event.target.closest('.acoes')) {
         document.querySelectorAll('.acoes').forEach(acao => {
             acao.classList.remove('aberto');
+            acao.classList.remove('abrir-cima');
         });
     }
+
 });
 
 

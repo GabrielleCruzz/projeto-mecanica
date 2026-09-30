@@ -213,7 +213,15 @@ div.pesquisa > img{
     display: flex;
     gap: 20px;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
+}
+
+/* informações do lado esquerdo do card de serviço */
+.resumo-info-servico{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .single-servico span{
@@ -237,6 +245,35 @@ div.pesquisa > img{
     display: flex;
     margin-left: auto;
     margin-right: 12px;
+}
+
+.icone-opcoes{
+    font-size: 16px;
+    margin-right: 15px;
+    padding: 5px 13px;
+}
+
+.icone-opcoes:hover{
+    background-color: #ebf1fa;
+    padding: 5px 13px;
+    border-radius: 5px;
+    color: var(--cor);
+}
+
+.acoes.painel{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.opcoes-acoes.painel{
+    width: 200px;
+    font-size: 10px;
+    z-index: 1;
+}
+
+.acoes.abrir-cima .opcoes-acoes {
+    top: auto;
+    bottom: 100%;
 }
 
 /* campo do gráfico */
@@ -1361,23 +1398,29 @@ div.filtro {
 
 /* Botão de mais ações */
 
-.acoes {
+.acoes{
     position: relative;
+}
+
+.acoes.servico{
     width: 50%;
 }
 
-.btn-acoes {
+.btn-acoes.servico{
     border: 2px solid var(--cor);
+}
+
+.btn-acoes {
+    border: none;
     color: var(--cor);
     background-color: transparent;
     width: 100%;
 }
 
-.opcoes-acoes {
+.opcoes-acoes{
     position: absolute;
     right: 0;
     top: 30px;
-    min-width: 100%;
     padding: 6px;
     background-color: white;
     border-radius: var(--radius-small);
@@ -1385,6 +1428,10 @@ div.filtro {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.opcoes-acoes.servico {
+    min-width: 100%;
 }
 
 .acoes.aberto .opcoes-acoes {
@@ -2433,10 +2480,6 @@ body.dark .nav-bar {
 
     .single-servico p{
         font-size: 13px;
-    }
-
-    .mais-opcoes{
-        font-size: 20px;
     }
 
 }
