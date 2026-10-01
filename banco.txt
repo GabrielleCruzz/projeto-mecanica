@@ -1,0 +1,79 @@
+
+create database mecanica;
+use mecanica;
+
+create table usuario(
+	ID_usuario int not null auto_increment,
+    Nome varchar(40) not null,
+    Email varchar (40) not null unique,
+    Senha int not null,
+    constraint PK_ID_usuario primary key (ID_usuario)
+);
+
+create table cliente(
+	ID_cliente int not null auto_increment,
+    Nome varchar (40) not null,
+    Telefone varchar (15) not null,
+    constraint PK_ID_cliente primary key (ID_cliente)
+);
+
+create table veiculo(
+	ID_veiculo int not null auto_increment,
+    ID_cliente int not null,
+    Placa varchar (7) not null unique,
+    Model_Marca varchar (15) not null,
+    Ano year not null,
+    observacao varchar (250) not null,
+    
+    constraint PK_ID_veiculo primary key (ID_veiculo),
+    constraint FK_ID_cliente foreign key (ID_cliente) references cliente (ID_cliente)
+);
+
+create table ordemServico(
+	ID_OrdemServico int auto_increment not null,
+    ID_cliente int not null,
+    ID_veiculo int not null, 
+    Diagnostico varchar (250) not null,
+    Nome_mecanico varchar (40) not null,
+    
+	constraint PK_ID_OrdemServico primary key (ID_OrdemServico),
+    constraint FK_OS_veiculo foreign key (ID_veiculo) references veiculo (ID_veiculo),
+	constraint FK_OS_cliente foreign key (ID_cliente) references cliente (ID_cliente)
+);
+
+create table peca(
+	ID_peca int not null auto_increment,
+    Nome varchar (40) not null,
+    valor_unit decimal(18,2) not null,
+    
+	constraint PK_ID_peca primary key (ID_peca)
+);
+
+create table tipoServico(
+	ID_tipoServico int not null auto_increment,
+	tipoServico varchar (20),
+    
+    constraint PK_ID_tipoServico primary key (ID_tipoServico)
+);
+
+create table OS_peca(
+	ID_OS_peca int not null auto_increment,
+    ID_peca int not null,          
+    ID_OrdemServico int not null,   
+    Quantidade varchar (2) not null,
+    
+	constraint PK_ID_OS_peca primary key (ID_OS_peca),
+	constraint FK_OS_peca_peca foreign key (ID_peca) references peca (ID_peca),
+    constraint FK_OS_peca_ordem foreign key (ID_OrdemServico) references ordemServico (ID_OrdemServico)
+);
+
+create table OS_servico(
+	ID_OS_servico int not null auto_increment,
+    ID_tipoServico int not null,
+    ID_OrdemServico int not null,
+    Valor_unit decimal(18,2) not null,
+    
+    constraint PK_ID_OS_servico primary key (ID_OS_servico),
+    constraint FK_OS_servico_tipo foreign key (ID_tipoServico) references tipoServico (ID_tipoServico),
+    constraint FK_OS_servico_ordem foreign key (ID_OrdemServico) references ordemServico (ID_OrdemServico)
+);

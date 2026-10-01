@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <title>Clientes</title>
+    <script src="../assets/js/cliente.js" defer></script>
     <script src="../assets/js/sidebar.js" defer></script>
     <script src="../assets/js/orcamento.js" defer></script>
     <script src="../assets/js/global.js" defer></script>
@@ -54,48 +55,12 @@
                 </div>
             </div>
 
-            <div class="cards cards-clientes">
+            <div class="cards cards-clientes">     
                 <a href="detalhes-cliente.html" class="cliente-card">
                     <span class="info-destaque">Nome e Sobrenome do Cliente</span>
                     <div class="infos-sec">
-                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
-                        <span class="info-secundaria destaque">2 veículos vinculados</span>
-                    </div>                
-                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
-                </a>
-
-                <a href="detalhes-cliente.html" class="cliente-card">
-                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                    <div class="infos-sec">
-                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
-                        <span class="info-secundaria destaque">2 veículos vinculados</span>
-                    </div>
-                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
-                </a>
-
-                <a href="detalhes-cliente.html" class="cliente-card">
-                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                    <div class="infos-sec">
-                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
-                        <span class="info-secundaria destaque">2 veículos vinculados</span>
-                    </div>
-                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
-                </a>
-
-                <a href="detalhes-cliente.html" class="cliente-card">
-                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                    <div class="infos-sec">
-                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
-                        <span class="info-secundaria destaque">2 veículos vinculados</span>
-                    </div>
-                    <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
-                </a>
-                
-                <a href="detalhes-cliente.html" class="cliente-card">
-                    <span class="info-destaque">Nome e Sobrenome do Cliente</span>
-                    <div class="infos-sec">
-                        <span class="info-secundaria">Telefone: <span class="destaque">(11) 99999-9999</span></span>
-                        <span class="info-secundaria destaque">2 veículos vinculados</span>
+                        <span class="info-secundaria">Telefone: <span class="destaque telefone">(11) 99999-9999</span></span>
+                        <span class="info-secundaria destaque qt_veiculo">2 veículos vinculados</span>
                     </div>
                     <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
                 </a>
@@ -120,10 +85,10 @@
                 <div class="campos-cliente">
                     <h2>Dados do cliente</h2>
                     <label>Nome</label>
-                    <input type="text" required>
+                    <input type="text" name="nome" required>
 
                     <label>Telefone</label>
-                    <input type="tel" required>
+                    <input type="tel" name="tel" required>
 
                     <button class="btn-add-novo">Adicionar novo</button>
                 </div>
@@ -135,17 +100,17 @@
                     <div class="infos-veiculo">
                         <div class="campo-placa">
                             <label>Placa</label>
-                            <input type="text" required>
+                            <input type="text" name="placa" required>
                         </div>
 
                         <div class="campo-marca">
                             <label>Marca/Modelo</label>
-                            <input type="text" required>
+                            <input type="text" name="marca_modelo" required>
                         </div>
 
                         <div class="campo-ano">
                             <label>Ano</label>
-                            <input type="text" required>
+                            <input type="text" name="ano" required>
                         </div>
                     </div>
 
@@ -154,12 +119,12 @@
 
                 <div class="campo-textarea">
                     <label>Observações</label>
-                    <textarea class="obs-cliente"></textarea>
+                    <textarea class="obs-cliente" name="observacao"></textarea>
                 </div>
 
                 <div class="btns-add-cliente">
                     <button class="btn-dell">Descartar</button>
-                    <button class="btn-salvar">Cadastrar</button>
+                    <button class="btn-salvar" type="submit">Cadastrar</button>
                 </div>
             </form>
         </div>
