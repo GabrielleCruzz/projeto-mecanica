@@ -3,38 +3,6 @@ const overlay = document.getElementById("overlay");
 const modal = document.querySelector(".modal-add-cliente");
 const btnFechar = document.querySelector(".btn-fechar");
 
-// Modal
-
-// Abre o modal e trava o scroll da página
-function abrirModal() {
-    overlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
-}
-
-// Fecha o modal e libera o scroll da página
-function fecharModal() {
-
-    // adiciona a classe da animação de saída do modal
-    modal.classList.add("modal-fechando");
-
-    // espera a animação terminar antes de esconder o modal
-    setTimeout(() => {
-        overlay.style.display = "none";
-
-        // remove a classe para permitir que a animação funcione novamente ao abrir
-        modal.classList.remove("modal-fechando");
-    }, 300);
-
-    document.body.style.overflow = "auto";
-}
-
-// Eventos de abrir e fechar o modal
-btnCadastrar.forEach(btn => {
-    btn.onclick = abrirModal;
-});
-
-btnFechar.onclick = fecharModal;
-
 // Veículos
 
 const btnAdicionar = document.getElementById("btnAdicionar");
