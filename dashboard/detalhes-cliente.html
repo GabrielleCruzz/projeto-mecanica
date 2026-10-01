@@ -7,6 +7,7 @@
     <title>Detalhes do Cliente</title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="../assets/js/sidebar.js" defer></script>
+    <script src="../assets/js/global.js" defer></script>
     <script src="../assets/js/servicos.js" defer></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
@@ -43,7 +44,7 @@
                 <div class="area-info">
                     <div class="title-info">
                         <h2>Informações</h2>
-                        <button>Editar</button>
+                        <button class="btn-editar">Editar Cliente</button>
                     </div>
                     <div>
                         <div class="cliente-detalhes">
@@ -56,24 +57,24 @@
                 </div>        
         
                 <!-- área de veículos do cliente -->
-                <div class="area-veiculos">            
-                    <h2>Veículos</h2>                                            
+                <div class="area-veiculos">                                
+                    <div class="title-info">
+                        <h2>Veículos</h2>
+                        <button class="editar-veiculos">Editar veículos</button>
+                    </div>                                           
                     <div>            
                         <div class="card-veiculos">
                             <span class="info-destaque">ABC-1A23</span>
                             <span class="info-secundaria">Toyota Corolla • 2022</span>
                             <span class="info-secundaria">Branco</span>
-                            <span class="info-historico">Último serviço em 20/06/2026</span>
-                            <button class="editar-veiculo">Editar</button>
+                            <span class="info-historico">Último serviço em 20/06/2026</span>                            
                         </div>
                         <div class="card-veiculos">
                             <span class="info-destaque">OLA-5E23</span>
                             <span class="info-secundaria">Fiat Argo • 2023</span>
                             <span class="info-secundaria">Preto</span>
-                            <span class="info-historico">Último serviço em 12/03/2026</span>
-                            <button class="editar-veiculo">Editar</button>
-                        </div>
-                        <button onclick="openNew('veiculo')" class="add-new">+ Novo Veículo</button>
+                            <span class="info-historico">Último serviço em 12/03/2026</span>                            
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -104,12 +105,12 @@
                             <span class="status andamento">Em andamento</span>
                             <span class="preco">R$300</span>
                             <div class="btns">
-                                <button class="atualizar">Atualizar status</button>
-                                <div class="acoes">
-                                    <button type="button" class="btn-acoes">
+                                <button class="atualizar btn-atualizar-status">Atualizar status</button>
+                                <div class="acoes servico">
+                                    <button type="button" class="btn-acoes servico">
                                         Mais ações
                                     </button>
-                                    <div class="opcoes-acoes">
+                                    <div class="opcoes-acoes servico">
                                         <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                         <button type="button" class="editar-os-acao">Editar OS</button>
                                         <button type="button">Compartilhar</button>
@@ -127,12 +128,12 @@
                             <span class="status andamento">Em andamento</span>
                             <span class="preco">R$300</span>
                             <div class="btns">
-                                <button class="atualizar">Atualizar status</button>
-                                <div class="acoes">
-                                    <button type="button" class="btn-acoes">
+                                <button class="atualizar btn-atualizar-status">Atualizar status</button>
+                                <div class="acoes servico">
+                                    <button type="button" class="btn-acoes servico">
                                         Mais ações
                                     </button>
-                                    <div class="opcoes-acoes">
+                                    <div class="opcoes-acoes servico">
                                         <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                         <button type="button" class="editar-os-acao">Editar OS</button>
                                         <button type="button">Compartilhar</button>
@@ -150,12 +151,12 @@
                             <span class="status andamento">Em andamento</span>
                             <span class="preco">R$300</span>
                             <div class="btns">
-                                <button class="atualizar">Atualizar status</button>
-                                <div class="acoes">
-                                    <button type="button" class="btn-acoes">
+                                <button class="atualizar btn-atualizar-status">Atualizar status</button>
+                                <div class="acoes servico">
+                                    <button type="button" class="btn-acoes servico">
                                         Mais ações
                                     </button>
-                                    <div class="opcoes-acoes">
+                                    <div class="opcoes-acoes servico">
                                         <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                         <button type="button" class="editar-os-acao">Editar OS</button>
                                         <button type="button">Compartilhar</button>
@@ -173,12 +174,12 @@
                             <span class="status concluido">Concluído</span>
                             <span class="preco">R$300</span>
                             <div class="btns">
-                                <button class="atualizar">Atualizar status</button>
-                                <div class="acoes">
-                                    <button type="button" class="btn-acoes">
+                                <button class="atualizar btn-atualizar-status">Atualizar status</button>
+                                <div class="acoes servico">
+                                    <button type="button" class="btn-acoes servico">
                                         Mais ações
                                     </button>
-                                    <div class="opcoes-acoes">
+                                    <div class="opcoes-acoes servico">
                                         <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
                                         <button type="button" class="editar-os-acao">Editar OS</button>
                                         <button type="button">Compartilhar</button>
@@ -192,93 +193,6 @@
         </div>
         
     </main>
-
-    <div class="overlay" id="overlayEditar">
-        <form class="form-cliente editar-cliente">
-            <h2>Editar dados</h2>
-            <button class="btn-fechar" id="btnFecharEditar"><i class="fa-solid fa-xmark "></i></button>
-            <div class="campos-cliente">
-
-                <div class="campo">
-                    <input type="text" required value="Nome do cliente">
-                    <label>Nome</label>
-                </div>
-                <div class="campo">
-                    <input type="text" required value="Endereço do cliente">
-                    <label>Endereço</label>
-                </div>
-
-                <div class="linha-cliente">
-                    <div class="campo">
-                        <input type="tel" required value="9999999999">
-                        <label>Telefone</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" inputmode="numeric" required value="123123123">
-                        <label>CPF/CNPJ</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="campos-veiculo">
-                <h2>Veículos do cliente</h2>
-                <div class="linha-veiculo">
-                    <div class="campo">
-                        <input type="text" required value="PLACA">
-                        <label>Placa</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required value="Marca">
-                        <label>Marca</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="text" required value="modelo e ano">
-                        <label>Modelo/Ano</label>
-                    </div>
-
-                    <!-- Botões de adição e exclusão de veículos -->
-                    <button type="button" class="btn-excluir">Excluir</button>
-                </div>
-
-                <button type="button" id="btnAdicionar" onclick="criarLinhaVeiculo()">+ Novo veículo</button>
-            </div>
-            <button type="submit" class="btn-salvar">Salvar alterações</button>
-        </form>
-    </div>
-
-    <div class="overlay" id="overlay">
-        <div class="servico-detalhes">
-            <h2>Serviço #1</h2>
-            <button class="btn-fechar" id="btnFechar"><i class="fa-solid fa-xmark"></i></button>
-            <div class="detalhes-info">
-                <span class="small">Veículo</span>
-                <span>Modelo/Marca, PLACA</span>
-            </div>
-            <div class="detalhes-info">
-                <span class="small">Cliente</span>
-                <span>Nome do Cliente, (11) 99999-9999</span>
-            </div>
-
-            <div class="detalhes-info">
-                <span class="small">serviço</span>
-                <span>Tipo de serviço</span>
-            </div>
-            <div class="detalhes-info">
-                <span class="small">Peça</span>
-                <span>Nome da peça, código da peça</span>
-            </div>
-            <div class="detalhes-info">
-                <span class="small">Valor</span>
-                <span>R$300,00</span>
-            </div>
-
-            <button class="mudarStatus">Marcar como concluído</button>
-
-        </div>
-    </div>
 
     <!-- menu inferior -->
     <div class="menuInferior">
@@ -298,6 +212,108 @@
             <i class="fa-solid fa-user"></i>
             <span>Clientes</span>
         </a>
+    </div>
+
+    <!-- Formulário para cadastrar novo cliente -->
+    <div class="overlay" id="modalEditarCliente">
+        <div class="modal modal-add-cliente">
+            <form class="form-cliente">
+                <!-- Botão de fechar o formulário -->
+                <button type="button" class="btn-fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <h1>Editar Cliente</h1>
+
+                <!--Dados do cliente-->
+                <div class="campos-cliente">
+                    <h2>Dados do cliente</h2>
+                    <label>Nome</label>
+                    <input type="text" required value="José de Sousa">
+
+                    <label>Telefone</label>
+                    <input type="tel" required value="(11) 99999-9999">
+
+                    <button class="btn-add-novo">Adicionar novo</button>
+                </div>
+
+                <!--Dados do veículo-->
+                <!-- <div class="campos-veiculo">
+                    <h2>Veículos</h2>
+
+                    <div class="infos-veiculo">
+                        <div class="campo-placa">
+                            <label>Placa</label>
+                            <input type="text" required value="ABC-1A23">
+                        </div>
+
+                        <div class="campo-marca">
+                            <label>Marca/Modelo</label>
+                            <input type="text" required value="Toyota Corolla">
+                        </div>
+
+                        <div class="campo-ano">
+                            <label>Ano</label>
+                            <input type="text" required value="2022">
+                        </div>
+                    </div>
+
+                    <button class="btn-add-novo">Adicionar novo</button>
+                </div> -->
+
+                <div class="campo-textarea">
+                    <label>Observações</label>
+                    <textarea class="obs-cliente"></textarea>
+                </div>
+
+                <div class="btns-add-cliente">
+                    <button class="btn-dell">Descartar</button>
+                    <button class="btn-salvar">Confirmar alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Formulário para editar cliente -->
+    <div class="overlay" id="modalEditarVeiculos">
+        <div class="modal modal-add-cliente">
+            <form class="form-cliente">
+                <!-- Botão de fechar o formulário -->
+                <button type="button" class="btn-fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <h1>Veículos de José</h1>
+
+                <!--Dados do veículo-->
+                <div class="campos-veiculo">                    
+
+                    <div class="infos-veiculo">
+                        <div class="campo-placa">
+                            <label>Placa</label>
+                            <input type="text" required value="ABC-1A23">
+                        </div>
+
+                        <div class="campo-marca">
+                            <label>Marca/Modelo</label>
+                            <input type="text" required value="Toyota Corolla">
+                        </div>
+
+                        <div class="campo-ano">
+                            <label>Ano</label>
+                            <input type="text" required value="2022">
+                        </div>
+                    </div>
+
+                    <button class="btn-add-novo">Adicionar novo</button>
+                </div>
+
+                <div class="btns-add-cliente">
+                    <button class="btn-dell">Descartar</button>
+                    <button class="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- modal "Ver detalhes" - Desktop -->
