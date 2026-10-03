@@ -95,11 +95,7 @@ nav a:hover::after {
 main {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    /* padding: 20px; */
-    /* flex: 1; */
-    /* overflow: hidden; */
     gap: var(--main-gap);
     padding: var(--main-padding);
 }
@@ -118,18 +114,14 @@ main {
 .main-text {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     position: relative;
 }
 
-.main-text .ababa {
-    position: absolute;
-    right: -94px;
-    top: -54px;
-}
-
-.main-text img {
-
+.textos-titulo{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
 }
 
 .main-text button {
@@ -140,6 +132,7 @@ main {
     color: white;
     border: none;
     border-radius: 8px;
+    width: 100%;
 }
 
 .main-text h1{   
@@ -151,6 +144,17 @@ main {
     color: #2c2c2c;
     font-weight: 500;
     font-size: 16px;
+}
+
+.title-landing,
+.body-landing{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.body-landing{
+    gap: 30px;
 }
 
 .formLogin {
@@ -183,10 +187,10 @@ main {
     flex-direction: column;
 }
 
-.formLogin .campo input {
+.formLogin .campo input, .mensagem {
     background-color: #f1f1f1;
     border: 1px solid rgb(190, 190, 190);
-    padding: 6px;
+    padding: 12px;
     border-radius: 6px;
 }
 
@@ -208,6 +212,11 @@ main {
     display: flex;
     flex-direction: column;
     gap: 14px;
+}
+
+.mensagem{
+    resize: none;
+    height: 100px;
 }
 
 /* .features div {
@@ -277,28 +286,33 @@ main {
     display: flex;
     gap: 10px;
     padding: 12px;
-    justify-content: center;
-    /* align-items: center; */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+    padding: 15px;
+}
+
+.cards-recursos{
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
 }
 
 .recursos .icon {
     color: #1d5cb9;
-    padding: 0 10px;
+    padding-right: 10px;
     font-size: 20px;
 }
 
-.recursos .text {
-    
-}
 .recursos .text h1{
     font-size: 18px;
     font-weight: 600;
 }
 .recursos .text p{
     font-size: 12px;
+}
+
+.sobre-nos{
+    margin-top: 20px;
 }
 
 .contato {
@@ -319,7 +333,7 @@ main {
     flex-direction: column;
 }
 
-.formContato .campo input {
+.formContato .campo input, .mensagem {
     background-color: #f1f1f1;
     border: 1px solid rgb(190, 190, 190);
     padding: 6px;
@@ -404,23 +418,13 @@ button:hover {
     font-weight: 700;
 }
 
-/*Sobre nós*/
-/* .sobre-nos, .contato{
-    display: flex;
-    justify-content: center; 
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    align-items: center;
-} */
-
 .txt-sobre {
-    border-radius: 12px;
     width: 100%;
     display: flex;
-    background-color: white;
-    padding: 16px;
+    padding: 25px;
     gap: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .txt-sobre img {
@@ -429,37 +433,11 @@ button:hover {
     border-radius: 10px;
 }
 
-/* .sobre-nos h1, .contato h1{
-    text-align: center; 
-    font-size: var(--sections-h1);
-    font-weight: 600;
-}
-
-.sobre-nos p {
-    text-align: justify;
-    font-size: var(--sobre-font);
-} */
-
-/* .contato input, .contato button, .msg {
-    width: 100%;
-    background-color: white;
-    max-width: 600px;
-    border: 0;
-    border-radius: 10px;
-    padding: 12px;
-    color: black;
-    font-size: var(--contato-font);
-} */
-
 .msg { /*Campo para escrever a mensagem*/
     height: 120px;
     resize: none;
     margin: 6px 0;
 }
-
-/* .contato button {
-    box-shadow: 2px 2px 2px #e0e0e0;
-} */
 
 #mensagem { /*Mensagem: "Mensagem enviada!"*/
     margin-top: 10px;
@@ -473,132 +451,6 @@ button:hover {
 #mensagem.mostrar {
     opacity: 1;
 }
-
-/* responsividade pra index  */
-/* @media (min-width:375px) {
-    .banner img {
-        right: -24px;
-        border-radius: 14px 0 0 14px;
-    }
-}
-
-@media (min-width:425px) {
-    .banner img {
-        right: 0px;
-        border-radius: 14px;
-    }
-} */
-
-/* @media (min-width:500px) {
-    :root {
-        --main-gap: 26px;
-        --main-padding: 24px;
-
-        --banner-height: 132px;
-        --banner-text-width: 230px;
-        --banner-h1-text: 21px;
-        --banner-h2-text: 13px;
-
-        --botoes-font: 14px;
-    }   
-
-    .banner h2 {
-        display: block;
-        font-weight: 400;
-    }
-
-    .headline {
-        display: none;
-    }
-} */
-/* 
-@media (min-width:768px) {
-    :root {
-        --header-img: 60px;
-        --header-font: 16px;
-
-        --main-gap: 40px;
-        --main-padding: 40px;
-
-        --banner-height: 220px;
-        --banner-text-width: 310px;
-        --banner-h1-text: 28px;
-        --banner-h2-text: 18px;
-
-        --botoes-font: 16px;
-
-        --sections-h1: 18px;
-        --sobre-img-width: 40%;
-        --sobre-font: 16px;
-        --msg: 14px;
-    }
-
-    .txt-sobre img {
-        display: block;        
-    }
-
-    .banner h2 {
-        font-weight: 300;
-    }
-
-    .banner span {
-        font-weight: 500;
-    }
-
-    .botoes-acesso {
-        flex-direction: row;
-    }
-} */
-
-/* @media (min-width: 920px) {
-    :root {        
-        --main-gap: 60px;
-        --main-padding: 70px;
-
-        --banner-text-width: 400px;
-        --banner-h1-text: 36px;
-        --banner-h2-text: 22px;
-
-        --botoes-font: 18px;
-
-        --sections-h1: 20px;
-        --sobre-img-width: 30%;
-        --sobre-font: 18px;
-        --contato-font:16px;
-        --msg: 16px;
-    }
-} */
-/* 
-@media (min-width: 1280px) {
-    :root {
-        --header-img: 60px;
-        --header-font: 16px;
-        
-        --main-gap: 80px;
-        --main-padding: 70px 180px;
-
-        --banner-height: 360px;
-        --banner-text-width: 440px;
-        --banner-h1-text: 42px;
-        --banner-h2-text: 28px;
-
-        --botoes-font: 20px;
-
-        --sections-h1: 22px;
-        --sobre-img-width: 20%;
-        --sobre-font: 20px;
-        --msg: 18px;
-    }
-
-    .contato input, .contato button, .msg {
-        padding: 20px;
-    }
-
-    .msg {
-        height: 190px;
-        margin: 14px 0;
-    }
-} */
 
 /* Rodapé */
 footer{
@@ -781,6 +633,12 @@ main form button {
     cursor: pointer;
 }
 
+.desktop-img,
+.tem-conta,
+.img-sobre{
+    display: none;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     .login-card{
@@ -828,49 +686,292 @@ main form button {
 }
 
 /* Desktop */
-@media (min-width: 1280px) {
-    .login-card{
+@media (min-width: 1024px) {
+
+    main{
+        padding: 0;
+    }
+
+    .telas-img{
+        display: none;
+    }
+
+    .main-text{
+        height: calc(100vh - 150px);
         width: 100%;
-        max-width: 600px;
-        padding: 35px;
+        flex-direction: row;
+        align-items: stretch;
+        position: relative;
     }
 
-    .logo-login{
-        width: 60px;
-    }
-
-    .olho{
-        width: 40px;
-        margin: 5px;
-    }
-
-    .olho img{
-        width: 35px;
-    }
-
-    .login-card h2{
+    .title-landing{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
-        font-size: 30px;
+        align-items: center;
+        flex: 1;
     }
 
-    .login-card input{
-        padding: 20px;
-        font-size: 25px;
-        margin-top: 10px;
-        border-radius: 15px;
+    .textos-titulo{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 
-    .login-card button{
-        font-size: 25px;
+    .title-landing h1{
+        font-size: 38px;
+        font-weight: 500;
     }
 
-    .login-card p, 
-    .login-card a{
+    .title-landing h2 {
+        font-size: 16px;
+    }
+
+    .body-landing{
+        padding: 100px;
+    }
+
+    .img-banner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1;
+    }
+
+    .desktop-img {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+
+    .tem-conta{
+        font-weight: 500;
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .tem-conta a{
+        text-decoration: none;
+        color: #1d5cb9;
+        margin-left: 5px;
+        font-weight: 600;
+    }
+
+    .main-text button {
+        padding: 8px;
         font-size: 18px;
     }
 
-    .fechar{
-        font-size: 35px;
+    .links-menu a{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
+    .logo-menu{
+        width: 60px;
+        margin-left: 20px;
+    }
+
+    .features{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .features > div{
+        padding: 20px;
+        width: 33%;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .features .icon i{
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .features .icon{
+        margin-right: 12px;
+    }
+
+    .body-landing h1{
+        font-size: 23px;
+        margin-top: 25px;
+    }
+
+    .body-landing {
+        width: 100%;
+    }
+
+    .sobre-nos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 60px;
+        margin-top: 90px;
+        align-items: center;
+    }
+
+    .txt-sobre{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+        width: 50%;
+        padding: 40px;
+    }
+
+    .txt-sobre h1{
+        margin-top: 0;
+    }
+
+    .txt-sobre p{
+        font-size: 18px;
+    }
+
+    .div-img-sobre{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .img-sobre{
+        display: block;
+        width: 100%;
+    }
+
+    .div-recursos{
+        margin-top: 40px;
+    }
+
+    .recursos{
+        width: 31%;
+        padding: 25px;
+    }
+
+    .recursos .text .titulo{
+        display: flex;
+        align-items: center;
+    }
+
+    .recursos .text h1 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    .recursos .text p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .cards-recursos{
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .contato{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .formContato{
+        width: 50%;
+        padding: 40px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formContato .campo label{
+        font-size: 15px;
+    }
+
+    .formContato button {
+        font-size: 20px;
+    }
+
+    .formContato input, .formContato textarea{
+        font-size: 16px;
+    }
+
+    .formContato .campo input, .mensagem {
+        padding: 12px;
+    }
+
+}
+
+@media (min-width: 1250px) {
+    .title-landing h1{
+        font-size: 42px;
+    }
+
+    .title-landing h2 {
+        font-size: 20px;
+    }
+
+    .tem-conta{
+        font-size: 20px;
+    }
+
+    .main-text button {
+        font-size: 22px;
+    }
+
+    .txt-sobre p{
+        font-size: 20px;
+    }
+
+    .img-sobre{
+        display: block;
+        width: 85%;
+    }
+}
+
+@media (min-width: 1570px) {
+    .title-landing h1{
+        font-size: 48px;
+    }
+
+    .title-landing h2 {
+        font-size: 22px;
+    }
+
+    .tem-conta{
+        font-size: 22px;
+    }
+
+    .main-text button {
+        font-size: 25px;
+    }
+
+    .txt-sobre h1{
+        font-size: 26px;
+    }
+
+    .txt-sobre p{
+        font-size: 23px;
+    }
+
+    .img-sobre{
+        display: block;
+        width: 75%;
     }
 }
 
