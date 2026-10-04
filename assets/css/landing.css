@@ -22,8 +22,7 @@ body{
 /* landing index */
 :root {
     --header-img: 50px;
-    --header-font: 12px;
-    --footer-img: 40px;
+    --header-font: 12px;    
 
     --main-gap: 30px;
     --main-padding: 24px;
@@ -49,7 +48,6 @@ header {
     align-items: center;    
     background-color: #f1f1f1; 
     padding: 24px;
-    /* box-shadow: 0 1px 6px #98989840; */
 }
 
 nav {
@@ -100,17 +98,6 @@ main {
     padding: var(--main-padding);
 }
 
-/*Banner*/
-.banner{
-    display: flex;
-    flex-direction: column;    
-    justify-content: space-around;
-    position: relative;
-    width: 100%;
-    height: var(--banner-height);
-    gap: 20px;
-}
-
 .main-text {
     display: flex;
     flex-direction: column;
@@ -137,7 +124,6 @@ main {
 
 .main-text h1{   
     font-weight: 600;
-    /* font-size: var(--banner-h1-text); */
 }
 
 .main-text h2 {
@@ -157,54 +143,111 @@ main {
     gap: 30px;
 }
 
-.formLogin {
+.forms {
+    position: relative;
+    max-width: 500px;
     width: 90%;
     background-color: white;
     padding: 20px;
+    padding-top: 40px;
     border-radius: 8px;
-    /* border: 1px solid rgb(214, 214, 214); */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.formLogin .formOption {
+.forms .formOption {
     display: flex;
-    justify-content: space-around;
+}
+
+.formOption span.active {
+    color: #1d5cb9;
+    font-weight: 600;
+    border-bottom: 2px solid #1d5cb9;
 }
 
 .formOption span {
+    cursor: pointer;
     text-align: center;
     width: 100%;
     padding-bottom: 10px;
-    font-weight: 500;
-    border-bottom: 1px solid rgb(167, 167, 167);
+    font-weight: 400;
+    color: #a7a7a7;
+    border-bottom: 1px solid #dadada;
+    transition: 0.2s;
 }
 
-.formLogin .campo {
+.formOption span:not(.active):hover {
+    color: #6487bb;
+    border-bottom: 1px solid #6487bb;
+}
+
+.forms form.active {
+    display: flex;
+}
+
+.forms form {        
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forms .campo {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.formLogin .campo input, .mensagem {
+.campo i {
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    cursor: pointer;
+    color: rgb(68, 68, 68);
+}
+
+.campo i:hover {
+    color: #1d5cb9;
+}
+
+.forms .campo input, .mensagem {
     background-color: #f1f1f1;
     border: 1px solid rgb(190, 190, 190);
-    padding: 12px;
+    padding: 8px;
     border-radius: 6px;
+    font-size: 14px;
 }
 
-.formLogin .campo label {
-    color: rgb(71, 71, 71);
+.forms .campo label {
+    color: rgb(133, 133, 133);
 }
 
-.formLogin button {
-    padding: 6px;
+.forms button.formSubmit {
+    padding: 8px;
     border-radius: 6px;
     border: none;
     background-color: #1d5cb9;
     color: white;
     font-weight: 500;
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+button.btn-fechar {
+    background: none;
+    border: none;
+    color: #747474;
+    font-size:20px;
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    cursor: pointer;
+}
+
+button.btn-fechar:hover {
+    background: none;
+    color: #2768c9;
 }
 
 .features {
@@ -351,6 +394,8 @@ main {
     background-color: #1d5cb9;
     color: white;
     font-weight: 500;
+    width: 100%;
+    margin-top: 10px;
 }
 
 button {
@@ -362,62 +407,6 @@ button:hover {
 }
 
 
-
-
-
-.banner img{
-    border-radius: 14px 0 0 14px;
-    position: absolute;
-    right: -70px;
-    height: 100%;
-    transition: 0.3s ease;
-    width: auto;
-}
-
-/*Texto descritivo do sistema*/
-.headline{
-    background-color: white;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-}
-
-.headline h1 {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.headline span {
-    font-weight: 700;
-}
-
-/*Botões de acesso*/
-.botoes-acesso {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-}
-
-.botoes-acesso * {
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    font-size: var(--botoes-font);
-    border: none;
-    background-color: white;    
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 2px 2px 2px #e0e0e0;
-}
-
-.botoes-acesso button {
-    color: #0002F1;
-    font-weight: 700;
-}
-
 .txt-sobre {
     width: 100%;
     display: flex;
@@ -427,24 +416,13 @@ button:hover {
     flex-direction: column;
 }
 
-.txt-sobre img {
-    display: none;
-    width: var(--sobre-img-width);
-    border-radius: 10px;
-}
-
-.msg { /*Campo para escrever a mensagem*/
-    height: 120px;
-    resize: none;
-    margin: 6px 0;
-}
-
-#mensagem { /*Mensagem: "Mensagem enviada!"*/
+/* "Mensagem enviada!" ao enviar mensagem de contato */
+#mensagem { 
     margin-top: 10px;
-    color: #0002f1;
+    color: gray;
     opacity: 0;
     transition: opacity 0.5s ease;
-    font-size: var(--msg);
+    font-size: 16px;
     text-align: center;
 }
 
@@ -466,11 +444,7 @@ footer p {
     color: rgb(121, 121, 121);
 }
 
-footer img {
-    width: var(--footer-img);
-}
-
-/*Card do login*/
+/* overlay modal de login/cadastro */
 .overlay{
     position: fixed;
     top: 0;
@@ -484,153 +458,23 @@ footer img {
     align-items: center;
 }
 
-.login-card{
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 270px;
+/* modal */
+.modal {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    position: relative;
-}
-
-.login-card img{
-    display: block;
-    margin: 0 auto; /*centraliza*/
-}
-
-.logo-login{
-    width: 35px;
-}
-
-.login-card h2{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-}
-
-/*Esconder senha*/
-.container-senha{
-    position: relative;
-    width: 100%;
-}
-
-.container-senha input{
-    width: 100%;
-    padding-right: 40px;
-}
-
-#toggleSenha{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    cursor: pointer;
-    transform: translateY(-50%); /*Alinha verticalmente*/
-    font-size: 14px;
-}
-
-.esqueceu-senha{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.login-card a{
-    font-size: 10px;
-    text-decoration: none;
-    color: #0002f1;
-}
-
-.login-card input{
-    padding: 10px;
-    border-radius: 10px;
-    border: 0;
-}
-
-.login-card button{
-    background-color: #0002f1;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    width: 50%;
-    display: block;
-    margin: 0 auto; /*Centraliza*/
-    margin-top: 15px;
-    border: 0;
-}
-
-.fechar{
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.cadastro {
-    display: flex;
-    flex-direction: column;
+    max-height: 80%;
     align-items: center;
-    gap: 2px;
-}
-
-.cadastro p {
-    font-size: 10px;
-    margin: 0;
-}
-
-/* ===== página de cadastro -> Nicole ===== */
-main .container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 14px;
-    width: 100%;
-    max-width: 350px;
-}
-
-main .container h1 {
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 20px;
-    text-align: center;
-}
-
-main form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    outline: none;
-    font-size: 14px;
-}
-
-main form input:focus {
-    outline: 1px solid #D5D5D5
-}
-
-main form label {
-    color: #72777f;
-    font-size: 12px;
-    text-align: left;
-}
-
-main form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #000199;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
+    justify-content: center;
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 30px 40px;
+    position: relative;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    overflow: auto;
+    animation: subirModal 0.3s ease forwards;
 }
 
 .desktop-img,
@@ -641,6 +485,13 @@ main form button {
 
 /* Tablet */
 @media (min-width: 768px) {
+    .modal {
+        max-width: 500px;
+        animation: none;
+        transform: none;
+        border-radius: 8px;
+    }
+
     .login-card{
         width: 100%;
         max-width: 500px;
@@ -905,6 +756,7 @@ main form button {
 
     .formContato button {
         font-size: 20px;
+        
     }
 
     .formContato input, .formContato textarea{

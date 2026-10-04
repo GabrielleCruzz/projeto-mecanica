@@ -1,65 +1,117 @@
-const linkLogin = document.getElementById("login");
-const btnLogin = document.getElementById("btnlogin"); // botão "Faça login"
-const overlay = document.getElementById("overlay");
+// fundo modal
+const overlay = document.querySelector(".overlay");
+
+// botões de login/cadastro que abrem o modal
+const btnLogin = document.querySelectorAll(".link-entrar");
+const btnCadastro = document.querySelectorAll(".link-cadastrar")
+
+// opções de login/cadastro dentro do modal
+const optionLogin = document.querySelector(".optionLogin");
+const optionCadastro = document.querySelector(".optionCadastro");
+
+// forms de login e cadastro do modal
+const formLogin = document.querySelector(".formLogin")
+const formCadastro = document.querySelector(".formCadastro")
+
+// variável pra guardar se o form escolhido é de login ou não
+let login;
+
+// função pra trocar o form dentro do modal
+function switchForm() {
+    console.log("login no switch: ", login)
+    if (login) {
+        optionCadastro.className = 'optionCadastro'
+        optionLogin.className = 'optionLogin active'
+
+        formCadastro.className = 'formCadastro'
+        formLogin.className = 'formLogin active'
+    }
+    else {
+        optionCadastro.className = 'optionCadastro active'
+        optionLogin.className = 'optionLogin'
+
+        formCadastro.className = 'formCadastro active'
+        formLogin.className = 'formLogin'
+    }
+}
 
 // função pra abrir o modal
-function openModal(e) {
+function openModal() {
     overlay.style.display = "flex";
+    switchForm();
 }
 
-// abrir pelo link do menu
-if (linkLogin) {
-    linkLogin.addEventListener("click", openModal);
-}
+// clique em botões de login
+btnLogin.forEach(btn => {
+    btn.addEventListener("click", () => {
+        login = true;
+        openModal();
+    });
+});
 
-// abrir pelo botão
-if (btnLogin) {
-    btnLogin.addEventListener("click", openModal);
-}
+// clique em botões de cadastro
+btnCadastro.forEach(btn => {
+    btn.addEventListener("click", () => {
+        login = false;
+        openModal();
+    });
+});
 
-// Fechar modal e limpa os campos do formulário de login
+// clique para alternar para form de cadastro
+optionCadastro.addEventListener("click", () => {
+    login = false;
+    switchForm();
+})
 
-const btnFechar = document.querySelector(".fechar")
-const formLogin = document.getElementById("formLogin")
+// clique para alternar para form de login
+optionLogin.addEventListener("click", () => {
+    login = true;
+    switchForm();
+})
+
+// Fechar modal e limpar os campos dos formulários
+const btnFechar = document.querySelector(".btn-fechar")
 
 btnFechar.addEventListener("click", () => {
     overlay.style.display = "none";
-
-    formLogin.reset(); //limpa os campos
+    formLogin.reset();
+    formCadastro.reset();
 });
 
-// Redireciona do botão enviar do formulário de login para a página inicial do dashboard
+// Redireciona do botão enviar do formulário para a página inicial do dashboard
+const formSubmit = document.querySelectorAll(".formSubmit")
 
-formLogin.addEventListener("submit" , function(e) {
-    e.preventDefault();
-    window.location.href = "./dashboard/index.html";
+formSubmit.forEach(submit => {
+    submit.addEventListener("click", function(e) {
+        e.preventDefault();
+        window.location.href = "./dashboard/painel.html";
+    })
 });
 
 // Esconder e mostrar a senha
+const senhasIcone = document.querySelectorAll(".campo i")
 
-const senhaInput = document.getElementById("senha");
-const toggleSenha = document.getElementById("toggleSenha");
-const senhaImg = toggleSenha.querySelector('img');
-
-toggleSenha.addEventListener("click", () => {
-    if (senhaInput.type === "password") { 
-        senhaInput.type = "text"; // Mostra a senha
-        senhaImg.src = "../assets/img/olho-aberto.png";
-        console.log(senhaImg)
-    } else {
-        senhaInput.type = "password"; // Esconde a senha
-        senhaImg.src = "../assets/img/olho-fechado.png";
-    }
-})
-
+console.log(senhasIcone)
+senhasIcone.forEach(icone => {
+    icone.addEventListener("click", () => {
+        const campo = icone.closest(".campo");
+        const senhaCampo = campo.querySelector(".campoSenha")
+        if (senhaCampo.type === "password") {
+            senhaCampo.type = "text";
+            icone.className = "ti ti-eye-off"
+        }
+        else {
+            senhaCampo.type = "password";
+            icone.className = "ti ti-eye"
+        }
+    })
+});
 
 // Mensagem de envio e apaga o formulário de contato
-
 document.addEventListener("DOMContentLoaded", function () {
-
     // Pega o formulário e mensagem pelo id
-    const form = document.getElementById("formContato");
-    const mensagem = document.getElementById("mensagem");
+    const form = document.querySelector(".formContato");
+    const mensagem = document.querySelector("#mensagem");
 
     // Escuta quando o formulário é enviado (clicar no botão)
     form.addEventListener("submit", function (event) {

@@ -14,24 +14,23 @@
 <body>
 
     <!-- Menu de navegação -->
-
     <header>
         <img class="logo-menu" src="./assets/img/logo.png" alt="logo">
-
         <nav class="links-menu">
-            <a href="#" id="login">Entrar</a>
-            <a href="cadastro.html">Cadastrar-se</a>
+            <a href="#" class="link-entrar">Entrar</a>
+            <a href="#" class="link-cadastrar">Cadastrar-se</a>
         </nav>
     </header>
 
     <main>
+        <!-- hero -->
         <div class="main-text">
             <div class="title-landing">
                 <div class="textos-titulo">
                     <h1>Gestão de oficina precisa, eficiente e organizada</h1>
                     <h2>Substitua as pranchetas e blocos de papel pelo AutoTech. Gerencie os orçamentos da sua mecânica
                         automotiva de forma digital, prática e objetiva.</h2>
-                    <button>Comece agora</button>
+                    <button class="link-cadastrar">Comece agora</button>
                     <p class="tem-conta">Já tem uma conta?<a class="link-entrar" href="#">Entrar</a></p>
                 </div>
             </div>
@@ -41,8 +40,9 @@
             </div>
         </div>
 
-        <!-- features -->
+        <!-- principais conteúdos -->
         <div class="body-landing">
+            <!-- features -->
             <div class="features">
                 <div>
                     <div class="icon">
@@ -83,6 +83,7 @@
                 </div>
             </div>
 
+            <!-- principais recursos -->
             <div class="div-recursos">
                 <h1>PRINCIPAIS RECURSOS</h1>
                 <div class="cards-recursos">
@@ -116,26 +117,95 @@
                 </div>
             </div>
 
+            <!-- contato -->
             <div class="contato">
                 <h1>CONTATO</h1>
-
-                <form action="" class="formContato">
+                <form class="formContato">
                     <div class="campo">
                         <label for="">Seu e-mail</label>
-                        <input type="text">
+                        <input type="email" required>
                     </div>
                     <div class="campo">
                         <label for="">Mensagem</label>
-                        <textarea class="mensagem"></textarea>
-                    </div>
-                    <button>Enviar</button>
+                        <textarea class="mensagem" required></textarea>
+                    </div>                    
+                    <button type="submit">Enviar</button>
                 </form>
+                <p id="mensagem">Mensagem enviada!</p>
             </div>
         </div>
     </main>
+
     <footer>
         <p>© 2026 AutoTech Mecânicas.</p>
     </footer>
+
+    <!-- modal login/cadastro -->
+    <div class="overlay">
+        <div class="forms">
+            <!-- fechar modal -->
+            <button type="button" class="btn-fechar">
+                <i class="ti ti-x"></i>
+            </button>
+
+            <!-- alternar entre formulários -->
+            <div class="formOption">
+                <span class="optionLogin active">Entrar</span>
+                <span class="optionCadastro">Cadastrar-se</span>
+            </div>
+            
+            <!-- formulário de login -->
+            <form class="formLogin">
+                <div class="campo">
+                    <label for="">E-mail</label>
+                    <input type="email">
+                </div>
+                <div class="campo">
+                    <label for="">Senha</label>                    
+                    <input type="password" class="campoSenha">
+                    <i class="ti ti-eye"></i>
+                </div>                
+                <button type="submit" class="formSubmit">Entrar</button>
+            </form>
+
+            <!-- formulário de redefinir senha -->
+            <form class="formRedefinir">
+                <div class="campo">
+                    <label for="">Digite seu e-mail para redefinir a senha</label>
+                    <input type="email">
+                </div>
+                <button type="submit" class="formSubmit">Redefinir senha</button>
+            </form>
+
+            <!-- fomrulário de cadastro -->
+            <form class="formCadastro">
+                <div class="campo">
+                    <label for="">Nome da oficina</label>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <label for="">CNPJ</label>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <label for="">E-mail</label>
+                    <input type="email">
+                </div>
+                <div class="campo">
+                    <label for="">Senha</label>
+                    <input type="password" class="campoSenha">
+                    <i class="ti ti-eye"></i>
+                </div>
+                <div class="campo">
+                    <label for="">Confirmar senha</label>
+                    <input type="password" class="campoSenha">
+                    <i class="ti ti-eye"></i>
+                </div>
+                <button type="submit" class="formSubmit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 </html>
