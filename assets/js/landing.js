@@ -13,24 +13,39 @@ const optionCadastro = document.querySelector(".optionCadastro");
 const formLogin = document.querySelector(".formLogin")
 const formCadastro = document.querySelector(".formCadastro")
 
+const formRedefinir = document.querySelector(".formRedefinir")
+const esqueciSenha = document.querySelector(".esqueciSenha")
+
 // variável pra guardar se o form escolhido é de login ou não
 let login;
+
+let redefinir;
 
 // função pra trocar o form dentro do modal
 function switchForm() {
     console.log("login no switch: ", login)
     if (login) {
         optionCadastro.className = 'optionCadastro'
-        optionLogin.className = 'optionLogin active'
-
         formCadastro.className = 'formCadastro'
-        formLogin.className = 'formLogin active'
+        
+        if (redefinir) {
+            formLogin.className = "formLogin"
+            formRedefinir.className = "formRedefinir active"
+            optionLogin.className = 'formLogin'          
+        }
+        else {
+            formRedefinir.className = "formRedefinir"
+            optionLogin.className = 'optionLogin active'
+            formLogin.className = 'formLogin active'
+        }
     }
     else {
         optionCadastro.className = 'optionCadastro active'
-        optionLogin.className = 'optionLogin'
-
         formCadastro.className = 'formCadastro active'
+        
+        formRedefinir.className = "formRedefinir"    
+        
+        optionLogin.className = 'optionLogin'
         formLogin.className = 'formLogin'
     }
 }
@@ -60,13 +75,20 @@ btnCadastro.forEach(btn => {
 // clique para alternar para form de cadastro
 optionCadastro.addEventListener("click", () => {
     login = false;
+    redefinir = false;
     switchForm();
 })
 
 // clique para alternar para form de login
 optionLogin.addEventListener("click", () => {
     login = true;
+    redefinir = false;
     switchForm();
+})
+
+esqueciSenha.addEventListener("click", () => {
+    redefinir = true;
+    switchForm()
 })
 
 // Fechar modal e limpar os campos dos formulários
@@ -76,6 +98,7 @@ btnFechar.addEventListener("click", () => {
     overlay.style.display = "none";
     formLogin.reset();
     formCadastro.reset();
+    formRedefinir.reset();
 });
 
 // Redireciona do botão enviar do formulário para a página inicial do dashboard
