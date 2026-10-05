@@ -106,12 +106,12 @@ h2 {
 }
 
 /*Barra de pesquisa*/
-div.pesquisa{
+.pesquisa{
     position: relative;
     width: 100%;
 }
 
-div.pesquisa > input{
+.pesquisa input{
     width: 100%;
     font-size: var(--font-base);
     background-color: white;
@@ -125,16 +125,18 @@ div.pesquisa > input{
     color: var(--cor2);
 }
 
-div.pesquisa > input:focus{
+.pesquisa > input:focus{
     outline: 1px solid #d5d5d5;
 }
 
-div.pesquisa > img{
+.pesquisa i{
     position: absolute;
     right: 4%;
     top: 50%; 
     transform: translateY(-50%);
     pointer-events: none;
+    color: var(--cor5);
+    font-size: 13px;
 }
 
 /* ===== Página inicial (painel) -> Alex - Isabella - Gabrielle ===== */
@@ -2381,8 +2383,12 @@ body.dark .nav-bar {
         font-size: var(--font-base);
     }
 
-    div.pesquisa > input{
+    .pesquisa .input-pesquisa{
         width: 98%;
+    }
+
+    .pesquisa #busca{
+        width: 100%;
     }
 
     /* cards */
