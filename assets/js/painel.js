@@ -1,6 +1,6 @@
 const ctx = document.getElementById("graficoFinanceiro");
 
-new Chart(ctx, {
+const grafico = new Chart(ctx, {
     type: "line",
 
     data: {
@@ -35,8 +35,8 @@ new Chart(ctx, {
                 5100
             ],
 
-            backgroundColor: "#1d5cb9",
-            borderRadius: 10
+            borderColor: document.body.classList.contains('dark') ? '#424144' : '#c6d4eb',
+            backgroundColor: document.body.classList.contains('dark') ? '#3976ff' : '#1d5cb9',
         }]
     },
 
