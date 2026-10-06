@@ -57,7 +57,6 @@ function marcarPaginaAtual() {
 
     links.forEach(link => {
         const href = link.getAttribute("href");
-        console.log("oi")
 
         if (href === paginaAtual) {
             link.classList.add("sidebar-atual", "pg-atual");

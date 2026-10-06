@@ -81,20 +81,12 @@
                         <input class="nome-peca" type="text" placeholder="Nome da peça">
                         <input class="valor-uni-peca" type="text" placeholder="Valor Uni.">
                         <input class="qtd-peca" type="number" placeholder="Qtd">
-                        <button class="add-peca">+</button>
+                        <button type="button" onclick="addPeca()" class="add-peca">+</button>
                     </div>
-                    <div class="peca">
-                        <div>
-                            <span>Nome da peça</span>
-                        </div>
-                        <div>
-                            <span>R$80,00</span>
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
-                    </div>
+                    <div class="lista-pecas"></div>
                 </div>
 
-                <!-- Adicionar peças utilizadas -->
+                <!-- Adicionar serviços realizados -->
                 <div class="tipo-servicos">
                     <label>Serviço</label>
                     <div class="campo-servico">

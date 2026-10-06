@@ -160,3 +160,38 @@ document.addEventListener("click", (e) => {
         listaVeic.style.display = "none";
     }
 });
+
+
+// adicionar uma nova peça utilizada
+
+function addPeca() {
+    const campoPeca = document.querySelector('.nome-peca').value.trim();
+    const campoValor = document.querySelector('.valor-uni-peca').value.trim();
+    const campoQtd = document.querySelector('.qtd-peca').value;
+
+    if(!campoPeca || !campoValor || !campoQtd){
+        return;
+    }
+
+    const listaPecas = document.querySelector('.lista-pecas');
+
+    const peca = document.createElement('div');
+    peca.classList.add('peca');
+
+    peca.innerHTML =
+    `<div>
+        <span>${campoPeca}</span>
+    </div>
+    <div>
+        <span>R$${campoValor}</span>
+        <span>${campoQtd}</span>
+        <i class="fa-solid fa-xmark"></i>
+    </div>`
+
+    listaPecas.appendChild(peca);  
+    
+    // limpa os campos
+    document.querySelector('.nome-peca').value = '';
+    document.querySelector('.valor-uni-peca').value = '';
+    document.querySelector('.qtd-peca').value = '';
+}
