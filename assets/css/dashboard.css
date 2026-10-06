@@ -125,7 +125,8 @@ h2 {
     color: var(--cor2);
 }
 
-.pesquisa > input:focus{
+input:focus,
+textarea:focus{
     outline: 1px solid #d5d5d5;
 }
 
@@ -135,7 +136,7 @@ h2 {
     top: 50%; 
     transform: translateY(-50%);
     pointer-events: none;
-    color: var(--cor5);
+    color: var(--dark-cinza-claro);
     font-size: 13px;
 }
 
@@ -306,6 +307,10 @@ body.dark input{
 body.dark input:focus{
     outline: none;
     border: 2px solid var(--dark-cinza);
+}
+
+body.dark .pesquisa i{
+    color: var(--cor5);
 }
 
 body.dark .resumo-card, body.dark .card-servicos{
