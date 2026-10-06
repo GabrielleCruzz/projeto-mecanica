@@ -185,7 +185,7 @@ function addPeca() {
     <div>
         <span>R$${campoValor}</span>
         <span>${campoQtd}</span>
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
     </div>`
 
     listaPecas.appendChild(peca);  
@@ -194,4 +194,8 @@ function addPeca() {
     document.querySelector('.nome-peca').value = '';
     document.querySelector('.valor-uni-peca').value = '';
     document.querySelector('.qtd-peca').value = '';
+}
+
+function remover(botao) {
+    botao.parentElement.parentElement.remove();
 }
