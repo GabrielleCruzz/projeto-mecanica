@@ -169,7 +169,7 @@ function addPeca() {
     const campoValor = document.querySelector('.valor-uni-peca').value.trim();
     const campoQtd = document.querySelector('.qtd-peca').value;
 
-    if(!campoPeca || !campoValor || !campoQtd){
+    if (!campoPeca || !campoValor || !campoQtd) {
         return;
     }
 
@@ -188,12 +188,39 @@ function addPeca() {
         <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
     </div>`
 
-    listaPecas.appendChild(peca);  
-    
+    listaPecas.appendChild(peca);
+
     // limpa os campos
     document.querySelector('.nome-peca').value = '';
     document.querySelector('.valor-uni-peca').value = '';
     document.querySelector('.qtd-peca').value = '';
+}
+
+function addServico() {
+    const campoServico = document.querySelector('.tipo-servico').value.trim();
+    const campoValorServico = document.querySelector('.valor-uni-servico').value.trim();
+
+    if (!campoServico || !campoValorServico) {
+        return;
+    }
+
+    const listaServico = document.querySelector('.lista-servico');
+
+    const servico = document.createElement('div');
+    servico.classList.add('peca');
+
+    servico.innerHTML =
+    `<span>${campoServico}</span>
+    <div>
+        <span>${campoValorServico}</span>
+        <i class="fa-solid fa-xmark"></i>
+    </div>`
+
+    listaServico.appendChild(servico);
+
+    // limpa os campos
+    document.querySelector('.tipo-servico').value = '';
+    document.querySelector('.valor-uni-servico').value = '';
 }
 
 function remover(botao) {
