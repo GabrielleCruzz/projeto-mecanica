@@ -157,12 +157,12 @@
             <!-- formulário de login -->
             <form class="formLogin">
                 <div class="campo">
-                    <label for="">E-mail</label>
-                    <input type="email">
+                    <label for="">E-mail ou CNPJ</label>
+                    <input type="text" name="login_email_cnpj">
                 </div>
                 <div class="campo">
                     <label for="">Senha</label>                    
-                    <input type="password" class="campoSenha">
+                    <input type="password" class="campoSenha" name="login_senha">
                     <i class="ti ti-eye"></i>
                 </div>                
                 <div class="esqueciSenha-container">
@@ -184,27 +184,27 @@
             <form class="formCadastro">
                 <div class="campo">
                     <label for="">Nome da oficina</label>
-                    <input type="text">
-                </div>
-                <div class="campo">
-                    <label for="">CNPJ</label>
-                    <input type="text">
+                    <input type="text" name="nome_oficina">
                 </div>
                 <div class="campo">
                     <label for="">E-mail</label>
-                    <input type="email">
+                    <input type="email" name="email_usuario">
+                </div>
+                <div class="campo">
+                    <label for="">CNPJ</label>
+                    <input type="text" name="cnpj_usuario">
                 </div>
                 <div class="campo">
                     <label for="">Senha</label>
-                    <input type="password" class="campoSenha">
+                    <input type="password" class="campoSenha" name="senha_usuario">
                     <i class="ti ti-eye"></i>
                 </div>
                 <div class="campo">
                     <label for="">Confirmar senha</label>
-                    <input type="password" class="campoSenha">
+                    <input type="password" class="campoSenha" name="confirma_senha">
                     <i class="ti ti-eye"></i>
                 </div>
-                <button type="submit" class="formSubmit">Entrar</button>
+                <button type="submit" class="formSubmit">Cadastrar-se</button>
             </form>
         </div>
     </div>

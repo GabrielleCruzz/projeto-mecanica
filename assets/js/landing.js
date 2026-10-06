@@ -18,7 +18,6 @@ const esqueciSenha = document.querySelector(".esqueciSenha")
 
 // variável pra guardar se o form escolhido é de login ou não
 let login;
-
 let redefinir;
 
 // função pra trocar o form dentro do modal
@@ -96,19 +95,54 @@ const btnFechar = document.querySelector(".btn-fechar")
 
 btnFechar.addEventListener("click", () => {
     overlay.style.display = "none";
+    login = false;
+    redefinir = false;
     formLogin.reset();
     formCadastro.reset();
     formRedefinir.reset();
 });
 
-// Redireciona do botão enviar do formulário para a página inicial do dashboard
-const formSubmit = document.querySelectorAll(".formSubmit")
+// submit cadastro: enviar dados do form para o php
+formCadastro.addEventListener("submit", (enviar) => {
+    enviar.preventDefault();
 
-formSubmit.forEach(submit => {
-    submit.addEventListener("click", function(e) {
-        e.preventDefault();
-        window.location.href = "./dashboard/painel.html";
+    const dados = new FormData(formCadastro);
+
+    fetch("./php/usuario-cadastro.php", {
+        method: "POST", body: dados,
     })
+        .then((resposta) => resposta.text())
+        .then((resultado) => {
+            if (resultado.trim() === "Sucesso") {
+                alert("Cadastrado com sucesso! Realize o login para acessar o sistema.")
+                login = true;
+                switchForm();       
+            }
+            else {
+                alert(resultado)
+            }            
+        });
+});
+
+// submit login: enviar dados do form para o php
+formLogin.addEventListener("submit", (enviar) => {
+    enviar.preventDefault();
+
+    const dados = new FormData(formLogin);
+
+    fetch("./php/usuario-login.php", {
+        method: "POST", body: dados,
+    })
+        .then((resposta) => resposta.text())
+        .then((resultado) => {
+            if (resultado.trim() === "Sucesso") {                
+                alert("Login realizado com sucesso!")
+                window.location.href = "./dashboard/painel.html"
+            }
+            else {
+                alert(resultado); // mostra o erro
+            }            
+        });
 });
 
 // Esconder e mostrar a senha
