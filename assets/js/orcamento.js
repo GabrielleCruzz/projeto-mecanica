@@ -213,7 +213,7 @@ function addServico() {
     `<span>${campoServico}</span>
     <div>
         <span>${campoValorServico}</span>
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
     </div>`
 
     listaServico.appendChild(servico);
