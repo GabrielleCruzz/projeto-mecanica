@@ -80,10 +80,11 @@
                     <div class="campo-peca">
                         <input class="nome-peca" type="text" placeholder="Nome da peça">
                         <input class="valor-uni-peca" type="text" placeholder="Valor Uni.">
-                        <input class="qtd-peca" type="number" placeholder="Qtd">
+                        <input class="qtd-peca" type="number" min="1" placeholder="Qtd">
                         <button type="button" onclick="addPeca()" class="add-peca">+</button>
                     </div>
                     <div class="lista-pecas"></div>
+                    <p class="msg-erro"></p>
                 </div>
 
                 <!-- Adicionar serviços realizados -->

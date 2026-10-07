@@ -167,34 +167,68 @@ document.addEventListener("click", (e) => {
 function addPeca() {
     const campoPeca = document.querySelector('.nome-peca').value.trim();
     const campoValor = document.querySelector('.valor-uni-peca').value.trim();
-    const campoQtd = document.querySelector('.qtd-peca').value;
+    const campoQtd = document.querySelector('.qtd-peca').value.trim();
+    const msgErro = document.querySelector('.msg-erro');
 
-    if (!campoPeca || !campoValor || !campoQtd) {
+    // converte as strings para números para validação
+    const valorNum = Number(campoValor.replace(',', '.')); 
+    const qtdNum = Number(campoQtd);
+
+    // função para exibir a mensagem de erro por 2,5 segundos
+    function exibirErro(mensagem) {
+        msgErro.textContent = mensagem;
+        msgErro.classList.add('visivel');
+
+        setTimeout(() => {
+            msgErro.classList.remove('visivel');
+        }, 2200); 
+        
+        setTimeout(() => {
+            msgErro.textContent = "";
+        }, 2500);
+    }
+
+    // validações e mensagens de erro
+    if (campoPeca === '') {
+        exibirErro('Por favor, preencha o nome da peça.');
+        return;
+    }
+    if (isNaN(valorNum) || valorNum <= 0) {
+        exibirErro('Valor unitário inválido');
+        return;
+    }
+    if (isNaN(qtdNum) || qtdNum <= 0 || !Number.isInteger(qtdNum)) {
+        exibirErro('Quantidade inválida');
         return;
     }
 
     const listaPecas = document.querySelector('.lista-pecas');
-
     const peca = document.createElement('div');
     peca.classList.add('peca');
 
+    // Formata o valor para o padrão de real
+    const valorFormatado = valorNum.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    // adiciona a peça na lista
     peca.innerHTML =
     `<div>
         <span>${campoPeca}</span>
     </div>
     <div>
-        <span>R$${campoValor}</span>
-        <span>${campoQtd}</span>
+        <span>R$ ${valorFormatado}</span>
+        <span>${qtdNum}x</span>
         <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
-    </div>`
+    </div>`;
 
     listaPecas.appendChild(peca);
 
-    // limpa os campos
+    // limpa os campos de entrada
     document.querySelector('.nome-peca').value = '';
     document.querySelector('.valor-uni-peca').value = '';
     document.querySelector('.qtd-peca').value = '';
 }
+
+
 
 function addServico() {
     const campoServico = document.querySelector('.tipo-servico').value.trim();
