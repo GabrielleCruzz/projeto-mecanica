@@ -100,8 +100,6 @@ if (confirmarStatus) {
     })
 }
 
-
-
 // Mais opções
 // controla os cliques dos botões "Mais ações"
 
@@ -160,7 +158,6 @@ document.addEventListener('click', (event) => {
 });
 
 // opcoes de atualizar status
-
 const opcoesStatus = document.querySelectorAll('.status-opcoes div');
 
 opcoesStatus.forEach(status => {
@@ -174,4 +171,126 @@ function trocar(statusSelecionado) {
         status.classList.remove('status-ativo');
     });
     statusSelecionado.classList.add('status-ativo');
+}
+
+//Mandar os dados do formulario para o PHP
+const formAddCliente = document.querySelector(".form-cliente");
+
+formAddCliente.addEventListener("submit", (enviar) => {
+  enviar.preventDefault();
+
+  const dados = new FormData(formAddCliente);
+
+  fetch("../php/cliente-cadastrar.php", {
+    method: "POST",
+    body: dados,
+  })
+    .then((resposta) => resposta.text())
+    .then((resultado) => {      
+        if (resultado == "Sucesso") {
+            alert("Cliente cadastrado com sucesso!")
+            listarClientes();
+            fecharModal(formAddCliente.closest(".overlay"));
+        }
+        else {
+            alert("Erro ao cadastrar cliente: " + resultado)
+        }
+    });
+});
+
+function listarClientes() {
+    fetch("../php/cliente-listar.php", {
+      method: "GET",
+    })
+      .then((resposta_lista) => resposta_lista.text())
+      .then((resulta_lista) => {
+        const infoCliente = JSON.parse(resulta_lista);
+    
+        const containerPai = document.querySelector(".cards-clientes");
+        const cardModelo = document.querySelector(".cliente-card");
+    
+        containerPai.querySelectorAll(".cliente-card:not(.cliente-card-modelo)").forEach(card => card.remove());
+
+        infoCliente.forEach((cliente) => {
+            const card = cardModelo.cloneNode(true);
+            card.classList.remove("cliente-card-modelo");
+            card.querySelector(".info-destaque").textContent = cliente.nome;
+        
+            card.querySelector(".telefone").textContent = cliente.telefone;
+        
+            card.querySelector(".qt_veiculo").textContent =
+                cliente.quantidade_veiculo + " Veículos cadastrados";
+            
+            card.setAttribute("data-cliente-id", cliente.id);
+
+            containerPai.appendChild(card);
+        });
+        pega();
+      });
+}
+
+listarClientes();
+
+function pega() {
+    const clientesCards = document.querySelectorAll(".cliente-card");
+
+    console.log("Quantidade de cards encontrados pelo JS:", clientesCards.length);
+
+    clientesCards.forEach(card => {
+        card.addEventListener("click", () => {
+            const id = card.getAttribute("data-cliente-id");        
+    
+            if (!id) {
+                console.log("Alerta: Este card não possui um ID definido!");
+                return;
+            }
+            console.log(id)
+            fetch("../php/cliente-detalhes.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ cliente_id: id })
+            })
+                .then((resposta) => resposta.text())
+                .then((resultado) => {
+                    
+                        window.location.href = "../dashboard/detalhes-cliente.html";
+                });
+        })
+    });
+}
+
+function pegaCliente() {
+    fetch("../php/pag-cliente.php", {
+        method: "GET",
+    })
+    .then((resposta) => resposta.json()) // 🛠️ CORREÇÃO: Converte direto para JSON/Objeto
+    .then((cliente) => {
+        console.log("Dados do cliente recebidos:", cliente);
+
+        if (cliente.erro) {
+            console.error(cliente.erro);
+            return;
+        }
+
+        const containerPai = document.querySelector(".cliente-detalhes");
+        
+        if (containerPai) {
+            // Preenche o nome na tela
+            const nomeSpan = containerPai.querySelector(".info-destaque");
+            if (nomeSpan) nomeSpan.textContent = cliente.nome;
+
+            // Preenche o telefone na tela
+            const telefoneSpan = containerPai.querySelector(".info-secundaria");
+            if (telefoneSpan) telefoneSpan.textContent = cliente.telefone;
+        }
+    })
+    .catch(erro => console.error("Erro ao buscar dados da sessão:", erro));
+}
+
+// Verifica se a div de detalhes existe na página atual antes de chamar a função
+const containerPai = document.querySelector(".cliente-detalhes");
+if (containerPai) {
+    pegaCliente();
 }

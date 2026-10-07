@@ -187,10 +187,10 @@
                 <div class="campos-cliente">
                     <h2>Dados do cliente</h2>
                     <label>Nome</label>
-                    <input type="text" required>
+                    <input type="text" required name="cliente_nome">
 
                     <label>Telefone</label>
-                    <input type="tel" required>
+                    <input type="tel" required name="cliente_tel">
 
                     <button class="btn-add-novo">Adicionar novo</button>
                 </div>
@@ -202,17 +202,17 @@
                     <div class="infos-veiculo">
                         <div class="campo-placa">
                             <label>Placa</label>
-                            <input type="text" required>
+                            <input type="text" required name="veiculo_placa">
                         </div>
 
                         <div class="campo-marca">
                             <label>Marca/Modelo</label>
-                            <input type="text" required>
+                            <input type="text" required name="veiculo_marca_modelo">
                         </div>
 
                         <div class="campo-ano">
                             <label>Ano</label>
-                            <input type="text" required>
+                            <input type="text" required name="veiculo_ano">
                         </div>
                     </div>
 
@@ -221,12 +221,12 @@
 
                 <div class="campo-textarea">
                     <label>Observações</label>
-                    <textarea class="obs-cliente"></textarea>
+                    <textarea class="obs-cliente" name="veiculo_obs"></textarea>
                 </div>
 
                 <div class="btns-add-cliente">
                     <button class="btn-dell">Descartar</button>
-                    <button class="btn-salvar">Cadastrar</button>
+                    <button type="submit" class="btn-salvar">Cadastrar</button>
                 </div>
             </form>
         </div>

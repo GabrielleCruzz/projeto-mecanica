@@ -28,8 +28,7 @@
             if (password_verify($senha, $usuario['Senha'])) {
                 
                 // Salva os dados do usuário na sessão do navegador
-                $_SESSION['usuario_id'] = $usuario['ID_Usuario'];
-                $_SESSION['usuario_nome'] = $usuario['Nome'];
+                $_SESSION['id_logado'] = $usuario['ID_Usuario'];                
 
                 echo "Sucesso";
             } else {

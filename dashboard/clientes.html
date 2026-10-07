@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <title>Clientes</title>
     <script src="../assets/js/sidebar.js" defer></script>
-    <script src="../assets/js/cliente.js" defer></script>
     <script src="../assets/js/orcamento.js" defer></script>
     <script src="../assets/js/global.js" defer></script>
     <!-- link para os ícones -->
@@ -55,13 +54,13 @@
                 </div>
             </div>
 
-            <div class="cards cards-clientes"> 
-                <a href="detalhes-cliente.html" class="cliente-card">
+            <div class="cards cards-clientes">
+                <a href="#" class="cliente-card cliente-card-modelo">
                     <span class="info-destaque">Nome e Sobrenome do Cliente</span>
                     <div class="infos-sec">
                         <span class="info-secundaria">Telefone: <span class="destaque telefone">(11) 99999-9999</span></span>
                         <span class="info-secundaria destaque qt_veiculo">2 veículos vinculados</span>
-                    </div>
+                    </div>                
                     <span href="detalhes-cliente.html" class="ver-detalhes">Ver cliente</span>
                 </a>
             </div>            
@@ -85,10 +84,10 @@
                 <div class="campos-cliente">
                     <h2>Dados do cliente</h2>
                     <label>Nome</label>
-                    <input type="text" name="nome" required>
+                    <input type="text" required name="cliente_nome">
 
                     <label>Telefone</label>
-                    <input type="tel" name="tel" required>
+                    <input type="tel" required name="cliente_tel">
 
                     <button class="btn-add-novo">Adicionar novo</button>
                 </div>
@@ -100,17 +99,17 @@
                     <div class="infos-veiculo">
                         <div class="campo-placa">
                             <label>Placa</label>
-                            <input type="text" name="placa" required>
+                            <input type="text" required name="veiculo_placa">
                         </div>
 
                         <div class="campo-marca">
                             <label>Marca/Modelo</label>
-                            <input type="text" name="marca_modelo" required>
+                            <input type="text" required name="veiculo_marca_modelo">
                         </div>
 
                         <div class="campo-ano">
                             <label>Ano</label>
-                            <input type="text" name="ano" required>
+                            <input type="text" required name="veiculo_ano">
                         </div>
                     </div>
 
@@ -119,12 +118,12 @@
 
                 <div class="campo-textarea">
                     <label>Observações</label>
-                    <textarea class="obs-cliente" name="observacao"></textarea>
+                    <textarea class="obs-cliente" name="veiculo_obs"></textarea>
                 </div>
 
                 <div class="btns-add-cliente">
                     <button class="btn-dell">Descartar</button>
-                    <button class="btn-salvar" type="submit">Cadastrar</button>
+                    <button type="submit" class="btn-salvar">Cadastrar</button>
                 </div>
             </form>
         </div>

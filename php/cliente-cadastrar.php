@@ -2,14 +2,17 @@
 // Importando as configurações para poder usar o banco
 require_once 'conexao.php';
 
+session_start();
+$id_logado = $_SESSION["id_logado"];
+
 // Quando o servidor receber os dados do envio
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nome = trim($_POST['nome']);
-    $telefone = $_POST['tel'];
-    $placa = $_POST['placa'];
-    $marca_modelo = $_POST['marca_modelo'];
-    $ano = $_POST['ano'];
-    $observacao = $_POST['observacao'];
+    $nome = trim($_POST['cliente_nome']);
+    $telefone = $_POST['cliente_tel'];
+    $placa = $_POST['veiculo_placa'];
+    $marca_modelo = $_POST['veiculo_marca_modelo'];
+    $ano = $_POST['veiculo_ano'];
+    $observacao = $_POST['veiculo_obs'];
 
     // Caso os campos estejam vazios, ele dará erro
     if (
@@ -24,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Quando der certo, ele faz a inserção dos dados
     } else {
-        $stmt_cli = $conexao->prepare("INSERT INTO cliente (Nome, Telefone) VALUES (?, ?)");
+        $stmt_cli = $conexao->prepare("INSERT INTO cliente (Nome, Telefone, ID_usuario) VALUES (?, ?, ?)");
 
         // Define os tipos dos dados que serão enviados para o banco
-        $stmt_cli->bind_param("ss", $nome, $telefone);
+        $stmt_cli->bind_param("sss", $nome, $telefone, $id_logado);
 
         // Mandando ele executar
         if ($stmt_cli->execute()) {
@@ -41,15 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Executa a parte do cadastro do veículo
             if ($stmt_veiculo->execute()) {
-                echo 'Cliente cadastrado com sucesso!';
+                echo 'Sucesso';
                 $stmt_veiculo->close();
                 exit;
 
             } else {
-                echo ("Erro no cadastro do veículo" . $stmt_veiculo->error);
+                echo ("Erro no cadastro do veículo: " . $stmt_veiculo->error);
             }
         } else {
-            echo ("Erro no cadastro do cliente" . $stmt_cli->error);
+            echo ("Erro no cadastro do cliente: " . $stmt_cli->error);
         }
     }
     $stmt_cli->close();

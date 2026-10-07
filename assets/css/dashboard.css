@@ -406,6 +406,10 @@ body.dark .acoes.aberto .icone-opcoes{
     margin-left: auto;
 }
 
+a.cliente-card-modelo {
+    display: none;
+}
+
 .cliente-card {
     display: flex;
     flex-direction: column;

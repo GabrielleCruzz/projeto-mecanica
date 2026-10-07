@@ -32,7 +32,8 @@ USE `bd_mecanica`;
 CREATE TABLE `cliente` (
   `ID_cliente` int(11) NOT NULL,
   `Nome` varchar(40) NOT NULL,
-  `Telefone` varchar(15) NOT NULL
+  `Telefone` varchar(15) NOT NULL,
+  `ID_usuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -271,6 +272,9 @@ ALTER TABLE `os_servico`
 --
 ALTER TABLE `veiculo`
   ADD CONSTRAINT `FK_ID_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`);
+
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `FK_ID_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
