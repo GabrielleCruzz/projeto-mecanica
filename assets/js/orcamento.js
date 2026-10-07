@@ -161,102 +161,133 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// função para exibir mensagem de erro
+function exibirErro(seletor, mensagem) {
+    const msgErro = document.querySelector(seletor);
+    msgErro.textContent = mensagem;
+    msgErro.classList.add('visivel');
+
+    setTimeout(() => {
+        msgErro.classList.remove('visivel');
+    }, 2200);
+
+    setTimeout(() => {
+        msgErro.textContent = '';
+    }, 2500);
+}
+
 
 // adicionar uma nova peça utilizada
-
 function addPeca() {
     const campoPeca = document.querySelector('.nome-peca').value.trim();
     const campoValor = document.querySelector('.valor-uni-peca').value.trim();
     const campoQtd = document.querySelector('.qtd-peca').value.trim();
-    const msgErro = document.querySelector('.msg-erro');
 
-    // converte as strings para números para validação
-    const valorNum = Number(campoValor.replace(',', '.')); 
+    const valorNum = Number(campoValor.replace(',', '.'));
     const qtdNum = Number(campoQtd);
 
-    // função para exibir a mensagem de erro por 2,5 segundos
-    function exibirErro(mensagem) {
-        msgErro.textContent = mensagem;
-        msgErro.classList.add('visivel');
-
-        setTimeout(() => {
-            msgErro.classList.remove('visivel');
-        }, 2200); 
-        
-        setTimeout(() => {
-            msgErro.textContent = "";
-        }, 2500);
-    }
-
-    // validações e mensagens de erro
     if (campoPeca === '') {
-        exibirErro('Por favor, preencha o nome da peça.');
+        exibirErro(
+            '.msgErroPeca',
+            'Por favor, preencha o nome da peça.'
+        );
         return;
     }
+
     if (isNaN(valorNum) || valorNum <= 0) {
-        exibirErro('Valor unitário inválido');
+        exibirErro(
+            '.msgErroPeca',
+            'Valor unitário inválido.'
+        );
         return;
     }
+
     if (isNaN(qtdNum) || qtdNum <= 0 || !Number.isInteger(qtdNum)) {
-        exibirErro('Quantidade inválida');
+        exibirErro(
+            '.msgErroPeca',
+            'Quantidade inválida.'
+        );
         return;
     }
 
     const listaPecas = document.querySelector('.lista-pecas');
+
     const peca = document.createElement('div');
     peca.classList.add('peca');
 
-    // Formata o valor para o padrão de real
-    const valorFormatado = valorNum.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const valorFormatado = valorNum.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
 
-    // adiciona a peça na lista
-    peca.innerHTML =
-    `<div>
-        <span>${campoPeca}</span>
-    </div>
-    <div>
-        <span>R$ ${valorFormatado}</span>
-        <span>${qtdNum}x</span>
-        <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
-    </div>`;
+    peca.innerHTML = `
+        <div>
+            <span>${campoPeca}</span>
+        </div>
+
+        <div>
+            <span>R$ ${valorFormatado}</span>
+            <span>${qtdNum}x</span>
+            <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
+        </div>
+    `;
 
     listaPecas.appendChild(peca);
 
-    // limpa os campos de entrada
     document.querySelector('.nome-peca').value = '';
     document.querySelector('.valor-uni-peca').value = '';
     document.querySelector('.qtd-peca').value = '';
 }
 
-
-
+// adicionar um novo serviço
 function addServico() {
     const campoServico = document.querySelector('.tipo-servico').value.trim();
     const campoValorServico = document.querySelector('.valor-uni-servico').value.trim();
 
-    if (!campoServico || !campoValorServico) {
+    const valorNum = Number(campoValorServico.replace(',', '.'));
+
+    if (campoServico === '') {
+        exibirErro(
+            '.msgErroServico',
+            'Por favor, preencha o serviço.'
+        );
         return;
     }
+
+    if (isNaN(valorNum) || valorNum <= 0) {
+        exibirErro(
+            '.msgErroServico',
+            'Valor do serviço inválido.'
+        );
+        return;
+    }
+
+    const valorFormatado = valorNum.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
 
     const listaServico = document.querySelector('.lista-servico');
 
     const servico = document.createElement('div');
     servico.classList.add('peca');
 
-    servico.innerHTML =
-    `<span>${campoServico}</span>
-    <div>
-        <span>${campoValorServico}</span>
-        <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
-    </div>`
+    servico.innerHTML = `
+        <span>${campoServico}</span>
+
+        <div>
+            <span>R$ ${valorFormatado}</span>
+            <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
+        </div>
+    `;
 
     listaServico.appendChild(servico);
 
-    // limpa os campos
     document.querySelector('.tipo-servico').value = '';
     document.querySelector('.valor-uni-servico').value = '';
 }
 
+// remover peça ou serviço
 function remover(botao) {
     botao.parentElement.parentElement.remove();
 }
