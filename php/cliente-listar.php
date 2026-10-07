@@ -4,7 +4,6 @@ require_once 'conexao.php';
 
 session_start();
 
-// Exemplo da variável do usuário logado (pegue da sua sessão, ex: $_SESSION['id_usuario'])
 $id_usuario_logado = $_SESSION["id_logado"];
 
 // Query SQL com o filtro WHERE e o uso de ? (placeholder) para segurança
