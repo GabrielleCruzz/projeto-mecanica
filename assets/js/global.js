@@ -245,7 +245,7 @@ function pega() {
                 return;
             }
             console.log(id)
-            fetch("../php/cliente-detalhes.php", {
+            fetch("../php/cliente-seleciona.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -254,7 +254,7 @@ function pega() {
             })
                 .then((resposta) => resposta.text())
                 .then((resultado) => {
-                    
+                    alert(resultado);
                         window.location.href = "../dashboard/detalhes-cliente.html";
                 });
         })
@@ -262,10 +262,10 @@ function pega() {
 }
 
 function pegaCliente() {
-    fetch("../php/pag-cliente.php", {
+    fetch("../php/cliente-detalhes.php", {
         method: "GET",
     })
-    .then((resposta) => resposta.json()) // 🛠️ CORREÇÃO: Converte direto para JSON/Objeto
+    .then((resposta) => resposta.json())
     .then((cliente) => {
         console.log("Dados do cliente recebidos:", cliente);
 

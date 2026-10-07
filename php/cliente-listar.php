@@ -34,7 +34,8 @@ if ($stmt) {
             $clientes[] = [
                 "nome" => $dados["Nome"],
                 "telefone" => $dados["Telefone"],
-                "quantidade_veiculo" => $dados["quantidade_veiculo"]
+                "quantidade_veiculo" => $dados["quantidade_veiculo"],
+                "id" => $dados["ID_cliente"]
             ];
         }
     }
