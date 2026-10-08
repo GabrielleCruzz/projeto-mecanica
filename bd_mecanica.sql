@@ -123,7 +123,7 @@ CREATE TABLE `veiculo` (
   `ID_veiculo` int(11) NOT NULL,
   `ID_cliente` int(11) NOT NULL,
   `Placa` varchar(7) NOT NULL,
-  `Model_Marca` varchar(15) NOT NULL,
+  `Model_Marca` varchar(20) NOT NULL,
   `Ano` year(4) NOT NULL,
   `observacao` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

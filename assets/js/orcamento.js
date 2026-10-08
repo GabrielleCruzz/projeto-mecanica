@@ -3,7 +3,7 @@ const overlay = document.getElementById("overlay");
 const modal = document.querySelector(".modal-add-cliente");
 const btnFechar = document.querySelector(".btn-fechar");
 
-// Busca de clientes
+// --- Busca de clientes ---
 
 const campoBusca = document.querySelector("#busca");
 const listaCliente = document.querySelector("#listaCliente");
@@ -21,10 +21,9 @@ campoBusca.addEventListener("input", function () {
         return;
     }
 
-    fetch(`../php/cliente-buscar.php?busca=${encodeURIComponent(busca)}`)
+    fetch(`../php/buscar-cliente.php?busca=${encodeURIComponent(busca)}`)
         .then(resposta => resposta.json()) 
         .then(clientes => {
-            console.log("Clientes recebidos:", clientes);
             listaCliente.innerHTML = "";
 
             clientes.forEach(cliente => {
@@ -35,6 +34,8 @@ campoBusca.addEventListener("input", function () {
                 item.addEventListener("click", function () {
                     campoBusca.value = cliente.Nome;
                     clienteSelecionado = cliente; // salva o cliente selecionado para vincular ao orçamento
+                    veiculoSelecionado = null;
+                    campoBuscaVeiculo.value = "";       
                     listaCliente.style.display = "none";
                 });
 
@@ -47,40 +48,60 @@ campoBusca.addEventListener("input", function () {
         .catch(erro => { 
             console.error("Erro ao buscar clientes:", erro); 
         });
-
-    document.addEventListener("click", function (evento) {
-        if(!evento.target.closest(".pesquisa")){
-            listaCliente.style.display = "none";
-        }
     });
 
-});
-
-
-// Campo de busca de veículos
-const inputVeic = document.querySelector(".veiculo input");
-const listaVeic = document.getElementById("listaVeiculo");
-const itensVeic = document.querySelectorAll(".item-veiculo");
-
-// abre a lista quando clica no input
-inputVeic.addEventListener("focus", () => {
-    listaVeic.style.display = "block";
-});
-
-// ao clicar em um item pega o texto e coloca no input
-itensVeic.forEach(item => {
-    item.addEventListener("click", () => {
-        inputVeic.value = item.textContent;
-        listaVeic.style.display = "none";
-    });
-});
-
-// clicar fora fecha a lista
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".veiculo")) {
-        listaVeic.style.display = "none";
+// fecha quando clica fora da área de pesquisa
+document.addEventListener("click", function (evento) {
+    if(!evento.target.closest(".pesquisa")){
+        listaCliente.style.display = "none";
     }
 });
+
+
+// --- Busca de veículos ---
+
+const campoBuscaVeiculo = document.querySelector("#buscaVeiculo");
+const listaVeiculo = document.querySelector("#listaVeiculo");
+let veiculoSelecionado = null;
+
+campoBuscaVeiculo.addEventListener("click", function() {
+
+    if (!clienteSelecionado) {
+        return;
+    }
+
+    fetch(`../php/buscar-veiculo.php?id_cliente=${clienteSelecionado.ID_cliente}`)
+        .then(resposta => {
+            return resposta.json();
+        })
+        .then(veiculos => {
+            listaVeiculo.innerHTML = "";
+
+            veiculos.forEach(veiculo => {
+                const item = document.createElement("div");
+                item.classList.add("item-veiculo");
+
+                item.textContent = `${veiculo.Model_Marca} (${veiculo.Ano}) - ${veiculo.Placa}`;
+
+                // Seleciona o veículo ao clicar nele
+                item.addEventListener("click", function() {
+                    campoBuscaVeiculo.value = item.textContent;
+                    veiculoSelecionado = veiculo;
+                    listaVeiculo.style.display = "none";
+                });
+
+                listaVeiculo.appendChild(item);
+            });
+
+            listaVeiculo.style.display = "block";
+        })
+        .catch(erro => {
+            console.error("Erro ao buscar veículos:", erro);
+        });
+});
+
+
+// --- Adicionar e remover peça e serviço ---
 
 // função para exibir mensagem de erro
 function exibirErro(seletor, mensagem) {

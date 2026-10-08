@@ -808,7 +808,7 @@ body.dark .info-destaque{
 }
 
 /* lista */
-.lista-cliente, .lista-veiculos {
+.lista-cliente, .lista-veiculos{
     position: absolute;
     top: 100%;
     width: 40%;
@@ -824,15 +824,19 @@ body.dark .info-destaque{
     font-size: 13px;
 }
 
+.veiculo {
+    position: relative;
+}
+
 /* itens */
-.item-cliente{
+.item-cliente, .item-veiculo{
     padding: 8px;
     background-color: white;
     border-radius: var(--radius-small);
     color: var(--dark-cinza-escuro);
 }
 
-.item-cliente:hover{
+.item-cliente:hover, .item-veiculo:hover{
     background-color: var(--cor4);
 }
 
@@ -855,12 +859,14 @@ input[type="number"]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-body.dark .lista-cliente{
+body.dark .lista-cliente,
+body.dark .lista-veiculos{
     background-color: var(--dark-cinza);
     color: white;
 }
 
-body.dark .item-cliente{
+body.dark .item-cliente,
+body.dark .item-veiculo{
     background: transparent;
     color: var(--dark-cinza-claro);
 }
