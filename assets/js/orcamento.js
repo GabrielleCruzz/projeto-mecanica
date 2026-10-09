@@ -34,8 +34,10 @@ campoBusca.addEventListener("input", function () {
                 item.addEventListener("click", function () {
                     campoBusca.value = cliente.Nome;
                     clienteSelecionado = cliente; // salva o cliente selecionado para vincular ao orçamento
+                    document.querySelector('#resumoCliente').textContent = cliente.Nome; // mostra o nome do cliente selecionado no resumo do orçamento
                     veiculoSelecionado = null;
-                    campoBuscaVeiculo.value = "";       
+                    campoBuscaVeiculo.value = "";    
+                    document.querySelector('#resumoVeiculo').textContent = 'Carro e Placa'; // limpa o campo de veículo no resumo do orçamento quando o cliente é trocado   
                     listaCliente.style.display = "none";
                 });
 
@@ -87,6 +89,7 @@ campoBuscaVeiculo.addEventListener("click", function() {
                 item.addEventListener("click", function() {
                     campoBuscaVeiculo.value = item.textContent;
                     veiculoSelecionado = veiculo;
+                    document.querySelector('#resumoVeiculo').textContent = `${veiculo.Model_Marca} (${veiculo.Ano}) - ${veiculo.Placa}`; // mostra o veiculo selecionado no resumo do orçamento
                     listaVeiculo.style.display = "none";
                 });
 
@@ -179,6 +182,8 @@ function addPeca() {
     document.querySelector('.nome-peca').value = '';
     document.querySelector('.valor-uni-peca').value = '';
     document.querySelector('.qtd-peca').value = '';
+
+    atualizarResumo();
 }
 
 // adicionar um novo serviço
@@ -227,9 +232,94 @@ function addServico() {
 
     document.querySelector('.tipo-servico').value = '';
     document.querySelector('.valor-uni-servico').value = '';
+
+    atualizarResumo();
 }
 
 // remover peça ou serviço
 function remover(botao) {
     botao.parentElement.parentElement.remove();
+    atualizarResumo();
+}
+
+// --- Atualizar resumo do orçamento ---
+
+const campoDiagnostico = document.querySelector('#diagnostico');
+
+campoDiagnostico.addEventListener('input', function() {
+    document.querySelector('#resumoDiagnostico').textContent =
+        campoDiagnostico.value || 'Diagnóstico do veículo';
+});
+
+function atualizarResumo() {
+    const listaPecas = document.querySelectorAll('.lista-pecas .peca');
+    const listaServicos = document.querySelectorAll('.lista-servico .peca');
+
+    const listaResumoPecas = document.querySelector('#listaResumoPecas');
+    const listaResumoServicos = document.querySelector('#listaResumoServicos');
+
+    let totalPecas = 0;
+    let totalServicos = 0;
+
+    // Atualiza a lista de peças no resumo
+    listaResumoPecas.innerHTML = '';
+
+    listaPecas.forEach(peca => {
+        const divs = peca.querySelectorAll(':scope > div');
+
+        const nome = divs[0].querySelector('span').textContent;
+        const valorTexto = divs[1].querySelectorAll('span')[0].textContent;
+        const quantidadeTexto = divs[1].querySelectorAll('span')[1].textContent;
+
+        const valorUnitario = Number(
+            valorTexto.replace('R$', '').trim().replace(/\./g, '').replace(',', '.')
+        );
+
+        const quantidade = Number(quantidadeTexto.replace('x', ''));
+
+        const subtotal = valorUnitario * quantidade;
+        totalPecas += subtotal;
+
+        const item = document.createElement('p');
+        item.textContent = `${quantidade} • ${nome} • ${formatarMoeda(subtotal)}`;
+        listaResumoPecas.appendChild(item);
+    });
+
+    // Atualiza a lista de serviços no resumo
+    listaResumoServicos.innerHTML = '';
+
+    listaServicos.forEach(servico => {
+        const nome = servico.querySelector('span').textContent;
+        const valorTexto = servico.querySelector(':scope > div > span').textContent;
+
+        const valor = Number(
+            valorTexto.replace('R$', '').trim().replace(/\./g, '').replace(',', '.')
+        );
+
+        totalServicos += valor;
+
+        const item = document.createElement('p');
+        item.textContent = `${nome} • ${formatarMoeda(valor)}`;
+        listaResumoServicos.appendChild(item);
+    });
+
+    const total = totalPecas + totalServicos;
+
+    // Atualiza os valores no resumo pequeno
+    document.querySelector('#totalResumoPecas').textContent = formatarMoeda(totalPecas);
+    document.querySelector('#totalResumoServicos').textContent = formatarMoeda(totalServicos);
+    document.querySelector('#totalResumoOrcamento').textContent = formatarMoeda(total);
+
+    // Atualiza os valores no orçamento completo
+    document.querySelector('#valorPecasOrcamento').textContent = formatarMoeda(totalPecas);
+    document.querySelector('#valorServicosOrcamento').textContent = formatarMoeda(totalServicos);
+    document.querySelector('#valorTotalOrcamento').textContent = formatarMoeda(total);
+}
+
+// Formata valores no padrão brasileiro
+function formatarMoeda(valor) {
+    return valor.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
 }

@@ -34,7 +34,8 @@
                         <button class="cadastrarCliente">Novo Cliente</button>
                     </div>
                     <div class="pesquisa">
-                        <input class="campo-buscar-cliente" id="busca" type="text" autocomplete="off" placeholder="Buscar por um cliente..." />
+                        <input class="campo-buscar-cliente" id="busca" type="text" autocomplete="off"
+                            placeholder="Buscar por um cliente..." />
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <div id="listaCliente" class="lista-cliente">
                         </div>
@@ -52,7 +53,7 @@
                 <!-- Diagnóstico do veículo -->
                 <div class="campo-textarea">
                     <label>Diagnóstico do veículo</label>
-                    <textarea placeholder="Digite aqui"></textarea>
+                    <textarea id="diagnostico" placeholder="Digite aqui"></textarea>
                 </div>
 
                 <!-- Adicionar peças utilizadas -->
@@ -86,18 +87,19 @@
                     <div class="resumo-infos dark-mode">
                         <div class="resumo-pecas">
                             <p>Peças:</p>
-                            <p>R$80,00</p>
+                            <p id="totalResumoPecas">R$ 0,00</p>
                         </div>
+
                         <div class="resumo-servicos">
                             <p>Serviços:</p>
-                            <p>R$330,00</p>
+                            <p id="totalResumoServicos">R$ 0,00</p>
                         </div>
 
                         <hr class="linha-resumo">
 
                         <div class="resumo-total">
                             <p>VALOR TOTAL</p>
-                            <p>R$410,00</p>
+                            <p id="totalResumoOrcamento">R$ 0,00</p>
                         </div>
                     </div>
                 </div>
@@ -114,30 +116,32 @@
 
                     <h1>Ordem de serviço #01</h1>
                     <div class="informacoes">
-                        <p>Cliente: <span>Nome e Sobrenome</span></p>
-                        <p>Veículo: <span>Carro e Placa</span></p>
-                        <p>Diagnóstico: <span>Diagnóstico do veículo</span></p>
+                        <p>Cliente: <span id="resumoCliente">Nome e Sobrenome</span></p>
+                        <p>Veículo: <span id="resumoVeiculo">Carro e Placa</span></p>
+                        <div class="campo-resumo-diag">
+                            <p>Diagnóstico: <span id="resumoDiagnostico">Diagnóstico do veículo</span></p>
+                        </div>
                     </div>
+
 
                     <div class="detalhes">
                         <div class="detalhes-pecas">
                             <h2>Peças</h2>
-                            <p>1 &#8226; Nome da peça &#8226; R$80,00</p>
+                            <div id="listaResumoPecas"></div>
                         </div>
                         <div class="detales-servico">
                             <h2>Serviços</h2>
-                            <p>Limpeza &#8226; R$150,00</p>
-                            <p>Troca de peça &#8226; R$180,00</p>
+                            <div id="listaResumoServicos"></div>
                         </div>
 
                         <hr>
                     </div>
                     <div class="detalhes-valor">
-                        <p>Peças: R$80,00</p>
-                        <p>Mão de obra: R$330,00</p>
+                        <p>Peças: <span id="valorPecasOrcamento"></span></p>
+                        <p>Mão de obra: <span id="valorServicosOrcamento"></span></p>
                         <div class="valor-orcamento">
                             <h2>Valor total do orçamento</h2>
-                            <p>R$410,00</p>
+                            <p id="valorTotalOrcamento"></p>
                         </div>
                     </div>
                     <!-- Botões de ação -->

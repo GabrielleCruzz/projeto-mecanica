@@ -1661,6 +1661,14 @@ div.filtro {
 
 .informacoes span{
     color: var(--cor5);
+    overflow-wrap: anywhere;
+}
+
+.informacoes .campo-resumo-diag{
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word; 
+    word-break: break-all; 
 }
 
 .detalhes{
@@ -2478,14 +2486,14 @@ body.dark .nav-bar {
         padding: 30px 40px;
         overflow: auto;
         transform: translateY(-3px);
+        flex-wrap: wrap;
+        flex: 1;
+        margin-left: 40px;
+        margin-right: 40px;
     }
 
     .pagina-orcamento{
         padding-right: 0;
-    }
-
-    .form-orcamento{
-        margin-right: 25px;
     }
 
     .form-orcamento, .resumo-orcamento{
@@ -2576,11 +2584,21 @@ body.dark .nav-bar {
     .cards.cards-cliente {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .card-resumo-orcamento {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
 }
 
 @media (min-width: 1700px) {
     /* largura dos cards na página de detalhes */
     .cards.cards-cliente {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-resumo-orcamento {
+        margin-left: 110px;
+        margin-right: 110px;
     }
 }
