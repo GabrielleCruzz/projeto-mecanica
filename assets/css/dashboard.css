@@ -1019,7 +1019,7 @@ div.botoes-orcamento{
     margin-bottom: 8px;
 }
 
-.btn-add-novo{
+.btn-adicionar-veiculo{
     background: transparent;
     border: none;
     color: var(--dark-title);

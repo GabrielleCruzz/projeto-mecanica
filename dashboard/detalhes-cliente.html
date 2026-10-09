@@ -9,6 +9,7 @@
     <script src="../assets/js/sidebar.js" defer></script>
     <script src="../assets/js/global.js" defer></script>
     <script src="../assets/js/servicos.js" defer></script>
+    <script src="../assets/js/detalhes-cliente.js" defer></script>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
     <link href="../assets/icons/css/solid.css" rel="stylesheet" />
@@ -62,20 +63,7 @@
                         <h2>Veículos</h2>
                         <button class="editar-veiculos">Editar veículos</button>
                     </div>                                           
-                    <div>            
-                        <div class="card-veiculos">
-                            <span class="info-destaque">ABC-1A23</span>
-                            <span class="info-secundaria">Toyota Corolla • 2022</span>
-                            <span class="info-secundaria">Branco</span>
-                            <span class="info-historico">Último serviço em 20/06/2026</span>                            
-                        </div>
-                        <div class="card-veiculos">
-                            <span class="info-destaque">OLA-5E23</span>
-                            <span class="info-secundaria">Fiat Argo • 2023</span>
-                            <span class="info-secundaria">Preto</span>
-                            <span class="info-historico">Último serviço em 12/03/2026</span>                            
-                        </div>                        
-                    </div>
+                    <div id="listaVeiculosCliente"></div>
                 </div>
             </div>
     
@@ -237,30 +225,6 @@
                     <button class="btn-add-novo">Adicionar novo</button>
                 </div>
 
-                <!--Dados do veículo-->
-                <!-- <div class="campos-veiculo">
-                    <h2>Veículos</h2>
-
-                    <div class="infos-veiculo">
-                        <div class="campo-placa">
-                            <label>Placa</label>
-                            <input type="text" required value="ABC-1A23">
-                        </div>
-
-                        <div class="campo-marca">
-                            <label>Marca/Modelo</label>
-                            <input type="text" required value="Toyota Corolla">
-                        </div>
-
-                        <div class="campo-ano">
-                            <label>Ano</label>
-                            <input type="text" required value="2022">
-                        </div>
-                    </div>
-
-                    <button class="btn-add-novo">Adicionar novo</button>
-                </div> -->
-
                 <div class="campo-textarea">
                     <label>Observações</label>
                     <textarea class="obs-cliente"></textarea>
@@ -286,26 +250,8 @@
                 <h1>Veículos de José</h1>
 
                 <!--Dados do veículo-->
-                <div class="campos-veiculo">                    
-
-                    <div class="infos-veiculo">
-                        <div class="campo-placa">
-                            <label>Placa</label>
-                            <input type="text" required value="ABC-1A23">
-                        </div>
-
-                        <div class="campo-marca">
-                            <label>Marca/Modelo</label>
-                            <input type="text" required value="Toyota Corolla">
-                        </div>
-
-                        <div class="campo-ano">
-                            <label>Ano</label>
-                            <input type="text" required value="2022">
-                        </div>
-                    </div>
-
-                    <button class="btn-add-novo">Adicionar novo</button>
+                <div class="campos-veiculo" data-id-veiculo="">                    
+                    <!-- conteúdo adicionado no detalhes-cliente.js -->
                 </div>
 
                 <div class="btns-add-cliente">
