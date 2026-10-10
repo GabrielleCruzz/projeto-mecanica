@@ -122,7 +122,7 @@ CREATE TABLE `usuario` (
 CREATE TABLE `veiculo` (
   `ID_veiculo` int(11) NOT NULL,
   `ID_cliente` int(11) NOT NULL,
-  `Placa` varchar(7) NOT NULL,
+  `Placa` varchar(8) NOT NULL,
   `Model_Marca` varchar(20) NOT NULL,
   `Ano` year(4) NOT NULL,
   `observacao` varchar(250) NOT NULL

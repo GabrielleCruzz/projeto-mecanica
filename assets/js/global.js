@@ -54,8 +54,6 @@ function fecharModal(modal) {
     }, 300);
 
     document.body.style.overflow = "auto";
-
-    console.log("modal fechou!");
 }
 
 // evento de clique em um botão pra ele abrir seu modal correspondente

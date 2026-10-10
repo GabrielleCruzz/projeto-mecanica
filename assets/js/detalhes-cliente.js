@@ -9,9 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const formulario = modalVeiculos.querySelector(".form-veiculos");
     const btnConfirmarExclusao = document.getElementById("confirmarExcluirVeiculo");
     const btnCancelarExclusao = document.getElementById("cancelarExcluirVeiculo");
+    // btn para descartar alterações
+    const btnDescartar = formulario.querySelector(".btn-dell.veiculo");
 
     let idClienteSelecionado;
     let grupoParaExcluir;
+    let veiculosSalvos = [];
 
     // Busca os veículos do cliente
     async function carregarVeiculos() {
@@ -35,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!resposta.ok || veiculos.erro) {
                 throw new Error(veiculos.erro || "Erro ao buscar veículos.");
             }
+
+            // Guarda uma cópia dos veículos originais para permitir descartar alterações
+            veiculosSalvos = veiculos.map(veiculo => ({ ...veiculo }));
 
             exibirCards(veiculos);
             criarCamposVeiculos(veiculos);
@@ -112,6 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
         grupo.appendChild(btnExcluir);
         return grupo;
     }
+
+    // Descarta as alterações sem fechar o modal
+    btnDescartar.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        criarCamposVeiculos(veiculosSalvos);
+    });
+    // Descarta as alterações ao fechar o modal
+    modalVeiculos.querySelector(".btn-fechar").addEventListener("click", () => {
+        criarCamposVeiculos(veiculosSalvos);
+    });
 
     // Monta os campos e mantém Adicionar no final
     function criarCamposVeiculos(veiculos) {
