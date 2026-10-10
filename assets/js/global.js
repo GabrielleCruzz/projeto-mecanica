@@ -277,14 +277,20 @@ function pegaCliente() {
         const containerPai = document.querySelector(".cliente-detalhes");
         
         if (containerPai) {
-            // Preenche o nome na tela
             const nomeSpan = containerPai.querySelector(".info-destaque");
             if (nomeSpan) nomeSpan.textContent = cliente.nome;
 
-            // Preenche o telefone na tela
             const telefoneSpan = containerPai.querySelector(".info-secundaria");
-            if (telefoneSpan) telefoneSpan.textContent = cliente.telefone;
+            const iconTelefone = telefoneSpan?.querySelector("i");
+
+            if (iconTelefone) {
+                iconTelefone.classList.add("fa-solid", "fa-phone");
+            }
+
+            if (telefoneSpan) {
+                telefoneSpan.append(document.createTextNode(cliente.telefone));
         }
+}
     })
     .catch(erro => console.error("Erro ao buscar dados da sessão:", erro));
 }

@@ -448,6 +448,10 @@ a.cliente-card-modelo {
     color: #72777f;
 }
 
+.info-secundaria i{
+    margin-right: 5px;
+}
+
 .ver-detalhes {   
     margin-right: auto; 
     font-size: var(--font-small);
@@ -1024,7 +1028,7 @@ div.botoes-orcamento{
     margin-bottom: 8px;
 }
 
-.btn-adicionar-veiculo, .btn-add-novo{
+.btn-adicionar-veiculo, .btn-add-novo-tel{
     background: transparent;
     border: none;
     color: var(--dark-title);
@@ -1033,6 +1037,7 @@ div.botoes-orcamento{
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    cursor: pointer;
 }
 
 .btn-excluir-veiculo {
