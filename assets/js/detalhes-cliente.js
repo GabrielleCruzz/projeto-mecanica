@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!listaVeiculos || !modalVeiculos || !modalConfirmacao) return;
 
     const camposVeiculo = modalVeiculos.querySelector(".campos-veiculo");
-    const formulario = modalVeiculos.querySelector(".form-veiculos");
+    const formularioVeic = modalVeiculos.querySelector(".form-veiculos");
     const btnConfirmarExclusao = document.getElementById("confirmarExcluirVeiculo");
     const btnCancelarExclusao = document.getElementById("cancelarExcluirVeiculo");
     // btn para descartar alterações
-    const btnDescartar = formulario.querySelector(".btn-dell.veiculo");
+    const btnDescartarVeic = formularioVeic.querySelector(".btn-dell.veiculo");
 
     let idClienteSelecionado;
     let grupoParaExcluir;
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Descarta as alterações sem fechar o modal
-    btnDescartar.addEventListener("click", (event) => {
+    btnDescartarVeic.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
 
@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalVeiculos.querySelector(".btn-fechar").addEventListener("click", () => {
         criarCamposVeiculos(veiculosSalvos);
     });
+
 
     // Monta os campos e mantém Adicionar no final
     function criarCamposVeiculos(veiculos) {
@@ -208,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Salva veículos novos e alterações
-    formulario.addEventListener("submit", async event => {
+    formularioVeic.addEventListener("submit", async event => {
         event.preventDefault();
 
         const veiculos = [...camposVeiculo.querySelectorAll(".infos-veiculo")].map(grupo => ({
@@ -243,4 +244,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     carregarVeiculos();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modalEditarCliente");
+    const formulario = modal.querySelector(".form-editar-cliente");
+    const btnDescartar = document.getElementById("btn-dell-cliente");
+    const btnFechar = modal.querySelector(".btn-fechar");
+
+    let dadosSalvos = {};
+
+    function restaurarDados() {
+        formulario.querySelector('[name="editar-nome"]').value = dadosSalvos.nome;
+        formulario.querySelector('[name="editar-tel"]').value = dadosSalvos.telefone;
+    }
+
+    async function carregarDadosSalvos() {
+        const resposta = await fetch("../php/cliente-detalhes.php");
+        const cliente = await resposta.json();
+
+        if (!resposta.ok || cliente.erro) {
+            console.error(cliente.erro || "Erro ao carregar cliente.");
+            return;
+        }
+
+        dadosSalvos = {
+            nome: cliente.nome,
+            telefone: cliente.telefone
+        };
+
+        restaurarDados();
+    }
+
+    document.querySelector(".btn-editar").addEventListener("click", carregarDadosSalvos);
+
+    btnDescartar.addEventListener("click", (event) => {
+        event.preventDefault();
+        restaurarDados();
+    });
+
+    btnFechar.addEventListener("click", restaurarDados);
 });
