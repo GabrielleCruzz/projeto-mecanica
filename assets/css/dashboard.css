@@ -1028,7 +1028,7 @@ div.botoes-orcamento{
     margin-bottom: 8px;
 }
 
-.btn-adicionar-veiculo, .btn-add-novo-tel{
+.btn-adicionar-veiculo, .btn-add-novo-tel, .btn-add-novo{
     background: transparent;
     border: none;
     color: var(--dark-title);
