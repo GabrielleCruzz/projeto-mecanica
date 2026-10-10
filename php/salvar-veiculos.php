@@ -36,8 +36,7 @@ if (!$id_cliente || $id_cliente <= 0) {
 }
 
 // Confirma que o cliente pertence ao usuário logado
-$sql = "SELECT ID_cliente FROM cliente
-        WHERE ID_cliente = ? AND ID_usuario = ?";
+$sql = "SELECT ID_cliente FROM cliente WHERE ID_cliente = ? AND ID_usuario = ?";
 
 $stmt = mysqli_prepare($conexao, $sql);
 mysqli_stmt_bind_param($stmt, "ii", $id_cliente, $id_usuario_logado);
@@ -60,16 +59,9 @@ try {
     foreach ($dados->veiculos as $veiculo) {
         $placa = trim($veiculo->placa ?? "");
         $marca = trim($veiculo->marca ?? "");
-        $ano = filter_var($veiculo->ano ?? null, FILTER_VALIDATE_INT);
-
         $ano = trim((string) ($veiculo->ano ?? ""));
 
-        if (
-            $placa === "" ||
-            $marca === "" ||
-            $ano === "" ||
-            !ctype_digit($ano)
-        ) {
+        if ($placa === "" || $marca === "" || $ano === "" || !ctype_digit($ano)) {
             throw new Exception("Preencha corretamente os dados do veículo.");
         }
 
@@ -83,32 +75,16 @@ try {
                 throw new Exception("Veículo inválido.");
             }
 
-            $sql = "UPDATE veiculo
-                    SET Placa = ?, Model_Marca = ?, Ano = ?
-                    WHERE ID_veiculo = ? AND ID_cliente = ?";
+            $sql = "UPDATE veiculo SET Placa = ?, Model_Marca = ?, Ano = ? WHERE ID_veiculo = ? AND ID_cliente = ?";
 
             $stmt = mysqli_prepare($conexao, $sql);
-            mysqli_stmt_bind_param(
-                $stmt,
-                "ssiii",
-                $placa,
-                $marca,
-                $ano,
-                $id_veiculo,
-                $id_cliente
-            );
+            mysqli_stmt_bind_param($stmt, "ssiii", $placa, $marca, $ano, $id_veiculo, $id_cliente);
             mysqli_stmt_execute($stmt);
-
-            if (mysqli_stmt_affected_rows($stmt) === -1) {
-                mysqli_stmt_close($stmt);
-                throw new Exception("Não foi possível atualizar o veículo.");
-            }
 
             mysqli_stmt_close($stmt);
 
             // Confirma que o veículo pertence ao cliente
-            $sql = "SELECT ID_veiculo FROM veiculo
-                    WHERE ID_veiculo = ? AND ID_cliente = ?";
+            $sql = "SELECT ID_veiculo FROM veiculo WHERE ID_veiculo = ? AND ID_cliente = ?";
 
             $stmt = mysqli_prepare($conexao, $sql);
             mysqli_stmt_bind_param($stmt, "ii", $id_veiculo, $id_cliente);
@@ -124,19 +100,10 @@ try {
             }
         } else {
             // Cadastra um veículo novo
-            $sql = "INSERT INTO veiculo
-                    (ID_cliente, Placa, Model_Marca, Ano)
-                    VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO veiculo (ID_cliente, Placa, Model_Marca, Ano) VALUES (?, ?, ?, ?)";
 
             $stmt = mysqli_prepare($conexao, $sql);
-            mysqli_stmt_bind_param(
-                $stmt,
-                "issi",
-                $id_cliente,
-                $placa,
-                $marca,
-                $ano
-            );
+            mysqli_stmt_bind_param($stmt, "issi", $id_cliente, $placa, $marca, $ano);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
         }
