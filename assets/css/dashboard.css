@@ -707,16 +707,19 @@ body.dark .status.pendente, body.dark .status.concluido{
 
 /* Modo escuro - Ver detalhes */
 
-body.dark .form-cliente{
+body.dark .form-cliente,
+body.dark .form-veiculos{
     background-color: var(--dark-cinza-escuro);
 }
 
-body.dark .form-cliente .campo input{
+body.dark .form-cliente .campo input,
+body.dark .form-veiculos .campo input{
     background-color: var(--dark-cinza);
     border: 2px solid var(--dark-cinza);
 }
 
-body.dark .form-cliente .campo input:focus{
+body.dark .form-cliente .campo input:focus,
+body.dark .form-veiculos .campo input:focus{
     border: 2px solid var(--dark-cinza-borda);
 }
 
@@ -724,7 +727,8 @@ body.dark h2, body.dark .btn-fechar{
     color: var(--dark-cinza-claro);
 }
 
-body.dark .form-cliente .btn-excluir{
+body.dark .form-cliente .btn-excluir,
+body.dark .form-veiculos .btn-excluir{
     color: red;
 }
 
@@ -1010,7 +1014,8 @@ div.botoes-orcamento{
     z-index: 1000;
 }
 
-.form-cliente input{
+.form-cliente input,
+.form-veiculos input{
     text-overflow: ellipsis;
     width: 100%;
     padding: var(--padding-input);
@@ -1019,7 +1024,7 @@ div.botoes-orcamento{
     margin-bottom: 8px;
 }
 
-.btn-adicionar-veiculo{
+.btn-adicionar-veiculo, .btn-add-novo{
     background: transparent;
     border: none;
     color: var(--dark-title);
@@ -1028,6 +1033,41 @@ div.botoes-orcamento{
     display: flex;
     justify-content: flex-end;
     width: 100%;
+}
+
+.btn-excluir-veiculo {
+    background: transparent;
+    color: red;
+    border: none;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modal-confirmacao h2{
+    font-size: 20px;
+}
+
+.modal-confirmacao p{
+    margin: 10px 0px 10px;
+    color: var(--dark-cinza-escuro);
+}
+
+.btn-confirmacao{
+    border-radius: var(--radius-small);
+    font-weight: 500;
+    padding: var(--spacing-small-btn);
+}
+
+.btn-confirmacao.cancelar{
+    color: var(--dark-cinza);
+    border: 1px solid var(--dark-cinza);
+}
+
+.btn-confirmacao.excluir{
+    color: red;
+    border: 1px solid red;
 }
 
 /* informações dos veículos dentro do modal */
@@ -1047,26 +1087,29 @@ div.botoes-orcamento{
 
 /* botões do modal */
 
-.btns-add-cliente{
+.btns-add-cliente,
+.btns-add-veiculo{
     display: flex;
     gap: 8px;
 }
 
-.btns-add-cliente button{
+.btns-add-cliente button,
+.btns-add-veiculo button{
     border: none;
     background: transparent;
     margin-top: 13px;
     border-radius: var(--radius-small);
     padding: var(--spacing-small-btn);
     width: 50%;
+    cursor: pointer;
 }
 
-.btns-add-cliente .btn-dell{
+.btn-dell{
     color: red;
     border: 1px solid red;  
 }
 
-.btns-add-cliente .btn-salvar{
+.btn-salvar{
     color: white;
     background-color: var(--cor);
 }
@@ -1143,6 +1186,21 @@ body.dark .form-orcamento textarea{
 body.dark .btn-dell{
     color: var(--dark-red);
     border: 2px solid var(--dark-red);
+}
+
+body.dark .modal-confirmacao p{
+    color: white;
+    font-weight: 300;
+}
+
+body.dark .btn-confirmacao.cancelar{
+    color: var(--cor5);
+    border: 1px solid var(--cor5);
+}
+
+body.dark .btn-confirmacao.excluir{
+    color: var(--dark-red);
+    border: 1px solid var(--dark-red);
 }
 
 /* Menu inferior -> Isabella */
@@ -1572,7 +1630,7 @@ div.filtro {
     border-radius: 5px;
 }
 
-.modal-detalhes h1, .modal-editar h1, .modal-status h1, .modal-add-cliente h1{
+.modal-detalhes h1, .modal-editar h1, .modal-status h1, .modal-add-cliente h1, .modal-veiculos h1{
     color: var(--title-color);
     font-size: var(--title-size);
     font-weight: var(--title-weight);
@@ -1727,7 +1785,9 @@ div.filtro {
     color: var(--dark-cinza);
 }
 
-.form-edt-os label, .form-cliente label{
+.form-edt-os label, 
+.form-cliente label, 
+.form-veiculos label{
     color: var(--cor5);
     font-size: 15px;
 }

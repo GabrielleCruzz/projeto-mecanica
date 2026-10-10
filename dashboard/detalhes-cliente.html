@@ -231,8 +231,8 @@
                 </div>
 
                 <div class="btns-add-cliente">
-                    <button class="btn-dell">Descartar</button>
-                    <button class="btn-salvar">Confirmar alterações</button>
+                    <button type="button" class="btn-dell">Descartar</button>
+                    <button type="button" class="btn-salvar">Confirmar alterações</button>
                 </div>
             </form>
         </div>
@@ -240,8 +240,8 @@
 
     <!-- Formulário para editar cliente -->
     <div class="overlay" id="modalEditarVeiculos">
-        <div class="modal modal-add-cliente">
-            <form class="form-cliente">
+        <div class="modal modal-veiculos">
+            <form class="form-veiculos">
                 <!-- Botão de fechar o formulário -->
                 <button type="button" class="btn-fechar">
                     <i class="fa-solid fa-xmark"></i>
@@ -254,11 +254,23 @@
                     <!-- conteúdo adicionado no detalhes-cliente.js -->
                 </div>
 
-                <div class="btns-add-cliente">
-                    <button class="btn-dell">Descartar</button>
-                    <button class="btn-salvar">Salvar</button>
+                <div class="btns-add-veiculo">
+                    <button type="button" class="btn-dell veiculo">Descartar</button>
+                    <button type="submit" class="btn-salvar veiculo">Salvar</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div class="overlay" id="modalConfirmarExcluirVeiculo">
+        <div class="modal modal-confirmacao">
+            <h2>Excluir veículo?</h2>
+            <p>Tem certeza de que deseja excluir este veículo?</p>
+
+            <div class="btns-add-cliente">
+                <button type="button" class="btn-confirmacao cancelar" id="cancelarExcluirVeiculo">Cancelar</button>
+                <button type="button" class="btn-confirmacao excluir" id="confirmarExcluirVeiculo">Excluir</button>
+            </div>
         </div>
     </div>
 
