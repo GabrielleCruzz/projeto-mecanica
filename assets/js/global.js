@@ -64,7 +64,6 @@ function abrirModal(modalName) {
 
     modal.style.display = "flex";
     document.body.style.overflow = "hidden";
-    console.log("modal abriu!");
 }
 
 // Fechar modal
@@ -92,8 +91,6 @@ function modalBtnConfig(btnModal, modal) {
 
         abrirModal(modal);
     });
-
-    console.log(`${modal} configurado`);
 }
 
 // Configura botões e seus modais correspondentes
@@ -131,8 +128,6 @@ if (confirmarStatus) {
 // Mais opções: controla os cliques dos botões "Mais ações"
 document.addEventListener('click', (event) => {
     const btnAcoes = event.target.closest('.btn-acoes');
-
-    console.log("botao existe: ", btnAcoes);
 
     // Abre o menu clicado e fecha os outros
     if (btnAcoes) {
@@ -264,18 +259,13 @@ function pega() {
         ".cliente-card:not(.cliente-card-modelo)"
     );
 
-    console.log("Quantidade de cards encontrados pelo JS:", clientesCards.length);
-
     clientesCards.forEach(card => {
         card.addEventListener("click", () => {
             const id = card.getAttribute("data-cliente-id");
 
             if (!id) {
-                console.log("Alerta: Este card não possui um ID definido!");
                 return;
             }
-
-            console.log(id);
 
             fetch("../php/cliente-seleciona.php", {
                 method: "POST",
@@ -299,7 +289,7 @@ function pegaCliente() {
         method: "GET",
     })
         .then((resposta) => resposta.json())
-        .then((cliente) => {     
+        .then((cliente) => {
 
             if (cliente.erro) {
                 console.error(cliente.erro);
@@ -354,3 +344,37 @@ function pegaCliente() {
 if (document.querySelector(".cliente-detalhes")) {
     pegaCliente();
 }
+
+// máscara de formatação para número de telefone
+const telCadastro = document.getElementById("telCliente");
+const telEditar = document.getElementById("telEdt");
+
+function formatarTelefone(campo) {
+    campo.addEventListener('input', () => {
+        let numero = campo.value.replace(/\D/g, "");
+        numero = numero.substring(0, 11);
+
+        if (numero.length > 0) {
+            // adiciona parênteses no ddd
+            numero = numero.replace(/^(\d{2})(\d)/, "($1) $2");
+        }
+
+        if (numero.length > 10) {
+            // adiciona o hífen do celular
+            numero = numero.replace(/^(\(\d{2}\) \d{5})(\d)/, "$1-$2");
+        } else if (numero.length > 9) {
+            // adiciona o hífen do telefone fixo
+            numero = numero.replace(/(\d{4})(\d{4})$/, "$1-$2");
+        }
+
+        campo.value = numero;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(
+        "#telCliente, #telEdt"
+    ).forEach((campo) => {
+        formatarTelefone(campo);
+    });
+});
