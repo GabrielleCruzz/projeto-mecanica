@@ -1100,8 +1100,6 @@ div.botoes-orcamento{
 
 .btns-add-cliente button,
 .btns-add-veiculo button{
-    border: none;
-    background: transparent;
     margin-top: 13px;
     border-radius: var(--radius-small);
     padding: var(--spacing-small-btn);
@@ -1111,12 +1109,14 @@ div.botoes-orcamento{
 
 .btn-dell{
     color: red;
+    background: transparent;
     border: 1px solid red;  
 }
 
 .btn-salvar{
     color: white;
     background-color: var(--cor);
+    border: none;
 }
 
 /* Modo escuro */
