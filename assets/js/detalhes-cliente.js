@@ -102,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const input = document.createElement("input");
             input.type = "text";
+            if (classe === "campo-ano") {
+                input.maxLength = 4;
+            }
             input.value = valor;
             input.required = true;
 

@@ -1063,6 +1063,7 @@ div.botoes-orcamento{
     border-radius: var(--radius-small);
     font-weight: 500;
     padding: var(--spacing-small-btn);
+    background-color: white;
 }
 
 .btn-confirmacao.cancelar{
@@ -1198,13 +1199,18 @@ body.dark .modal-confirmacao p{
     font-weight: 300;
 }
 
+body.dark .btn-confirmacao{
+    background-color: var(--dark-cinza);
+}
+
 body.dark .btn-confirmacao.cancelar{
-    color: var(--cor5);
-    border: 1px solid var(--cor5);
+    color: var(--dark-cinza-claro);
+    border: 1px solid var(--dark-cinza-claro);
 }
 
 body.dark .btn-confirmacao.excluir{
     color: var(--dark-red);
+    font-weight: 500;
     border: 1px solid var(--dark-red);
 }
 
