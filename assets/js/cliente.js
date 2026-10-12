@@ -1,4 +1,4 @@
-  function listarClientes() {
+function listarClientes() {
     fetchPHP("../php/cliente-listar.php", "GET").then((dadosRecebidos) => {
         const infoCliente = JSON.parse(dadosRecebidos);
     
@@ -25,8 +25,39 @@
     });
 }
 
+function buscarClientes(){
+    const campoBusca = document.querySelector(".input-pesquisa");
+
+    campoBusca.addEventListener("input", () => {
+        const busca = campoBusca.value.toLowerCase().trim();
+
+        const container = document.querySelector(".cards-clientes");
+        const cards = [...container.querySelectorAll(".cliente-card:not(.cliente-card-modelo)")];
+
+        cards.sort((a, b) => {
+            const nomeA = a.querySelector(".info-destaque").textContent.toLowerCase();
+            const nomeB = b.querySelector(".info-destaque").textContent.toLowerCase();
+
+            return nomeB.startsWith(busca) - nomeA.startsWith(busca);
+        });
+
+        cards.forEach(card => container.appendChild(card));
+        
+        document.querySelectorAll(".cliente-card:not(.cliente-card-modelo)")
+        .forEach(card => {
+            const nome = card.querySelector(".info-destaque").textContent.toLowerCase();
+            const telefone = card.querySelector(".telefone").textContent.toLowerCase();
+
+            card.style.display =
+                nome.includes(busca) || telefone.includes(busca) ? "" : "none";
+        });
+    });
+}
+
 // exibir todos os clientes
 if (document.querySelector(".cards-clientes")) listarClientes();
+
+if (document.querySelector(".input-pesquisa")) buscarClientes();
 
 function ativarCards() {
     const clientesCards = document.querySelectorAll(".cliente-card");
