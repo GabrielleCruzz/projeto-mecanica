@@ -143,11 +143,15 @@ document.addEventListener("DOMContentLoaded", () => {
             camposVeiculo.appendChild(criarCampoVeiculo(veiculo));
         });
 
+        // mesngem de erro caso o usuário tente apagar o único veículo cadastrado
+        const mensagemErro = document.createElement("p");
+        mensagemErro.className = "msg-erro msg-erro-veiculo";
+        camposVeiculo.appendChild(mensagemErro);
+
         const btnAdicionar = document.createElement("button");
         btnAdicionar.type = "button";
         btnAdicionar.className = "btn-adicionar-veiculo";
         btnAdicionar.textContent = "Adicionar veículo";
-
         camposVeiculo.appendChild(btnAdicionar);
     }
 
@@ -163,6 +167,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!btnExcluir) return;
 
         grupoParaExcluir = btnExcluir.closest(".infos-veiculo");
+
+        const veiculosCadastrados = camposVeiculo.querySelectorAll(
+            ".infos-veiculo[data-id-veiculo]"
+        );
+
+        if (grupoParaExcluir.dataset.idVeiculo && veiculosCadastrados.length === 1) {
+            exibirErro(
+                '.msg-erro-veiculo',
+                'O cliente deve ter pelo menos 1 veículo cadastrado.'
+            );
+            return;
+        }
+
         abrirModal("#modalConfirmarExcluirVeiculo");
     });
 

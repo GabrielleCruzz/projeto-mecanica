@@ -378,3 +378,18 @@ document.addEventListener("DOMContentLoaded", () => {
         formatarTelefone(campo);
     });
 });
+
+// função para exibir mensagem de erro
+function exibirErro(seletor, mensagem) {
+    const msgErro = document.querySelector(seletor);
+    msgErro.textContent = mensagem;
+    msgErro.classList.add('visivel');
+
+    setTimeout(() => {
+        msgErro.classList.remove('visivel');
+    }, 2200);
+
+    setTimeout(() => {
+        msgErro.textContent = '';
+    }, 2500);
+}

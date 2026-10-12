@@ -106,21 +106,6 @@ campoBuscaVeiculo.addEventListener("click", function() {
 
 // --- Adicionar e remover peça e serviço ---
 
-// função para exibir mensagem de erro
-function exibirErro(seletor, mensagem) {
-    const msgErro = document.querySelector(seletor);
-    msgErro.textContent = mensagem;
-    msgErro.classList.add('visivel');
-
-    setTimeout(() => {
-        msgErro.classList.remove('visivel');
-    }, 2200);
-
-    setTimeout(() => {
-        msgErro.textContent = '';
-    }, 2500);
-}
-
 // adicionar uma nova peça utilizada
 function addPeca() {
     const campoPeca = document.querySelector('.nome-peca').value.trim();

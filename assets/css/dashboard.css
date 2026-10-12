@@ -463,6 +463,19 @@ a.cliente-card-modelo {
     text-decoration: underline;    
 }
 
+/* mensagem de erro quando o usuário tenta deletar o único veículo */
+.msg-erro-veiculo{
+    font-size: 12px;
+    color: #ac0303;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.msg-erro-veiculo.visivel {
+    opacity: 1;
+}
+
 /* Modo escuro */
 
 body.dark #cadastrarCliente{
@@ -1206,12 +1219,15 @@ body.dark .btn-confirmacao{
 body.dark .btn-confirmacao.cancelar{
     color: var(--dark-cinza-claro);
     border: 1px solid var(--dark-cinza-claro);
+    background-color: var(--dark-cinza);
 }
 
 body.dark .btn-confirmacao.excluir{
     color: var(--dark-red);
     font-weight: 500;
     border: 1px solid var(--dark-red);
+    font-weight: 700;
+    background-color: var(--dark-cinza);
 }
 
 /* Menu inferior -> Isabella */
@@ -2480,16 +2496,6 @@ body.dark .nav-bar {
         color: var(--cor);
         background-color: #afc7ff15;
     }
-
-    /* .sidebar a.atual {
-        background-color: var(--cor);
-        color: white;
-    } */
-
-    /* body.dark .sidebar a.atual {
-        background-color: var(--cor);
-        color: white;
-    } */
 
     /* ===== Página de serviços ===== */
 
