@@ -121,15 +121,14 @@ function exibirErro(seletor, mensagem) {
     }, 2500);
 }
 
-
 // adicionar uma nova peça utilizada
 function addPeca() {
     const campoPeca = document.querySelector('.nome-peca').value.trim();
     const campoValor = document.querySelector('.valor-uni-peca').value.trim();
     const campoQtd = document.querySelector('.qtd-peca').value.trim();
 
-    const valorNum = Number(campoValor.replace(',', '.'));
-    const qtdNum = Number(campoQtd);
+    const valorNum = parseFloat(campoValor);
+    const qtdNum = parseInt(campoQtd, 10);
 
     if (campoPeca === '') {
         exibirErro(
@@ -251,6 +250,9 @@ campoDiagnostico.addEventListener('input', function() {
         campoDiagnostico.value || 'Diagnóstico do veículo';
 });
 
+let pecasAdicionadas = [];
+let servicosAdicionados = [];
+
 function atualizarResumo() {
     const listaPecas = document.querySelectorAll('.lista-pecas .peca');
     const listaServicos = document.querySelectorAll('.lista-servico .peca');
@@ -260,6 +262,9 @@ function atualizarResumo() {
 
     let totalPecas = 0;
     let totalServicos = 0;
+
+    servicosAdicionados = []
+    pecasAdicionadas = []
 
     // Atualiza a lista de peças no resumo
     listaResumoPecas.innerHTML = '';
@@ -283,6 +288,13 @@ function atualizarResumo() {
         const item = document.createElement('p');
         item.textContent = `${quantidade} • ${nome} • ${formatarMoeda(subtotal)}`;
         listaResumoPecas.appendChild(item);
+        
+        pecasAdicionadas.push({
+            nome: nome,
+            valorUnitario: valorUnitario,
+            quantidade: quantidade
+        })
+
     });
 
     // Atualiza a lista de serviços no resumo
@@ -301,6 +313,12 @@ function atualizarResumo() {
         const item = document.createElement('p');
         item.textContent = `${nome} • ${formatarMoeda(valor)}`;
         listaResumoServicos.appendChild(item);
+        
+        servicosAdicionados.push({
+            nome: nome,
+            valor: valor
+        })
+
     });
 
     const total = totalPecas + totalServicos;
@@ -323,3 +341,50 @@ function formatarMoeda(valor) {
         currency: 'BRL'
     });
 }
+
+const salvarOrcamento = document.querySelector(".salva-orcamento");
+
+salvarOrcamento.addEventListener("click", function (evento) {
+    evento.preventDefault();
+
+    if (!clienteSelecionado || !veiculoSelecionado) {
+        alert("Selecione o cliente e seu veículo!");
+        return;
+    }
+
+    const idCliente = clienteSelecionado.ID_cliente || clienteSelecionado.id_cliente || clienteSelecionado.id;
+    const idVeiculo = veiculoSelecionado.ID_veiculo || veiculoSelecionado.id_veiculo || veiculoSelecionado.id;
+    const diagnostico = document.querySelector("#diagnostico").value.trim();
+
+    const dadosOrcamento = {
+        cliente: idCliente,
+        veiculo: idVeiculo,
+        diagnostico: diagnostico,
+        pecas: pecasAdicionadas,
+        servicos: servicosAdicionados
+    };
+
+    fetch("../php/salvar-orcamento.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosOrcamento)
+    })
+    .then(resposta => resposta.json())
+    .then(dados => {
+        if (dados.sucesso) {
+            alert("Orçamento salvo com sucesso!");
+            window.location.reload();
+        } else {
+            const mensagemErro = dados.erro || dados.mensagem || "Não foi possível salvar o orçamento.";
+            alert("Erro ao salvar: " + mensagemErro);
+        }
+    })
+    .catch(erro => {
+        console.error("Erro na requisição:", erro);
+        alert("Não foi possível salvar o orçamento. Verifique a conexão com o servidor.");
+    });
+
+    console.log("ORÇAMENTO:", dadosOrcamento);
+});

@@ -46,8 +46,8 @@ CREATE TABLE `ordemservico` (
   `ID_OrdemServico` int(11) NOT NULL,
   `ID_cliente` int(11) NOT NULL,
   `ID_veiculo` int(11) NOT NULL,
-  `Diagnostico` varchar(250) NOT NULL,
-  `Nome_mecanico` varchar(40) NOT NULL
+  `ID_usuario` int NOT NULL,
+  `Diagnostico` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -251,7 +251,8 @@ ALTER TABLE `veiculo`
 --
 ALTER TABLE `ordemservico`
   ADD CONSTRAINT `FK_OS_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`),
-  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`);
+  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`),
+  ADD CONSTRAINT `FK_OS_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`);
 
 --
 -- Restrições para tabelas `os_peca`
