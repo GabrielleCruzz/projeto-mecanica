@@ -1,6 +1,6 @@
 <?php
 // Importando as configurações para poder usar o banco
-require_once 'conexao.php';
+require_once __DIR__ . '/../conexao.php';
 
 session_start();
 $id_logado = $_SESSION["id_logado"];

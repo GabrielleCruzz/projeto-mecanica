@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "conexao.php";
+require_once __DIR__ . '/../conexao.php';
 
 // ID do usuário que está logado
 $id_logado = $_SESSION["id_logado"];

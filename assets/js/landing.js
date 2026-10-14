@@ -108,7 +108,7 @@ formCadastro.addEventListener("submit", (enviar) => {
 
     const dados = new FormData(formCadastro);
 
-    fetch("./php/usuario-cadastro.php", {
+    fetch("./php/usuarios/usuario-cadastro.php", {
         method: "POST", body: dados,
     })
         .then((resposta) => resposta.text())
@@ -130,7 +130,7 @@ formLogin.addEventListener("submit", (enviar) => {
 
     const dados = new FormData(formLogin);
 
-    fetch("./php/usuario-login.php", {
+    fetch("./php/usuarios/usuario-login.php", {
         method: "POST", body: dados,
     })
         .then((resposta) => resposta.text())

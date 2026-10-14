@@ -1,6 +1,6 @@
 <?php
     // Importando as configurações do banco
-    require_once 'conexao.php';
+    require_once __DIR__ . '/../conexao.php';
 
     // Inicia a sessão para logar o usuário no navegador
     session_start();
@@ -15,7 +15,7 @@
         }
 
         // Busca o usuário pelo e-mail no banco de dados
-        $stmt = $conexao->prepare("SELECT ID_Usuario, Nome, Senha FROM usuario WHERE Email = ? OR Cnpj = ?");
+        $stmt = $conexao->prepare("SELECT ID_Usuario, Senha FROM usuario WHERE Email = ? OR Cnpj = ?");
         $stmt->bind_param("ss", $emailCnpj, $emailCnpj);
         $stmt->execute();
         $resultado = $stmt->get_result();

@@ -1,8 +1,3 @@
-const btnCadastrar = document.querySelectorAll(".cadastrarCliente");
-const overlay = document.getElementById("overlay");
-const modal = document.querySelector(".modal-add-cliente");
-const btnFechar = document.querySelector(".btn-fechar");
-
 // --- Busca de clientes ---
 
 const campoBusca = document.querySelector("#busca");
@@ -21,7 +16,7 @@ campoBusca.addEventListener("input", function () {
         return;
     }
 
-    fetch(`../php/buscar-cliente.php?busca=${encodeURIComponent(busca)}`)
+    fetch(`../php/clientes/buscar-cliente.php?busca=${encodeURIComponent(busca)}`)
         .then(resposta => resposta.json()) 
         .then(clientes => {
             listaCliente.innerHTML = "";
@@ -72,7 +67,7 @@ campoBuscaVeiculo.addEventListener("click", function() {
         return;
     }
 
-    fetch(`../php/buscar-veiculo.php?id_cliente=${clienteSelecionado.ID_cliente}`)
+    fetch(`../php/veiculos/buscar-veiculo.php?id_cliente=${clienteSelecionado.ID_cliente}`)
         .then(resposta => {
             return resposta.json();
         })
@@ -349,7 +344,7 @@ salvarOrcamento.addEventListener("click", function (evento) {
         servicos: servicosAdicionados
     };
 
-    fetch("../php/salvar-orcamento.php", {
+    fetch("../php/orcamentos/salvar-orcamento.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

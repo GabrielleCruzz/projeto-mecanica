@@ -9,7 +9,7 @@ if (empty($_SESSION["id_logado"])) {
     exit;
 }
 
-require_once "conexao.php";
+require_once __DIR__ . '/../conexao.php';
 
 $dados = json_decode(file_get_contents("php://input"));
 

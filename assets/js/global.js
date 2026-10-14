@@ -14,7 +14,7 @@ if (formAddCliente) {
 
         const dados = new FormData(formAddCliente);
 
-        fetchPHP("../php/cliente-cadastrar.php", "POST", dados).then((dadosRecebidos) => {
+        fetchPHP("../php/clientes/cliente-cadastrar.php", "POST", dados).then((dadosRecebidos) => {
             if (dadosRecebidos == "Sucesso") {
                 alert("Cliente cadastrado com sucesso!");
                 fecharModal(formAddCliente.closest(".overlay"));
@@ -195,7 +195,7 @@ function listarClientes() {
     const containerPai = document.querySelector(".cards-clientes");
     if (!containerPai) return;
 
-    fetch("../php/cliente-listar.php", {
+    fetch("../php/clientes/cliente-listar.php", {
         method: "GET",
     })
         .then((resposta_lista) => resposta_lista.text())
@@ -232,7 +232,7 @@ document.addEventListener("click", (event) => {
     const btn = event.target.closest(".btn-editar");
     if (!btn) return;
 
-    fetchPHP("../php/cliente-detalhes.php", "GET").then((dadosRecebidos) => {
+    fetchPHP("../php/clientes/cliente-detalhes.php", "GET").then((dadosRecebidos) => {
         const cliente = JSON.parse(dadosRecebidos);
 
         if (cliente.erro) {
@@ -267,7 +267,7 @@ function pega() {
                 return;
             }
 
-            fetch("../php/cliente-seleciona.php", {
+            fetch("../php/clientes/cliente-seleciona.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -285,7 +285,7 @@ function pega() {
 
 // Buscar dados do cliente selecionado
 function pegaCliente() {
-    fetch("../php/cliente-detalhes.php", {
+    fetch("../php/clientes/cliente-detalhes.php", {
         method: "GET",
     })
         .then((resposta) => resposta.json())

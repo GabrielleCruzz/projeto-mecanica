@@ -1,5 +1,5 @@
 function listarClientes() {
-    fetchPHP("../php/cliente-listar.php", "GET").then((dadosRecebidos) => {
+    fetchPHP("../php/clientes/cliente-listar.php", "GET").then((dadosRecebidos) => {
         const infoCliente = JSON.parse(dadosRecebidos);
     
         const containerPai = document.querySelector(".cards-clientes");
@@ -73,7 +73,7 @@ function ativarCards() {
                 return;
             }
             console.log(id)
-            fetch("../php/cliente-seleciona.php", {
+            fetch("../php/clientes/cliente-seleciona.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -91,7 +91,7 @@ function ativarCards() {
 
 // função para pegar os dados do cliente ao clicar em um card de cliente
 function recebeDadosCard() {
-  fetchPHP("../php/cliente-detalhes.php", "GET").then((dadosRecebidos) => {
+  fetchPHP("../php/clientes/cliente-detalhes.php", "GET").then((dadosRecebidos) => {
     console.log(dadosRecebidos);
     const cliente = JSON.parse(dadosRecebidos);
     console.log("Dados do cliente recebidos:", cliente);
@@ -150,7 +150,7 @@ if (formEditarCliente) {
     
       const dados = new FormData(formEditarCliente);
     
-      fetchPHP("../php/cliente-editar.php", "POST", dados).then((dadosRecebidos) => {
+      fetchPHP("../php/clientes/cliente-editar.php", "POST", dados).then((dadosRecebidos) => {
         if (dadosRecebidos == "Sucesso") {
                 alert("Cliente editado com sucesso!")
                 fecharModal(formEditarCliente.closest(".overlay"));

@@ -1,6 +1,6 @@
 <?php
     // Importando as configurações para poder usar o banco
-    require_once 'conexao.php';
+    require_once __DIR__ . '/../conexao.php';
 
     // Quando o servidor receber os dados do envio
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

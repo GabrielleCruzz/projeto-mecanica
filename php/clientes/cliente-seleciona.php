@@ -2,7 +2,7 @@
 
     // PHP PRA PEGAR O ID DO CLIENTE E MANDAR PRA PAGINA DE DETALHES
 
-    require_once 'conexao.php';
+    require_once __DIR__ . '/../conexao.php';
 
     session_start();
 

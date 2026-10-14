@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function carregarVeiculos() {
         try {
             if (!idClienteSelecionado) {
-                const resposta = await fetch("../php/cliente-detalhes.php");
+                const resposta = await fetch("../php/clientes/cliente-detalhes.php");
                 const cliente = await resposta.json();
 
                 if (!resposta.ok || cliente.erro) {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const resposta = await fetch(
-                `../php/buscar-veiculo.php?id_cliente=${encodeURIComponent(idClienteSelecionado)}`
+                `../php/veiculos/buscar-veiculo.php?id_cliente=${encodeURIComponent(idClienteSelecionado)}`
             );
             const veiculos = await resposta.json();
 
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const resposta = await fetch("../php/excluir-veiculo.php", {
+            const resposta = await fetch("../php/veiculos/excluir-veiculo.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }));
 
         try {
-            const resposta = await fetch("../php/salvar-veiculos.php", {
+            const resposta = await fetch("../php/veiculos/salvar-veiculos.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function carregarDadosSalvos() {
-        const resposta = await fetch("../php/cliente-detalhes.php");
+        const resposta = await fetch("../php/clientes/cliente-detalhes.php");
         const cliente = await resposta.json();
 
         if (!resposta.ok || cliente.erro) {

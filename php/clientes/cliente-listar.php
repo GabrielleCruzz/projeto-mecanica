@@ -1,6 +1,6 @@
 <?php
 
-require_once 'conexao.php';
+require_once __DIR__ . '/../conexao.php';
 
 session_start();
 
@@ -28,15 +28,13 @@ if ($stmt) {
 
     $clientes = [];
 
-    if ($result->num_rows > 0) {
-        while ($dados = $result->fetch_assoc()) {
-            $clientes[] = [
-                "nome" => $dados["Nome"],
-                "telefone" => $dados["Telefone"],
-                "quantidade_veiculo" => $dados["quantidade_veiculo"],
-                "id" => $dados["ID_cliente"]
-            ];
-        }
+    while ($dados = $result->fetch_assoc()) {
+        $clientes[] = [
+            "nome" => $dados["Nome"],
+            "telefone" => $dados["Telefone"],
+            "quantidade_veiculo" => $dados["quantidade_veiculo"],
+            "id" => $dados["ID_cliente"]
+        ];
     }
 
     // Fecha o statement

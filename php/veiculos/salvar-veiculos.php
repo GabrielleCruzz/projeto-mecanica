@@ -10,7 +10,7 @@ if (empty($_SESSION["id_logado"])) {
     exit;
 }
 
-require_once "conexao.php";
+require_once __DIR__ . '/../conexao.php';
 
 $id_usuario_logado = $_SESSION["id_logado"];
 
