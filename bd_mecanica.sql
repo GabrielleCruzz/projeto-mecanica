@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/10/2026 às 17:55
+-- Tempo de geração: 16/10/2026 às 22:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `cliente` (
   `ID_cliente` int(11) NOT NULL,
   `Nome` varchar(40) NOT NULL,
   `Telefone` varchar(15) NOT NULL,
-  `ID_usuario` int NOT NULL
+  `ID_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -46,8 +46,10 @@ CREATE TABLE `ordemservico` (
   `ID_OrdemServico` int(11) NOT NULL,
   `ID_cliente` int(11) NOT NULL,
   `ID_veiculo` int(11) NOT NULL,
-  `ID_usuario` int NOT NULL,
-  `Diagnostico` varchar(250) NOT NULL
+  `ID_usuario` int(11) NOT NULL,
+  `Diagnostico` varchar(250) NOT NULL,
+  `data_criacao` date NOT NULL DEFAULT current_timestamp(),
+  `status_os` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -136,7 +138,8 @@ CREATE TABLE `veiculo` (
 -- Índices de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`ID_cliente`);
+  ADD PRIMARY KEY (`ID_cliente`),
+  ADD KEY `FK_ID_usuario` (`ID_usuario`);
 
 --
 -- Índices de tabela `ordemservico`
@@ -144,7 +147,8 @@ ALTER TABLE `cliente`
 ALTER TABLE `ordemservico`
   ADD PRIMARY KEY (`ID_OrdemServico`),
   ADD KEY `FK_OS_veiculo` (`ID_veiculo`),
-  ADD KEY `FK_OS_cliente` (`ID_cliente`);
+  ADD KEY `FK_OS_cliente` (`ID_cliente`),
+  ADD KEY `FK_OS_usuario` (`ID_usuario`);
 
 --
 -- Índices de tabela `os_peca`
@@ -247,12 +251,18 @@ ALTER TABLE `veiculo`
 --
 
 --
+-- Restrições para tabelas `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `FK_ID_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`);
+
+--
 -- Restrições para tabelas `ordemservico`
 --
 ALTER TABLE `ordemservico`
   ADD CONSTRAINT `FK_OS_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`),
-  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`),
-  ADD CONSTRAINT `FK_OS_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`);
+  ADD CONSTRAINT `FK_OS_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`),
+  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`);
 
 --
 -- Restrições para tabelas `os_peca`
@@ -273,9 +283,6 @@ ALTER TABLE `os_servico`
 --
 ALTER TABLE `veiculo`
   ADD CONSTRAINT `FK_ID_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`);
-
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `FK_ID_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

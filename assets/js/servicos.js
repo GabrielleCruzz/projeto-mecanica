@@ -148,4 +148,57 @@ function atualizarContador() {
 // roda a função quando a página carrega
 document.addEventListener("DOMContentLoaded", () => {
     atualizarContador();
+    listarOS();
 });
+
+function listarOS() {
+    fetchPHP("../php/orcamentos/exibir-servicos.php", "GET").then((dadosRecebidos) => {
+        const ordensServico = JSON.parse(dadosRecebidos);
+        
+        const containerOrdens = document.querySelector(".cards")
+
+        let cardsOS = ``
+
+        for (const OS of ordensServico) {            
+
+            const servicos = OS.servicos.map(servico => servico.tipoServico).join(", ");
+
+            const valor = Number(OS.valor_total).toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+
+            const data = new Date(OS.data_criacao.replace(" ", "T"));
+
+            const dataFormatada = data.toLocaleDateString("pt-BR", {
+                timeZone: "America/Sao_Paulo"
+            });            
+
+            cardsOS += `
+                <div class="card-servicos">
+                    <span class="info-servico">Ordem de serviço #${OS.id}</span>
+                    <span class="info-destaque">${servicos}</span>
+                    <span class="info-secundaria">Cliente: <span class="destaque">${OS.cliente.nome}</span></span>
+                    <span class="info-secundaria">Veículo: <span class="destaque">${OS.veiculo.placa} - ${OS.veiculo.modelo_marca} (${OS.veiculo.ano})</span></span>
+                    <span class="info-terciaria">Criado em: <span class="destaque">${dataFormatada} - ${valor}</span></span>                    
+                    <span class="status ${OS.status.toLowerCase()}">${OS.status}</span>
+                    <div class="btns">
+                        <button class="atualizar">Atualizar status</button>
+                        <div class="acoes servico">
+                            <button type="button" class="btn-acoes servico">
+                                Mais ações
+                            </button>
+                            <div class="opcoes-acoes servico">
+                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
+                                <button type="button" class="editar-os-acao">Editar OS</button>
+                                <button type="button">Compartilhar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+
+        containerOrdens.innerHTML = cardsOS;
+    });
+}

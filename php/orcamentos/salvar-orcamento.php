@@ -76,10 +76,11 @@ try {
     mysqli_begin_transaction($conexao);
 
     // Cadastra a ordem de serviço
-    $sql = "INSERT INTO ordemservico (ID_cliente, ID_veiculo, ID_usuario, Diagnostico) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO ordemservico (ID_cliente, ID_veiculo, ID_usuario, Diagnostico, status_os) VALUES (?, ?, ?, ?, ?)";
 
+    $status = "Pendente";
     $stmt = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($stmt, "iiis", $id_cliente, $id_veiculo, $id_usuario, $diagnostico);
+    mysqli_stmt_bind_param($stmt, "iiiss", $id_cliente, $id_veiculo, $id_usuario, $diagnostico, $status);
     mysqli_stmt_execute($stmt);
 
     $id_ordem = mysqli_insert_id($conexao);
