@@ -40,6 +40,24 @@ if (formAddCliente) {
     });
 }
 
+
+// Limpa os campos e fecha o modal quando clica no botão "Descartar" nos modais de cadastrar cliente
+const btnDescartarCliente = formAddCliente.querySelector(".btn-dell");
+
+btnDescartarCliente.addEventListener("click", () => {
+    formAddCliente.reset();
+
+    const gruposVeiculo = [
+        ...formAddCliente.querySelectorAll(".infos-veiculo")
+    ];
+
+    gruposVeiculo.slice(1).forEach(grupo => {
+        grupo.remove();
+    });
+
+    fecharModal(formAddCliente.closest(".overlay"));
+});
+
 // Filtro de ordem
 const ordemFiltros = document.querySelectorAll('.ordem-filtro');
 
