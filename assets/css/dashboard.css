@@ -2398,8 +2398,6 @@ body.dark .nav-bar {
     .cards.cards-cliente {
         border-radius: 8px;
         padding-right: 16px;
-        max-height: 600px;
-        overflow-y: auto;
         grid-template-columns: repeat(1, 1fr);
     }
 
