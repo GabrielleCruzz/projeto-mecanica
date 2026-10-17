@@ -41,22 +41,24 @@ if (formAddCliente) {
 }
 
 
-// Limpa os campos e fecha o modal quando clica no botão "Descartar" nos modais de cadastrar cliente
-const btnDescartarCliente = formAddCliente.querySelector(".btn-dell");
+if (formAddCliente) {    
+    // Limpa os campos e fecha o modal quando clica no botão "Descartar" nos modais de cadastrar cliente
+    const btnDescartarCliente = formAddCliente.querySelector(".btn-dell");
+    
+    btnDescartarCliente.addEventListener("click", () => {
+        formAddCliente.reset();
 
-btnDescartarCliente.addEventListener("click", () => {
-    formAddCliente.reset();
-
-    const gruposVeiculo = [
-        ...formAddCliente.querySelectorAll(".infos-veiculo")
-    ];
-
-    gruposVeiculo.slice(1).forEach(grupo => {
-        grupo.remove();
+        const gruposVeiculo = [
+            ...formAddCliente.querySelectorAll(".infos-veiculo")
+        ];
+        
+        gruposVeiculo.slice(1).forEach(grupo => {
+            grupo.remove();
+        });
+        
+        fecharModal(formAddCliente.closest(".overlay"));
     });
-
-    fecharModal(formAddCliente.closest(".overlay"));
-});
+}
 
 // Filtro de ordem
 const ordemFiltros = document.querySelectorAll('.ordem-filtro');
@@ -124,6 +126,12 @@ function modalBtnConfig(btnModal, modal) {
         if (btn.classList.contains("ver-detalhes-acao")) {
             const os = btn.getAttribute("data-cliente-id");
             detalhesOS(os)            
+        }        
+
+        // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
+        if (btn.classList.contains("atualizar")) {            
+            const os = btn.getAttribute("data-cliente-id")
+            statusOS(os)
         }
 
         abrirModal(modal);
@@ -149,18 +157,6 @@ document.addEventListener("click", (event) => {
 
     fecharModal(overlay);
 });
-
-// Botão de confirmar mudança de status
-const confirmarStatus = document.querySelector(".confirmar-status");
-
-if (confirmarStatus) {
-    confirmarStatus.addEventListener("click", () => {
-        const overlay = confirmarStatus.closest(".overlay");
-        if (!overlay) return;
-
-        fecharModal(overlay);
-    });
-}
 
 // Mais opções: controla os cliques dos botões "Mais ações"
 document.addEventListener('click', (event) => {
@@ -210,22 +206,56 @@ document.addEventListener('click', (event) => {
     }
 });
 
-// Opções de atualizar status
-const opcoesStatus = document.querySelectorAll('.status-opcoes div');
-
-opcoesStatus.forEach(status => {
-    status.addEventListener("click", () => {
-        trocar(status);
-    });
-});
-
-function trocar(statusSelecionado) {
+function ativarTrocaStatus() {
+    // Opções de atualizar status
+    const opcoesStatus = document.querySelectorAll('.status-opcoes div');
+    
     opcoesStatus.forEach(status => {
-        status.classList.remove('status-ativo');
+        status.addEventListener("click", () => {
+            trocar(status);
+        });
     });
 
-    statusSelecionado.classList.add('status-ativo');
+    function trocar(statusSelecionado) {
+        opcoesStatus.forEach(status => {
+            status.classList.remove('status-ativo');
+        });
+            
+        const statusDiv = statusSelecionado.closest(".status-opcoes")
+        
+        statusDiv.setAttribute("data-status-selecionado", statusSelecionado.getAttribute("data-status"))
+    
+        statusSelecionado.classList.add('status-ativo');
+    }
+    
+    // Botão de confirmar mudança de status
+    const confirmarStatus = document.querySelector(".confirmar-status");
+    
+    if (confirmarStatus) {
+        confirmarStatus.addEventListener("click", () => {
+            const id_os = document.querySelector(".status-opcoes").getAttribute("data-id_os")
+            const status = document.querySelector(".status-opcoes").getAttribute("data-status-selecionado")
+
+            const dados = new FormData();
+    
+            dados.append("id_os", id_os);
+            dados.append("status", status);
+    
+            fetchPHP("../php/orcamentos/atualizar-status.php", "POST", dados).then((dadosRecebidos) => {
+                if (dadosRecebidos == "Sucesso") {
+                    alert("Status alterado com sucesso!");
+                    const overlay = confirmarStatus.closest(".overlay");
+                    if (!overlay) return;
+                    listarOS()
+                    fecharModal(overlay);
+                } else {
+                    alert("Erro ao atualizar status: " + dadosRecebidos);
+                }
+            });
+        });
+    }
 }
+
 
 // Listar clientes
 function listarClientes() {

@@ -28,75 +28,6 @@ function filtrar(tipo, elemento) {
     });
 }
 
-function mais() {
-    // verifica qual tipo de status vai ser adiconado
-    let classe, texto, random;
-    if (filtro == "concluidos") {
-        classe = "concluido";
-        texto = "Concluído"
-    }
-    else if (filtro == "pendentes") {
-        classe = "pendente";
-        texto = "Pendente";
-    }
-    else if (filtro == "andamento") {
-        classe = "andamento";
-        texto = "Em andamento";
-    }
-    else {
-        const random = Math.floor(Math.random() * 3);
-        if (random == 0) {
-            classe = "pendente";
-            texto = "Pendente";
-        } else if (random == 1) {
-            classe = "andamento";
-            texto = "Em andamento";
-        } else {
-            classe = "concluido";
-            texto = "Concluído";
-        }
-    }
-
-    // pega a quantidade de cards pra definir o numero do novo card
-    const todos = document.querySelectorAll(".card-servicos");
-    let num = todos.length + 1;
-
-    // adiciona mais um card de serviços
-    const cards = document.getElementById("cards");
-    const novo = document.createElement("div");
-
-    // veriafica se o status é "em andamento"
-    let dataTxt = classe === "andamento" ? "Atualizado em" : "Criado em";
-
-    novo.className = "card-servicos";
-    novo.innerHTML = `
-        <span class="info-servico">Ordem de serviço #${num}</span>
-        <span class="info-destaque">Tipo de serviço</span>
-        <span class="info-secundaria">Cliente: <span class="destaque">Nome do Cliente</span></span>
-        <span class="info-secundaria">Veículo: <span class="destaque">Nome - Placa</span></span>
-        <span class="info-terciaria">${dataTxt}: <span class="destaque">25/08/2026 - R$300,00</span></span>
-        <span class="ver-detalhes">Ver detalhes</span>
-        <span class="status ${classe}">${texto}</span>
-        <span class="preco">R$300</span>
-        <div class="btns">
-            <button class="atualizar">Atualizar status</button>
-            <div class="acoes servico">
-                <button type="button" class="btn-acoes servico">
-                    Mais ações
-                </button>
-                <div class="opcoes-acoes servico">
-                    <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
-                    <button type="button" class="editar-os-acao">Editar OS</button>
-                    <button type="button">Compartilhar</button>
-                </div>
-            </div>
-        </div>
-    `;
-
-    cards.appendChild(novo);
-    atualizarContador();    
-}
-
 // contador dos filtros por status
 
 function atualizarContador() {
@@ -188,7 +119,7 @@ function listarOS() {
                     <span class="info-secundaria">Cliente: <span class="destaque">${OS.cliente.nome}</span></span>
                     <span class="info-secundaria">Veículo: <span class="destaque">${OS.veiculo.placa} - ${OS.veiculo.modelo_marca} (${OS.veiculo.ano})</span></span>
                     <span class="info-terciaria">Criado em: <span class="destaque">${formatarData(OS.data_criacao)} - ${formatarValor(OS.valor_total)}</span></span>                    
-                    <span class="status ${OS.status.toLowerCase()}">${OS.status}</span>
+                    <span class="status ${OS.status.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}">${OS.status}</span>
                     <div class="btns">
                         <button class="atualizar" data-cliente-id="${OS.id}">Atualizar status</button>
                         <div class="acoes servico">
@@ -261,4 +192,57 @@ function detalhesOS(id) {
             </div>
             <p class="baixar-pdf">Baixar PDF</p>
     `;
+}
+
+// adicionar os dados da ordem de serviço escolhida no modal de status
+function statusOS(id) {
+    // encontra os dados da ordem de serviço selecionada
+    const OS = ordensServico.find(ordem => ordem.id == id);
+
+    console.log(OS)
+
+    // container do conteúdo do modal
+    const containerStatus = document.querySelector(".modal-status")
+
+    containerStatus.innerHTML = `
+        <button type="button" class="btn-fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h1>Status da OS #${OS.id}</h1>
+        <h2>Selecione o estado atual da ordem de serviço</h2>
+
+        <div class="status-opcoes" data-status-selecionado="${OS.status}" data-id_os="${OS.id}">
+            ${verificaStatus(OS.status)}        
+        </div>
+
+        <button class="confirmar-status">Atualizar Status</button>
+    `;
+
+    ativarTrocaStatus()
+}
+
+// ao abrir modal de status, verificar qual o status da OS selecionada
+function verificaStatus(statusAtual) {
+    if (statusAtual === "Pendente") {
+        return statusAtual = `
+            <div data-status="Pendente" class="status-pendente status-ativo">Pendente</div>
+            <div data-status="Em andamento" class="status-andamento">Em andamento</div>
+            <div data-status="Concluído" class="status-concluido">Concluído</div>
+        `        
+    }
+    else if (statusAtual === "Em andamento") {
+        return statusAtual = `
+            <div data-status="Pendente" class="status-pendente">Pendente</div>
+            <div data-status="Em andamento" class="status-andamento status-ativo">Em andamento</div>
+            <div data-status="Concluído" class="status-concluido">Concluído</div>
+        `
+    }
+    else {
+        return statusAtual = `
+            <div data-status="Pendente" class="status-pendente">Pendente</div>
+            <div data-status="Em andamento" class="status-andamento">Em andamento</div>
+            <div data-status="Concluído" class="status-concluido status-ativo">Concluído</div>
+        `
+    }    
 }
