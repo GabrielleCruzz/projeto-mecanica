@@ -24,11 +24,11 @@ $sql = "SELECT
             c.ID_cliente,
             c.Nome AS Nome_cliente,
             c.Telefone,
+            c.Observacao AS observacao_cliente,
             v.ID_veiculo,
             v.Placa,
             v.Model_Marca,
-            v.Ano,
-            v.observacao
+            v.Ano
         FROM ordemservico os
         INNER JOIN cliente c ON os.ID_cliente = c.ID_cliente
         INNER JOIN veiculo v ON os.ID_veiculo = v.ID_veiculo
@@ -122,7 +122,8 @@ while ($dados = $result->fetch_assoc()) {
         "cliente" => [
             "id" => $dados["ID_cliente"],
             "nome" => $dados["Nome_cliente"],
-            "telefone" => $dados["Telefone"]
+            "telefone" => $dados["Telefone"],
+            "observacao" => $dados["observacao_cliente"]
         ],
 
         "veiculo" => [
@@ -130,7 +131,6 @@ while ($dados = $result->fetch_assoc()) {
             "placa" => $dados["Placa"],
             "modelo_marca" => $dados["Model_Marca"],
             "ano" => $dados["Ano"],
-            "observacao" => $dados["observacao"]
         ],
 
         "pecas" => $pecas,
