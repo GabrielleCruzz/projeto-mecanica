@@ -7,6 +7,9 @@ function filtrar(tipo, elemento) {
 
     // adiciona a classe 'selected' pra opcao de filtro selecionada
     const botoes = document.querySelectorAll(".opcao");
+
+    if (botoes.length === 0) return
+
     botoes.forEach(btn => btn.className = "opcao");
     elemento.classList.add("selected");
 
@@ -95,6 +98,8 @@ let ordensServico;
 
 // receber e exibir todas as ordens de serviço
 function listarOS() {
+    filtrar("todos", document.querySelector(".btn-filtro > .opcao"))
+
     fetchPHP("../php/orcamentos/exibir-servicos.php", "GET").then((dadosRecebidos) => {
         ordensServico = JSON.parse(dadosRecebidos);
 
@@ -121,15 +126,18 @@ function listarOS() {
                     <span class="info-terciaria">Criado em: <span class="destaque">${formatarData(OS.data_criacao)} - ${formatarValor(OS.valor_total)}</span></span>                    
                     <span class="status ${OS.status.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}">${OS.status}</span>
                     <div class="btns">
-                        <button class="atualizar" data-cliente-id="${OS.id}">Atualizar status</button>
+                        <button class="atualizar" data-os-id="${OS.id}">Atualizar status</button>
                         <div class="acoes servico">
                             <button type="button" class="btn-acoes servico">
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes servico">
-                                <button type="button" class="ver-detalhes-acao" data-cliente-id="${OS.id}">Ver detalhes</button>
-                                <button type="button" class="editar-os-acao" data-cliente-id="${OS.id}">Editar OS</button>
+                                <button type="button" class="ver-detalhes-acao" data-os-id="${OS.id}">Ver detalhes</button>
+                                <button type="button" class="editar-os-acao" data-os-id="${OS.id}">Editar OS</button>
                                 <button type="button">Compartilhar</button>
+                                ${OS.status === "Pendente" ? `
+                                    <button type="button" class="cancelar-os" style="color: red;" data-os-id="${OS.id}">Cancelar orçamento</button>
+                                ` : ``}
                             </div>
                         </div>
                     </div>
@@ -246,3 +254,35 @@ function verificaStatus(statusAtual) {
         `
     }    
 }
+
+const manterOS = document.querySelector("#cancelarExcluirOS")
+const cancelarOS = document.querySelector("#confirmarExcluirOS")
+
+if (manterOS) {
+    manterOS.addEventListener("click", () => {
+        const overlay = manterOS.closest(".overlay");
+        fecharModal(overlay)
+    })
+}
+
+function cancelarOrcamento(id) {
+    cancelarOS.addEventListener("click", () => {
+        const dados = new FormData();
+    
+        dados.append("id_os", id);        
+
+        fetchPHP("../php/orcamentos/cancelar-orcamento.php", "POST", dados).then((dadosRecebidos) => {
+            if (dadosRecebidos == "Sucesso") {
+                alert("Orçamento cancelado com sucesso.");
+                const overlay = cancelarOS.closest(".overlay");
+                if (!overlay) return;
+                listarOS()
+                fecharModal(overlay);
+            } else {
+                alert("Erro ao excluir orçamento: " + dadosRecebidos);
+            }
+        });
+    })
+}
+
+    

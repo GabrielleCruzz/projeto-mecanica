@@ -124,14 +124,20 @@ function modalBtnConfig(btnModal, modal) {
 
         // se o botão clicado foi para acessar detalhes de uma OS, ele pega o id da OS       
         if (btn.classList.contains("ver-detalhes-acao")) {
-            const os = btn.getAttribute("data-cliente-id");
-            detalhesOS(os)            
+            const os = btn.getAttribute("data-os-id");
+            detalhesOS(os)
         }        
 
         // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
         if (btn.classList.contains("atualizar")) {            
-            const os = btn.getAttribute("data-cliente-id")
+            const os = btn.getAttribute("data-os-id")
             statusOS(os)
+        }
+
+        // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
+        if (btn.classList.contains("cancelar-os")) {            
+            const os = btn.getAttribute("data-os-id")
+            cancelarOrcamento(os)
         }
 
         abrirModal(modal);
@@ -146,6 +152,7 @@ modalBtnConfig(".cadastrarCliente", "#modalAddCliente");
 modalBtnConfig(".btn-editar", "#modalEditarCliente");
 modalBtnConfig(".editar-veiculos", "#modalEditarVeiculos");
 modalBtnConfig(".atualizar-status", "#modalStatus");
+modalBtnConfig(".cancelar-os", "#modalConfirmarExcluirOS");
 
 // Evento de clique para fechar modais
 document.addEventListener("click", (event) => {
