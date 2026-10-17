@@ -94,23 +94,7 @@ function mais() {
     `;
 
     cards.appendChild(novo);
-    atualizarContador();
-    botoesFuncionar();
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    botoesFuncionar();
-})
-
-function botoesFuncionar() {
-    const btnFechar = document.getElementById("btnFechar");
-    const btnDetalhes = document.querySelectorAll(".ver-detalhes");
-
-    btnDetalhes.forEach(btn => {
-        btn.onclick = abrirModal;
-    });
-
-    btnFechar.onclick = fecharModal;
+    atualizarContador();    
 }
 
 // contador dos filtros por status
@@ -118,6 +102,11 @@ function botoesFuncionar() {
 function atualizarContador() {
 
     const cards = document.querySelectorAll(".card-servicos");
+
+    // se estiver na página de detalhes, essa função não vai rodar
+    const paginaDetalhes = document.querySelector(".cards-cliente")
+    if (paginaDetalhes) return
+
     let pendente = 0;
     let andamento = 0;
     let concluido = 0;
@@ -146,8 +135,10 @@ function atualizarContador() {
 }
 
 // roda a função quando a página carrega
-document.addEventListener("DOMContentLoaded", () => {    
-    listarOS();
+document.addEventListener("DOMContentLoaded", () => {
+    // impedindo que a função para listar OS rode ao abrir a página de detalhes cliente
+    const paginaDetalhes = document.querySelector(".cards-cliente"); 
+    if (!paginaDetalhes) listarOS();
 });
 
 // função pra formatar valores em reais
@@ -180,7 +171,14 @@ function listarOS() {
 
         let cardsOS = ``;
 
-        for (const OS of ordensServico) {            
+        for (const OS of ordensServico) {   
+            
+            // se estiver na página detalhes cliente, pula as OS que não pertencem ao cliente
+            if (containerOrdens.classList.contains("cards-cliente")) {
+                const id = Number(containerOrdens.getAttribute("cliente-id"))
+                if (id !== Number(OS.cliente.id)) continue
+            }
+            
             const servicos = OS.servicos.map(servico => servico.tipoServico).join(", ");
     
             cardsOS += `

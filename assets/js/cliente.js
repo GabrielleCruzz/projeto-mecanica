@@ -94,6 +94,12 @@ function recebeDadosCard() {
   fetchPHP("../php/clientes/cliente-detalhes.php", "GET").then((dadosRecebidos) => {
     console.log(dadosRecebidos);
     const cliente = JSON.parse(dadosRecebidos);
+
+    // coloca na div das OS o id do cliente
+    const divOrdens = document.querySelector(".cards-cliente");
+    divOrdens.setAttribute("cliente-id", cliente.id)
+    listarOS();
+
     console.log("Dados do cliente recebidos:", cliente);
 
     if (cliente.erro) {
