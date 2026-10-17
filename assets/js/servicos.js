@@ -146,51 +146,60 @@ function atualizarContador() {
 }
 
 // roda a função quando a página carrega
-document.addEventListener("DOMContentLoaded", () => {
-    atualizarContador();
+document.addEventListener("DOMContentLoaded", () => {    
     listarOS();
 });
 
+// função pra formatar valores em reais
+function formatarValor(valor) {
+    return Number(valor).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+}
+
+// função pra formatar data
+function formatarData(data) {
+    const dataFormatada = new Date(data.replace(" ", "T"));
+    return dataFormatada.toLocaleDateString("pt-BR", {
+        timeZone: "America/Sao_Paulo"
+    });  
+}
+
+
+// guarda todas as ordens de serviço
+let ordensServico;
+
+
+// receber e exibir todas as ordens de serviço
 function listarOS() {
     fetchPHP("../php/orcamentos/exibir-servicos.php", "GET").then((dadosRecebidos) => {
-        const ordensServico = JSON.parse(dadosRecebidos);
-        
-        const containerOrdens = document.querySelector(".cards")
+        ordensServico = JSON.parse(dadosRecebidos);
 
-        let cardsOS = ``
+        const containerOrdens = document.querySelector(".cards");
+
+        let cardsOS = ``;
 
         for (const OS of ordensServico) {            
-
             const servicos = OS.servicos.map(servico => servico.tipoServico).join(", ");
-
-            const valor = Number(OS.valor_total).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL"
-            });
-
-            const data = new Date(OS.data_criacao.replace(" ", "T"));
-
-            const dataFormatada = data.toLocaleDateString("pt-BR", {
-                timeZone: "America/Sao_Paulo"
-            });            
-
+    
             cardsOS += `
                 <div class="card-servicos">
                     <span class="info-servico">Ordem de serviço #${OS.id}</span>
                     <span class="info-destaque">${servicos}</span>
                     <span class="info-secundaria">Cliente: <span class="destaque">${OS.cliente.nome}</span></span>
                     <span class="info-secundaria">Veículo: <span class="destaque">${OS.veiculo.placa} - ${OS.veiculo.modelo_marca} (${OS.veiculo.ano})</span></span>
-                    <span class="info-terciaria">Criado em: <span class="destaque">${dataFormatada} - ${valor}</span></span>                    
+                    <span class="info-terciaria">Criado em: <span class="destaque">${formatarData(OS.data_criacao)} - ${formatarValor(OS.valor_total)}</span></span>                    
                     <span class="status ${OS.status.toLowerCase()}">${OS.status}</span>
                     <div class="btns">
-                        <button class="atualizar">Atualizar status</button>
+                        <button class="atualizar" data-cliente-id="${OS.id}">Atualizar status</button>
                         <div class="acoes servico">
                             <button type="button" class="btn-acoes servico">
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes servico">
-                                <button type="button" class="ver-detalhes-acao">Ver detalhes</button>
-                                <button type="button" class="editar-os-acao">Editar OS</button>
+                                <button type="button" class="ver-detalhes-acao" data-cliente-id="${OS.id}">Ver detalhes</button>
+                                <button type="button" class="editar-os-acao" data-cliente-id="${OS.id}">Editar OS</button>
                                 <button type="button">Compartilhar</button>
                             </div>
                         </div>
@@ -199,6 +208,59 @@ function listarOS() {
             `
         }
 
+        // coloca todos os cards das OS no container
         containerOrdens.innerHTML = cardsOS;
+
+        atualizarContador();        
     });
+}
+
+// adicionar os dados da ordem de serviço escolhida no modal de detalhes
+function detalhesOS(id) {
+    // encontra os dados da ordem de serviço selecionada
+    const OS = ordensServico.find(ordem => ordem.id == id);
+
+    // container do conteúdo do modal
+    const containerDetalhes = document.querySelector(".modal-detalhes")
+
+    containerDetalhes.innerHTML = `
+        <button type="button" class="btn-fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h1>Ordem de serviço #${OS.id}</h1>
+            <div class="informacoes">
+                <p>Cliente: <span>${OS.cliente.nome}</span></p>
+                <p>Veículo: <span>${OS.veiculo.placa} - ${OS.veiculo.modelo_marca} (${OS.veiculo.ano})</span></p>
+                <p>Diagnóstico: <span>${OS.diagnostico}</span></p>                
+            </div>
+
+            <div class="detalhes">
+                <div class="detales-servico">
+                    <h2>Serviços</h2>
+                    ${OS.servicos.map((servico) => (
+                        `<p> ${servico.tipoServico} &#8226; ${formatarValor(servico.Valor_unit)} </p>`
+                    )).join("")}
+                </div>
+
+                <div class="detalhes-pecas">
+                    <h2>Peças</h2>
+                    ${OS.pecas.length > 0 ?
+                        OS.pecas.map((pecas) => (
+                            `<p> ${pecas.Quantidade}x &#8226; ${pecas.Nome} &#8226; ${formatarValor(pecas.valor_unit)} </p>`
+                        )).join("") :
+                        "<p>Sem peças adicionadas</p>"
+                    }
+                </div>
+                <hr>
+            </div>
+            <div class="detalhes-valor">
+                <p>Mão de obra: ${formatarValor(OS.total_servicos)}</p>
+                <p>Peças: ${formatarValor(OS.total_pecas)}</p>
+                <div class="valor-orcamento">
+                    <h2>Valor total do orçamento</h2>
+                    <p>${formatarValor(OS.valor_total)}</p>
+                </div>
+            </div>
+            <p class="baixar-pdf">Baixar PDF</p>
+    `;
 }

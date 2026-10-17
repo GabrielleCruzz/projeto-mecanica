@@ -89,6 +89,12 @@ function modalBtnConfig(btnModal, modal) {
         const btn = event.target.closest(btnModal);
         if (!btn) return;
 
+        // se o botão clicado foi para acessar detalhes de uma OS, ele pega o id da OS       
+        if (btn.classList.contains("ver-detalhes-acao")) {
+            const os = btn.getAttribute("data-cliente-id");
+            detalhesOS(os)            
+        }
+
         abrirModal(modal);
     });
 }
