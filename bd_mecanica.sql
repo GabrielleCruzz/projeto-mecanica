@@ -33,6 +33,7 @@ CREATE TABLE `cliente` (
   `ID_cliente` int(11) NOT NULL,
   `Nome` varchar(40) NOT NULL,
   `Telefone` varchar(15) NOT NULL,
+  `Observacao` varchar(250) NOT NULL,
   `ID_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,8 +127,7 @@ CREATE TABLE `veiculo` (
   `ID_cliente` int(11) NOT NULL,
   `Placa` varchar(8) NOT NULL,
   `Model_Marca` varchar(20) NOT NULL,
-  `Ano` year(4) NOT NULL,
-  `observacao` varchar(250) NOT NULL
+  `Ano` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

@@ -8,6 +8,7 @@
     <script src="../assets/js/sidebar.js" defer></script>
     <script src="../assets/js/global.js" defer></script>
     <script src="../assets/js/orcamento.js" defer></script>
+    <script src="../assets/js/cliente.js" defer></script>
     <title>Criar Orçamentos</title>
     <!-- link para os ícones -->
     <link href="../assets/icons/css/fontawesome.css" rel="stylesheet" />
@@ -158,9 +159,10 @@
 
 
     <!-- Modal -->
-    <!-- Formulário para cadastrar novo cliente -->
+    <!-- Formulário para cadastrar novo veículo -->
     <div class="overlay" id="modalAddCliente">
         <div class="modal modal-add-cliente">
+
             <form class="form-cliente form-add-cliente">
                 <!-- Botão de fechar o formulário -->
                 <button type="button" class="btn-fechar">
@@ -176,7 +178,7 @@
                     <input type="text" required name="cliente_nome">
 
                     <label>Telefone</label>
-                    <input type="tel" required name="cliente_tel">
+                    <input type="tel" required name="cliente_tel" id="telCliente">
                 </div>
 
                 <!--Dados do veículo-->
@@ -200,12 +202,12 @@
                         </div>
                     </div>
 
-                    <button class="btn-add-novo">Adicionar novo</button>
+                    <button type="button" class="btn-adicionar-veiculo">Adicionar novo</button>
                 </div>
 
                 <div class="campo-textarea">
                     <label>Observações</label>
-                    <textarea class="obs-cliente" name="veiculo_obs"></textarea>
+                    <textarea class="obs-cliente" name="cliente_obs"></textarea>
                 </div>
 
                 <div class="btns-add-cliente">

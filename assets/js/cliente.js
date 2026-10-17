@@ -163,3 +163,16 @@ if (formEditarCliente) {
       })
     });
 }
+
+// Cria novos campos para adicionar mais veículos
+const camposVeiculo = document.querySelector(".campos-veiculo");
+const btnAdicionarVeiculo = document.querySelector(".btn-adicionar-veiculo");
+
+btnAdicionarVeiculo.addEventListener("click", () => {
+    // cria uma cópia do conjunto de campos
+    const novoVeiculo = camposVeiculo.querySelector(".infos-veiculo").cloneNode(true);
+    // limpa os campos clonados
+    novoVeiculo.querySelectorAll("input").forEach(input => input.value = "");
+    // adiciona no final o botão de adicionar mais veículos 
+    camposVeiculo.insertBefore(novoVeiculo, btnAdicionarVeiculo);
+});

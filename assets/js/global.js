@@ -14,6 +14,19 @@ if (formAddCliente) {
 
         const dados = new FormData(formAddCliente);
 
+        // organiza os dados de todos os campos de veículos para enviar ao PHP
+        const veiculos = [];
+
+        formAddCliente.querySelectorAll(".infos-veiculo").forEach(grupo => {
+            veiculos.push({
+                placa: grupo.querySelector(".campo-placa input").value,
+                marca_modelo: grupo.querySelector(".campo-marca input").value,
+                ano: grupo.querySelector(".campo-ano input").value
+            });
+        });
+
+        dados.append("veiculos", JSON.stringify(veiculos));
+
         fetchPHP("../php/clientes/cliente-cadastrar.php", "POST", dados).then((dadosRecebidos) => {
             if (dadosRecebidos == "Sucesso") {
                 alert("Cliente cadastrado com sucesso!");
