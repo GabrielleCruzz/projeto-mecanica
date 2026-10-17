@@ -10,6 +10,7 @@ $id = $_SESSION["id_cliente_selecionado"] ?? null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = trim($_POST['editar-nome']);
     $telefone = $_POST['editar-tel'];
+    $observacao = trim($_POST['editar-obs']);
 
     // Caso os campos estejam vazios, ele dará erro
     if (
@@ -21,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Quando der certo, ele faz a inserção dos dados
     } else {
-        $stmt_cli = $conexao->prepare("UPDATE cliente SET Nome = (?), Telefone = (?) WHERE ID_cliente = (?)");
+        $stmt_cli = $conexao->prepare("UPDATE cliente SET Nome = (?), Telefone = (?), Observacao = (?) WHERE ID_cliente = (?) AND ID_usuario = (?)");
 
         // Define os tipos dos dados que serão enviados para o banco
-        $stmt_cli->bind_param("sss", $nome, $telefone, $id);
+        $stmt_cli->bind_param("sssii", $nome, $telefone, $observacao, $id, $id_logado);
 
         // Mandando ele executar
         if ($stmt_cli->execute()) {

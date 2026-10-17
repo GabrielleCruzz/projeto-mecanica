@@ -14,7 +14,7 @@ if (!$id || !$id_logado) {
 }
 
 // Busca os dados do cliente
-$sql = "SELECT ID_cliente, Nome, Telefone
+$sql = "SELECT ID_cliente, Nome, Telefone, Observacao
         FROM cliente
         WHERE ID_cliente = ? AND ID_usuario = ?";
 
@@ -53,6 +53,7 @@ $cliente = [
     "nome" => $dados["Nome"],
     "telefone" => $dados["Telefone"],
     "id" => $dados["ID_cliente"],
+    "observacao" => $dados["Observacao"],
     "veiculos" => $veiculos
 ];
 

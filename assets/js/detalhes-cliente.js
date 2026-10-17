@@ -277,6 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function restaurarDados() {
         formulario.querySelector('[name="editar-nome"]').value = dadosSalvos.nome;
         formulario.querySelector('[name="editar-tel"]').value = dadosSalvos.telefone;
+        formulario.querySelector('[name="editar-obs"]').value = dadosSalvos.observacao;
     }
 
     async function carregarDadosSalvos() {
@@ -290,7 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dadosSalvos = {
             nome: cliente.nome,
-            telefone: cliente.telefone
+            telefone: cliente.telefone,
+            observacao: cliente.observacao
         };
 
         restaurarDados();
