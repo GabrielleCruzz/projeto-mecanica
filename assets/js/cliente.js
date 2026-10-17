@@ -164,15 +164,32 @@ if (formEditarCliente) {
     });
 }
 
-// Cria novos campos para adicionar mais veículos
 const camposVeiculo = document.querySelector(".campos-veiculo");
 const btnAdicionarVeiculo = document.querySelector(".btn-adicionar-veiculo");
 
+// Adiciona um novo grupo de campos
 btnAdicionarVeiculo.addEventListener("click", () => {
     // cria uma cópia do conjunto de campos
     const novoVeiculo = camposVeiculo.querySelector(".infos-veiculo").cloneNode(true);
     // limpa os campos clonados
     novoVeiculo.querySelectorAll("input").forEach(input => input.value = "");
+
+    // Cria o botão para remover este grupo
+    const btnExcluir = document.createElement("button");
+    btnExcluir.type = "button";
+    btnExcluir.className = "btn-excluir-veiculo";
+    btnExcluir.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+    novoVeiculo.appendChild(btnExcluir);
     // adiciona no final o botão de adicionar mais veículos 
     camposVeiculo.insertBefore(novoVeiculo, btnAdicionarVeiculo);
+});
+
+// Remove um grupo adicional de veículos
+camposVeiculo.addEventListener("click", (event) => {
+    const btnExcluir = event.target.closest(".btn-excluir-veiculo");
+
+    if (!btnExcluir) return;
+
+    btnExcluir.closest(".infos-veiculo").remove();
 });
