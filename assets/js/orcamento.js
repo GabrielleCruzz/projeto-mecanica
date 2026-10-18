@@ -336,6 +336,21 @@ salvarOrcamento.addEventListener("click", function (evento) {
     const idVeiculo = veiculoSelecionado.ID_veiculo || veiculoSelecionado.id_veiculo || veiculoSelecionado.id;
     const diagnostico = document.querySelector("#diagnostico").value.trim();
 
+    if (diagnostico === "") {
+        alert("Preencha o diagnóstico do veículo!");
+        return;
+    }
+
+    if (pecasAdicionadas.length === 0) {
+        alert("Adicione pelo menos uma peça ao orçamento!");
+        return;
+    }
+
+    if (servicosAdicionados.length === 0) {
+        alert("Adicione pelo menos um serviço ao orçamento!");
+        return;
+    }
+
     const dadosOrcamento = {
         cliente: idCliente,
         veiculo: idVeiculo,

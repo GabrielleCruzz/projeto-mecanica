@@ -35,10 +35,31 @@ if (!$id_cliente || $id_cliente <= 0 || !$id_veiculo || $id_veiculo <= 0) {
     echo json_encode(["erro" => "Cliente e veículo inválidos"]);
     exit;
 }
-
+// Verifica se peças e serviços estão no formato de array
 if (!is_array($pecas) || !is_array($servicos)) {
     http_response_code(400);
     echo json_encode(["erro" => "Peças ou serviços inválidos"]);
+    exit;
+}
+
+// Verifica se o diagnóstico foi preenchido
+if ($diagnostico === "") {
+    http_response_code(400);
+    echo json_encode(["erro" => "Preencha o diagnóstico do veículo"]);
+    exit;
+}
+
+// Verifica se foi adicionada pelo menos uma peça
+if (count($pecas) === 0) {
+    http_response_code(400);
+    echo json_encode(["erro" => "Adicione pelo menos uma peça"]);
+    exit;
+}
+
+// Verifica se foi adicionado pelo menos um serviço
+if (count($servicos) === 0) {
+    http_response_code(400);
+    echo json_encode(["erro" => "Adicione pelo menos um serviço"]);
     exit;
 }
 
