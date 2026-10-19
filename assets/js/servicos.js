@@ -126,14 +126,14 @@ function listarOS() {
                     <span class="info-terciaria">Criado em: <span class="destaque">${formatarData(OS.data_criacao)} - ${formatarValor(OS.valor_total)}</span></span>                    
                     <span class="status ${OS.status.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}">${OS.status}</span>
                     <div class="btns">
-                        <button class="atualizar" data-os-id="${OS.id}">Atualizar status</button>
+                        <button class="${OS.status === "Concluído" ?"atualizar disabled" : "atualizar"}" data-os-id="${OS.id}">Atualizar status</button>
                         <div class="acoes servico">
                             <button type="button" class="btn-acoes servico">
                                 Mais ações
                             </button>
                             <div class="opcoes-acoes servico">
                                 <button type="button" class="ver-detalhes-acao" data-os-id="${OS.id}">Ver detalhes</button>
-                                <button type="button" class="editar-os-acao" data-os-id="${OS.id}">Editar OS</button>
+                                ${OS.status == "Concluído" ? "" : `<button type="button" class="editar-os-acao" data-os-id="${OS.id}">Editar OS</button>`}
                                 <button type="button">Compartilhar</button>
                                 ${OS.status === "Pendente" ? `
                                     <button type="button" class="cancelar-os" style="color: red;" data-os-id="${OS.id}">Cancelar orçamento</button>
