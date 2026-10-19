@@ -242,25 +242,36 @@ function ativarTrocaStatus() {
         confirmarStatus.addEventListener("click", () => {
             const id_os = document.querySelector(".status-opcoes").getAttribute("data-id_os")
             const status = document.querySelector(".status-opcoes").getAttribute("data-status-selecionado")
+            const overlay = confirmarStatus.closest(".overlay");
 
-            const dados = new FormData();
-    
-            dados.append("id_os", id_os);
-            dados.append("status", status);
-    
-            fetchPHP("../php/orcamentos/atualizar-status.php", "POST", dados).then((dadosRecebidos) => {
-                if (dadosRecebidos == "Sucesso") {
-                    alert("Status alterado com sucesso!");
-                    const overlay = confirmarStatus.closest(".overlay");
-                    if (!overlay) return;
-                    listarOS()
-                    fecharModal(overlay);
-                } else {
-                    alert("Erro ao atualizar status: " + dadosRecebidos);
+            if (status === "Concluído") {
+                if (confirm("Ao marcar essa ordem de serviço como concluída, ela não poderá mais ser alterada. Clique OK para continuar.")) {
+                    atualizarStatus(id_os, status, overlay)
                 }
-            });
+            }
+            else {
+                atualizarStatus(id_os, status, overlay)
+            }
         });
     }
+}
+
+function atualizarStatus(id_os, status, overlay) {
+    const dados = new FormData();
+
+    dados.append("id_os", id_os);
+    dados.append("status", status);
+
+    fetchPHP("../php/orcamentos/atualizar-status.php", "POST", dados).then((dadosRecebidos) => {
+        if (dadosRecebidos == "Sucesso") {
+            alert("Status alterado com sucesso!");            
+            if (!overlay) return;
+            listarOS()
+            fecharModal(overlay);
+        } else {
+            alert("Erro ao atualizar status: " + dadosRecebidos);
+        }
+    });
 }
 
 
