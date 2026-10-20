@@ -100,6 +100,7 @@ let ordensServico;
 function painelListar() {
     const containerOrdens = document.querySelector(".lista-servicos");
     const contadorPainel = document.querySelector("#contador-servicos-painel")
+    const infoPendentes = document.querySelector("#info-pendentes")
 
     if (!containerOrdens) return
 
@@ -109,14 +110,18 @@ function painelListar() {
 
         let cardsOS = ``;
         let contador = 0;
+        let contadorPendentes = 0;
 
         for (const OS of ordensServico) {   
             
             if (OS.status != "Em andamento") {
+                if (OS.status === "Pendente") {
+                    contadorPendentes++
+                }
                 continue;
-            }
+            }            
             
-            contador++;            
+            contador++;  
             
             const servicos = OS.servicos.map(servico => servico.tipoServico).join(", ");
     
@@ -149,6 +154,7 @@ function painelListar() {
         // coloca todos os cards das OS no container
         containerOrdens.innerHTML = cardsOS;
         contadorPainel.innerHTML = contador;
+        infoPendentes.innerHTML = contadorPendentes
     });
 }
 
