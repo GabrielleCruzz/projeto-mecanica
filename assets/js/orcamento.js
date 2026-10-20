@@ -341,11 +341,6 @@ salvarOrcamento.addEventListener("click", function (evento) {
         return;
     }
 
-    if (pecasAdicionadas.length === 0) {
-        alert("Adicione pelo menos uma peça ao orçamento!");
-        return;
-    }
-
     if (servicosAdicionados.length === 0) {
         alert("Adicione pelo menos um serviço ao orçamento!");
         return;

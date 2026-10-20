@@ -49,13 +49,6 @@ if ($diagnostico === "") {
     exit;
 }
 
-// Verifica se foi adicionada pelo menos uma peça
-if (count($pecas) === 0) {
-    http_response_code(400);
-    echo json_encode(["erro" => "Adicione pelo menos uma peça"]);
-    exit;
-}
-
 // Verifica se foi adicionado pelo menos um serviço
 if (count($servicos) === 0) {
     http_response_code(400);
