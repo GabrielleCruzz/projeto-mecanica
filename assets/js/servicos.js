@@ -70,6 +70,8 @@ function atualizarContador() {
 
 // roda a função quando a página carrega
 document.addEventListener("DOMContentLoaded", () => {
+    const painelOS = document.querySelector(".lista-servicos");
+    if (painelOS) painelListar()
     // impedindo que a função para listar OS rode ao abrir a página de detalhes cliente
     const paginaDetalhes = document.querySelector(".cards-cliente"); 
     if (!paginaDetalhes) listarOS();
@@ -95,9 +97,65 @@ function formatarData(data) {
 // guarda todas as ordens de serviço
 let ordensServico;
 
+function painelListar() {
+    const containerOrdens = document.querySelector(".lista-servicos");
+    const contadorPainel = document.querySelector("#contador-servicos-painel")
+
+    if (!containerOrdens) return
+
+    fetchPHP("../php/orcamentos/exibir-servicos.php", "GET").then((dadosRecebidos) => {
+        ordensServico = JSON.parse(dadosRecebidos);
+
+
+        let cardsOS = ``;
+        let contador = 0;
+
+        for (const OS of ordensServico) {   
+            
+            if (OS.status != "Em andamento") {
+                continue;
+            }
+            
+            contador++;            
+            
+            const servicos = OS.servicos.map(servico => servico.tipoServico).join(", ");
+    
+            cardsOS += `
+                <div class="single-servico">
+                    <div class="resumo-info-servico">
+                    <div class="ordem-servico">
+                        <p>#${OS.id}</p>
+                    </div>
+                    <div class="servico-resumo">
+                        <span>${OS.veiculo.placa}</span>
+                        <p>${servicos} &bull; ${formatarValor(OS.valor_total)}</p>
+                    </div>
+                    </div>
+                    <div class="acoes painel">
+                    <button type="button" class="btn-acoes painel">
+                        <span class="icone-opcoes">&#8942;</>
+                    </button>
+                    <div class="opcoes-acoes painel">
+                        <button type="button" class="ver-detalhes-acao" data-os-id="${OS.id}">Ver detalhes</button>
+                        <button type="button" class="atualizar-status" data-os-id="${OS.id}">Atualizar status</button>
+                        <button type="button" class="editar-os-acao" data-os-id="${OS.id}">Editar OS</button>
+                        <button type="button">Compartilhar</button>
+                    </div>
+                    </div>
+                </div>
+            `
+        }
+
+        // coloca todos os cards das OS no container
+        containerOrdens.innerHTML = cardsOS;
+        contadorPainel.innerHTML = contador;
+    });
+}
 
 // receber e exibir todas as ordens de serviço
 function listarOS() {
+    const painel = document.querySelector(".lista-servicos")
+    if (painel) return
     filtrar("todos", document.querySelector(".btn-filtro > .opcao"))
 
     fetchPHP("../php/orcamentos/exibir-servicos.php", "GET").then((dadosRecebidos) => {
@@ -207,6 +265,7 @@ function statusOS(id) {
     // encontra os dados da ordem de serviço selecionada
     const OS = ordensServico.find(ordem => ordem.id == id);
 
+    console.log("a")
     console.log(OS)
 
     // container do conteúdo do modal
@@ -284,5 +343,4 @@ function cancelarOrcamento(id) {
         });
     })
 }
-
     

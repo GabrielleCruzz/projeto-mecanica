@@ -129,7 +129,7 @@ function modalBtnConfig(btnModal, modal) {
         }        
 
         // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
-        if (btn.classList.contains("atualizar")) {            
+        if (btn.classList.contains("atualizar") || btn.classList.contains("atualizar-status")) {            
             const os = btn.getAttribute("data-os-id")
             statusOS(os)
         }
@@ -267,6 +267,7 @@ function atualizarStatus(id_os, status, overlay) {
             alert("Status alterado com sucesso!");            
             if (!overlay) return;
             listarOS()
+            painelListar()
             fecharModal(overlay);
         } else {
             alert("Erro ao atualizar status: " + dadosRecebidos);
