@@ -349,4 +349,26 @@ function cancelarOrcamento(id) {
         });
     })
 }
-    
+   
+
+function buscarServicos(){
+    const campoBusca = document.querySelector(".input-pesquisa");
+
+    campoBusca.addEventListener("input", () => {
+        const busca = campoBusca.value.toLowerCase().trim();
+
+        const container = document.querySelector(".cards");
+        const cardsServico = [...container.querySelectorAll(".card-servicos")];
+
+        cardsServico.forEach(card => container.appendChild(card));
+        
+        document.querySelectorAll(".card-servicos")
+        .forEach(card => {
+            const nomeServico = card.querySelector(".info-destaque").textContent.toLowerCase();
+
+            card.style.display = nomeServico.includes(busca) ? "" : "none";
+        });
+    });
+}
+
+if (document.querySelector(".input-pesquisa")) buscarServicos();
