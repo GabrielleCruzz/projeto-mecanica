@@ -159,6 +159,11 @@ textarea:focus{
     flex-direction: column;
 }
 
+.topo-painel {
+    display: flex;
+    justify-content: space-between;
+}
+
 .icon-card{
     display: flex;
     align-items: center;
@@ -2632,7 +2637,7 @@ body.dark .nav-bar {
 
     .grafico-card,
     .lista-servicos{
-        height: calc(100vh - 430px);
+        height: calc(100vh - 380px);
     }
 
     .index{
