@@ -429,12 +429,16 @@ function exibirEditarOS(id) {
 
                 <div class="campo-form selecionar" id="select-servico">
                     <label>Serviço</label>
-                    ${servicos}
+                    <div id="div-servicos-editar">                        
+                        ${servicos}
+                    </div>
                     <button type="button" class="adicionar add-novo-servico">Adicionar serviço</button>
                 </div>
                 <div class="campo-form selecionar" id="select-peca">
                     <label>Peças</label>
-                    ${pecas}
+                    <div id="div-pecas-editar">
+                        ${pecas}
+                    </div>
                     <button type="button" class="adicionar add-nova-peca">Adicionar peça</button>
                 </div>
                 <div class="campo-resumo">
@@ -477,9 +481,13 @@ function exibirEditarOS(id) {
     })
 }
 
-
 function adicionarCampoOS(btn) {
     if (btn.classList.contains("add-nova-peca")) {
+        if (document.querySelector(".editar-peca-modal")) {
+            document.querySelector(".editar-peca-modal").style.display = "flex";
+            btn.style.display = "none";
+            return
+        }
         const pecas = document.querySelector("#select-peca")
         let campoPeca = document.createElement("div")
         campoPeca.className = "campo-peca editar-peca-modal"
@@ -493,15 +501,125 @@ function adicionarCampoOS(btn) {
         btn.style.display = "none"
     }
     else {
+        if (document.querySelector(".editar-servico-modal")) {
+            document.querySelector(".editar-servico-modal").style.display = "flex";
+            btn.style.display = "none";
+            return
+        }
         const servicos = document.querySelector("#select-servico")
         let campoServico = document.createElement("div")
         campoServico.className = "campo-servico editar-servico-modal"
         campoServico.innerHTML = `            
             <input class="tipo-servico" type="text" placeholder="Tipo de serviço">
             <input class="valor-uni-servico" type="text" placeholder="Valor Uni.">
-            <button class="add-servico" onclick="addServico()">+</button>          
+            <button type="button" class="add-servico" onclick="addServico()">+</button>          
         `
         servicos.appendChild(campoServico)
         btn.style.display = "none"
     }
+}
+
+// adicionar uma nova peça utilizada
+function addPeca() {
+    const campoPeca = document.querySelector('.nome-peca').value.trim();
+    const campoValor = document.querySelector('.valor-uni-peca').value.trim();
+    const campoQtd = document.querySelector('.qtd-peca').value.trim();
+
+    const valorNum = parseFloat(campoValor);
+    const qtdNum = parseInt(campoQtd, 10);
+
+    if (campoPeca === '') {
+        exibirErro(
+            '.msgErroPeca',
+            'Por favor, preencha o nome da peça.'
+        );
+        return;
+    }
+
+    if (isNaN(valorNum) || valorNum <= 0) {
+        exibirErro(
+            '.msgErroPeca',
+            'Valor unitário inválido.'
+        );
+        return;
+    }
+
+    if (isNaN(qtdNum) || qtdNum <= 0 || !Number.isInteger(qtdNum)) {
+        exibirErro(
+            '.msgErroPeca',
+            'Quantidade inválida.'
+        );
+        return;
+    }
+
+    const listaPecas = document.querySelector('#div-pecas-editar');
+
+    const peca = document.createElement('div');
+    peca.classList.add('input-peca');
+
+    peca.innerHTML = `
+        <input value="${campoPeca}" type="text" disabled>
+        <div class="direita-input">
+            <p class="valor">${formatarValor(valorNum)}</p>
+            <p class="valor">${campoQtd}x</p>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    `;
+
+    listaPecas.appendChild(peca);
+
+    document.querySelector('.nome-peca').value = '';
+    document.querySelector('.valor-uni-peca').value = '';
+    document.querySelector('.qtd-peca').value = '';
+
+    document.querySelector(".editar-peca-modal").style.display = "none";
+
+    document.querySelector(".add-nova-peca").style.display = "flex";
+    // atualizarResumo();
+}
+
+// adicionar um novo serviço
+function addServico() {
+    const campoServico = document.querySelector('.tipo-servico').value.trim();
+    const campoValorServico = document.querySelector('.valor-uni-servico').value.trim();
+
+    const valorNum = Number(campoValorServico.replace(',', '.'));
+
+    if (campoServico === '') {
+        exibirErro(
+            '.msgErroServico',
+            'Por favor, preencha o serviço.'
+        );
+        return;
+    }
+
+    if (isNaN(valorNum) || valorNum <= 0) {
+        exibirErro(
+            '.msgErroServico',
+            'Valor do serviço inválido.'
+        );
+        return;
+    }
+
+    const listaServico = document.querySelector('#div-servicos-editar');
+
+    const servico = document.createElement('div');
+    servico.classList.add('input-servico');
+
+    servico.innerHTML = `
+        <input value="${campoServico}" type="text" disabled>
+        <div class="direita-input">
+            <p class="valor">${formatarValor(campoValorServico)}</p>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    `;
+
+    listaServico.appendChild(servico);
+
+    document.querySelector('.tipo-servico').value = '';
+    document.querySelector('.valor-uni-servico').value = '';
+
+    document.querySelector(".editar-servico-modal").style.display = "none";
+
+    document.querySelector(".add-novo-servico").style.display = "flex";
 }

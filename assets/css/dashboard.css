@@ -1840,8 +1840,11 @@ div.campo-servico.editar-servico-modal input{
     width: 50%;
 }
 
-.selecionar {
+#div-pecas-editar, #div-servicos-editar {
+    display: flex;
+    flex-direction: column;
     gap: 6px;
+    margin-bottom: 6px;
 }
 
 .form-edt-os input {
