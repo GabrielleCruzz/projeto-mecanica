@@ -140,6 +140,12 @@ function modalBtnConfig(btnModal, modal) {
             cancelarOrcamento(os)
         }
 
+        // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
+        if (btn.classList.contains("editar-os-acao")) {            
+            const os = btn.getAttribute("data-os-id")
+            exibirEditarOS(os)
+        }
+
         abrirModal(modal);
     });
 }

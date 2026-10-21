@@ -372,3 +372,136 @@ function buscarServicos(){
 }
 
 if (document.querySelector(".input-pesquisa")) buscarServicos();
+
+function exibirEditarOS(id) {
+    const OS = ordensServico.find(ordem => ordem.id == id);
+
+    const containerEditar = document.querySelector(".modal-editar")
+
+    let servicos = ``
+    let pecas = ``
+
+    for (const servico of OS.servicos) {        
+        servicos += `
+            <div class="input-servico">
+                <input value="${servico.tipoServico}" type="text" disabled>
+                <div class="direita-input">
+                    <p class="valor">${formatarValor(servico.Valor_unit)}</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        `
+    }
+
+    for (const peca of OS.pecas) {        
+        pecas += `
+            <div class="input-peca">
+                <input value="${peca.Nome}" type="text" disabled>
+                <div class="direita-input">
+                    <p class="valor">${formatarValor(peca.valor_unit)}</p>
+                    <p class="valor">${peca.Quantidade}x</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        `
+    }
+
+    containerEditar.innerHTML = `
+        <button type="button" class="btn-fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h1>Editar Ordem de Serviço #${OS.id}</h1>
+
+        <form class="form-edt-os">
+            <div class="campos-form">
+                <div class="campo-form">
+                    <label>Cliente</label>
+                    <input value="${OS.cliente.nome}" type="text" class="campo-cliente" id="cliente" disabled>
+                </div>
+                <div class="campo-form">
+                    <label>Veículo</label>
+                    <input value="${OS.veiculo.placa}" type="text" class="campo-veiculo" id="veiculo" disabled>
+                </div>
+                <div class="campo-textarea">
+                    <label>Diagnóstico do veículo</label>
+                    <textarea class="campo-diag" id="diagnostico">${OS.diagnostico}</textarea>
+                </div>
+
+                <div class="campo-form selecionar" id="select-servico">
+                    <label>Serviço</label>
+                    ${servicos}
+                    <button type="button" class="adicionar add-novo-servico">Adicionar serviço</button>
+                </div>
+                <div class="campo-form selecionar" id="select-peca">
+                    <label>Peças</label>
+                    ${pecas}
+                    <button type="button" class="adicionar add-nova-peca">Adicionar peça</button>
+                </div>
+                <div class="campo-resumo">
+                    <label>Resumo</label>
+
+                    <div class="resumo-infos">
+                        <div class="resumo-servicos">
+                            <p>Serviços:</p>
+                            <p>${formatarValor(OS.total_servicos)}</p>
+                        </div>
+                        <div class="resumo-pecas">
+                            <p>Peças:</p>
+                            <p>${formatarValor(OS.total_pecas)}</p>
+                        </div>
+
+                        <hr class="linha-resumo">
+
+                        <div class="resumo-total">
+                            <p>VALOR TOTAL</p>
+                            <p>${formatarValor(OS.valor_total)}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="resumo-btns">
+                    <button class="resumo-cancelar">Cancelar alterações</button>
+                    <button class="resumo-confirmar">Confirmar alterações</button>
+                </div>
+            </div>
+        </form>
+    `
+
+    console.log(OS)    
+    const addPeca = document.querySelector(".add-nova-peca")
+    const addServico = document.querySelector(".add-novo-servico")
+    addPeca.addEventListener("click", (e) => {
+        adicionarCampoOS(addPeca)
+    })
+    addServico.addEventListener("click", (e) => {
+        adicionarCampoOS(addServico)
+    })
+}
+
+
+function adicionarCampoOS(btn) {
+    if (btn.classList.contains("add-nova-peca")) {
+        const pecas = document.querySelector("#select-peca")
+        let campoPeca = document.createElement("div")
+        campoPeca.className = "campo-peca editar-peca-modal"
+        campoPeca.innerHTML = `            
+                <input class="nome-peca" type="text" placeholder="Nome da peça">
+                <input class="valor-uni-peca" type="text" placeholder="Valor Uni.">
+                <input class="qtd-peca" type="number" min="1" placeholder="Qtd">
+                <button type="button" onclick="addPeca()" class="add-peca">+</button>            
+        `
+        pecas.appendChild(campoPeca)
+        btn.style.display = "none"
+    }
+    else {
+        const servicos = document.querySelector("#select-servico")
+        let campoServico = document.createElement("div")
+        campoServico.className = "campo-servico editar-servico-modal"
+        campoServico.innerHTML = `            
+            <input class="tipo-servico" type="text" placeholder="Tipo de serviço">
+            <input class="valor-uni-servico" type="text" placeholder="Valor Uni.">
+            <button class="add-servico" onclick="addServico()">+</button>          
+        `
+        servicos.appendChild(campoServico)
+        btn.style.display = "none"
+    }
+}

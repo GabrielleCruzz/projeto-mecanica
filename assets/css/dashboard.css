@@ -1825,6 +1825,25 @@ body.dark button.atualizar.disabled {
     flex-direction: column;
 }
 
+.form-edt-os input.campo-cliente, .form-edt-os input.campo-veiculo {
+    color: gray;
+}
+
+.campo-diag {
+    height: 80px;
+    text-align: start;
+    
+}
+
+div.campo-peca.editar-peca-modal input,
+div.campo-servico.editar-servico-modal input{
+    width: 50%;
+}
+
+.selecionar {
+    gap: 6px;
+}
+
 .form-edt-os input {
     border-radius: var(--radius-small);
     padding: var(--padding-input);
