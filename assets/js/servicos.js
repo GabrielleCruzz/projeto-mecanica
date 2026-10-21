@@ -383,11 +383,11 @@ function exibirEditarOS(id) {
 
     for (const servico of OS.servicos) {        
         servicos += `
-            <div class="input-servico">
+            <div class="input-servico" data-tipo-servico="${servico.tipoServico}" data-valor-servico="${servico.Valor_unit}">
                 <input value="${servico.tipoServico}" type="text" disabled>
                 <div class="direita-input">
                     <p class="valor">${formatarValor(servico.Valor_unit)}</p>
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
                 </div>
             </div>
         `
@@ -395,12 +395,12 @@ function exibirEditarOS(id) {
 
     for (const peca of OS.pecas) {        
         pecas += `
-            <div class="input-peca">
+            <div class="input-peca" data-nome-peca="${peca.Nome}" data-valor-peca="${peca.valor_unit}" data-qtd-peca="${peca.Quantidade}">
                 <input value="${peca.Nome}" type="text" disabled>
                 <div class="direita-input">
                     <p class="valor">${formatarValor(peca.valor_unit)}</p>
                     <p class="valor">${peca.Quantidade}x</p>
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
                 </div>
             </div>
         `
@@ -447,38 +447,135 @@ function exibirEditarOS(id) {
                     <div class="resumo-infos">
                         <div class="resumo-servicos">
                             <p>Serviços:</p>
-                            <p>${formatarValor(OS.total_servicos)}</p>
+                            <p class="total-servicos">${formatarValor(OS.total_servicos)}</p>
                         </div>
                         <div class="resumo-pecas">
                             <p>Peças:</p>
-                            <p>${formatarValor(OS.total_pecas)}</p>
+                            <p class="total-pecas">${formatarValor(OS.total_pecas)}</p>
                         </div>
 
                         <hr class="linha-resumo">
 
                         <div class="resumo-total">
                             <p>VALOR TOTAL</p>
-                            <p>${formatarValor(OS.valor_total)}</p>
+                            <p class="total-valor">${formatarValor(OS.valor_total)}</p>
                         </div>
                     </div>
                 </div>
                 <div class="resumo-btns">
                     <button class="resumo-cancelar">Cancelar alterações</button>
-                    <button class="resumo-confirmar">Confirmar alterações</button>
+                    <button type="button" class="resumo-confirmar">Confirmar alterações</button>
                 </div>
             </div>
         </form>
     `
 
     console.log(OS)    
+    const confirmarEditar = document.querySelector(".resumo-confirmar")
+    confirmarEditar.addEventListener("click", () => {
+        editarOS(OS.id)
+    })
+
     const addPeca = document.querySelector(".add-nova-peca")
     const addServico = document.querySelector(".add-novo-servico")
-    addPeca.addEventListener("click", (e) => {
+    addPeca.addEventListener("click", () => {
         adicionarCampoOS(addPeca)
     })
-    addServico.addEventListener("click", (e) => {
+    addServico.addEventListener("click", () => {
         adicionarCampoOS(addServico)
     })
+
+    atualizaResumoEditar()
+}
+
+function editarOS(id) {
+    const diagnostico = document.querySelector("#diagnostico").value.trim();
+
+    if (diagnostico === "") {
+        alert("Preencha o diagnóstico do veículo!");
+        return;
+    }
+
+    if (dadosServicosEditar.length === 0) {
+        alert("Adicione pelo menos um serviço ao orçamento!");
+        return;
+    }
+    
+    const dados = {
+        id_os: id, 
+        diagnostico: diagnostico,
+        pecas: dadosPecasEditar,
+        servicos: dadosServicosEditar
+    };
+
+    fetch("../php/orcamentos/editar-servico.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(resposta => resposta.json())
+    .then(dados => {
+        if (dados.sucesso) {
+            alert("Ordem de serviço atualizada com sucesso!");
+            window.location.reload();
+        } else {
+            const mensagemErro = dados.erro || dados.mensagem || "Não foi possível atualizar a ordem de serviço.";
+            alert("Erro: " + mensagemErro);
+        }
+    })
+    .catch(erro => {
+        console.error("Erro na requisição:", erro);
+        alert("Não foi possível atualizar a ordem de serviço. Verifique a conexão com o servidor.");
+    });
+}
+
+let dadosServicosEditar, dadosPecasEditar
+
+function atualizaResumoEditar() {
+    const servicos = document.querySelectorAll(".input-servico")
+    const pecas = document.querySelectorAll(".input-peca")
+
+    let totalServicos = 0;
+    let totalPecas = 0;
+    let totalValor = 0;
+    
+    dadosServicosEditar = Array.from(servicos).map(servico => {
+        const tipoServico = servico.dataset.tipoServico
+        const valor = parseFloat(servico.dataset.valorServico)
+        
+        totalServicos += valor
+
+        return {
+            tipoServico: tipoServico,
+            Valor_unit: valor,            
+        };
+    });
+
+    dadosPecasEditar = Array.from(pecas).map(peca => {
+        const nome = peca.dataset.nomePeca
+        const valor = parseFloat(peca.dataset.valorPeca)
+        const qtd = parseInt(peca.dataset.qtdPeca)
+        
+        totalPecas += valor * qtd
+
+        return {
+            Nome: nome,
+            valor_unit: valor,
+            Quantidade: qtd          
+        };
+    });
+    
+    totalValor = (totalPecas) + totalServicos
+
+    const total = document.querySelector(".total-valor")
+    const totalP = document.querySelector(".total-pecas")
+    const totalS = document.querySelector(".total-servicos")
+
+    total.textContent = formatarValor(totalValor)
+    totalS.textContent = formatarValor(totalServicos)
+    totalP.textContent = formatarValor(totalPecas)    
 }
 
 function adicionarCampoOS(btn) {
@@ -557,12 +654,16 @@ function addPeca() {
     const peca = document.createElement('div');
     peca.classList.add('input-peca');
 
+    peca.setAttribute('data-nome-peca', campoPeca)
+    peca.setAttribute('data-valor-peca', campoValor)
+    peca.setAttribute('data-qtd-peca', campoQtd)
+
     peca.innerHTML = `
         <input value="${campoPeca}" type="text" disabled>
         <div class="direita-input">
             <p class="valor">${formatarValor(valorNum)}</p>
             <p class="valor">${campoQtd}x</p>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
         </div>
     `;
 
@@ -575,7 +676,7 @@ function addPeca() {
     document.querySelector(".editar-peca-modal").style.display = "none";
 
     document.querySelector(".add-nova-peca").style.display = "flex";
-    // atualizarResumo();
+    atualizaResumoEditar()
 }
 
 // adicionar um novo serviço
@@ -606,11 +707,14 @@ function addServico() {
     const servico = document.createElement('div');
     servico.classList.add('input-servico');
 
+    servico.setAttribute('data-tipo-servico', campoServico)
+    servico.setAttribute('data-valor-servico', campoValorServico)
+
     servico.innerHTML = `
         <input value="${campoServico}" type="text" disabled>
         <div class="direita-input">
             <p class="valor">${formatarValor(campoValorServico)}</p>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark" onclick="remover(this)"></i>
         </div>
     `;
 
@@ -622,4 +726,11 @@ function addServico() {
     document.querySelector(".editar-servico-modal").style.display = "none";
 
     document.querySelector(".add-novo-servico").style.display = "flex";
+
+    atualizaResumoEditar()
+}
+
+function remover(botao) {
+    botao.parentElement.parentElement.remove();
+    atualizaResumoEditar()
 }
