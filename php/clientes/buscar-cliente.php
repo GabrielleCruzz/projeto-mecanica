@@ -15,7 +15,7 @@ $busca = $_GET["busca"] ?? "";
 $busca = trim($busca);
 
 // Consulta somente os clientes do usuário logado
-$sql = "SELECT ID_cliente, Nome
+$sql = "SELECT ID_cliente, Nome, Observacao
         FROM cliente
         WHERE ID_usuario = ?
         AND Nome LIKE ?

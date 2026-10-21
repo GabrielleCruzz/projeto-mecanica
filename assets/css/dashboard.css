@@ -457,6 +457,10 @@ a.cliente-card-modelo {
     margin-right: 5px;
 }
 
+.info-secundaria.info-obs{
+    margin-top: 10px;
+}
+
 .ver-detalhes {   
     margin-right: auto; 
     font-size: var(--font-small);

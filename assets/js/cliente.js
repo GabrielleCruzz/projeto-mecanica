@@ -119,6 +119,10 @@ function recebeDadosCard() {
         // Preenche o telefone na tela
         const telefoneSpan = containerPai.querySelector(".info-secundaria span");
         if (telefoneSpan) telefoneSpan.textContent = cliente.telefone;
+        
+        // Mostrar observações de cliente na tela
+        const obsSpan = containerPai.querySelector(".info-secundaria.info-obs");
+        if (obsSpan) obsSpan.textContent = cliente.observacao;
     }
 
     const containerVeiculos = document.querySelector("listaVeiculosCliente");
