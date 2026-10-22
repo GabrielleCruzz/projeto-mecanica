@@ -82,8 +82,7 @@ function ativarCards() {
             })
                 .then((resposta) => resposta.text())
                 .then((resultado) => {
-                    alert(resultado);
-                        window.location.href = "../dashboard/detalhes-cliente.html";
+                    window.location.href = "../dashboard/detalhes-cliente.html";
                 });
         })
     });
@@ -124,6 +123,10 @@ function recebeDadosCard() {
         const obsSpan = containerPai.querySelector(".info-secundaria.info-obs");
         if (obsSpan) obsSpan.textContent = cliente.observacao;
     }
+
+    // modal de editar veículos: mostrar o nome do cliente
+    const veiculoNomeCliente = document.querySelector(".nome-cliente-veiculo")
+    veiculoNomeCliente.textContent = `Veículos de ${cliente.nome.trim().split(' ')[0]}`
 
     const containerVeiculos = document.querySelector("listaVeiculosCliente");
     let cardsVeiculos = ``;
