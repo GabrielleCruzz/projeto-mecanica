@@ -32,12 +32,26 @@ if (formAddCliente) {
                 alert("Cliente cadastrado com sucesso!");
                 fecharModal(formAddCliente.closest(".overlay"));
                 listarClientes();
-                formAddCliente.reset();
+                limparCampos();
             } else {
                 alert("Erro ao cadastrar cliente: " + dadosRecebidos);
             }
         });
     });
+}
+
+function limparCampos() {
+    formAddCliente.reset();
+
+    const gruposVeiculo = [
+        ...formAddCliente.querySelectorAll(".infos-veiculo")
+    ];
+    
+    gruposVeiculo.slice(1).forEach(grupo => {
+        grupo.remove();
+    });
+    
+    fecharModal(formAddCliente.closest(".overlay"));
 }
 
 
@@ -46,17 +60,7 @@ if (formAddCliente) {
     const btnDescartarCliente = formAddCliente.querySelector(".btn-dell");
     
     btnDescartarCliente.addEventListener("click", () => {
-        formAddCliente.reset();
-
-        const gruposVeiculo = [
-            ...formAddCliente.querySelectorAll(".infos-veiculo")
-        ];
-        
-        gruposVeiculo.slice(1).forEach(grupo => {
-            grupo.remove();
-        });
-        
-        fecharModal(formAddCliente.closest(".overlay"));
+       limparCampos();
     });
 }
 
