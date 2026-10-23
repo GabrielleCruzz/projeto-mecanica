@@ -35,7 +35,7 @@
                 echo "Senha incorreta!";
             }
         } else {
-            echo "E-mail ou CNPJ não cadastrados!";
+            echo "E-mail ou CNPJ/CNPJ não cadastrados!";
         }
         $stmt->close();
     }

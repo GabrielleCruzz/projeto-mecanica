@@ -102,26 +102,87 @@ btnFechar.addEventListener("click", () => {
     formRedefinir.reset();
 });
 
-// submit cadastro: enviar dados do form para o php
+// Formatar CPF ou CNPJ enquanto digita
+const campoDocumento = formCadastro.querySelector('[name="cnpj_usuario"]');
+
+campoDocumento.addEventListener("input", () => {
+    const documento = campoDocumento.value
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .toUpperCase();
+
+    if (/[A-Z]/.test(documento) || documento.length > 11) {
+        campoDocumento.value = cpf.cnpj.format(documento, {
+            strict: false
+        });
+    } else {
+        campoDocumento.value = cpf.format(documento, {
+            strict: false
+        });
+    }
+});
+
+// Submit cadastro: enviar dados do form para o PHP
 formCadastro.addEventListener("submit", (enviar) => {
     enviar.preventDefault();
 
+    const documento = campoDocumento.value;
+
+    const documentoLimpo = documento.replace(/[^a-zA-Z0-9]/g, "");
+
+    // Validar CPF ou CNPJ
+    let documentoValido = false;
+
+    if (documentoLimpo.length === 11) {
+        documentoValido = cpf.isValid(documentoLimpo);
+    } else if (documentoLimpo.length === 14) {
+        documentoValido = cpf.cnpj.isValid(documentoLimpo);
+    }
+
+    if (!documentoValido) {
+        alert("CPF ou CNPJ inválido.");
+        campoDocumento.focus();
+        return;
+    }
+
     const dados = new FormData(formCadastro);
 
+    // Enviar o documento sem a máscara
+    dados.set("cnpj_usuario", cpf.cnpj.normalize(documento));
+
     fetch("./php/usuarios/usuario-cadastro.php", {
-        method: "POST", body: dados,
+        method: "POST",
+        body: dados,
     })
         .then((resposta) => resposta.text())
         .then((resultado) => {
             if (resultado.trim() === "Sucesso") {
-                alert("Cadastrado com sucesso! Realize o login para acessar o sistema.")
+                alert("Cadastrado com sucesso! Realize o login para acessar o sistema.");
                 login = true;
-                switchForm();       
+                switchForm();
+            } else {
+                alert(resultado);
             }
-            else {
-                alert(resultado)
-            }            
         });
+});
+
+// Formatar CPF ou CNPJ no campo de login
+const campoLogin = formLogin.querySelector('[name="login_email_cnpj"]');
+
+campoLogin.addEventListener("input", () => {
+    const valor = campoLogin.value;
+
+    // Se houver letras, não aplicar máscara de documento
+    if (/[a-zA-Z]/.test(valor) && !valor.includes(".")) {
+        return;
+    }
+
+    const documento = valor.replace(/\D/g, "");
+
+    if (documento.length <= 11) {
+        campoLogin.value = cpf.format(documento.slice(0, 11));
+    } else {
+        campoLogin.value = cpf.cnpj.format(documento.slice(0, 14));
+    }
 });
 
 // submit login: enviar dados do form para o php
@@ -129,6 +190,15 @@ formLogin.addEventListener("submit", (enviar) => {
     enviar.preventDefault();
 
     const dados = new FormData(formLogin);
+
+    const valorLogin = campoLogin.value;
+
+    if (!valorLogin.includes("@")) {
+        dados.set(
+            "login_email_cnpj",
+            cpf.cnpj.normalize(valorLogin)
+        );
+    }
 
     fetch("./php/usuarios/usuario-login.php", {
         method: "POST", body: dados,

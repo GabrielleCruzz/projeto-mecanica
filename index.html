@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/landing.css">
+    <script src="https://cdn.jsdelivr.net/npm/cpf@3.0.0/dist/cpf.min.js" defer></script>
     <script src="assets/js/landing.js" defer></script> <!-- defer carrega o html antes do js para evitar erros -->
     <title>Página inicial</title>
     <!-- link para os ícones -->
@@ -157,7 +158,7 @@
             <!-- formulário de login -->
             <form class="formLogin">
                 <div class="campo">
-                    <label for="">E-mail ou CNPJ</label>
+                    <label for="">E-mail ou CNPJ/CPF</label>
                     <input type="text" name="login_email_cnpj">
                 </div>
                 <div class="campo">
@@ -191,8 +192,8 @@
                     <input type="email" name="email_usuario">
                 </div>
                 <div class="campo">
-                    <label for="">CNPJ</label>
-                    <input type="text" name="cnpj_usuario">
+                    <label for="">CNPJ/CPF</label>
+                    <input type="text" name="cnpj_usuario" id="cnpj_usuario" maxlength="18">
                 </div>
                 <div class="campo">
                     <label for="">Senha</label>
