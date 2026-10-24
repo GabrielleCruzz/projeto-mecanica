@@ -628,6 +628,18 @@ body.dark .destaque {
     text-decoration: underline;
 }
 
+button.del-cliente {
+    color: red;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button.del-cliente:hover {
+    text-decoration: underline;
+}
+
 /* .card-servicos usado na pág. de serviços e detalhes do cliente */
 .card-servicos {
     display: flex;

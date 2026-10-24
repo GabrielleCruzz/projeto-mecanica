@@ -52,7 +52,7 @@
                         <div class="cliente-detalhes">
                             <span class="info-destaque">Nome e Sobrenome do Cliente</span>
                             <span class="info-secundaria"><i></i></span>                                                
-                            <span class="info-secundaria info-obs">Sem observações</span>                                                
+                            <span class="info-secundaria info-obs">Sem observações</span>                                           
                             <a href=""><i class="fa-brands fa-whatsapp"></i> Entrar em contato</a>
                         </div>            
                     </div>
@@ -138,11 +138,26 @@
                     <textarea class="obs-cliente" name="editar-obs"></textarea>
                 </div>
 
+                <button type="button" class="del-cliente" id="excluir-cliente">Excluir cliente</button>
+
                 <div class="btns-add-cliente">
-                    <button type="button" class="btn-dell" id="btn-dell-cliente">Cancelar alterações</button>
+                    <button type="button" class="btn-dell btn-confirmacao cancelar" id="btn-dell-cliente">Cancelar alterações</button>
                     <button class="btn-salvar">Confirmar alterações</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- modal de confirmação para excluir cliente -->
+    <div class="overlay" id="modalConfirmarExcluirCliente">
+        <div class="modal modal-confirmacao">
+            <h2>Excluir cliente</h2>
+            <p>Tem certeza de que deseja este cliente e seus veículos? Essa ação não poderá ser desfeita.</p>
+
+            <div class="btns-add-cliente">
+                <button type="button" class="btn-confirmacao cancelar" id="cancelarExcluirCliente">Cancelar</button>
+                <button class="btn-confirmacao excluir" id="confirmarExcluirCliente">Excluir</button>
+            </div>
         </div>
     </div>
 

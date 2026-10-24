@@ -30,9 +30,9 @@ $sql = "SELECT
             v.Model_Marca,
             v.Ano
         FROM ordemservico os
-        INNER JOIN cliente c ON os.ID_cliente = c.ID_cliente
-        INNER JOIN veiculo v ON os.ID_veiculo = v.ID_veiculo
-        WHERE os.ID_usuario = ? AND c.ID_usuario = ?
+        LEFT JOIN cliente c ON os.ID_cliente = c.ID_cliente
+        LEFT JOIN veiculo v ON os.ID_veiculo = v.ID_veiculo
+        WHERE os.ID_usuario = ?
         ORDER BY os.ID_OrdemServico DESC";
 
 $stmt = $conexao->prepare($sql);
@@ -43,7 +43,7 @@ if (!$stmt) {
     exit;
 }
 
-$stmt->bind_param("ii", $id_usuario_logado, $id_usuario_logado);
+$stmt->bind_param("i", $id_usuario_logado);
 $stmt->execute();
 
 $result = $stmt->get_result();
@@ -121,16 +121,16 @@ while ($dados = $result->fetch_assoc()) {
 
         "cliente" => [
             "id" => $dados["ID_cliente"],
-            "nome" => $dados["Nome_cliente"],
-            "telefone" => $dados["Telefone"],
-            "observacao" => $dados["observacao_cliente"]
+            "nome" => $dados["Nome_cliente"] ?? "(Excluído)",
+            "telefone" => $dados["Telefone"] ?? "(Excluído)",
+            "observacao" => $dados["observacao_cliente"] ?? "(Excluído)"
         ],
 
         "veiculo" => [
             "id" => $dados["ID_veiculo"],
-            "placa" => $dados["Placa"],
-            "modelo_marca" => $dados["Model_Marca"],
-            "ano" => $dados["Ano"],
+            "placa" => $dados["Placa"] ?? "(Excluído)",
+            "modelo_marca" => $dados["Model_Marca"] ?? "(Excluído)",
+            "ano" => $dados["Ano"] ?? "(Excluído)",
         ],
 
         "pecas" => $pecas,

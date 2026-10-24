@@ -150,6 +150,12 @@ function modalBtnConfig(btnModal, modal) {
             exibirEditarOS(os)
         }
 
+        // se o botão clicado foi para atualizar status de uma OS, ele pega o id da OS       
+        if (btn.classList.contains("del-cliente")) {            
+            const id = btn.getAttribute("data-cliente-id")
+            confirmarExclusaoCliente(id)
+        }
+
         abrirModal(modal);
     });
 }
@@ -163,6 +169,7 @@ modalBtnConfig(".btn-editar", "#modalEditarCliente");
 modalBtnConfig(".editar-veiculos", "#modalEditarVeiculos");
 modalBtnConfig(".atualizar-status", "#modalStatus");
 modalBtnConfig(".cancelar-os", "#modalConfirmarExcluirOS");
+modalBtnConfig(".del-cliente", "#modalConfirmarExcluirCliente");
 
 // Evento de clique para fechar modais
 document.addEventListener("click", (event) => {

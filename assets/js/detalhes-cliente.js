@@ -272,12 +272,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnDescartar = document.getElementById("btn-dell-cliente");
     const btnFechar = modal.querySelector(".btn-fechar");
 
-    let dadosSalvos = {};
+    let dadosSalvos = {};      
 
     function restaurarDados() {
         formulario.querySelector('[name="editar-nome"]').value = dadosSalvos.nome;
         formulario.querySelector('[name="editar-tel"]').value = dadosSalvos.telefone;
         formulario.querySelector('[name="editar-obs"]').value = dadosSalvos.observacao;
+        const excluirbtn = document.querySelector("#excluir-cliente")
+        excluirbtn.setAttribute("data-cliente-id", dadosSalvos.id)
     }
 
     async function carregarDadosSalvos() {
@@ -292,7 +294,8 @@ document.addEventListener("DOMContentLoaded", () => {
         dadosSalvos = {
             nome: cliente.nome,
             telefone: cliente.telefone,
-            observacao: cliente.observacao
+            observacao: cliente.observacao,
+            id: cliente.id
         };
 
         restaurarDados();
@@ -307,3 +310,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnFechar.addEventListener("click", restaurarDados);
 });
+
+const manterCliente = document.querySelector("#cancelarExcluirCliente")
+const excluirCliente = document.querySelector("#confirmarExcluirCliente")
+
+if (manterCliente) {
+    manterCliente.addEventListener("click", () => {
+        const overlay = manterCliente.closest(".overlay");
+        fecharModal(overlay)
+    })
+}
+
+function confirmarExclusaoCliente(id) {
+    excluirCliente.addEventListener("click", () => {
+        const dados = new FormData();
+    
+        dados.append("id_cliente", id);        
+
+        fetchPHP("../php/clientes/excluir-cliente.php", "POST", dados).then((dadosRecebidos) => {
+            if (dadosRecebidos.trim() == "Sucesso") {
+                alert("Cliente excluído com sucesso.");                
+                window.location.href = "clientes.html";
+            } else {
+                alert("Erro ao excluir cliente: " + dadosRecebidos);
+            }
+        });
+    })
+}
