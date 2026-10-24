@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2026 às 22:26
+-- Tempo de geração: 24/10/2026 às 18:53
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -45,8 +45,8 @@ CREATE TABLE `cliente` (
 
 CREATE TABLE `ordemservico` (
   `ID_OrdemServico` int(11) NOT NULL,
-  `ID_cliente` int(11) NOT NULL,
-  `ID_veiculo` int(11) NOT NULL,
+  `ID_cliente` int(11) DEFAULT NULL,
+  `ID_veiculo` int(11) DEFAULT NULL,
   `ID_usuario` int(11) NOT NULL,
   `Diagnostico` varchar(250) NOT NULL,
   `data_criacao` date NOT NULL DEFAULT current_timestamp(),
@@ -260,9 +260,9 @@ ALTER TABLE `cliente`
 -- Restrições para tabelas `ordemservico`
 --
 ALTER TABLE `ordemservico`
-  ADD CONSTRAINT `FK_OS_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`),
+  ADD CONSTRAINT `FK_OS_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`) ON DELETE SET NULL,
   ADD CONSTRAINT `FK_OS_usuario` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`ID_usuario`),
-  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`);
+  ADD CONSTRAINT `FK_OS_veiculo` FOREIGN KEY (`ID_veiculo`) REFERENCES `veiculo` (`ID_veiculo`) ON DELETE SET NULL;
 
 --
 -- Restrições para tabelas `os_peca`
@@ -282,7 +282,7 @@ ALTER TABLE `os_servico`
 -- Restrições para tabelas `veiculo`
 --
 ALTER TABLE `veiculo`
-  ADD CONSTRAINT `FK_ID_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`);
+  ADD CONSTRAINT `FK_ID_cliente` FOREIGN KEY (`ID_cliente`) REFERENCES `cliente` (`ID_cliente`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
